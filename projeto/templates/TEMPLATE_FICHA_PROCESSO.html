@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ficha de Processo - Bucha 1.34.12.710</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    color: #333;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #003366;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.company-info {
+    flex: 1;
+}
+.company-name {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #003366;
+}
+.company-subtitle {
+    font-size: 10pt;
+    color: #666;
+}
+.doc-info {
+    text-align: right;
+    font-size: 10pt;
+}
+.section-title {
+    background-color: #003366;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 11pt;
+}
+.info-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 10pt;
+}
+.info-label {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+.info-value {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 9pt;
+}
+.process-table th {
+    background-color: #003366;
+    color: white;
+    padding: 8px;
+    text-align: left;
+    font-size: 9pt;
+}
+.process-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    vertical-align: top;
+}
+.process-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.operation-number {
+    background-color: #003366;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 40px;
+}
+.setup-section {
+    background-color: #fff3cd;
+    padding: 12px;
+    margin: 10px 0;
+    border-left: 4px solid #ffc107;
+}
+.tools-section {
+    background-color: #d1ecf1;
+    padding: 12px;
+    margin: 10px 0;
+    border-left: 4px solid #17a2b8;
+}
+.warning-box {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+    padding: 12px;
+    margin: 10px 0;
+}
+.pdf-viewer {
+    width: 100%;
+    height: 800px;
+    border: 2px solid #003366;
+    margin: 15px 0;
+}
+.page-break {
+    page-break-after: always;
+}
+@media print {
+    .page-break {
+        page-break-after: always;
+    }
+    body {
+        margin: 15px;
+    }
+}
+.quality-specs {
+    background-color: #e7f3ff;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 4px solid #0066cc;
+    font-size: 9pt;
+}
+.time-summary {
+    background-color: #d4edda;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #28a745;
+    font-size: 10pt;
+}
+</style>
+</head>
+<body>
+
+<!-- CABEÇALHO -->
+<div class="header">
+    <div class="company-info">
+        <div class="company-name">LASEC USINAGEM</div>
+        <div class="company-subtitle">Usinagem de Precisão CNC</div>
+        <div style="font-size: 8pt; margin-top: 5px;">
+            Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+            Tel: (11) 3936-5041 / 3935-1271 | CNPJ: 07.047.619/0001-09
+        </div>
+    </div>
+    <div class="doc-info">
+        <strong style="font-size: 14pt;">FICHA DE PROCESSO</strong><br>
+        <strong>Nº:</strong> FP-001/2025<br>
+        <strong>Data:</strong> 01/11/2025<br>
+        <strong>Revisão:</strong> 00
+    </div>
+</div>
+
+<!-- INFORMAÇÕES DA PEÇA -->
+<div class="section-title">1. IDENTIFICAÇÃO DA PEÇA</div>
+<div class="info-grid">
+    <div class="info-label">Código/PN:</div>
+    <div class="info-value">1.34.12.710</div>
+
+    <div class="info-label">Descrição:</div>
+    <div class="info-value">BUCHA</div>
+
+    <div class="info-label">Cliente:</div>
+    <div class="info-value">MICROGEAR - Ind. de Peças Ltda</div>
+
+    <div class="info-label">Material:</div>
+    <div class="info-value">SAE 1045 / SAE 1141 (Aço)</div>
+
+    <div class="info-label">Peso unitário:</div>
+    <div class="info-value">0.870 kg</div>
+
+    <div class="info-label">Desenho:</div>
+    <div class="info-value">1.34.12.710.pdf (MICROGEAR)</div>
+
+    <div class="info-label">Revisão desenho:</div>
+    <div class="info-value">00 - 06/06/2011</div>
+</div>
+
+<!-- ESPECIFICAÇÕES TÉCNICAS -->
+<div class="section-title">2. ESPECIFICAÇÕES TÉCNICAS PRINCIPAIS</div>
+<table class="process-table">
+    <thead>
+        <tr>
+            <th width="30%">Característica</th>
+            <th width="40%">Especificação</th>
+            <th width="30%">Tolerância / Observação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Comprimento total</strong></td>
+            <td>85 mm</td>
+            <td>±0.2 mm (não indicada)</td>
+        </tr>
+        <tr>
+            <td><strong>Diâmetro externo maior</strong></td>
+            <td>Ø 65 mm</td>
+            <td>±0.2 mm</td>
+        </tr>
+        <tr>
+            <td><strong>Ø 52.074</strong></td>
+            <td>Ø 52.074 / 52.000 mm</td>
+            <td><strong>N7</strong> (±0.025mm)</td>
+        </tr>
+        <tr>
+            <td><strong>Ø 49.75</strong></td>
+            <td>Ø 49.75 / 49.50 mm</td>
+            <td><strong>N7</strong> (±0.025mm)</td>
+        </tr>
+        <tr>
+            <td><strong>Ø 47.025</strong></td>
+            <td>Ø 47.025 / 47.000 mm</td>
+            <td><strong>N7</strong> (±0.025mm)</td>
+        </tr>
+        <tr>
+            <td><strong>Ø interno 41.992</strong></td>
+            <td>Ø 41.992 / 41.967 mm</td>
+            <td><strong>N7</strong> (±0.025mm)</td>
+        </tr>
+        <tr>
+            <td><strong>Ø interno 57.97</strong></td>
+            <td>Ø 57.97 / 57.94 mm</td>
+            <td><strong>N8</strong> (±0.030mm)</td>
+        </tr>
+        <tr>
+            <td><strong>Paralelismo</strong></td>
+            <td>Faces principais</td>
+            <td>0.05 mm (ref. A)</td>
+        </tr>
+        <tr>
+            <td><strong>Conicidade</strong></td>
+            <td>30° (2 locais)</td>
+            <td>Conforme desenho</td>
+        </tr>
+        <tr>
+            <td><strong>Chanfro</strong></td>
+            <td>1 × 45°</td>
+            <td>Conforme desenho</td>
+        </tr>
+        <tr>
+            <td><strong>Raio</strong></td>
+            <td>R 1.6 mm</td>
+            <td>Conforme desenho</td>
+        </tr>
+        <tr>
+            <td><strong>Rugosidade</strong></td>
+            <td>N8 / N9</td>
+            <td>N9 não indicada</td>
+        </tr>
+        <tr>
+            <td><strong>Gravação</strong></td>
+            <td>Código na superfície</td>
+            <td>Conforme desenho</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- DESENHO TÉCNICO -->
+<div class="section-title">3. DESENHO TÉCNICO</div>
+<iframe class="pdf-viewer" src="1.34.12.710.pdf" type="application/pdf">
+    <p>Seu navegador não suporta visualização de PDF. <a href="1.34.12.710.pdf">Clique aqui para abrir o desenho</a></p>
+</iframe>
+
+<div class="page-break"></div>
+
+<!-- SETUP -->
+<div class="section-title">4. SETUP E PREPARAÇÃO</div>
+<div class="setup-section">
+    <strong style="font-size: 11pt;">SETUP INICIAL - Torno CNC Romi GL280</strong>
+    <ul style="margin: 10px 0; font-size: 10pt;">
+        <li><strong>Fixação:</strong> Placa de 3 castanhas universal</li>
+        <li><strong>Comprimento barra:</strong> 925 mm (faz 9 peças por barra de 96mm/peça)</li>
+        <li><strong>Material:</strong> SAE 1045 ou SAE 1141 (fornecido pelo cliente)</li>
+        <li><strong>Ponto zero (G54):</strong> Face da peça após facejamento</li>
+        <li><strong>Refrigeração:</strong> Fluido de corte solúvel (emulsão 5-8%)</li>
+        <li><strong>Tempo setup:</strong> 3.0 minutos</li>
+    </ul>
+</div>
+
+<!-- FERRAMENTAS -->
+<div class="section-title">5. LISTA DE FERRAMENTAS</div>
+<div class="tools-section">
+    <table class="process-table">
+        <thead>
+            <tr>
+                <th width="10%">Torre</th>
+                <th width="25%">Ferramenta</th>
+                <th width="30%">Especificação</th>
+                <th width="35%">Aplicação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>T01</td>
+                <td>Pastilha desbaste</td>
+                <td>ISCAR WNMG 080408 IC8250</td>
+                <td>Facejamento e desbaste externo</td>
+            </tr>
+            <tr>
+                <td>T02</td>
+                <td>Pastilha acabamento</td>
+                <td>ISCAR TNMG 160408 IC8250</td>
+                <td>Torneamento acabamento N7</td>
+            </tr>
+            <tr>
+                <td>T03</td>
+                <td>Broca Ø29mm</td>
+                <td>Broca metal duro Ø29mm</td>
+                <td>Furação interna</td>
+            </tr>
+            <tr>
+                <td>T04</td>
+                <td>Barra mandrilar</td>
+                <td>S20R-SDUCR11 + pastilha DCMT 11</td>
+                <td>Mandrilamento interno Ø42 e Ø58</td>
+            </tr>
+            <tr>
+                <td>T05</td>
+                <td>Bedame canais</td>
+                <td>Bedame 3mm + pastilha</td>
+                <td>Canais externos</td>
+            </tr>
+            <tr>
+                <td>T06</td>
+                <td>Ferramenta cônica</td>
+                <td>Pastilha 35° ou ferramenta especial</td>
+                <td>Conicidades 30°</td>
+            </tr>
+            <tr>
+                <td>T07</td>
+                <td>Ferramenta chanfro</td>
+                <td>Pastilha 45° ou bite chanfrar</td>
+                <td>Chanfros 1×45°</td>
+            </tr>
+            <tr>
+                <td>T08</td>
+                <td>Ferramenta gravação</td>
+                <td>Ferramenta especial gravação</td>
+                <td>Gravação código</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SEQUÊNCIA DE OPERAÇÕES -->
+<div class="section-title">6. SEQUÊNCIA DE OPERAÇÕES - PARÂMETROS ISCAR</div>
+<table class="process-table">
+    <thead>
+        <tr>
+            <th width="5%">Op.</th>
+            <th width="20%">Operação</th>
+            <th width="10%">Ferram.</th>
+            <th width="8%">Vc<br>(m/min)</th>
+            <th width="8%">RPM</th>
+            <th width="8%">Avanço<br>(mm/rot)</th>
+            <th width="8%">Prof.<br>(mm)</th>
+            <th width="25%">Observações</th>
+            <th width="8%">Tempo<br>(min)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="operation-number">10</td>
+            <td><strong>Facejamento Ø65</strong><br>Face inicial</td>
+            <td>T01</td>
+            <td>280</td>
+            <td>1371</td>
+            <td>0.50</td>
+            <td>2.0</td>
+            <td>Garantir face plana<br>G97 S1371 M3</td>
+            <td>0.1</td>
+        </tr>
+        <tr>
+            <td class="operation-number">20</td>
+            <td><strong>Desbaste externo</strong><br>Ø65 → Ø53mm</td>
+            <td>T01</td>
+            <td>280</td>
+            <td>1400</td>
+            <td>0.50</td>
+            <td>6.0</td>
+            <td>3 passes de 2mm<br>Comp. 85mm<br>G96 S280 M3</td>
+            <td>0.5</td>
+        </tr>
+        <tr>
+            <td class="operation-number">30</td>
+            <td><strong>Torneamento Ø52.074</strong><br>Tolerância N7</td>
+            <td>T02</td>
+            <td>280</td>
+            <td>1715</td>
+            <td>0.15</td>
+            <td>0.5</td>
+            <td>2 passes: desbaste + acabamento<br>Ra = N9<br>Verificar ±0.025mm</td>
+            <td>0.5</td>
+        </tr>
+        <tr>
+            <td class="operation-number">40</td>
+            <td><strong>Torneamento Ø49.75</strong><br>Tolerância N7</td>
+            <td>T02</td>
+            <td>280</td>
+            <td>1800</td>
+            <td>0.15</td>
+            <td>0.5</td>
+            <td>Perfil 40.5mm comprimento<br>Ra = N9</td>
+            <td>0.4</td>
+        </tr>
+        <tr>
+            <td class="operation-number">50</td>
+            <td><strong>Torneamento Ø47.025</strong><br>Tolerância N7</td>
+            <td>T02</td>
+            <td>280</td>
+            <td>1900</td>
+            <td>0.15</td>
+            <td>0.5</td>
+            <td>Perfil 34mm comprimento<br>Atenção canal adjacente</td>
+            <td>0.4</td>
+        </tr>
+        <tr>
+            <td class="operation-number">60</td>
+            <td><strong>Furação Ø29mm</strong><br>Pré-furo interno</td>
+            <td>T03</td>
+            <td>80</td>
+            <td>878</td>
+            <td>0.15</td>
+            <td>55</td>
+            <td>Profundidade 55mm<br>G83 (ciclo furação pecking)<br>Quebrar cavaco</td>
+            <td>0.8</td>
+        </tr>
+        <tr>
+            <td class="operation-number">70</td>
+            <td><strong>Mandrilamento Ø41.992</strong><br>Tolerância N7</td>
+            <td>T04</td>
+            <td>200</td>
+            <td>1200</td>
+            <td>0.12</td>
+            <td>6.5</td>
+            <td>Ø29 → Ø42mm<br>2 passes desbaste + 1 acabamento<br>Ra = N8<br>Medir com micrômetro interno</td>
+            <td>0.8</td>
+        </tr>
+        <tr>
+            <td class="operation-number">80</td>
+            <td><strong>Mandrilamento Ø57.97</strong><br>Tolerância N8</td>
+            <td>T04</td>
+            <td>200</td>
+            <td>900</td>
+            <td>0.12</td>
+            <td>8.0</td>
+            <td>Alargamento interno<br>Prof. 33mm<br>2 passes acabamento<br>Verificar ±0.030mm</td>
+            <td>0.7</td>
+        </tr>
+        <tr>
+            <td class="operation-number">90</td>
+            <td><strong>Canais externos</strong><br>3 canais</td>
+            <td>T05</td>
+            <td>150</td>
+            <td>800</td>
+            <td>0.05</td>
+            <td>1.99</td>
+            <td>Canal 1: 1.99mm largura<br>Canal 2: 6mm<br>Canal 3: conforme desenho<br>G75 (ciclo sangramento)</td>
+            <td>1.2</td>
+        </tr>
+        <tr>
+            <td class="operation-number">100</td>
+            <td><strong>Conicidades 30°</strong><br>Interno e externo</td>
+            <td>T06</td>
+            <td>200</td>
+            <td>1000</td>
+            <td>0.10</td>
+            <td>-</td>
+            <td>2 locais com ângulo 30°<br>Verificar ângulo com gabarito</td>
+            <td>0.8</td>
+        </tr>
+        <tr>
+            <td class="operation-number">110</td>
+            <td><strong>Chanfros 1×45°</strong><br>Acabamento bordas</td>
+            <td>T07</td>
+            <td>200</td>
+            <td>1200</td>
+            <td>0.08</td>
+            <td>1.0</td>
+            <td>Quebra de cantos vivos<br>Remover rebarbas</td>
+            <td>0.3</td>
+        </tr>
+        <tr>
+            <td class="operation-number">120</td>
+            <td><strong>Raio R1.6</strong><br>Acabamento</td>
+            <td>T02</td>
+            <td>200</td>
+            <td>1200</td>
+            <td>0.08</td>
+            <td>-</td>
+            <td>Raio 1.6mm conforme desenho<br>Pastilha com raio apropriado</td>
+            <td>0.2</td>
+        </tr>
+        <tr>
+            <td class="operation-number">130</td>
+            <td><strong>Gravação</strong><br>Código na peça</td>
+            <td>T08</td>
+            <td>50</td>
+            <td>500</td>
+            <td>0.05</td>
+            <td>0.2</td>
+            <td>Gravação código/identificação<br>Conforme especificação cliente</td>
+            <td>0.5</td>
+        </tr>
+        <tr>
+            <td class="operation-number">140</td>
+            <td><strong>Inspeção rápida</strong><br>Durante processo</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Verificação dimensional in-process<br>Paquímetro/micrômetro</td>
+            <td>0.5</td>
+        </tr>
+        <tr style="background-color: #d4edda; font-weight: bold;">
+            <td colspan="8" style="text-align: right; padding-right: 10px;">TEMPO TOTAL POR PEÇA:</td>
+            <td><strong>13.5 min</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- CONTROLE DE QUALIDADE -->
+<div class="section-title">7. INSPEÇÃO E CONTROLE DE QUALIDADE</div>
+<div class="quality-specs">
+    <strong>7.1 INSTRUMENTOS DE MEDIÇÃO:</strong>
+    <ul style="margin: 10px 0;">
+        <li><strong>Paquímetro digital:</strong> Resolução 0.01mm - Para dimensões gerais</li>
+        <li><strong>Micrômetro externo:</strong> 25-50mm, 50-75mm - Para Ø externos N7</li>
+        <li><strong>Micrômetro interno:</strong> 35-50mm, 50-75mm - Para Ø internos N7/N8</li>
+        <li><strong>Relógio comparador:</strong> Resolução 0.001mm - Para paralelismo 0.05mm</li>
+        <li><strong>Gabarito angular:</strong> Para verificação conicidades 30°</li>
+        <li><strong>Rugosímetro:</strong> Para verificação Ra N8/N9 (se disponível)</li>
+    </ul>
+</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th width="30%">Característica</th>
+            <th width="20%">Especificação</th>
+            <th width="20%">Instrumento</th>
+            <th width="15%">Frequência</th>
+            <th width="15%">Responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ø 52.074 N7</td>
+            <td>52.074 / 52.000 mm</td>
+            <td>Micrômetro externo</td>
+            <td>100% (todas peças)</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Ø 49.75 N7</td>
+            <td>49.75 / 49.50 mm</td>
+            <td>Micrômetro externo</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Ø 47.025 N7</td>
+            <td>47.025 / 47.000 mm</td>
+            <td>Micrômetro externo</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Ø interno 41.992 N7</td>
+            <td>41.992 / 41.967 mm</td>
+            <td>Micrômetro interno</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Ø interno 57.97 N8</td>
+            <td>57.97 / 57.94 mm</td>
+            <td>Micrômetro interno</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Paralelismo (ref. A)</td>
+            <td>0.05 mm máx</td>
+            <td>Relógio comparador</td>
+            <td>1ª peça + 10%</td>
+            <td>Inspetor</td>
+        </tr>
+        <tr>
+            <td>Comprimento total</td>
+            <td>85 ±0.2 mm</td>
+            <td>Paquímetro</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Conicidades 30°</td>
+            <td>30° conforme desenho</td>
+            <td>Gabarito angular</td>
+            <td>1ª peça + 20%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Rugosidade N8/N9</td>
+            <td>Ra conforme ISO</td>
+            <td>Inspeção visual/tato</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+        <tr>
+            <td>Gravação código</td>
+            <td>Legível e posicionada</td>
+            <td>Inspeção visual</td>
+            <td>100%</td>
+            <td>Operador</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- PONTOS CRÍTICOS -->
+<div class="section-title">8. PONTOS CRÍTICOS E ATENÇÕES</div>
+<div class="warning-box">
+    <strong style="color: #dc3545;">⚠ ATENÇÃO - PONTOS CRÍTICOS:</strong>
+    <ol style="margin: 10px 0; font-size: 10pt;">
+        <li><strong>Tolerâncias N7:</strong> Múltiplos diâmetros com tolerância apertada (±0.025mm). Verificar TODAS as peças com micrômetro calibrado.</li>
+        <li><strong>Paralelismo 0.05mm:</strong> Exige setup preciso da fixação. Verificar na primeira peça e periodicamente.</li>
+        <li><strong>Mandrilamento interno:</strong> Atenção à vibração da barra. Usar refrigeração adequada e velocidades conforme tabela Iscar.</li>
+        <li><strong>Material fornecido pelo cliente:</strong> Verificar dureza e qualidade do material antes de iniciar produção.</li>
+        <li><strong>Canais:</strong> Evitar sobremetal excessivo que pode quebrar pastilha. Usar ciclo G75 adequadamente.</li>
+        <li><strong>Conicidades 30°:</strong> Conferir ângulo na primeira peça com gabarito antes de continuar lote.</li>
+        <li><strong>Quebra de cavacos:</strong> Ajustar parâmetros se necessário para garantir quebra adequada do cavaco.</li>
+        <li><strong>Refrigeração:</strong> Manter fluido de corte limpo e na concentração correta (5-8%).</li>
+    </ol>
+</div>
+
+<!-- RESUMO DE TEMPO -->
+<div class="section-title">9. RESUMO DE TEMPOS E PRODUTIVIDADE</div>
+<div class="time-summary">
+    <table style="width: 100%; font-size: 10pt;">
+        <tr>
+            <td><strong>Tempo de ciclo por peça:</strong></td>
+            <td style="text-align: right;"><strong>13.5 minutos</strong></td>
+        </tr>
+        <tr>
+            <td>Tempo em horas por peça:</td>
+            <td style="text-align: right;">0.225 horas</td>
+        </tr>
+        <tr>
+            <td>Peças por hora:</td>
+            <td style="text-align: right;">4.4 peças/hora</td>
+        </tr>
+        <tr>
+            <td>Peças por turno (8h):</td>
+            <td style="text-align: right;">35 peças/turno</td>
+        </tr>
+        <tr style="border-top: 2px solid #28a745;">
+            <td><strong>Lote 50 peças - Tempo total:</strong></td>
+            <td style="text-align: right;"><strong>11.25 horas (≈ 1.5 turnos)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Prazo estimado (com setup):</strong></td>
+            <td style="text-align: right;"><strong>2-3 dias úteis</strong></td>
+        </tr>
+    </table>
+</div>
+
+<!-- OBSERVAÇÕES GERAIS -->
+<div class="section-title">10. OBSERVAÇÕES GERAIS</div>
+<div style="font-size: 10pt; padding: 10px; background-color: #f8f9fa;">
+    <p><strong>10.1 Material:</strong> Fornecido pelo cliente. Verificar certificado de qualidade e dureza antes de iniciar produção.</p>
+
+    <p><strong>10.2 Programa CNC:</strong> O programa G-code deve ser desenvolvido com base nos parâmetros Iscar especificados nesta ficha.</p>
+
+    <p><strong>10.3 Primeira peça:</strong> Após setup e programação, produzir primeira peça piloto e realizar inspeção dimensional completa antes de liberar lote.</p>
+
+    <p><strong>10.4 Ajustes:</strong> Parâmetros de corte podem ser ajustados conforme condições reais de usinagem, respeitando limites Iscar para IC8250.</p>
+
+    <p><strong>10.5 Refugo:</strong> Em caso de refugo, analisar causa raiz antes de continuar produção.</p>
+
+    <p><strong>10.6 Documentação:</strong> Manter registro de inspeção de todas as peças produzidas.</p>
+
+    <p><strong>10.7 Armazenamento:</strong> Após usinagem, proteger peças contra corrosão com óleo protetivo se necessário.</p>
+</div>
+
+<!-- APROVAÇÕES -->
+<div class="section-title">11. APROVAÇÕES</div>
+<table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+    <tr>
+        <td style="width: 33%; text-align: center; padding: 40px 0 10px 0; border-top: 1px solid #333;">
+            <strong>Elaborado por:</strong><br>
+            [Nome]<br>
+            [Data]
+        </td>
+        <td style="width: 33%; text-align: center; padding: 40px 0 10px 0; border-top: 1px solid #333;">
+            <strong>Aprovado por:</strong><br>
+            [Nome]<br>
+            [Data]
+        </td>
+        <td style="width: 33%; text-align: center; padding: 40px 0 10px 0; border-top: 1px solid #333;">
+            <strong>Visto Qualidade:</strong><br>
+            [Nome]<br>
+            [Data]
+        </td>
+    </tr>
+</table>
+
+<!-- RODAPÉ -->
+<div style="margin-top: 40px; padding-top: 10px; border-top: 1px solid #ddd; text-align: center; font-size: 8pt; color: #666;">
+    <strong>LASEC USINAGEM</strong> - Rua Álvaro Silva, 233 - São Paulo/SP<br>
+    Ficha de Processo FP-001/2025 | Revisão 00 | Data: 01/11/2025<br>
+    Este documento é propriedade da LASEC Usinagem e não pode ser reproduzido sem autorização.
+</div>
+
+</body>
+</html>

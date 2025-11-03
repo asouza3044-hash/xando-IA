@@ -1,0 +1,201 @@
+═══════════════════════════════════════════════════════════════
+  GUIA RÁPIDO - SISTEMA DE ORÇAMENTOS LASEC
+═══════════════════════════════════════════════════════════════
+
+📁 ESTRUTURA DE PASTAS:
+───────────────────────────────────────────────────────────────
+
+C:\lasec\
+├── base_dados\
+│   └── dados_completos_orcamentos.json  (Dados principais)
+│
+├── templates\
+│   ├── TEMPLATE_ESTUDO_CUSTO.html
+│   ├── TEMPLATE_ESTUDO_PRECO_NFE.html
+│   ├── TEMPLATE_PROPOSTA_COMERCIAL.html
+│   └── TEMPLATE_FICHA_PROCESSO.html
+│
+└── orcamentos\
+    └── 2025\
+        └── 001_MICROGEAR_1.34.12.710\
+            ├── PDFs (todos os documentos)
+            ├── HTMLs (originais)
+            └── README.txt (resumo)
+
+═══════════════════════════════════════════════════════════════
+PARÂMETROS PRINCIPAIS:
+═══════════════════════════════════════════════════════════════
+
+💰 CUSTO HORA/MÁQUINA:
+  • GRV Grande SP (referência):  R$ 156,28/h
+  • LASEC Competitivo:            R$ 120,00/h
+  • LASEC Mínimo:                 R$ 100,00/h
+
+📊 MARKUP E MARGENS:
+  • Markup Padrão:    1.408 (margem 15%)
+  • Markup Reduzido:  1.290 (margem 10%)
+  • Markup Mínimo:    1.170 (margem 5%)
+
+🏦 IMPOSTOS (Simples Nacional Anexo II):
+  • Alíquota:         8,5%
+  • Comissão vendas:  2-3%
+  • Despesas comerc.: 2-2.5%
+
+⚙️ CUSTOS INDIRETOS (58% sobre MOD):
+  • Energia:          15%
+  • Depreciação:      10%
+  • Ferramentas:      20%
+  • Manutenção:       5%
+  • Despesas gerais:  8%
+
+═══════════════════════════════════════════════════════════════
+PROCESSO DE ORÇAMENTO:
+═══════════════════════════════════════════════════════════════
+
+1. ANÁLISE TÉCNICA:
+   □ Receber desenho técnico
+   □ Identificar material e tolerâncias
+   □ Estimar tempo de usinagem
+   □ Consultar parâmetros Iscar
+
+2. CÁLCULO DE CUSTOS:
+   □ Calcular MOD (tempo × hora/máquina)
+   □ Aplicar custos indiretos (58%)
+   □ Somar NRE se primeira produção
+
+3. FORMAÇÃO DE PREÇO:
+   □ Aplicar markup conforme margem desejada
+   □ Considerar impostos Simples Nacional
+   □ Definir condições comerciais
+
+4. GERAÇÃO DE DOCUMENTOS:
+   □ Estudo de Custo (interno)
+   □ Estudo de Preço NF-e (interno)
+   □ Proposta Comercial (cliente)
+   □ Ficha de Processo (produção)
+
+5. ARQUIVAMENTO:
+   □ Criar pasta: orcamentos/ANO/NNN_CLIENTE_CODIGO
+   □ Copiar todos PDFs e HTMLs
+   □ Criar README.txt com resumo
+   □ Atualizar dados_completos_orcamentos.json
+
+═══════════════════════════════════════════════════════════════
+DADOS TÉCNICOS ISCAR:
+═══════════════════════════════════════════════════════════════
+
+AÇO SAE 1045/1141:
+  • Vc desbaste:     240-330 m/min
+  • Vc acabamento:   280-330 m/min
+  • Avanço desbaste: 0.35-0.70 mm/rot
+  • Avanço acabam.:  0.10-0.20 mm/rot
+  • Pastilha:        IC8250 (CVD coating)
+
+ALUMÍNIO 6061:
+  • Vc desbaste:     280-350 m/min
+  • Vc acabamento:   220-300 m/min
+  • Avanço desbaste: 0.12-0.25 mm/rot
+  • Avanço acabam.:  0.05-0.08 mm/rot
+
+═══════════════════════════════════════════════════════════════
+CLIENTES CADASTRADOS:
+═══════════════════════════════════════════════════════════════
+
+CLI001 - RFS Brasil Telecomunicações Ltda
+         Tel: (11) 4785-2433
+
+CLI002 - Haste Tecnologia Ltda - ME
+         Tel: (11) 2141-4881
+
+CLI003 - MICROGEAR Indústria de Peças Ltda
+         Tel: (11) 2239-7388
+         Endereço: Rua Barão de São Luis, 70 – SP
+
+CLI004 - Alfa Instrumentos Eletronicos Ltda
+         Tel: (11) 3952-2299
+
+═══════════════════════════════════════════════════════════════
+DADOS NF-e:
+═══════════════════════════════════════════════════════════════
+
+CFOP: 5.101 (Venda de produção) / 5.933 (Serviço)
+NCM: 8466.93.00 (Partes/acessórios máquinas-ferramentas)
+CST: 00 (Tributada integralmente)
+Unidade: PC (Peça)
+
+Descrição padrão:
+"Serviço de usinagem CNC conforme desenho técnico
+fornecido pelo cliente. Material fornecido pelo cliente."
+
+═══════════════════════════════════════════════════════════════
+CONDIÇÕES COMERCIAIS PADRÃO:
+═══════════════════════════════════════════════════════════════
+
+• Validade: 15 dias corridos
+• Pagamento: 50% antecipado + 50% entrega
+• Frete: FOB (por conta do cliente)
+• Material: Fornecido pelo cliente (especificar)
+• Prazo: Conforme lote (média 4-5 dias úteis)
+
+═══════════════════════════════════════════════════════════════
+CONTATOS LASEC:
+═══════════════════════════════════════════════════════════════
+
+LASEC USINAGEM - Usinagem de Precisão CNC
+CNPJ: 07.047.619/0001-09
+IE: 117.116.373.116
+
+Endereço: Rua Álvaro Silva, 233
+          Bairro do Limão
+          São Paulo/SP - CEP 02723-020
+
+Tel: (11) 3936-5041 / (11) 3935-1271
+Email: contato@lasec.com.br
+
+Responsável: Alexandre Gonçalves de Souza (Sócio-Diretor)
+
+Banco: Bradesco Ag. 0293 C/C 153376-2
+
+═══════════════════════════════════════════════════════════════
+EQUIPAMENTOS:
+═══════════════════════════════════════════════════════════════
+
+MAQ001 - Romi GL280
+         Centro de Torneamento CNC
+         Ø máx: 280mm | Comp. máx: 500mm
+         12 ferramentas | 4000 RPM max
+
+MAQ002 - Dosan Linxs 220 LM
+         Torno CNC
+         Ø máx: 220mm | Comp. máx: 400mm
+
+═══════════════════════════════════════════════════════════════
+EXEMPLO DE CÁLCULO RÁPIDO:
+═══════════════════════════════════════════════════════════════
+
+Peça com 10 min de usinagem (100 peças):
+
+1. Tempo total: 100 × 10min = 16.67h
+
+2. Custo MOD: 16.67h × R$ 120/h = R$ 2.000,00
+
+3. Custos indiretos: R$ 2.000 × 58% = R$ 1.160,00
+
+4. Custo total: R$ 2.000 + R$ 1.160 = R$ 3.160,00
+   Custo/peça: R$ 31,60
+
+5. Preço venda (markup 1.290):
+   R$ 31,60 × 1.290 = R$ 40,76/peça
+   Total: R$ 4.076,00
+
+6. Margem líquida:
+   Receita: R$ 4.076,00
+   - Impostos 8,5%: R$ 346,46
+   - Comissões 2%: R$ 81,52
+   - Custo fab.: R$ 3.160,00
+   = Lucro: R$ 488,02 (12%)
+
+═══════════════════════════════════════════════════════════════
+
+Última atualização: 01/11/2025
+Versão: 1.0

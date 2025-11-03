@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Preço de Venda - Uso Interno</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    color: #333;
+}
+.header {
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.confidential {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.section-title {
+    background-color: #17a2b8;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 10pt;
+}
+.price-table th {
+    background-color: #17a2b8;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+.price-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+.price-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.total-row {
+    background-color: #d4edda;
+    font-weight: bold;
+}
+.highlight-recommended {
+    background-color: #d4edda !important;
+}
+.highlight-warning {
+    background-color: #fff3cd !important;
+}
+.scenario-box {
+    background-color: #e7f3ff;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #0066cc;
+}
+.nfe-box {
+    background-color: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+    padding: 12px;
+    margin: 10px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h2>💰 ESTUDO DE FORMAÇÃO DE PREÇO DE VENDA</h2>
+    <div style="font-size: 12pt;">BUCHA 1.34.12.710 - MICROGEAR | COM NF-e SIMPLES NACIONAL</div>
+    <div style="font-size: 10pt;">Documento de Uso Interno - Confidencial</div>
+</div>
+
+<div class="confidential">
+    ⚠️ DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE
+</div>
+
+<div class="section-title">1. DADOS FISCAIS - SIMPLES NACIONAL</div>
+<table class="price-table">
+    <tr>
+        <td width="40%"><strong>Regime Tributário:</strong></td>
+        <td>Simples Nacional - Anexo II (Indústria)</td>
+    </tr>
+    <tr>
+        <td><strong>CNPJ:</strong></td>
+        <td>07.047.619/0001-09</td>
+    </tr>
+    <tr>
+        <td><strong>Razão Social:</strong></td>
+        <td>MALELO-INDÚSTRIA E COMERCIO FERRAMENTAS-SOCIEDADE LIMITADA ME</td>
+    </tr>
+    <tr>
+        <td><strong>Alíquota Simples Nacional:</strong></td>
+        <td>8,5% (faixa estimada de faturamento)</td>
+    </tr>
+    <tr>
+        <td><strong>Tipo de NF-e:</strong></td>
+        <td>NF-e de Serviço (Prestação de serviço de usinagem)</td>
+    </tr>
+</table>
+
+<div class="nfe-box">
+    <strong>📋 COMPOSIÇÃO DO SIMPLES NACIONAL (Anexo II - 8,5%):</strong><br>
+    <small>
+        • IRPJ, CSLL, Cofins, PIS/Pasep, CPP, ICMS, IPI<br>
+        • Alíquota varia conforme faturamento anual (4,5% até 11,2%)<br>
+        • Assumindo faixa de R$ 360k-720k/ano: <strong>8,5%</strong>
+    </small>
+</div>
+
+<div class="section-title">2. CUSTOS DE FABRICAÇÃO (Base de Cálculo)</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Cenário</th>
+            <th>Tempo/pç</th>
+            <th>H/máquina</th>
+            <th>Custo 60pçs</th>
+            <th>Custo/pç</th>
+            <th>Custo 100pçs</th>
+            <th>Custo/pç</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GRV Padrão</td>
+            <td>13.5 min</td>
+            <td>R$ 156,28</td>
+            <td>R$ 3.333,45</td>
+            <td>R$ 55,56</td>
+            <td>R$ 5.555,75</td>
+            <td>R$ 55,56</td>
+        </tr>
+        <tr class="highlight-recommended">
+            <td><strong>Competitivo</strong></td>
+            <td>9.0 min</td>
+            <td>R$ 120,00</td>
+            <td>R$ 1.706,40</td>
+            <td>R$ 28,44</td>
+            <td>R$ 2.844,00</td>
+            <td>R$ 28,44</td>
+        </tr>
+        <tr>
+            <td>Mínimo</td>
+            <td>9.0 min</td>
+            <td>R$ 100,00</td>
+            <td>R$ 1.422,00</td>
+            <td>R$ 23,70</td>
+            <td>R$ 2.370,00</td>
+            <td>R$ 23,70</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">3. FORMAÇÃO DE PREÇO - MÉTODO MARKUP</div>
+
+<div class="scenario-box">
+    <strong>Fórmula de Markup:</strong><br>
+    Preço Venda = Custo Fabricação × Markup<br><br>
+
+    <strong>Markup = 1 / (1 - % Total)</strong><br><br>
+
+    <strong>% Total = Impostos + Despesas Comerciais + Margem Lucro</strong>
+</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th width="40%">Item</th>
+            <th width="20%">Padrão</th>
+            <th width="20%">Reduzido</th>
+            <th width="20%">Mínimo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Impostos (Simples Nacional)</td>
+            <td>8,5%</td>
+            <td>8,5%</td>
+            <td>8,5%</td>
+        </tr>
+        <tr>
+            <td>Comissão de vendas</td>
+            <td>3,0%</td>
+            <td>2,0%</td>
+            <td>0,0%</td>
+        </tr>
+        <tr>
+            <td>Despesas comerciais/admin</td>
+            <td>2,5%</td>
+            <td>2,0%</td>
+            <td>1,0%</td>
+        </tr>
+        <tr>
+            <td>Margem de lucro</td>
+            <td>15,0%</td>
+            <td>10,0%</td>
+            <td>5,0%</td>
+        </tr>
+        <tr class="total-row">
+            <td><strong>TOTAL %</strong></td>
+            <td><strong>29,0%</strong></td>
+            <td><strong>22,5%</strong></td>
+            <td><strong>14,5%</strong></td>
+        </tr>
+        <tr class="total-row">
+            <td><strong>MARKUP</strong></td>
+            <td><strong>1,408</strong></td>
+            <td><strong>1,290</strong></td>
+            <td><strong>1,170</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">4. SIMULAÇÃO DE PREÇOS - LOTE 100 PEÇAS</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Cenário</th>
+            <th>Custo/pç</th>
+            <th>Markup</th>
+            <th>Preço/pç</th>
+            <th>Total 100pçs</th>
+            <th>Margem Líquida</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Padrão (Markup 1.408)</td>
+            <td>R$ 28,44</td>
+            <td>1,408</td>
+            <td>R$ 40,04</td>
+            <td>R$ 4.004,00</td>
+            <td>15%</td>
+        </tr>
+        <tr class="highlight-recommended">
+            <td><strong>Reduzido (Markup 1.290)</strong></td>
+            <td>R$ 28,44</td>
+            <td>1,290</td>
+            <td><strong>R$ 36,69</strong></td>
+            <td><strong>R$ 3.669,00</strong></td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Mínimo (Markup 1.170)</td>
+            <td>R$ 28,44</td>
+            <td>1,170</td>
+            <td>R$ 33,27</td>
+            <td>R$ 3.327,00</td>
+            <td>5%</td>
+        </tr>
+        <tr style="background-color: #fff3cd;">
+            <td><strong>Cliente paga (reverso)</strong></td>
+            <td>R$ 28,44</td>
+            <td>1,477</td>
+            <td><strong>R$ 42,00</strong></td>
+            <td><strong>R$ 4.200,00</strong></td>
+            <td><strong>19,2%</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">5. ANÁLISE DETALHADA - R$ 42,00/PEÇA (100 PEÇAS)</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th width="50%">Componente</th>
+            <th width="20%">Valor</th>
+            <th width="15%">%</th>
+            <th width="15%">Total 100pçs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>RECEITA BRUTA (NF-e)</strong></td>
+            <td>R$ 42,00</td>
+            <td>100,0%</td>
+            <td>R$ 4.200,00</td>
+        </tr>
+        <tr>
+            <td>(-) Impostos Simples Nacional (8,5%)</td>
+            <td>R$ 3,57</td>
+            <td>8,5%</td>
+            <td>R$ 357,00</td>
+        </tr>
+        <tr>
+            <td>(-) Comissão vendas (2%)</td>
+            <td>R$ 0,84</td>
+            <td>2,0%</td>
+            <td>R$ 84,00</td>
+        </tr>
+        <tr>
+            <td>(-) Despesas comerciais (2%)</td>
+            <td>R$ 0,84</td>
+            <td>2,0%</td>
+            <td>R$ 84,00</td>
+        </tr>
+        <tr class="total-row">
+            <td><strong>= RECEITA LÍQUIDA</strong></td>
+            <td><strong>R$ 36,75</strong></td>
+            <td><strong>87,5%</strong></td>
+            <td><strong>R$ 3.675,00</strong></td>
+        </tr>
+        <tr>
+            <td>(-) Custo de fabricação</td>
+            <td>R$ 28,44</td>
+            <td>67,7%</td>
+            <td>R$ 2.844,00</td>
+        </tr>
+        <tr class="total-row" style="background-color: #d4edda;">
+            <td><strong>= LUCRO LÍQUIDO</strong></td>
+            <td><strong>R$ 8,31</strong></td>
+            <td><strong>19,8%</strong></td>
+            <td><strong>R$ 831,00</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="nfe-box">
+    <strong>💡 CONCLUSÃO - R$ 42,00/PEÇA É VIÁVEL:</strong><br><br>
+
+    <table style="width: 100%;">
+        <tr>
+            <td width="50%"><strong>Faturamento (NF-e 100pçs):</strong></td>
+            <td><strong>R$ 4.200,00</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Custo de fabricação:</strong></td>
+            <td>R$ 2.844,00</td>
+        </tr>
+        <tr>
+            <td><strong>Impostos + Despesas:</strong></td>
+            <td>R$ 525,00 (12,5%)</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td><strong>Lucro líquido:</strong></td>
+            <td><strong>R$ 831,00 (19,8% do faturamento)</strong></td>
+        </tr>
+    </table>
+    <br>
+    ✅ <strong>MARGEM SAUDÁVEL - ACEITAR PROPOSTA</strong>
+</div>
+
+<div class="section-title">6. COMPARATIVO: LOTE 60 vs 100 PEÇAS</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Lote</th>
+            <th>Preço/pç</th>
+            <th>Faturamento</th>
+            <th>Custo Total</th>
+            <th>Lucro Líquido</th>
+            <th>Margem %</th>
+            <th>Avaliação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-warning">
+            <td>60 peças</td>
+            <td>R$ 42,00</td>
+            <td>R$ 2.520,00</td>
+            <td>R$ 1.706,40</td>
+            <td>R$ 498,60</td>
+            <td>19,8%</td>
+            <td>⚠️ Margem OK, mas volume baixo</td>
+        </tr>
+        <tr class="highlight-recommended">
+            <td>100 peças</td>
+            <td>R$ 42,00</td>
+            <td>R$ 4.200,00</td>
+            <td>R$ 2.844,00</td>
+            <td>R$ 831,00</td>
+            <td>19,8%</td>
+            <td>✅ Recomendado</td>
+        </tr>
+        <tr class="highlight-recommended">
+            <td>150 peças</td>
+            <td>R$ 42,00</td>
+            <td>R$ 6.300,00</td>
+            <td>R$ 4.266,00</td>
+            <td>R$ 1.246,50</td>
+            <td>19,8%</td>
+            <td>✅ Melhor cenário</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">7. PROPOSTA DE NEGOCIAÇÃO</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Opção</th>
+            <th>Lote</th>
+            <th>Preço/pç</th>
+            <th>Total</th>
+            <th>Condição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-warning">
+            <td>Opção 1</td>
+            <td>60 peças</td>
+            <td>R$ 48,00</td>
+            <td>R$ 2.880,00</td>
+            <td>Pedido único/esporádico</td>
+        </tr>
+        <tr class="highlight-recommended">
+            <td><strong>Opção 2</strong></td>
+            <td>100 peças</td>
+            <td><strong>R$ 42,00</strong></td>
+            <td><strong>R$ 4.200,00</strong></td>
+            <td><strong>Pedidos mensais (recomendado)</strong></td>
+        </tr>
+        <tr>
+            <td>Opção 3</td>
+            <td>150 peças</td>
+            <td>R$ 38,00</td>
+            <td>R$ 5.700,00</td>
+            <td>Contrato trimestral</td>
+        </tr>
+        <tr>
+            <td>Opção 4</td>
+            <td>200 peças</td>
+            <td>R$ 36,00</td>
+            <td>R$ 7.200,00</td>
+            <td>Contrato semestral</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">8. DADOS PARA EMISSÃO DE NF-e</div>
+
+<table class="price-table">
+    <tr>
+        <td width="30%"><strong>CFOP:</strong></td>
+        <td>5.101 (Venda de produção do estabelecimento)</td>
+    </tr>
+    <tr>
+        <td><strong>Natureza da Operação:</strong></td>
+        <td>Prestação de serviço de usinagem</td>
+    </tr>
+    <tr>
+        <td><strong>NCM:</strong></td>
+        <td>8466.93.00 (Partes e acessórios de máquinas-ferramentas)</td>
+    </tr>
+    <tr>
+        <td><strong>CST:</strong></td>
+        <td>00 (Tributada integralmente)</td>
+    </tr>
+    <tr>
+        <td><strong>Unidade:</strong></td>
+        <td>PC (Peça)</td>
+    </tr>
+    <tr>
+        <td><strong>Descrição NF-e:</strong></td>
+        <td>Serviço de usinagem CNC - Bucha em aço SAE 1045 - Cód. 1.34.12.710<br>
+        Conforme desenho técnico fornecido pelo cliente<br>
+        Material fornecido pelo cliente</td>
+    </tr>
+</table>
+
+<div class="section-title">9. RECOMENDAÇÃO FINAL</div>
+
+<div class="scenario-box">
+    <strong style="font-size: 12pt; color: #28a745;">✅ ACEITAR R$ 42,00/PEÇA COM AS SEGUINTES CONDIÇÕES:</strong><br><br>
+
+    <table style="width: 100%;">
+        <tr>
+            <td width="40%"><strong>Lote mínimo:</strong></td>
+            <td><strong>100 peças</strong> (não aceitar 60)</td>
+        </tr>
+        <tr>
+            <td><strong>Frequência:</strong></td>
+            <td>Pedidos mensais ou quinzenais</td>
+        </tr>
+        <tr>
+            <td><strong>Condição técnica:</strong></td>
+            <td>Otimizar processo para 9 min/peça</td>
+        </tr>
+        <tr>
+            <td><strong>Material:</strong></td>
+            <td>Fornecido pelo cliente (sem atrasos)</td>
+        </tr>
+        <tr>
+            <td><strong>Pagamento:</strong></td>
+            <td>50% antecipado + 50% na entrega</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td><strong>Margem líquida garantida:</strong></td>
+            <td><strong>19,8% (R$ 831,00 por lote de 100pçs)</strong></td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #28a745; text-align: center; font-size: 9pt; color: #666;">
+    <strong>LASEC USINAGEM</strong> - Estudo de Formação de Preço com NF-e<br>
+    Data: 01/11/2025 | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</body>
+</html>
