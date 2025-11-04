@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Custo - Uso Interno</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+.header { background-color: #dc3545; color: white; padding: 15px; text-align: center; margin-bottom: 20px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.cost-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.cost-table th { background-color: #495057; color: white; padding: 8px; text-align: left; }
+.cost-table td { border: 1px solid #ddd; padding: 6px; }
+.cost-table tr:nth-child(even) { background-color: #f9f9f9; }
+.total-row { background-color: #e9ecef; font-weight: bold; }
+.highlight-viable { background-color: #d4edda !important; }
+.scenario-box { background-color: #e7f3ff; padding: 15px; margin: 15px 0; border-left: 4px solid #0066cc; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h2>📊 ESTUDO DE CUSTO DE FABRICAÇÃO</h2>
+    <div style="font-size: 12pt;">EIXO 1.34.03.642 - MICROGEAR</div>
+    <div style="font-size: 10pt;">Documento de Uso Interno - Confidencial</div>
+</div>
+
+<div class="confidential">
+    ⚠️ DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE
+</div>
+
+<div class="section-title">1. DADOS TÉCNICOS DA PEÇA</div>
+<table class="cost-table">
+    <tr>
+        <td width="30%"><strong>Peça:</strong></td>
+        <td>EIXO 1.34.03.642</td>
+        <td width="30%"><strong>Cliente:</strong></td>
+        <td>MICROGEAR</td>
+    </tr>
+    <tr>
+        <td><strong>Material:</strong></td>
+        <td>SAE 4140 (fornecido)</td>
+        <td><strong>Comprimento:</strong></td>
+        <td>129mm ±0.2</td>
+    </tr>
+    <tr>
+        <td><strong>Máquina:</strong></td>
+        <td>Romi GL280</td>
+        <td><strong>Tolerâncias:</strong></td>
+        <td>N7 (alta precisão)</td>
+    </tr>
+</table>
+
+<div class="section-title">2. ANÁLISE DE TEMPO DE USINAGEM</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Cenário</th>
+            <th>Tempo/Peça</th>
+            <th>Tempo 60pçs</th>
+            <th>Tempo 100pçs</th>
+            <th>Observação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-viable">
+            <td><strong>Padrão</strong></td>
+            <td>18.0 min</td>
+            <td>18.0h</td>
+            <td>30.0h</td>
+            <td>Peça complexa, 6 diâmetros diferentes</td>
+        </tr>
+        <tr>
+            <td><strong>Otimizado</strong></td>
+            <td>15.0 min</td>
+            <td>15.0h</td>
+            <td>25.0h</td>
+            <td>Requer otimização CNC</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">3. SIMULAÇÃO DE CUSTOS - LOTE 60 PEÇAS</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Cenário</th>
+            <th>Tempo/pç</th>
+            <th>H/máq</th>
+            <th>MOD</th>
+            <th>Indiretos (58%)</th>
+            <th>Custo Total</th>
+            <th>Custo/pç</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GRV Padrão</td>
+            <td>18.0 min</td>
+            <td>R$ 156,28</td>
+            <td>R$ 2.812,56</td>
+            <td>R$ 1.631,28</td>
+            <td>R$ 4.443,84</td>
+            <td><strong>R$ 74,06</strong></td>
+        </tr>
+        <tr class="highlight-viable">
+            <td>Competitivo (18min)</td>
+            <td>18.0 min</td>
+            <td>R$ 120,00</td>
+            <td>R$ 2.160,00</td>
+            <td>R$ 1.252,80</td>
+            <td>R$ 3.412,80</td>
+            <td><strong>R$ 56,88</strong></td>
+        </tr>
+        <tr>
+            <td>Competitivo Otimizado</td>
+            <td>15.0 min</td>
+            <td>R$ 120,00</td>
+            <td>R$ 1.800,00</td>
+            <td>R$ 1.044,00</td>
+            <td>R$ 2.844,00</td>
+            <td><strong>R$ 47,40</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">4. SIMULAÇÃO DE CUSTOS - LOTE 100 PEÇAS</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Cenário</th>
+            <th>Tempo/pç</th>
+            <th>H/máq</th>
+            <th>MOD</th>
+            <th>Indiretos</th>
+            <th>Custo Total</th>
+            <th>Custo/pç</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-viable">
+            <td>Competitivo (18min)</td>
+            <td>18.0 min</td>
+            <td>R$ 120,00</td>
+            <td>R$ 3.600,00</td>
+            <td>R$ 2.088,00</td>
+            <td>R$ 5.688,00</td>
+            <td><strong>R$ 56,88</strong></td>
+        </tr>
+        <tr>
+            <td>Competitivo Otimizado</td>
+            <td>15.0 min</td>
+            <td>R$ 120,00</td>
+            <td>R$ 3.000,00</td>
+            <td>R$ 1.740,00</td>
+            <td>R$ 4.740,00</td>
+            <td><strong>R$ 47,40</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">5. ANÁLISE: FORMAÇÃO DE PREÇO</div>
+
+<div class="scenario-box">
+    <strong style="font-size: 12pt;">💡 CENÁRIO RECOMENDADO (60 PEÇAS):</strong><br><br>
+
+    <strong>Premissas:</strong>
+    <ul>
+        <li>✅ <strong>Tempo:</strong> 18 minutos/peça</li>
+        <li>✅ <strong>Hora/máquina:</strong> R$ 120,00 (competitivo)</li>
+        <li>✅ <strong>Markup:</strong> 1.290 (margem 10%)</li>
+        <li>✅ <strong>Material:</strong> Fornecido pelo cliente (SAE 4140)</li>
+    </ul>
+
+    <table style="width: 100%; margin-top: 10px;">
+        <tr>
+            <td><strong>Custo de fabricação:</strong></td>
+            <td style="text-align: right;">R$ 56,88/peça</td>
+        </tr>
+        <tr>
+            <td><strong>Preço venda (markup 1.290):</strong></td>
+            <td style="text-align: right;">R$ 73,37/peça</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td><strong>Total 60 peças:</strong></td>
+            <td style="text-align: right;"><strong>R$ 4.402,20</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Margem bruta:</strong></td>
+            <td style="text-align: right;"><strong>R$ 989,40 (29%)</strong></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section-title">6. COMPARATIVO DE LOTES</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Lote</th>
+            <th>Preço Sugerido</th>
+            <th>Valor Total</th>
+            <th>Custo Total</th>
+            <th>Margem Bruta</th>
+            <th>Viabilidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-viable">
+            <td>60 peças</td>
+            <td>R$ 73,37/pç</td>
+            <td>R$ 4.402,20</td>
+            <td>R$ 3.412,80</td>
+            <td>29%</td>
+            <td>✅ Viável</td>
+        </tr>
+        <tr class="highlight-viable">
+            <td>100 peças</td>
+            <td>R$ 68,00/pç</td>
+            <td>R$ 6.800,00</td>
+            <td>R$ 5.688,00</td>
+            <td>16%</td>
+            <td>✅ Viável</td>
+        </tr>
+        <tr class="highlight-viable">
+            <td>150 peças</td>
+            <td>R$ 64,00/pç</td>
+            <td>R$ 9.600,00</td>
+            <td>R$ 8.532,00</td>
+            <td>11%</td>
+            <td>✅ Recomendado</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">7. RECOMENDAÇÃO TÉCNICA</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th width="30%">Ação</th>
+            <th width="50%">Descrição</th>
+            <th width="20%">Prioridade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Validar tempo real</td>
+            <td>Produzir peça piloto e cronometrar tempo real de usinagem</td>
+            <td style="background-color: #dc3545; color: white;"><strong>CRÍTICO</strong></td>
+        </tr>
+        <tr>
+            <td>Testar qualidade N7</td>
+            <td>Validar que processo atende tolerâncias críticas N7</td>
+            <td style="background-color: #ffc107;"><strong>ALTO</strong></td>
+        </tr>
+        <tr>
+            <td>Negociar lote mínimo</td>
+            <td>Lote de 100 peças oferece melhor margem</td>
+            <td style="background-color: #28a745; color: white;"><strong>MÉDIO</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #dc3545; text-align: center; font-size: 9pt; color: #666;">
+    <strong>LASEC USINAGEM</strong> - Estudo de Custo Interno<br>
+    Data: 03/11/2025 | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</body>
+</html>

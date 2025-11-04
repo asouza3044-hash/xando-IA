@@ -1,0 +1,26 @@
+# Sistema de Orçamentos LASEC - Git Ignore
+
+# Arquivos temporários do Windows
+Thumbs.db
+Desktop.ini
+*.lnk
+
+# Arquivos de backup
+*.bak
+*.tmp
+*~
+
+# Node modules (se usar)
+node_modules/
+npm-debug.log
+
+# Logs
+*.log
+
+# Arquivos temporários
+temp/
+tmp/
+
+# Arquivos pessoais sensíveis (descomente se necessário)
+# dados_lasec.json
+# base_dados/dados_completos_orcamentos.json
