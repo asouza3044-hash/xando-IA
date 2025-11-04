@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Custo - Uso Interno</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+.header { background-color: #dc3545; color: white; padding: 15px; text-align: center; margin-bottom: 20px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.cost-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.cost-table th { background-color: #495057; color: white; padding: 8px; text-align: left; }
+.cost-table td { border: 1px solid #ddd; padding: 6px; }
+.cost-table tr:nth-child(even) { background-color: #f9f9f9; }
+.highlight-viable { background-color: #d4edda !important; }
+.scenario-box { background-color: #e7f3ff; padding: 15px; margin: 15px 0; border-left: 4px solid #0066cc; }
+.alert-box { background-color: #f8d7da; border-left: 4px solid #dc3545; padding: 12px; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h2>📊 ESTUDO DE CUSTO DE FABRICAÇÃO</h2>
+    <div style="font-size: 12pt;">EIXO 1.60.01.548 - MICROGEAR</div>
+    <div style="font-size: 10pt;">Documento de Uso Interno - Confidencial</div>
+</div>
+
+<div class="confidential">
+    ⚠️ DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE
+</div>
+
+<div class="section-title">1. DADOS TÉCNICOS DA PEÇA</div>
+<table class="cost-table">
+    <tr>
+        <td width="30%"><strong>Peça:</strong></td>
+        <td>EIXO 1.60.01.548</td>
+        <td width="30%"><strong>Cliente:</strong></td>
+        <td>MICROGEAR</td>
+    </tr>
+    <tr>
+        <td><strong>Material:</strong></td>
+        <td>45 S 20 K (fornecido)</td>
+        <td><strong>Comprimento:</strong></td>
+        <td>189mm ±0.5</td>
+    </tr>
+    <tr>
+        <td><strong>Máquina:</strong></td>
+        <td>Romi GL280</td>
+        <td><strong>Tolerâncias:</strong></td>
+        <td>H12 (alta precisão)</td>
+    </tr>
+    <tr>
+        <td><strong>Tratamento térmico:</strong></td>
+        <td colspan="3">56±2 HRC (CLIENTE FAZ)</td>
+    </tr>
+</table>
+
+<div class="alert-box">
+    <strong>⚠️ ATENÇÃO - TRATAMENTO TÉRMICO:</strong><br>
+    • Esta peça requer têmpera para 56±2 HRC<br>
+    • Cliente faz o tratamento térmico<br>
+    • Orçamento inclui SOMENTE torneamento pré-têmpera<br>
+    • Prever sobremetal para retificação pós-têmpera
+</div>
+
+<div class="section-title">2. ANÁLISE DE TEMPO DE USINAGEM</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Operação</th>
+            <th>Tempo/Peça</th>
+            <th>Tempo 60pçs</th>
+            <th>Observação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-viable">
+            <td><strong>Torneamento pré-têmpera</strong></td>
+            <td>20.0 min</td>
+            <td>20.0h</td>
+            <td>Com sobremetal para retificação</td>
+        </tr>
+        <tr>
+            <td>Tratamento térmico</td>
+            <td>-</td>
+            <td>-</td>
+            <td>CLIENTE FAZ (não incluso)</td>
+        </tr>
+        <tr>
+            <td>Retificação pós-têmpera</td>
+            <td>-</td>
+            <td>-</td>
+            <td>CLIENTE FAZ (não incluso)</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">3. SIMULAÇÃO DE CUSTOS - LOTE 60 PEÇAS</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Tempo/pç</th>
+            <th>H/máq</th>
+            <th>MOD</th>
+            <th>Indiretos (58%)</th>
+            <th>Custo Total</th>
+            <th>Custo/pç</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-viable">
+            <td>Torneamento</td>
+            <td>20.0 min</td>
+            <td>R$ 120,00</td>
+            <td>R$ 2.400,00</td>
+            <td>R$ 1.392,00</td>
+            <td>R$ 3.792,00</td>
+            <td><strong>R$ 63,20</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">4. ANÁLISE: FORMAÇÃO DE PREÇO</div>
+
+<div class="scenario-box">
+    <strong style="font-size: 12pt;">💡 CENÁRIO RECOMENDADO (60 PEÇAS):</strong><br><br>
+
+    <strong>Premissas:</strong>
+    <ul>
+        <li>✅ <strong>Tempo:</strong> 20 minutos/peça (torneamento)</li>
+        <li>✅ <strong>Hora/máquina:</strong> R$ 120,00</li>
+        <li>✅ <strong>Markup:</strong> 1.290 (margem 10%)</li>
+        <li>⚠️ <strong>Tratamento térmico:</strong> CLIENTE FAZ</li>
+        <li>⚠️ <strong>Retificação:</strong> CLIENTE FAZ</li>
+    </ul>
+
+    <table style="width: 100%; margin-top: 10px;">
+        <tr>
+            <td><strong>Custo de fabricação (LASEC):</strong></td>
+            <td style="text-align: right;">R$ 63,20/peça</td>
+        </tr>
+        <tr>
+            <td><strong>Preço venda (markup 1.290):</strong></td>
+            <td style="text-align: right;">R$ 81,53/peça</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td><strong>Total 60 peças:</strong></td>
+            <td style="text-align: right;"><strong>R$ 4.891,80</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Margem bruta:</strong></td>
+            <td style="text-align: right;"><strong>R$ 1.099,80 (29%)</strong></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section-title">5. COMPARATIVO DE LOTES</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th>Lote</th>
+            <th>Preço Sugerido</th>
+            <th>Valor Total</th>
+            <th>Custo Total</th>
+            <th>Margem Bruta</th>
+            <th>Viabilidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="highlight-viable">
+            <td>60 peças</td>
+            <td>R$ 81,53/pç</td>
+            <td>R$ 4.891,80</td>
+            <td>R$ 3.792,00</td>
+            <td>29%</td>
+            <td>✅ Viável</td>
+        </tr>
+        <tr class="highlight-viable">
+            <td>100 peças</td>
+            <td>R$ 75,00/pç</td>
+            <td>R$ 7.500,00</td>
+            <td>R$ 6.320,00</td>
+            <td>16%</td>
+            <td>✅ Viável</td>
+        </tr>
+        <tr class="highlight-viable">
+            <td>150 peças</td>
+            <td>R$ 71,00/pç</td>
+            <td>R$ 10.650,00</td>
+            <td>R$ 9.480,00</td>
+            <td>11%</td>
+            <td>✅ Recomendado</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">6. OBSERVAÇÕES TÉCNICAS</div>
+
+<div class="alert-box">
+    <strong>⚠️ PONTOS CRÍTICOS:</strong>
+    <ol style="margin: 10px 0;">
+        <li><strong>Material 45 S 20 K:</strong> Aço carbono médio-alto
+            <ul>
+                <li>Requer atenção na usinagem</li>
+                <li>Prever sobremetal adequado para têmpera</li>
+            </ul>
+        </li>
+        <li><strong>Tratamento térmico 56±2 HRC:</strong>
+            <ul>
+                <li>Cliente é responsável</li>
+                <li>Não incluso no orçamento LASEC</li>
+                <li>Peça terá deformação após têmpera</li>
+            </ul>
+        </li>
+        <li><strong>Retificação pós-têmpera:</strong>
+            <ul>
+                <li>Cliente faz (não incluso)</li>
+                <li>LASEC fornece bruto com sobremetal</li>
+            </ul>
+        </li>
+        <li><strong>Tolerâncias H12:</strong> Precisão alta no torneamento</li>
+    </ol>
+</div>
+
+<div class="section-title">7. RECOMENDAÇÃO TÉCNICA</div>
+
+<table class="cost-table">
+    <thead>
+        <tr>
+            <th width="30%">Ação</th>
+            <th width="50%">Descrição</th>
+            <th width="20%">Prioridade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Validar sobremetal</td>
+            <td>Confirmar com cliente quanto de sobremetal deixar para retificação</td>
+            <td style="background-color: #dc3545; color: white;"><strong>CRÍTICO</strong></td>
+        </tr>
+        <tr>
+            <td>Peça piloto</td>
+            <td>Fazer 1 peça teste e validar dimensional antes de lote</td>
+            <td style="background-color: #ffc107;"><strong>ALTO</strong></td>
+        </tr>
+        <tr>
+            <td>Confirmar processo cliente</td>
+            <td>Validar que cliente tem capacidade de têmpera + retificação</td>
+            <td style="background-color: #ffc107;"><strong>ALTO</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #dc3545; text-align: center; font-size: 9pt; color: #666;">
+    <strong>LASEC USINAGEM</strong> - Estudo de Custo Interno<br>
+    Data: 03/11/2025 | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</body>
+</html>

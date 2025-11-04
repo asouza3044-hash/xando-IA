@@ -87,6 +87,13 @@
           "peca": "EIXO 1.34.03.642",
           "valor": 4402.20,
           "status": "pendente"
+        },
+        {
+          "numero": "003/2025",
+          "data": "2025-11-03",
+          "peca": "EIXO 1.60.01.548",
+          "valor": 4891.80,
+          "status": "pendente"
         }
       ]
     },
@@ -306,10 +313,26 @@
       "margem_liquida_percentual": 9.98,
       "status": "pendente",
       "arquivo": "D:\\lasec\\orcamentos\\2025\\002_MICROGEAR_1.34.03.642"
+    },
+    {
+      "numero": "003/2025",
+      "data": "2025-11-03",
+      "cliente": "MICROGEAR",
+      "peca": "EIXO 1.60.01.548",
+      "material": "45 S 20 K",
+      "quantidade": 60,
+      "preco_unitario": 81.53,
+      "valor_total": 4891.80,
+      "tempo_peça_minutos": 20.0,
+      "hora_maquina_utilizada": 120.00,
+      "margem_liquida_percentual": 14.5,
+      "status": "pendente",
+      "arquivo": "D:\\lasec\\orcamentos\\2025\\003_MICROGEAR_1.60.01.548",
+      "observacoes": "Tratamento térmico 56±2 HRC e retificação são responsabilidade do cliente"
     }
   ],
   "configuracao_sistema": {
-    "contador_orcamento_ano": 2,
+    "contador_orcamento_ano": 3,
     "ano_atual": 2025,
     "pasta_orcamentos": "C:\\lasec\\orcamentos",
     "pasta_templates": "C:\\lasec\\templates",

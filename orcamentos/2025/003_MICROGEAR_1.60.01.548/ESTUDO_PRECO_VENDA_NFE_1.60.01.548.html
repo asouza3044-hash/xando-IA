@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Preço - NFe</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+.header { background-color: #0066cc; color: white; padding: 15px; text-align: center; margin-bottom: 20px; }
+.info-box { background-color: #e7f3ff; border-left: 4px solid #0066cc; padding: 10px; margin-bottom: 20px; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.price-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.price-table th { background-color: #495057; color: white; padding: 8px; text-align: left; }
+.price-table td { border: 1px solid #ddd; padding: 6px; }
+.price-table tr:nth-child(even) { background-color: #f9f9f9; }
+.highlight { background-color: #d4edda !important; font-weight: bold; }
+.total-box { background-color: #d4edda; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745; }
+.alert-box { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h2>💰 ESTUDO DE PREÇO DE VENDA (NFe)</h2>
+    <div style="font-size: 12pt;">EIXO 1.60.01.548 - MICROGEAR</div>
+    <div style="font-size: 10pt;">Formação de Preço com Impostos</div>
+</div>
+
+<div class="info-box">
+    📋 <strong>Documento interno</strong> - Cálculo de preço de venda incluindo impostos e margens
+</div>
+
+<div class="section-title">1. DADOS DO ORÇAMENTO</div>
+<table class="price-table">
+    <tr>
+        <td width="30%"><strong>Peça:</strong></td>
+        <td>EIXO 1.60.01.548</td>
+        <td width="30%"><strong>Cliente:</strong></td>
+        <td>MICROGEAR</td>
+    </tr>
+    <tr>
+        <td><strong>Material:</strong></td>
+        <td>45 S 20 K (fornecido)</td>
+        <td><strong>Quantidade:</strong></td>
+        <td>60 peças</td>
+    </tr>
+    <tr>
+        <td><strong>Processo:</strong></td>
+        <td>Torneamento CNC pré-têmpera</td>
+        <td><strong>Máquina:</strong></td>
+        <td>Romi GL280</td>
+    </tr>
+    <tr>
+        <td><strong>Tratamento térmico:</strong></td>
+        <td colspan="3">56±2 HRC - CLIENTE FAZ (não incluso)</td>
+    </tr>
+</table>
+
+<div class="alert-box">
+    <strong>⚠️ IMPORTANTE:</strong> Este orçamento inclui SOMENTE o torneamento pré-têmpera. Tratamento térmico e retificação são responsabilidade do cliente.
+</div>
+
+<div class="section-title">2. COMPOSIÇÃO DE CUSTOS</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Detalhamento</th>
+            <th>Valor Unitário</th>
+            <th>Total (60 pçs)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>MOD (Mão de Obra Direta)</strong></td>
+            <td>20 min/pç × R$ 120/h</td>
+            <td>R$ 40,00</td>
+            <td>R$ 2.400,00</td>
+        </tr>
+        <tr>
+            <td><strong>Custos Indiretos (58%)</strong></td>
+            <td>Energia, ferramentas, depreciação</td>
+            <td>R$ 23,20</td>
+            <td>R$ 1.392,00</td>
+        </tr>
+        <tr class="highlight">
+            <td><strong>CUSTO TOTAL DE FABRICAÇÃO</strong></td>
+            <td>MOD + Indiretos</td>
+            <td><strong>R$ 63,20</strong></td>
+            <td><strong>R$ 3.792,00</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">3. FORMAÇÃO DE PREÇO (MARKUP 1.290)</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th width="40%">Componente</th>
+            <th width="15%">Percentual</th>
+            <th width="20%">Valor/peça</th>
+            <th width="25%">Total (60 pçs)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Custo de fabricação</td>
+            <td>-</td>
+            <td>R$ 63,20</td>
+            <td>R$ 3.792,00</td>
+        </tr>
+        <tr>
+            <td>Markup aplicado</td>
+            <td>29,0%</td>
+            <td>R$ 18,33</td>
+            <td>R$ 1.099,80</td>
+        </tr>
+        <tr class="highlight">
+            <td><strong>PREÇO DE VENDA BASE</strong></td>
+            <td><strong>-</strong></td>
+            <td><strong>R$ 81,53</strong></td>
+            <td><strong>R$ 4.891,80</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">4. IMPOSTOS E DEDUÇÕES (SIMPLES NACIONAL)</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Alíquota</th>
+            <th>Valor/peça</th>
+            <th>Total (60 pçs)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Faturamento bruto</td>
+            <td>-</td>
+            <td>R$ 81,53</td>
+            <td>R$ 4.891,80</td>
+        </tr>
+        <tr>
+            <td>(-) Simples Nacional (Anexo II)</td>
+            <td>8,5%</td>
+            <td>R$ 6,93</td>
+            <td>R$ 415,80</td>
+        </tr>
+        <tr>
+            <td>(-) Comissão vendas</td>
+            <td>2,0%</td>
+            <td>R$ 1,63</td>
+            <td>R$ 97,84</td>
+        </tr>
+        <tr>
+            <td>(-) Despesas comerciais</td>
+            <td>2,0%</td>
+            <td>R$ 1,63</td>
+            <td>R$ 97,84</td>
+        </tr>
+        <tr class="highlight">
+            <td><strong>LUCRO LÍQUIDO</strong></td>
+            <td><strong>14,5%</strong></td>
+            <td><strong>R$ 11,81</strong></td>
+            <td><strong>R$ 708,60</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">5. RESUMO FINANCEIRO - LOTE 60 PEÇAS</div>
+
+<div class="total-box">
+    <table style="width: 100%; font-size: 11pt;">
+        <tr>
+            <td width="60%"><strong>💰 PREÇO UNITÁRIO:</strong></td>
+            <td style="text-align: right; font-size: 14pt;"><strong>R$ 81,53/peça</strong></td>
+        </tr>
+        <tr>
+            <td><strong>📦 VALOR TOTAL NFe (60 peças):</strong></td>
+            <td style="text-align: right; font-size: 14pt;"><strong>R$ 4.891,80</strong></td>
+        </tr>
+        <tr style="border-top: 2px solid #28a745;">
+            <td><strong>Custo total de fabricação:</strong></td>
+            <td style="text-align: right;">R$ 3.792,00</td>
+        </tr>
+        <tr>
+            <td><strong>Margem bruta:</strong></td>
+            <td style="text-align: right;"><strong>R$ 1.099,80 (29,0%)</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Impostos e deduções:</strong></td>
+            <td style="text-align: right;">R$ 611,48 (12,5%)</td>
+        </tr>
+        <tr style="background-color: #c3e6cb;">
+            <td><strong>💵 LUCRO LÍQUIDO:</strong></td>
+            <td style="text-align: right;"><strong>R$ 708,60 (14,5%)</strong></td>
+        </tr>
+    </table>
+</div>
+
+<div class="section-title">6. COMPARATIVO DE LOTES</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th>Lote</th>
+            <th>Preço Unitário</th>
+            <th>Valor Total NFe</th>
+            <th>Lucro Líquido</th>
+            <th>Rentabilidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #d4edda;">
+            <td><strong>60 peças</strong></td>
+            <td><strong>R$ 81,53</strong></td>
+            <td><strong>R$ 4.891,80</strong></td>
+            <td><strong>R$ 708,60</strong></td>
+            <td><strong>14,5%</strong></td>
+        </tr>
+        <tr>
+            <td>100 peças</td>
+            <td>R$ 75,00</td>
+            <td>R$ 7.500,00</td>
+            <td>R$ 532,00</td>
+            <td>7,1%</td>
+        </tr>
+        <tr>
+            <td>150 peças</td>
+            <td>R$ 71,00</td>
+            <td>R$ 10.650,00</td>
+            <td>R$ 419,25</td>
+            <td>3,9%</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="alert-box">
+    <strong>💡 RECOMENDAÇÃO:</strong> O lote de 60 peças oferece a melhor rentabilidade (14,5%). Para lotes maiores, considerar ajuste no markup para manter rentabilidade mínima de 10%.
+</div>
+
+<div class="section-title">7. CONDIÇÕES COMERCIAIS</div>
+
+<table class="price-table">
+    <tr>
+        <td width="30%"><strong>Prazo de entrega:</strong></td>
+        <td>15-20 dias úteis após confirmação</td>
+    </tr>
+    <tr>
+        <td><strong>Condição de pagamento:</strong></td>
+        <td>50% antecipado + 50% contra entrega</td>
+    </tr>
+    <tr>
+        <td><strong>Validade da proposta:</strong></td>
+        <td>15 dias</td>
+    </tr>
+    <tr>
+        <td><strong>Garantia:</strong></td>
+        <td>Dimensional conforme desenho (pré-têmpera)</td>
+    </tr>
+    <tr>
+        <td><strong>Frete:</strong></td>
+        <td>CIF São Paulo/SP (incluso)</td>
+    </tr>
+</table>
+
+<div class="section-title">8. OBSERVAÇÕES IMPORTANTES</div>
+
+<div class="alert-box">
+    <strong>⚠️ ESCOPO DO FORNECIMENTO LASEC:</strong>
+    <ul style="margin: 10px 0;">
+        <li>✅ <strong>INCLUSO:</strong> Torneamento CNC pré-têmpera com sobremetal para retificação</li>
+        <li>❌ <strong>NÃO INCLUSO:</strong> Tratamento térmico 56±2 HRC (cliente responsável)</li>
+        <li>❌ <strong>NÃO INCLUSO:</strong> Retificação pós-têmpera (cliente responsável)</li>
+        <li>⚠️ <strong>IMPORTANTE:</strong> Peça fornecida com sobremetal adequado para retificação após têmpera</li>
+    </ul>
+</div>
+
+<div class="alert-box">
+    <strong>📋 ANTES DE CONFIRMAR O PEDIDO:</strong>
+    <ol style="margin: 10px 0;">
+        <li>Validar quantidade de sobremetal necessária para retificação pós-têmpera</li>
+        <li>Confirmar capacidade do cliente para tratamento térmico 56±2 HRC</li>
+        <li>Confirmar capacidade do cliente para retificação pós-têmpera</li>
+        <li>Recomendamos peça piloto para validação dimensional</li>
+    </ol>
+</div>
+
+<div class="section-title">9. ANÁLISE DE RENTABILIDADE</div>
+
+<table class="price-table">
+    <thead>
+        <tr>
+            <th width="40%">Indicador</th>
+            <th width="20%">Valor</th>
+            <th width="40%">Avaliação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #d4edda;">
+            <td>Margem bruta</td>
+            <td>29,0%</td>
+            <td>✅ Excelente - Acima da meta (25%)</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td>Lucro líquido</td>
+            <td>14,5%</td>
+            <td>✅ Muito bom - Acima da meta (10%)</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td>Preço competitivo</td>
+            <td>R$ 81,53/pç</td>
+            <td>✅ Competitivo no mercado</td>
+        </tr>
+        <tr style="background-color: #d4edda;">
+            <td>Viabilidade</td>
+            <td>Alta</td>
+            <td>✅ Orçamento recomendado</td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #0066cc; text-align: center; font-size: 9pt; color: #666;">
+    <strong>LASEC USINAGEM</strong> - Estudo de Preço NFe<br>
+    Data: 03/11/2025 | Orçamento 003/2025 | <span style="color: #0066cc; font-weight: bold;">DOCUMENTO INTERNO</span>
+</div>
+
+</body>
+</html>
