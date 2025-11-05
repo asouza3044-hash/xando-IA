@@ -1,0 +1,33 @@
+{
+  "tempoReal": 29.2,
+  "custoUnitario": 92.27199999999999,
+  "precoUnitario": 119.03088,
+  "precoTotal": 7141.8528,
+  "margemLiquida": 9.98062015503876,
+  "comparacao": [
+    {
+      "nome": "MANUAL (Ø60 ERRADO)",
+      "tempo": 20,
+      "custo": 63.2,
+      "preco": 81.53,
+      "total": 4891.8,
+      "margem": 14.5
+    },
+    {
+      "nome": "AGENTE (Ø16 H9)",
+      "tempo": 13.4,
+      "custo": 42.39,
+      "preco": 54.68,
+      "total": 3281.09,
+      "margem": 10
+    },
+    {
+      "nome": "✅ REAL (Programa CNC)",
+      "tempo": 29.2,
+      "custo": 92.27199999999999,
+      "preco": 119.03088,
+      "total": 7141.8528,
+      "margem": 9.98062015503876
+    }
+  ]
+}

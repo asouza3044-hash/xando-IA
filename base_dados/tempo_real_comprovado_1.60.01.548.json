@@ -1,0 +1,78 @@
+{
+  "pecaProcessada": "1.60.01.548",
+  "cliente": "MICROGEAR",
+  "dataAnalise": "2025-11-05T14:22:36.816Z",
+  "fonteTempoReal": "Ordem de Produção (as-built)",
+  "tempoRealComprovado": 8,
+  "maquinaReal": "Dosan I P 4004",
+  "operador": "ANDRE",
+  "quantidade": 60,
+  "custos": {
+    "custoUnitario": 25.279999999999998,
+    "precoUnitario": 32.6112,
+    "precoTotal": 1956.6719999999998,
+    "margemLiquida": 9.980620155038752
+  },
+  "comparacoes": [
+    {
+      "fonte": "MANUAL (Ø60mm ERRADO)",
+      "tempo": 20,
+      "custo": 63.2,
+      "preco": 81.53,
+      "total": 4891.8,
+      "margem": 14.5,
+      "status": "❌"
+    },
+    {
+      "fonte": "AGENTE (Ø16 H9)",
+      "tempo": 13.4,
+      "custo": 42.39,
+      "preco": 54.68,
+      "total": 3281.09,
+      "margem": 10,
+      "status": "❌"
+    },
+    {
+      "fonte": "PROGRAMA CNC (análise)",
+      "tempo": 29.2,
+      "custo": 92.27,
+      "preco": 119.03,
+      "total": 7141.85,
+      "margem": 10,
+      "status": "❌"
+    },
+    {
+      "fonte": "✅ REAL (Ordem Produção)",
+      "tempo": 8,
+      "custo": 25.279999999999998,
+      "preco": 32.6112,
+      "total": 1956.6719999999998,
+      "margem": 9.980620155038752,
+      "status": "✅"
+    }
+  ],
+  "errosIdentificados": [
+    {
+      "fonte": "MANUAL (Ø60mm ERRADO)",
+      "erroTempo": 150,
+      "erroCusto": 150.00000000000003,
+      "erroPreco": 150.00613286232954,
+      "erroTotal": 150.00613286232957
+    },
+    {
+      "fonte": "AGENTE (Ø16 H9)",
+      "erroTempo": 67.5,
+      "erroCusto": 67.68196202531648,
+      "erroPreco": 67.67245608870573,
+      "erroTotal": 67.68727717266871
+    },
+    {
+      "fonte": "PROGRAMA CNC (análise)",
+      "erroTempo": 265,
+      "erroCusto": 264.99208860759495,
+      "erroPreco": 264.99730154057505,
+      "erroTotal": 264.99985689987903
+    }
+  ],
+  "recomendacao": "Usar sempre dados de OP real quando disponível. Estimativas podem variar 150-265% da realidade!"
+}

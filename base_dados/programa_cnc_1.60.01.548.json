@@ -1,0 +1,136 @@
+{
+  "codigoPeca": "1.60.01.548",
+  "tipoPeca": "EIXO",
+  "material": "45 S 20 K",
+  "materialBruto": {
+    "diametro": 16,
+    "tolerancia": "H9",
+    "tipo": "retificado"
+  },
+  "tempoRealProducao": 29.2105,
+  "ferramentasUtilizadas": {
+    "1212": {
+      "numero": "1212",
+      "usos": 2,
+      "operacoes": [
+        "BROCA CENTRO 3,15X8MM",
+        "BROCA CENTRO 3,15X8MM"
+      ]
+    },
+    "00": {
+      "numero": "00",
+      "usos": 16,
+      "operacoes": [
+        "FACE",
+        "FACE",
+        "PERFIL EXT",
+        "PERFIL EXT",
+        "BROCA CENTRO 3,15X8MM",
+        "BROCA CENTRO 3,15X8MM",
+        "FACE",
+        "FACE",
+        "ACAB FACE",
+        "ACAB FACE",
+        "B2 CANAL",
+        "B2 CANAL",
+        "BROCA CENTRO 3,15X8MM",
+        "BROCA CENTRO 3,15X8MM",
+        "B3 CANAL",
+        "B3 CANAL"
+      ]
+    },
+    "0606": {
+      "numero": "0606",
+      "usos": 2,
+      "operacoes": [
+        "FACE",
+        "FACE"
+      ]
+    },
+    "0404": {
+      "numero": "0404",
+      "usos": 2,
+      "operacoes": [
+        "PERFIL EXT",
+        "ACAB FACE"
+      ]
+    },
+    "0505": {
+      "numero": "0505",
+      "usos": 2,
+      "operacoes": [
+        "B2 CANAL",
+        "B3 CANAL"
+      ]
+    }
+  },
+  "operacoes": [
+    {
+      "nome": "FACE",
+      "ferramenta": "00",
+      "rpm": 2000,
+      "avanco": 0.18,
+      "tempoEstimado": 1.9000000000000001
+    },
+    {
+      "nome": "PERFIL EXT",
+      "ferramenta": "00",
+      "rpm": 3000,
+      "avanco": 0.18,
+      "tempoEstimado": 8.855833333333335
+    },
+    {
+      "nome": "BROCA CENTRO 3,15X8MM",
+      "ferramenta": "00",
+      "rpm": 1300,
+      "avanco": 0.07,
+      "tempoEstimado": 0.9
+    },
+    {
+      "nome": "FACE",
+      "ferramenta": "00",
+      "rpm": 2000,
+      "avanco": 0.18,
+      "tempoEstimado": 1.9000000000000001
+    },
+    {
+      "nome": "ACAB FACE",
+      "ferramenta": "00",
+      "rpm": 3000,
+      "avanco": 0.15,
+      "tempoEstimado": 1
+    },
+    {
+      "nome": "B2 CANAL",
+      "ferramenta": "00",
+      "rpm": 500,
+      "avanco": 0.05,
+      "tempoEstimado": 6.912
+    },
+    {
+      "nome": "BROCA CENTRO 3,15X8MM",
+      "ferramenta": "00",
+      "rpm": 1300,
+      "avanco": 0.07,
+      "tempoEstimado": 0.9
+    },
+    {
+      "nome": "B3 CANAL",
+      "ferramenta": "00",
+      "rpm": 1500,
+      "avanco": 0.05,
+      "tempoEstimado": 4.542666666666666
+    }
+  ],
+  "parametrosCNC": {
+    "sistemaComando": "Fanuc",
+    "maquina": "Romi GL280",
+    "numeroPrograma": "O0404"
+  },
+  "observacoes": [
+    "Programa utiliza inversão de placa (dois setups)",
+    "Operações de acabamento com compensação de raio G42",
+    "Canais com redução de velocidade para S500",
+    "Parada programada M00 para virar peça"
+  ]
+}
