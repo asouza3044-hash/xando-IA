@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - 1.60.01.548</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; color: #333; font-size: 10pt; }
+.header { background-color: #003366; color: white; padding: 15px; text-align: center; margin-bottom: 15px; }
+.logo-area { font-size: 18pt; font-weight: bold; letter-spacing: 2px; }
+.info-section { background-color: #f8f9fa; border: 2px solid #003366; padding: 10px; margin: 10px 0; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 15px; margin-bottom: 8px; font-size: 11pt; }
+.process-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 9pt; }
+.process-table th { background-color: #495057; color: white; padding: 6px; text-align: left; border: 1px solid #ddd; }
+.process-table td { border: 1px solid #ddd; padding: 5px; vertical-align: top; }
+.process-table tr:nth-child(even) { background-color: #f9f9f9; }
+.operation-box { background-color: #e7f3ff; border-left: 4px solid #0066cc; padding: 10px; margin: 8px 0; }
+.alert-box { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 8px 0; font-size: 9pt; }
+.critical-box { background-color: #f8d7da; border-left: 4px solid #dc3545; padding: 10px; margin: 8px 0; font-size: 9pt; }
+.setup-box { background-color: #d4edda; border-left: 4px solid #28a745; padding: 10px; margin: 8px 0; }
+.tool-card { border: 1px solid #ddd; padding: 8px; margin: 5px 0; background-color: #f8f9fa; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo-area">LASEC USINAGEM</div>
+    <div style="font-size: 11pt;">PROCESSO DE FABRICAÇÃO</div>
+    <div style="font-size: 9pt; margin-top: 5px;">Documento Técnico Interno</div>
+</div>
+
+<div class="info-section">
+    <table style="width: 100%; font-size: 9pt;">
+        <tr>
+            <td width="50%">
+                <strong>Peça:</strong> EIXO 1.60.01.548<br>
+                <strong>Cliente:</strong> MICROGEAR<br>
+                <strong>Material:</strong> 45 S 20 K (fornecido)<br>
+                <strong>Dureza:</strong> ~200 HB (pré-têmpera)
+            </td>
+            <td width="50%" style="text-align: right;">
+                <strong>Orçamento:</strong> 003/2025<br>
+                <strong>Lote:</strong> 60 peças<br>
+                <strong>Data:</strong> 03/11/2025<br>
+                <strong>Revisão:</strong> 00
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="critical-box">
+    <strong>⚠️ ATENÇÃO CRÍTICA:</strong> Esta peça requer <strong>TRATAMENTO TÉRMICO 56±2 HRC</strong> após usinagem (cliente faz).
+    Deixar <strong>SOBREMETAL ADEQUADO</strong> para retificação pós-têmpera. Não usinar dimensões finais!
+</div>
+
+<div class="section-title">1. ANÁLISE DA PEÇA</div>
+
+<table class="process-table">
+    <tr>
+        <td width="30%"><strong>Tipo:</strong></td>
+        <td>Eixo com múltiplos diâmetros</td>
+    </tr>
+    <tr>
+        <td><strong>Comprimento total:</strong></td>
+        <td>189 mm ±0,5mm</td>
+    </tr>
+    <tr>
+        <td><strong>Diâmetros principais:</strong></td>
+        <td>Múltiplos diâmetros escalonados com tolerâncias H12</td>
+    </tr>
+    <tr>
+        <td><strong>Material bruto:</strong></td>
+        <td>Barra redonda Ø60 mm x 195 mm (fornecido pelo cliente)</td>
+    </tr>
+    <tr>
+        <td><strong>Peso aproximado:</strong></td>
+        <td>3,5 kg (bruto) / 2,1 kg (acabado)</td>
+    </tr>
+    <tr>
+        <td><strong>Usinabilidade:</strong></td>
+        <td>Boa - Aço carbono médio-alto (~200 HB)</td>
+    </tr>
+</table>
+
+<div class="section-title">2. CARACTERÍSTICAS DO MATERIAL - 45 S 20 K</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th>Propriedade</th>
+            <th>Valor</th>
+            <th>Observações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Designação DIN:</strong></td>
+            <td>C45 / 45 S 20 K</td>
+            <td>Equivalente: SAE 1045, AISI 1045</td>
+        </tr>
+        <tr>
+            <td><strong>Teor de carbono:</strong></td>
+            <td>0,42-0,50%</td>
+            <td>Médio-alto teor de carbono</td>
+        </tr>
+        <tr>
+            <td><strong>Dureza bruta:</strong></td>
+            <td>180-220 HB</td>
+            <td>Estado normalizado</td>
+        </tr>
+        <tr>
+            <td><strong>Dureza após têmpera:</strong></td>
+            <td>56±2 HRC</td>
+            <td>Cliente faz o tratamento</td>
+        </tr>
+        <tr>
+            <td><strong>Resistência tração:</strong></td>
+            <td>620-700 MPa</td>
+            <td>Estado normalizado</td>
+        </tr>
+        <tr>
+            <td><strong>Usinabilidade:</strong></td>
+            <td>70-80%</td>
+            <td>Boa usinabilidade (base AISI 1212 = 100%)</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="alert-box">
+    <strong>💡 IMPORTANTE PARA USINAGEM:</strong> Material apresenta boa usinabilidade no estado normalizado (~200 HB).
+    Atenção para possíveis variações de dureza no material bruto que podem afetar vida da ferramenta.
+</div>
+
+<div class="section-title">3. EQUIPAMENTO E SETUP</div>
+
+<div class="setup-box">
+    <strong>🔧 MÁQUINA:</strong> Centro de Torneamento CNC Romi GL280
+    <ul style="margin: 5px 0; padding-left: 20px;">
+        <li>Torre: 12 posições</li>
+        <li>Rotação máxima: 4000 rpm</li>
+        <li>Potência: 20 HP</li>
+        <li>Curso Z: 500 mm</li>
+        <li>Diâmetro máx sobre barramento: 480 mm</li>
+        <li>Diâmetro máx sobre carro: 280 mm</li>
+    </ul>
+</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th width="25%">Item</th>
+            <th width="75%">Especificação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Fixação peça:</strong></td>
+            <td>Placa 3 castanhas universal + ponta rotativa (lado oposto)</td>
+        </tr>
+        <tr>
+            <td><strong>Comprimento fixação:</strong></td>
+            <td>40 mm na placa (lado Ø60mm maior)</td>
+        </tr>
+        <tr>
+            <td><strong>Ponta rotativa:</strong></td>
+            <td>Centro cone morse CM3 - apoio durante usinagem de comprimentos longos</td>
+        </tr>
+        <tr>
+            <td><strong>Balanço máximo:</strong></td>
+            <td>155 mm (189mm total - 40mm fixação + 6mm face)</td>
+        </tr>
+        <tr>
+            <td><strong>Fluido de corte:</strong></td>
+            <td>Emulsão sintética 5% - vazão 40 L/min</td>
+        </tr>
+        <tr>
+            <td><strong>Sistema zero peça:</strong></td>
+            <td>Face frontal como Z0, eixo da peça como X0</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="section-title">4. FERRAMENTAS E PASTILHAS - KENNAMETAL</div>
+
+<div class="tool-card">
+    <strong>🔹 FERRAMENTA 1 - DESBASTE EXTERNO</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="30%"><strong>Suporte:</strong></td>
+            <td>Kennametal DCLNR 2525M-12</td>
+        </tr>
+        <tr>
+            <td><strong>Pastilha:</strong></td>
+            <td>Kennametal CNMG 120408-KCP25 (KC725M)</td>
+        </tr>
+        <tr>
+            <td><strong>Grade:</strong></td>
+            <td>KC725M - CVD coating multi-layer (TiCN/Al2O3/TiN)</td>
+        </tr>
+        <tr>
+            <td><strong>Geometria:</strong></td>
+            <td>CNMG 12 - 80° losango, chip breaker KCP25</td>
+        </tr>
+        <tr>
+            <td><strong>Aplicação:</strong></td>
+            <td>Desbaste de diâmetros externos - remoção de material</td>
+        </tr>
+        <tr>
+            <td><strong>Raio de ponta:</strong></td>
+            <td>0,8 mm</td>
+        </tr>
+    </table>
+</div>
+
+<div class="tool-card">
+    <strong>🔹 FERRAMENTA 2 - ACABAMENTO EXTERNO</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="30%"><strong>Suporte:</strong></td>
+            <td>Kennametal DCLNR 2525M-12</td>
+        </tr>
+        <tr>
+            <td><strong>Pastilha:</strong></td>
+            <td>Kennametal CNMG 120404-MF3 (KC5010)</td>
+        </tr>
+        <tr>
+            <td><strong>Grade:</strong></td>
+            <td>KC5010 - PVD coating (TiAlN) para acabamento fino</td>
+        </tr>
+        <tr>
+            <td><strong>Geometria:</strong></td>
+            <td>CNMG 12 - 80° losango, chip breaker MF3 (acabamento)</td>
+        </tr>
+        <tr>
+            <td><strong>Aplicação:</strong></td>
+            <td>Acabamento dimensional e superficial</td>
+        </tr>
+        <tr>
+            <td><strong>Raio de ponta:</strong></td>
+            <td>0,4 mm</td>
+        </tr>
+    </table>
+</div>
+
+<div class="tool-card">
+    <strong>🔹 FERRAMENTA 3 - FACEAMENTO</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="30%"><strong>Suporte:</strong></td>
+            <td>Kennametal DDJNR 2525M-15</td>
+        </tr>
+        <tr>
+            <td><strong>Pastilha:</strong></td>
+            <td>Kennametal DNMG 150608-KF (KC5010)</td>
+        </tr>
+        <tr>
+            <td><strong>Grade:</strong></td>
+            <td>KC5010 - PVD coating</td>
+        </tr>
+        <tr>
+            <td><strong>Aplicação:</strong></td>
+            <td>Faceamento de topos e cantos</td>
+        </tr>
+    </table>
+</div>
+
+<div class="tool-card">
+    <strong>🔹 FERRAMENTA 4 - RECARTILHAMENTO/CANAIS (se necessário)</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="30%"><strong>Suporte:</strong></td>
+            <td>Kennametal porta-bedame 20mm</td>
+        </tr>
+        <tr>
+            <td><strong>Ferramenta:</strong></td>
+            <td>Bedame 3mm largura (conforme desenho)</td>
+        </tr>
+        <tr>
+            <td><strong>Aplicação:</strong></td>
+            <td>Canais de alívio entre diâmetros</td>
+        </tr>
+    </table>
+</div>
+
+<div class="alert-box">
+    <strong>📋 ESTOQUE DE PASTILHAS:</strong> Manter mínimo 5 pastilhas de cada tipo em estoque.
+    Vida útil média: 30-40 peças por aresta (desbaste) / 50-60 peças (acabamento) dependendo das condições.
+</div>
+
+<div class="section-title">5. PARÂMETROS DE CORTE - KENNAMETAL (Aço C45 ~200HB)</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th rowspan="2">Operação</th>
+            <th rowspan="2">Ferramenta</th>
+            <th colspan="2">Velocidade Corte (Vc)</th>
+            <th colspan="2">Avanço (fn)</th>
+            <th rowspan="2">Prof. Corte (ap)</th>
+        </tr>
+        <tr>
+            <th>m/min</th>
+            <th>rpm*</th>
+            <th>mm/rot</th>
+            <th>mm/min</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Desbaste externo</strong></td>
+            <td>CNMG-KCP25</td>
+            <td>220-250</td>
+            <td>1200-1400</td>
+            <td>0,30-0,50</td>
+            <td>360-700</td>
+            <td>2,0-4,0 mm</td>
+        </tr>
+        <tr>
+            <td><strong>Semi-acabamento</strong></td>
+            <td>CNMG-MF3</td>
+            <td>250-280</td>
+            <td>1400-1600</td>
+            <td>0,15-0,25</td>
+            <td>210-400</td>
+            <td>0,5-1,5 mm</td>
+        </tr>
+        <tr>
+            <td><strong>Acabamento final</strong></td>
+            <td>CNMG-MF3</td>
+            <td>280-320</td>
+            <td>1600-1800</td>
+            <td>0,08-0,15</td>
+            <td>130-270</td>
+            <td>0,2-0,5 mm</td>
+        </tr>
+        <tr>
+            <td><strong>Faceamento</strong></td>
+            <td>DNMG-KF</td>
+            <td>220-250</td>
+            <td>1200-1400</td>
+            <td>0,20-0,35</td>
+            <td>240-490</td>
+            <td>1,0-3,0 mm</td>
+        </tr>
+        <tr>
+            <td><strong>Canais/bedame</strong></td>
+            <td>Bedame 3mm</td>
+            <td>80-100</td>
+            <td>450-550</td>
+            <td>0,05-0,10</td>
+            <td>23-55</td>
+            <td>Largura 3mm</td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="font-size: 8pt; margin: 5px 0;">
+    <em>*rpm calculado para diâmetro médio Ø50mm. Ajustar conforme diâmetro: rpm = (Vc × 1000) / (π × D)</em>
+</div>
+
+<div class="alert-box">
+    <strong>⚙️ OTIMIZAÇÃO:</strong> Parâmetros baseados em Kennametal para aço C45 normalizado.
+    Ajustar Vc e fn baseado em:<br>
+    • <strong>Reduzir 15-20%</strong> se material apresentar dureza >220 HB<br>
+    • <strong>Aumentar 10%</strong> para operações curtas ou alta rigidez<br>
+    • <strong>Fluido abundante</strong> essencial para vida da ferramenta<br>
+    • <strong>Monitorar desgaste</strong> de flanco VB < 0,3mm
+</div>
+
+<div class="section-title">6. SEQUÊNCIA DE OPERAÇÕES - PROCESSO COMPLETO</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 10 - PREPARAÇÃO E INSPEÇÃO INICIAL</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>2 min (primeira peça) / 0,5 min (demais)</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Receber material bruto Ø60mm x 195mm do cliente<br>
+                2. Inspecionar visualmente: trincas, óxido excessivo, empenamento<br>
+                3. Medir diâmetro bruto (deve estar entre Ø58-62mm)<br>
+                4. Verificar comprimento (deve estar ≥195mm)<br>
+                5. Limpar material (remover óleo/sujeira excessiva)
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Instrumentos:</strong></td>
+            <td>Paquímetro 200mm (±0,05mm), trena</td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 20 - FIXAÇÃO E SETUP MÁQUINA</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>3 min (primeira peça) / 1 min (troca peças)</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Fixar peça na placa 3 castanhas - comprimento fixação 40mm<br>
+                2. Verificar concentricidade < 0,1mm com relógio comparador<br>
+                3. Posicionar ponta rotativa no lado oposto (centro CM3)<br>
+                4. Ajustar pressão da ponta (firme mas sem forçar)<br>
+                5. Carregar programa CNC: PRG_1_60_01_548_V01.NC<br>
+                6. Zerar peça: Z0 na face, X0 no eixo
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Instrumentos:</strong></td>
+            <td>Relógio comparador, apalpador eletrônico (Renishaw)</td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 30 - FACEAMENTO TOPO FRONTAL</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Ferramenta:</strong></td>
+            <td>T03 - DNMG 150608-KF (faceamento)</td>
+        </tr>
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>1,5 min</td>
+        </tr>
+        <tr>
+            <td><strong>Parâmetros:</strong></td>
+            <td>Vc = 230 m/min | rpm = 1300 | fn = 0,25 mm/rot | ap = 2mm</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Facear topo frontal - remover 3-5mm (casca/óxido)<br>
+                2. Deixar face plana e perpendicular ao eixo (±0,05mm)<br>
+                3. Esta face será referência Z0 para todas as operações<br>
+                4. Inspecionar planicidade e perpendicularidade
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Inspeção:</strong></td>
+            <td>Esquadro de precisão, apalpador</td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 40 - DESBASTE DIÂMETROS EXTERNOS (1ª PASSADA)</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Ferramenta:</strong></td>
+            <td>T01 - CNMG 120408-KCP25 (desbaste)</td>
+        </tr>
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>5 min</td>
+        </tr>
+        <tr>
+            <td><strong>Parâmetros:</strong></td>
+            <td>Vc = 240 m/min | rpm = 1350 | fn = 0,40 mm/rot | ap = 3mm</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Desbastar todos os diâmetros em passes de 3mm<br>
+                2. Deixar <strong>SOBREMETAL:</strong><br>
+                   • Diâmetros: +1,5mm no diâmetro (0,75mm por lado)<br>
+                   • Comprimentos: +0,5mm<br>
+                3. Estratégia: do maior para o menor diâmetro<br>
+                4. Atenção à pressão da ponta rotativa (ajustar se vibrar)<br>
+                5. Monitorar temperatura da peça e fluido de corte
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Cuidados:</strong></td>
+            <td>
+                ⚠️ Não usinar dimensões finais! Deixar sobremetal para retificação pós-têmpera<br>
+                ⚠️ Se houver vibração, reduzir ap para 2mm e aumentar rpm
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="critical-box">
+    <strong>🎯 SOBREMETAL CRÍTICO:</strong>
+    <ul style="margin: 5px 0;">
+        <li><strong>Diâmetros externos:</strong> +1,5mm (0,75mm por lado) - para retificação pós-têmpera</li>
+        <li><strong>Comprimentos/ombros:</strong> +0,5mm - compensar deformação da têmpera</li>
+        <li><strong>Faces/topos:</strong> +0,3mm - compensar empenamento</li>
+    </ul>
+    Este sobremetal é essencial para que o cliente possa retificar após tratamento térmico!
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 50 - SEMI-ACABAMENTO DIÂMETROS</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Ferramenta:</strong></td>
+            <td>T02 - CNMG 120404-MF3 (acabamento)</td>
+        </tr>
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>4 min</td>
+        </tr>
+        <tr>
+            <td><strong>Parâmetros:</strong></td>
+            <td>Vc = 270 m/min | rpm = 1550 | fn = 0,18 mm/rot | ap = 0,8mm</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Passada de semi-acabamento em todos os diâmetros<br>
+                2. Reduzir sobremetal para:<br>
+                   • Diâmetros: +0,8mm (0,4mm por lado)<br>
+                   • Comprimentos: +0,3mm<br>
+                3. Melhorar acabamento superficial (Ra ~3,2 μm)<br>
+                4. Preparar para acabamento final
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 60 - ACABAMENTO FINAL DIÂMETROS (PRÉ-TÊMPERA)</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Ferramenta:</strong></td>
+            <td>T02 - CNMG 120404-MF3 (acabamento)</td>
+        </tr>
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>4,5 min</td>
+        </tr>
+        <tr>
+            <td><strong>Parâmetros:</strong></td>
+            <td>Vc = 300 m/min | rpm = 1700 | fn = 0,12 mm/rot | ap = 0,4mm</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Acabamento fino de todos os diâmetros<br>
+                2. <strong>DIMENSÕES FINAIS PRÉ-TÊMPERA com sobremetal:</strong><br>
+                   • Diâmetros: Desenho + 1,5mm (exemplo: Ø30 → Ø31,5)<br>
+                   • Comprimentos: Desenho + 0,5mm<br>
+                   • Tolerâncias: H12 aplicadas sobre dimensão com sobremetal<br>
+                3. Acabamento superficial: Ra ≤ 1,6 μm<br>
+                4. Atenção especial aos ombros e transições<br>
+                5. Manter refrigeração abundante
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Controle:</strong></td>
+            <td>
+                Verificar 100% das dimensões com paquímetro/micrômetro<br>
+                Confirmar sobremetal em TODOS os diâmetros
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 70 - CANAIS E RASGOS (se aplicável)</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Ferramenta:</strong></td>
+            <td>T04 - Bedame 3mm</td>
+        </tr>
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>1 min (se necessário)</td>
+        </tr>
+        <tr>
+            <td><strong>Parâmetros:</strong></td>
+            <td>Vc = 90 m/min | rpm = 500 | fn = 0,08 mm/rot | ap = 3mm</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Usinar canais de alívio entre diâmetros (conforme desenho)<br>
+                2. Profundidade e largura conforme especificado<br>
+                3. Acabamento com passada final leve
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 80 - FACEAMENTO FINAL E COMPRIMENTO</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Ferramenta:</strong></td>
+            <td>T03 - DNMG 150608-KF</td>
+        </tr>
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>1 min</td>
+        </tr>
+        <tr>
+            <td><strong>Parâmetros:</strong></td>
+            <td>Vc = 240 m/min | rpm = 1350 | fn = 0,20 mm/rot | ap = 0,5mm</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Ajustar comprimento total para 189,5mm (+0,5mm sobremetal)<br>
+                2. Face plana e perpendicular<br>
+                3. Quebrar arestas vivas (chanfro 0,3 x 45°)<br>
+                4. Acabamento Ra ≤ 1,6 μm
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 90 - INSPEÇÃO DIMENSIONAL 100%</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>2 min</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                <strong>VERIFICAR (condição PRÉ-TÊMPERA com sobremetal):</strong><br>
+                1. Todos os diâmetros: Desenho + 1,5mm ±H12<br>
+                2. Comprimento total: 189,5mm ±0,5mm<br>
+                3. Comprimentos parciais: Desenho + 0,5mm<br>
+                4. Perpendicularidade faces: ±0,05mm<br>
+                5. Acabamento superficial: Ra ≤ 1,6 μm<br>
+                6. Ausência de rebarbas e arestas vivas<br>
+                7. <strong>CONFIRMAR PRESENÇA DO SOBREMETAL!</strong>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Instrumentos:</strong></td>
+            <td>
+                • Paquímetro digital 200mm (±0,01mm)<br>
+                • Micrômetro externo 0-100mm (±0,001mm)<br>
+                • Rugosímetro portátil<br>
+                • Esquadro de precisão<br>
+                • Relógio comparador
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Documentação:</strong></td>
+            <td>Preencher relatório de inspeção dimensional (1ª, 5ª e última peça)</td>
+        </tr>
+    </table>
+</div>
+
+<div class="operation-box">
+    <strong>OPERAÇÃO 100 - LIMPEZA E EMBALAGEM</strong>
+    <table style="width: 100%; margin-top: 5px; font-size: 9pt;">
+        <tr>
+            <td width="25%"><strong>Tempo:</strong></td>
+            <td>0,5 min</td>
+        </tr>
+        <tr>
+            <td><strong>Descrição:</strong></td>
+            <td>
+                1. Limpeza com ar comprimido (remover cavacos)<br>
+                2. Limpeza com pano limpo (remover óleo/fluido)<br>
+                3. Aplicar óleo protetivo anticorrosivo<br>
+                4. Identificar peça com etiqueta: Nº peça, lote, data<br>
+                5. Embalar em papel VCI ou plástico bolha<br>
+                6. Acondicionar em caixa com separadores
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="section-title">7. RESUMO DE TEMPOS E PRODUTIVIDADE</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th>Operação</th>
+            <th>Tempo (min)</th>
+            <th>% do total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>10 - Preparação e inspeção inicial</td>
+            <td>0,5</td>
+            <td>2,5%</td>
+        </tr>
+        <tr>
+            <td>20 - Fixação e setup</td>
+            <td>1,0</td>
+            <td>5,0%</td>
+        </tr>
+        <tr>
+            <td>30 - Faceamento topo frontal</td>
+            <td>1,5</td>
+            <td>7,5%</td>
+        </tr>
+        <tr>
+            <td>40 - Desbaste diâmetros</td>
+            <td>5,0</td>
+            <td>25,0%</td>
+        </tr>
+        <tr>
+            <td>50 - Semi-acabamento</td>
+            <td>4,0</td>
+            <td>20,0%</td>
+        </tr>
+        <tr>
+            <td>60 - Acabamento final</td>
+            <td>4,5</td>
+            <td>22,5%</td>
+        </tr>
+        <tr>
+            <td>70 - Canais (se aplicável)</td>
+            <td>1,0</td>
+            <td>5,0%</td>
+        </tr>
+        <tr>
+            <td>80 - Faceamento final</td>
+            <td>1,0</td>
+            <td>5,0%</td>
+        </tr>
+        <tr>
+            <td>90 - Inspeção dimensional</td>
+            <td>2,0</td>
+            <td>10,0%</td>
+        </tr>
+        <tr>
+            <td>100 - Limpeza e embalagem</td>
+            <td>0,5</td>
+            <td>2,5%</td>
+        </tr>
+        <tr style="background-color: #d4edda; font-weight: bold;">
+            <td><strong>TEMPO TOTAL POR PEÇA</strong></td>
+            <td><strong>20,0 min</strong></td>
+            <td><strong>100%</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="process-table" style="margin-top: 10px;">
+    <tr>
+        <td width="40%"><strong>Tempo total lote 60 peças:</strong></td>
+        <td><strong>20,0 horas</strong> (1200 minutos)</td>
+    </tr>
+    <tr>
+        <td><strong>Produtividade:</strong></td>
+        <td>3 peças/hora (incluindo setup e inspeção)</td>
+    </tr>
+    <tr>
+        <td><strong>Tempo setup inicial:</strong></td>
+        <td>+15 min (primeira peça do lote)</td>
+    </tr>
+    <tr>
+        <td><strong>Peças por turno (8h):</strong></td>
+        <td>~24 peças</td>
+    </tr>
+    <tr>
+        <td><strong>Dias para completar lote:</strong></td>
+        <td>3 dias (2 turnos) + inspeção final</td>
+    </tr>
+</table>
+
+<div class="section-title">8. CONTROLE DE QUALIDADE E INSPEÇÃO</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th>Característica</th>
+            <th>Especificação PRÉ-TÊMPERA</th>
+            <th>Instrumento</th>
+            <th>Frequência</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Diâmetros externos</td>
+            <td>Desenho + 1,5mm ±H12</td>
+            <td>Micrômetro ±0,001mm</td>
+            <td>100% (1ª, 5ª, última)</td>
+        </tr>
+        <tr>
+            <td>Comprimento total</td>
+            <td>189,5mm ±0,5mm</td>
+            <td>Paquímetro ±0,01mm</td>
+            <td>100%</td>
+        </tr>
+        <tr>
+            <td>Comprimentos parciais</td>
+            <td>Desenho + 0,5mm ±0,3mm</td>
+            <td>Paquímetro ±0,01mm</td>
+            <td>1ª, 5ª, última</td>
+        </tr>
+        <tr>
+            <td>Perpendicularidade</td>
+            <td>±0,05mm</td>
+            <td>Esquadro + relógio</td>
+            <td>1ª, última</td>
+        </tr>
+        <tr>
+            <td>Acabamento superficial</td>
+            <td>Ra ≤ 1,6 μm</td>
+            <td>Rugosímetro</td>
+            <td>1ª, 10ª, última</td>
+        </tr>
+        <tr>
+            <td>Sobremetal diâmetros</td>
+            <td>+1,5mm (0,75mm/lado)</td>
+            <td>Micrômetro</td>
+            <td>100% (crítico!)</td>
+        </tr>
+        <tr>
+            <td>Visual (trincas, riscos)</td>
+            <td>Ausência de defeitos</td>
+            <td>Inspeção visual</td>
+            <td>100%</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="critical-box">
+    <strong>⚠️ INSPEÇÃO CRÍTICA - SOBREMETAL:</strong>
+    <ul style="margin: 5px 0;">
+        <li>TODAS as peças devem ter sobremetal verificado e documentado</li>
+        <li>Peça SEM sobremetal adequado será REFUGADA pelo cliente após têmpera</li>
+        <li>Na dúvida, adicionar 0,2mm extra no sobremetal</li>
+        <li>Primeira peça deve ser aprovada antes de continuar lote</li>
+    </ul>
+</div>
+
+<div class="section-title">9. DOCUMENTAÇÃO E RASTREABILIDADE</div>
+
+<table class="process-table">
+    <tr>
+        <td width="35%"><strong>Ordem de Produção:</strong></td>
+        <td>OP-003-2025 (vincular ao orçamento 003/2025)</td>
+    </tr>
+    <tr>
+        <td><strong>Desenho técnico:</strong></td>
+        <td>1.60.01.548.pdf (cliente MICROGEAR)</td>
+    </tr>
+    <tr>
+        <td><strong>Programa CNC:</strong></td>
+        <td>PRG_1_60_01_548_V01.NC (armazenar backup)</td>
+    </tr>
+    <tr>
+        <td><strong>Relatório inspeção:</strong></td>
+        <td>RI-003-2025 (preencher 1ª, 5ª e última peça)</td>
+    </tr>
+    <tr>
+        <td><strong>Certificado dimensional:</strong></td>
+        <td>CD-003-2025 (emitir para o lote - condição pré-têmpera)</td>
+    </tr>
+    <tr>
+        <td><strong>Identificação peça:</strong></td>
+        <td>Etiqueta: "1.60.01.548 | Lote 60pç | PRÉ-TÊMPERA | Data | OP-003-2025"</td>
+    </tr>
+    <tr>
+        <td><strong>Nota de entrega:</strong></td>
+        <td>Incluir: "Peças fornecidas PRÉ-TRATAMENTO TÉRMICO com sobremetal para retificação"</td>
+    </tr>
+</table>
+
+<div class="section-title">10. OBSERVAÇÕES E ALERTAS IMPORTANTES</div>
+
+<div class="critical-box">
+    <strong>🔴 CRÍTICO - LEIA ANTES DE INICIAR PRODUÇÃO:</strong>
+    <ol style="margin: 5px 0; line-height: 1.8;">
+        <li><strong>SOBREMETAL OBRIGATÓRIO:</strong> Peça será temperada pelo cliente (56±2 HRC).
+        SEM sobremetal adequado, peça será refugada após têmpera. Conferir 100% das dimensões!</li>
+
+        <li><strong>NÃO USINAR DIMENSÕES FINAIS:</strong> Todas as dimensões devem ter sobremetal.
+        Diâmetros: +1,5mm | Comprimentos: +0,5mm</li>
+
+        <li><strong>PRIMEIRA PEÇA PILOTO:</strong> Produzir 1ª peça e enviar para aprovação do cliente ANTES de fazer lote completo.
+        Cliente precisa validar se sobremetal está adequado para processo de retificação dele.</li>
+
+        <li><strong>CERTIFICADO PRÉ-TÊMPERA:</strong> Certificado dimensional é válido apenas para condição PRÉ-TRATAMENTO TÉRMICO.
+        Deixar claro na documentação.</li>
+
+        <li><strong>VARIAÇÃO DE DUREZA:</strong> Material pode apresentar dureza variável (180-220 HB).
+        Se perceber variação, ajustar Vc e monitorar desgaste da ferramenta.</li>
+    </ol>
+</div>
+
+<div class="alert-box">
+    <strong>💡 DICAS DE PROCESSO:</strong>
+    <ul style="margin: 5px 0;">
+        <li>Fluido de corte abundante e limpo é essencial para vida da ferramenta</li>
+        <li>Monitorar vibração - ajustar pressão da ponta rotativa se necessário</li>
+        <li>Trocar pastilha se desgaste VB > 0,3mm ou acabamento superficial degradar</li>
+        <li>Manter temperatura da peça controlada para evitar dilatação térmica</li>
+        <li>Proteger peças acabadas com óleo anticorrosivo</li>
+        <li>Armazenar em local seco até entrega ao cliente</li>
+    </ul>
+</div>
+
+<div class="alert-box">
+    <strong>📞 SUPORTE TÉCNICO:</strong><br>
+    Dúvidas sobre processo: Alexandre Gonçalves (11) 3936-5041<br>
+    Suporte Kennametal: 0800-771-1788<br>
+    Eng. Processo LASEC: processos@lasec.com.br
+</div>
+
+<div class="section-title">11. HISTÓRICO DE REVISÕES</div>
+
+<table class="process-table">
+    <thead>
+        <tr>
+            <th width="10%">Rev.</th>
+            <th width="15%">Data</th>
+            <th width="20%">Responsável</th>
+            <th width="55%">Descrição da alteração</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>00</td>
+            <td>03/11/2025</td>
+            <td>Alexandre Souza</td>
+            <td>Emissão inicial - Processo completo baseado em parâmetros Kennametal</td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="margin-top: 30px; padding-top: 15px; border-top: 2px solid #003366; text-align: center; font-size: 8pt; color: #666;">
+    <strong>LASEC USINAGEM</strong> - Processo de Fabricação<br>
+    Peça: EIXO 1.60.01.548 | Orçamento: 003/2025 | Revisão: 00<br>
+    Data: 03/11/2025 | <span style="color: #dc3545; font-weight: bold;">DOCUMENTO INTERNO - NÃO ENVIAR AO CLIENTE</span>
+</div>
+
+</body>
+</html>
