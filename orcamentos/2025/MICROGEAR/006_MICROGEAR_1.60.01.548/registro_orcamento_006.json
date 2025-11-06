@@ -1,0 +1,19 @@
+{
+  "numero": "006/2025",
+  "data": "2025-11-06",
+  "cliente": "MICROGEAR",
+  "peca": "1.60.01.548",
+  "material": "Ø16 H9 retificado",
+  "quantidade": 60,
+  "tempoMinutos": 9,
+  "custoUnitario": 11.85,
+  "precoUnitario": 16.59,
+  "valorTotal": 995.15,
+  "margemLiquida": 20.7,
+  "status": "valido",
+  "dadosASBUILT": true,
+  "maquina": "DOOSAN 2",
+  "programa": "O0404",
+  "operador": "ANDRE",
+  "pasta": "d:/lasec/orcamentos/2025/MICROGEAR/006_MICROGEAR_1.60.01.548"
+}

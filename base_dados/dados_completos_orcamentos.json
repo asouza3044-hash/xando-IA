@@ -310,8 +310,8 @@
       "tempo_peça_minutos": 9,
       "hora_maquina_utilizada": 120,
       "margem_liquida_percentual": 19.8,
-      "status": "pendente",
-      "arquivo": "C:\\lasec\\orcamentos\\2025\\001_MICROGEAR_1.34.12.710"
+      "status": "valido",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\MICROGEAR\\001_MICROGEAR_1.34.12.710"
     },
     {
       "numero": "002/2025",
@@ -325,8 +325,8 @@
       "tempo_peça_minutos": 18,
       "hora_maquina_utilizada": 120,
       "margem_liquida_percentual": 9.98,
-      "status": "pendente",
-      "arquivo": "D:\\lasec\\orcamentos\\2025\\002_MICROGEAR_1.34.03.642"
+      "status": "valido",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\MICROGEAR\\002_MICROGEAR_1.34.03.642"
     },
     {
       "numero": "003/2025",
@@ -340,9 +340,9 @@
       "tempo_peça_minutos": 20,
       "hora_maquina_utilizada": 120,
       "margem_liquida_percentual": 14.5,
-      "status": "pendente",
-      "arquivo": "D:\\lasec\\orcamentos\\2025\\003_MICROGEAR_1.60.01.548",
-      "observacoes": "Tratamento térmico 56±2 HRC e retificação são responsabilidade do cliente"
+      "status": "OBSOLETO",
+      "arquivo": "D:\\lasec\\orcamentos\\2025\\_OBSOLETOS\\003_MICROGEAR_1.60.01.548",
+      "observacoes": "OBSOLETO - Erro leitura material (Ø60 vs Ø16) - Substituído por 006/2025"
     },
     {
       "numero": "004/2025",
@@ -356,8 +356,9 @@
       "tempo_peça_minutos": 13.415,
       "hora_maquina_utilizada": 120,
       "margem_liquida_percentual": 9.980620155038764,
-      "status": "pendente",
-      "arquivo": "d:\\lasec\\orcamentos\\2025\\0042025_MICROGEAR_1.60.01.548"
+      "status": "OBSOLETO",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\_OBSOLETOS\\0042025_MICROGEAR_1.60.01.548",
+      "observacoes": "OBSOLETO - Estimativa sem AS-BUILT - Substituído por 006/2025"
     },
     {
       "numero": "005/2025",
@@ -371,12 +372,33 @@
       "tempo_peça_minutos": 13.415,
       "hora_maquina_utilizada": 120,
       "margem_liquida_percentual": 9.980620155038764,
-      "status": "pendente",
-      "arquivo": "d:\\lasec\\orcamentos\\2025\\0052025_MICROGEAR_1.60.01.548"
+      "status": "OBSOLETO",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\_OBSOLETOS\\0052025_MICROGEAR_1.60.01.548",
+      "observacoes": "OBSOLETO - Teste agente sem AS-BUILT - Substituído por 006/2025"
+    },
+    {
+      "numero": "006/2025",
+      "data": "2025-11-06",
+      "cliente": "MICROGEAR",
+      "peca": "HASTE 1.60.01.548",
+      "material": "Ø16 H9 retificado",
+      "quantidade": 60,
+      "preco_unitario": 16.59,
+      "valor_total": 995.15,
+      "tempo_peça_minutos": 9.0,
+      "hora_maquina_utilizada": 121,
+      "margem_liquida_percentual": 20.7,
+      "status": "valido",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\MICROGEAR\\006_MICROGEAR_1.60.01.548",
+      "observacoes": "✅ DADOS AS-BUILT - Ordem Produção DOOSAN 2, Op. ANDRE - Tratamento 56±2 HRC (cliente)",
+      "dadosASBUILT": true,
+      "maquina": "DOOSAN 2",
+      "programa": "O0404",
+      "operador": "ANDRE"
     }
   ],
   "configuracao_sistema": {
-    "contador_orcamento_ano": 5,
+    "contador_orcamento_ano": 6,
     "ano_atual": 2025,
     "pasta_orcamentos": "C:\\lasec\\orcamentos",
     "pasta_templates": "C:\\lasec\\templates",
