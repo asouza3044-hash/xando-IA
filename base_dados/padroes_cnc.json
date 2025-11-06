@@ -1,0 +1,1640 @@
+{
+  "dataExtracao": "2025-11-06T15:26:12.307Z",
+  "maquinas": {
+    "DESCONHECIDA": {
+      "totalExemplos": 0,
+      "ferramentasComuns": [],
+      "operacoesComuns": [],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "CENTU30D": {
+      "totalExemplos": 0,
+      "ferramentasComuns": [],
+      "operacoesComuns": [],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "CENTU30S": {
+      "totalExemplos": 0,
+      "ferramentasComuns": [],
+      "operacoesComuns": [],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "DISCO560": {
+      "totalExemplos": 0,
+      "ferramentasComuns": [],
+      "operacoesComuns": [],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "DISCO760": {
+      "totalExemplos": 0,
+      "ferramentasComuns": [],
+      "operacoesComuns": [],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "G240": {
+      "totalExemplos": 5,
+      "ferramentasComuns": [
+        {
+          "ferramenta": "T0606",
+          "frequencia": 3
+        },
+        {
+          "ferramenta": "T0202",
+          "frequencia": 3
+        },
+        {
+          "ferramenta": "T0505",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T1212",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0808",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0404",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0707",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0909",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T1010",
+          "frequencia": 1
+        },
+        {
+          "ferramenta": "T1111",
+          "frequencia": 1
+        }
+      ],
+      "operacoesComuns": [
+        "FACE",
+        "ACAB FACE",
+        "CANAL FRONTAL 1,5MM",
+        "15@ EXT",
+        "15@ INT",
+        "PENTA DESB",
+        "CORTE B1,4",
+        "TRACI",
+        "FURO7.8MM",
+        "CANAL RBH",
+        "ROSCA 1/4",
+        "DESB",
+        "TORN.INTERNO",
+        "BROCA 3,4",
+        "CORTE"
+      ],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "GL280": {
+      "totalExemplos": 3,
+      "ferramentasComuns": [
+        {
+          "ferramenta": "T0505",
+          "frequencia": 3
+        },
+        {
+          "ferramenta": "T0303",
+          "frequencia": 3
+        },
+        {
+          "ferramenta": "T0909",
+          "frequencia": 3
+        },
+        {
+          "ferramenta": "T0707",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T1111",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0101",
+          "frequencia": 1
+        },
+        {
+          "ferramenta": "T0202",
+          "frequencia": 1
+        }
+      ],
+      "operacoesComuns": [
+        "DESB/ACAB/EXT",
+        "DESB INT",
+        "ACAB INT",
+        "B2TAEGU",
+        "FACEAMENTO E DESBASTE",
+        "ACABAMENTO",
+        "FURACAO T-MAX 29MM",
+        "DESBASTE INTERNO",
+        "ACABAMENTO INTERNO",
+        "ACABAMENTO EXTERNO",
+        "CANAL FRONTAL",
+        "ACABAMENTO CANAL",
+        "AWLNR2525M06-WNMG060408",
+        "TDR4290-25T-09",
+        "A20QPWLNR06-WNMG060408"
+      ],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "LYNX220": {
+      "totalExemplos": 5,
+      "ferramentasComuns": [
+        {
+          "ferramenta": "T1010",
+          "frequencia": 4
+        },
+        {
+          "ferramenta": "T1111",
+          "frequencia": 4
+        },
+        {
+          "ferramenta": "T1212",
+          "frequencia": 4
+        },
+        {
+          "ferramenta": "T0707",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0404",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0101",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0505",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0303",
+          "frequencia": 2
+        },
+        {
+          "ferramenta": "T0909",
+          "frequencia": 1
+        },
+        {
+          "ferramenta": "T0606",
+          "frequencia": 1
+        }
+      ],
+      "operacoesComuns": [
+        "DESB FACE",
+        "ACAB EXT",
+        "DESBASTE EX)( B ",
+        "TMAX 20",
+        "INTER MITSU)(12MM",
+        "CORTE B2",
+        "CORTE INTERNO)(GEHIR 16-13-3",
+        "ZERO",
+        "DESBASTE PERFIL",
+        "ACAB PERFIL",
+        "CORTE",
+        "CONE",
+        "DESB C",
+        "TMAX26",
+        "INTER ACAB VB"
+      ],
+      "sequenciaTipica": [],
+      "observacoes": []
+    },
+    "VTC30A": {
+      "totalExemplos": 0,
+      "ferramentasComuns": [],
+      "operacoesComuns": [],
+      "sequenciaTipica": [],
+      "observacoes": []
+    }
+  },
+  "ferramentalPadrao": {
+    "T00": {
+      "totalUsos": 6,
+      "maquinas": [
+        "DESCONHECIDA",
+        "CENTU30D"
+      ],
+      "exemplosUso": []
+    },
+    "T0505": {
+      "totalUsos": 78,
+      "maquinas": [
+        "DESCONHECIDA",
+        "CENTU30D",
+        "CENTU30S",
+        "DISCO760",
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "ACAB FACE"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000005.TXT",
+          "operacao": "ROSCA 1/4"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "127.txt",
+          "operacao": "ACAB INT"
+        }
+      ]
+    },
+    "T0202": {
+      "totalUsos": 50,
+      "maquinas": [
+        "DESCONHECIDA",
+        "CENTU30D",
+        "CENTU30S",
+        "DISCO760",
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "N/A"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000693.TXT",
+          "operacao": "N/A"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000754.TXT",
+          "operacao": "BROCA1MM"
+        }
+      ]
+    },
+    "T0101": {
+      "totalUsos": 73,
+      "maquinas": [
+        "DESCONHECIDA",
+        "CENTU30D",
+        "CENTU30S",
+        "DISCO760",
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "GL280",
+          "arquivo": "00000005.txt",
+          "operacao": "FURACAO T-MAX 29MM"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "00000248.TXT",
+          "operacao": "CONE"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "00000365.TXT",
+          "operacao": "FRESA 4MM FRONTAL"
+        }
+      ]
+    },
+    "T0707": {
+      "totalUsos": 51,
+      "maquinas": [
+        "DESCONHECIDA",
+        "CENTU30D",
+        "CENTU30S",
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000005.TXT",
+          "operacao": "CANAL RBH"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000754.TXT",
+          "operacao": "BROCA8MM"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "127.txt",
+          "operacao": "DESB INT"
+        }
+      ]
+    },
+    "T0303": {
+      "totalUsos": 58,
+      "maquinas": [
+        "CENTU30D",
+        "CENTU30S",
+        "DISCO760",
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "GL280",
+          "arquivo": "127.txt",
+          "operacao": "B2TAEGU"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "00000005.txt",
+          "operacao": "ACABAMENTO"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "O0307.txt",
+          "operacao": "TDR4290-25T-09"
+        }
+      ]
+    },
+    "T0606": {
+      "totalUsos": 52,
+      "maquinas": [
+        "CENTU30D",
+        "CENTU30S",
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "CORTE B1,4"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000635.TXT",
+          "operacao": "N/A"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000693.TXT",
+          "operacao": "CORTE"
+        }
+      ]
+    },
+    "T0808": {
+      "totalUsos": 57,
+      "maquinas": [
+        "CENTU30D",
+        "CENTU30S",
+        "DISCO760",
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "PENTA DESB"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000693.TXT",
+          "operacao": "BROCA 3,4"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "00000306.TXT",
+          "operacao": "ACAB PCD"
+        }
+      ]
+    },
+    "T0712": {
+      "totalUsos": 1,
+      "maquinas": [
+        "CENTU30D"
+      ],
+      "exemplosUso": []
+    },
+    "T0404": {
+      "totalUsos": 55,
+      "maquinas": [
+        "CENTU30D",
+        "DISCO760",
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "TRACI"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000754.TXT",
+          "operacao": "DESBASTE)(FRONTAL NEUTRA ASTE25MM)(QUADRANTE *2* R.2"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "00000178.TXT",
+          "operacao": "ZERO"
+        }
+      ]
+    },
+    "T0112": {
+      "totalUsos": 1,
+      "maquinas": [
+        "CENTU30D"
+      ],
+      "exemplosUso": []
+    },
+    "T0323": {
+      "totalUsos": 1,
+      "maquinas": [
+        "CENTU30S"
+      ],
+      "exemplosUso": []
+    },
+    "T16": {
+      "totalUsos": 5,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T19": {
+      "totalUsos": 7,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T17": {
+      "totalUsos": 6,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T18": {
+      "totalUsos": 7,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T20": {
+      "totalUsos": 6,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T21": {
+      "totalUsos": 5,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T11": {
+      "totalUsos": 5,
+      "maquinas": [
+        "DISCO560",
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T14": {
+      "totalUsos": 7,
+      "maquinas": [
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T15": {
+      "totalUsos": 5,
+      "maquinas": [
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T12": {
+      "totalUsos": 8,
+      "maquinas": [
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T13": {
+      "totalUsos": 7,
+      "maquinas": [
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T10": {
+      "totalUsos": 4,
+      "maquinas": [
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T22": {
+      "totalUsos": 3,
+      "maquinas": [
+        "DISCO760"
+      ],
+      "exemplosUso": []
+    },
+    "T1212": {
+      "totalUsos": 39,
+      "maquinas": [
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "15@ EXT"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000754.TXT",
+          "operacao": "N/A"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "00000178.TXT",
+          "operacao": "TMAX 20"
+        }
+      ]
+    },
+    "T1010": {
+      "totalUsos": 47,
+      "maquinas": [
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000009.txt",
+          "operacao": "15@ INT"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "Novo Documento de Texto.txt",
+          "operacao": "ACAB EXT"
+        },
+        {
+          "maquina": "LYNX220",
+          "arquivo": "00000248.TXT",
+          "operacao": "N/A"
+        }
+      ]
+    },
+    "T1111": {
+      "totalUsos": 52,
+      "maquinas": [
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000005.TXT",
+          "operacao": "N/A"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "00000005.txt",
+          "operacao": "DESBASTE INTERNO"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "O0307.txt",
+          "operacao": "A20QPWLNR06-WNMG060408"
+        }
+      ]
+    },
+    "T0909": {
+      "totalUsos": 43,
+      "maquinas": [
+        "G240",
+        "GL280",
+        "LYNX220"
+      ],
+      "exemplosUso": [
+        {
+          "maquina": "G240",
+          "arquivo": "00000635.TXT",
+          "operacao": "TORN.INTERNO"
+        },
+        {
+          "maquina": "G240",
+          "arquivo": "00000693.TXT",
+          "operacao": "FACE"
+        },
+        {
+          "maquina": "GL280",
+          "arquivo": "127.txt",
+          "operacao": "DESB/ACAB/EXT"
+        }
+      ]
+    },
+    "T1616": {
+      "totalUsos": 2,
+      "maquinas": [
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T0000": {
+      "totalUsos": 1,
+      "maquinas": [
+        "G240"
+      ],
+      "exemplosUso": []
+    },
+    "T1414": {
+      "totalUsos": 3,
+      "maquinas": [
+        "G240",
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T1717": {
+      "totalUsos": 1,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T2323": {
+      "totalUsos": 1,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T1515": {
+      "totalUsos": 4,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T2020": {
+      "totalUsos": 2,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T1919": {
+      "totalUsos": 3,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T1818": {
+      "totalUsos": 4,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T1313": {
+      "totalUsos": 1,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T1024": {
+      "totalUsos": 1,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T2121": {
+      "totalUsos": 1,
+      "maquinas": [
+        "LYNX220"
+      ],
+      "exemplosUso": []
+    },
+    "T07": {
+      "totalUsos": 1,
+      "maquinas": [
+        "VTC30A"
+      ],
+      "exemplosUso": []
+    }
+  },
+  "metodologias": {
+    "EIXO_SIMPLES": {
+      "descricao": "Eixo simples com faceamento e torneamento",
+      "sequencia": [
+        "1. Faceamento frontal",
+        "2. Desbaste externo",
+        "3. Acabamento externo",
+        "4. Canal (opcional)",
+        "5. Corte/Sangramento"
+      ],
+      "ferramentasNecessarias": [
+        "Facear",
+        "Desbastar",
+        "Acabar",
+        "Canal",
+        "Cortar"
+      ],
+      "aplicavel": [
+        "EIXOS",
+        "HASTES",
+        "PINOS"
+      ]
+    },
+    "BUCHA_INTERNA": {
+      "descricao": "Bucha com usinagem interna",
+      "sequencia": [
+        "1. Faceamento",
+        "2. Furo de centro",
+        "3. Furação",
+        "4. Desbaste interno",
+        "5. Acabamento interno",
+        "6. Rosca interna (opcional)"
+      ],
+      "ferramentasNecessarias": [
+        "Facear",
+        "Broca Centro",
+        "Broca",
+        "Desbaste Int",
+        "Acabamento Int",
+        "Rosca"
+      ],
+      "aplicavel": [
+        "BUCHAS",
+        "PORCAS",
+        "ANÉIS"
+      ]
+    },
+    "PECA_COMPLEXA": {
+      "descricao": "Peça com múltiplas operações",
+      "sequencia": [
+        "1. Faceamento",
+        "2. Desbaste externo",
+        "3. Acabamento externo",
+        "4. Furo de centro",
+        "5. Furação",
+        "6. Canais",
+        "7. Roscas",
+        "8. Acabamento final"
+      ],
+      "ferramentasNecessarias": [
+        "Facear",
+        "Desbastar Ext",
+        "Acabar Ext",
+        "Broca",
+        "Canal",
+        "Rosca",
+        "Acabamento"
+      ],
+      "aplicavel": [
+        "PEÇAS COMPLEXAS",
+        "CONJUNTOS"
+      ]
+    }
+  },
+  "exemplos": [
+    {
+      "maquina": "G240",
+      "arquivo": "00000009.txt",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0505",
+        "T1212",
+        "T1010",
+        "T0808",
+        "T0606",
+        "T0404",
+        "T0202"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "FACE",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "ACAB FACE",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 3,
+          "descricao": "CANAL FRONTAL 1,5MM",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 4,
+          "descricao": "15@ EXT",
+          "ferramenta": "T1212"
+        },
+        {
+          "numero": 5,
+          "descricao": "15@ INT",
+          "ferramenta": "T1010"
+        },
+        {
+          "numero": 6,
+          "descricao": "PENTA DESB",
+          "ferramenta": "T0808"
+        },
+        {
+          "numero": 7,
+          "descricao": "CORTE B1,4",
+          "ferramenta": "T0606"
+        },
+        {
+          "numero": 8,
+          "descricao": "TRACI",
+          "ferramenta": "T0404"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": true,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "% \r\n:2001(SOHIPREN 2.5003.0112190) \r\nG21G40G90G95 \r\nN10(FACE)\r\nG55\r\nG0X200Z200T00\r\nT0505\r\nG97S2500M3 \r\nG0X15Z1.2\r\nM8 \r\nG75X-1Z.2P50000Q400R1F.15\r\nG0X12Z2\r\nG71U.5R1 \r\nG71P1Q2U.1W.05F.15 \r\nN1G0X2 \r\nG1Z0F.15 \r\nX3 \r\nX5.5Z-2\r\nX10R.2 \r\nN2Z-6\r\nM9 \r\nG0X200Z200T00\r\nN20(ACAB FACE) \r\nG55\r\nG0X200Z200T00\r\nT0505\r\nG97S2500M3 \r\nG0X12Z2\r\nG1Z0F.15 \r\nM8 \r\nG1X-1F.15\r\nG0X1.5Z2 \r\nG42\r\nG1Z.03F.15 \r\nX3R.2\r\nX5.55Z-2 \r\nX10R.2 \r\nZ-6\r\nZ-21F.25 \r\nX12\r\nG40\r\nM9 \r\nG0X200Z200T00\r\nN25(CANAL FRONTAL 1,5MM) \r\nG55\r\nG0X200Z200T00\r\nT1212\r\nG97S1300M3 \r\nG0X5.5Z2 \r\nM8 \r\nG1Z-3.45F.03 \r\nZ0 \r\nM9 \r\nG0X200Z200T00\r\nN30(15@ EXT) \r\nG55\r\nG0X200Z200T00\r\nT1010\r\nG97S1300M3 \r\nG0X3Z2 \r\nM8 \r\nG1Z.03F.03 \r\nX5.5Z-2\r\nX5Z-3.45 \r\nX5.5Z-2\r\nZ2F.25 \r\nM9 \r\nG0X200Z200T00\r\nN40(15@ INT) \r\nG55\r\nG0X200Z200T00\r\nT0808\r\nG97S1300M3 \r\nG0X8.5Z2 \r\nM8 \r\nG1Z-1.5F.25\r\nZ-2F.03\r\nX9Z-3.45 \r\nX8.5Z-2\r\nZ2F.25 \r\nM9 \r\nG0X200Z200T00\r\nN50(PENTA DESB)\r\nG55\r\nG0X200Z200T00\r\nT0606\r\nG97S1800M3 \r\nG0X12Z2\r\nZ-7\r\nM8 \r\nG75X6.5Z-20.6P10000Q1000R0F.07 \r\nG1X10.05Z-5F.25\r\nZ-6.5R.3F.03 \r\nX6"
+    },
+    {
+      "maquina": "G240",
+      "arquivo": "00000005.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0707",
+        "T0505",
+        "T1111"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "FURO7.8MM",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "CANAL RBH",
+          "ferramenta": "T0707"
+        },
+        {
+          "numero": 3,
+          "descricao": "ROSCA 1/4",
+          "ferramenta": "T0505"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "\u001b&HE:\u0012% \r\n:0231(ALOJ SEG LADO) \r\nG21G40G90G95 \r\nN10(FURO7.8MM) \r\nG57\r\nG0X200Z200T00\r\nT0707\r\nG97S2000M3 \r\nM8 \r\nG0X0.Z3. \r\nG1Z-2.F.06 \r\nG74Z-11.Q1000F.12\r\nM9 \r\nG0Z100 \r\nN20(CANAL RBH) \r\nG57\r\nG0X200Z200T00\r\nT0505\r\nM8 \r\nG97S1500M3 \r\nG0X7.0Z3.\r\nG1Z-8.0F.3 \r\nG1Z-10.F.13\r\nG75X8.75P1000F.03\r\nM9 \r\nG0Z3.\r\nG0X200Z200T00\r\nN30(ROSCA 1/4) \r\nG57\r\nG0X200Z200T00\r\nT1111\r\nG97S2200M3 \r\nM8 \r\nG0X15.0Z2. \r\nG76P010055 \r\nG76X11.26Z-9.8P875Q200F1.337 \r\nM9 \r\nG0X200Z200T00\r\nM76\r\nM30\r\n%\u0014"
+    },
+    {
+      "maquina": "G240",
+      "arquivo": "00000635.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0909",
+        "T0606"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESB",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "TORN.INTERNO",
+          "ferramenta": "T0909"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": false,
+        "temContorno": true,
+        "temFaceamento": false
+      },
+      "trechoPrograma": "\u001b&HE:\u0012% \r\n:0308(COPO ALFA INSTRUMENTOS)( M ) \r\n(00948.CC.A 1 LADO)\r\nG21G40G90G95 \r\nN10(DESB)\r\nG55\r\nG0X250Z250T00\r\nT0909(DWLNR2525-M06) \r\nG96S250\r\nG92S3000M3 \r\nG0X60Z0\r\nM8 \r\nG1X-1F.25\r\nG0X57.7Z5\r\nG71U1R1\r\nG71P100Q200U1W.1F.22 \r\nN100G0X35\r\nG42\r\nG1Z0F.25 \r\nX49.75,C4\r\nZ-9.05 \r\nX56.7R.4(56.25)\r\nZ-12 \r\nN200G40\r\n \r\nG70P100Q200\r\n \r\nM9 \r\nG0X250Z250T00\r\nN30(TORN.INTERNO)\r\nG55\r\nG0X250Z250T00\r\nT0606(A16MPWLNR06) \r\nG96S250\r\nG92S2700M3 \r\nG0X21Z2\r\nM8 \r\nG74X32.9Z-15.4P1000Q30000R1F.25\r\nG0X38\r\nG41\r\nG1Z0F.25 \r\nX33R1\r\nZ-15.55\r\nX20.8,C.2\r\nZ-20 \r\nG40\r\nG1X18\r\nG0Z5 \r\nM9 \r\nG0X250Z250T00\r\nM76\r\nM30\r\n%\u0014"
+    },
+    {
+      "maquina": "G240",
+      "arquivo": "00000693.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0808",
+        "T0606",
+        "T0909",
+        "T0202"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "FACE",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "BROCA 3,4",
+          "ferramenta": "T0808"
+        },
+        {
+          "numero": 3,
+          "descricao": "CORTE",
+          "ferramenta": "T0606"
+        },
+        {
+          "numero": 4,
+          "descricao": "FACE",
+          "ferramenta": "T0909"
+        },
+        {
+          "numero": 5,
+          "descricao": "BROCA 3,4",
+          "ferramenta": "T0808"
+        },
+        {
+          "numero": 6,
+          "descricao": "CORTE",
+          "ferramenta": "T0606"
+        },
+        {
+          "numero": 7,
+          "descricao": "TRACI",
+          "ferramenta": "T0909"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": true,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "\u001b&HE:\u0012% \r\n:0611(EMBOLO VAZOMETRO)(T/2P 1M6S)(62P/B 1METRO) \r\nG21G40G90G95 \r\nN10(FACE)\r\nG55(170.00)( H ) \r\nG0X200Z250T00\r\nT0808\r\nM8 \r\nM12\r\nG97S4500M3 \r\nG0X18Z0\r\nG1X-1F.12\r\nG0X2Z2 \r\nG42\r\nG1Z0F.15 \r\nG1X5R.5F.07\r\nG1Z-7F.15\r\nG1X11.75R.5F.07\r\nG1Z-15F.15 \r\nG1X18\r\nG40\r\nM9 \r\nG0X200Z250T00\r\nN20(BROCA 3,4) \r\nG55\r\nG0X200Z250T00\r\nT0606\r\nM8 \r\nM12\r\nG97S4500M3 \r\nG0X0Z2 \r\nG1Z-2F.03\r\nG83Z-15F.1 \r\nG80\r\nG0Z2 \r\nM9 \r\nG0X200Z250T00\r\nN30(CORTE) \r\nG55\r\nG0X200Z250T00\r\nT0909\r\nM8 \r\nM12\r\nG97S2000M3 \r\nG0X18Z-12.8\r\nG75X5.5Z-14.8P4200Q1000F.15\r\nG0Z-11.7 \r\nG1X11.75F.07 \r\nG3X10.75Z-12.2R.5F.03\r\nG1X5.4F.15 \r\nG1Z-14.8F.07 \r\nG1X4 \r\nG0X6 \r\nM38\r\nG0Z-14.3 \r\nM9 \r\nG1X5.4F.15 \r\nG3X4.4Z-14.8R.5F.03\r\nG1X-.5F.05 \r\nG0X13.5\r\nM39\r\nG0X200Z250T00\r\nN40(FACE)\r\nG56(154.70)\r\nG0X200Z250T00\r\nT0808\r\nM8 \r\nM12\r\nG97S4500M3 \r\nG0X18Z0\r\nG1X-1F.12\r\nG0X2Z2 \r\nG42\r\nG1Z0F.15 \r\nG1X5R.5F.07\r\nG1Z-7F.15\r\nG1X11.75R.5F.07\r\nG1Z-15F.15 \r\nG1X18\r\nG40\r\nM9 \r\nG0X200Z250T00\r\nN50(BROCA 3,4) \r\nG56\r\nG0X200Z250T00\r\nT0606\r\nM8 \r\nM12\r\nG97S4500M3 \r\nG0X0Z2 \r\nG1Z-2F.03\r\nG83Z-1"
+    },
+    {
+      "maquina": "G240",
+      "arquivo": "00000754.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0707",
+        "T0202",
+        "T0404",
+        "T1212"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "FACE",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "BROCA8MM",
+          "ferramenta": "T0707"
+        },
+        {
+          "numero": 3,
+          "descricao": "BROCA1MM",
+          "ferramenta": "T0202"
+        },
+        {
+          "numero": 4,
+          "descricao": "DESBASTE)(FRONTAL NEUTRA ASTE25MM)(QUADRANTE *2* R.2",
+          "ferramenta": "T0404"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": true,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "\u001b&HE:\u0012% \r\n:0307(2 LADO W60)(TEMPO PC -2M29S-)\r\n(CASTANHA *A*) \r\nG21G40G90G95 \r\nN05(FACE)\r\nG55(239.327) \r\nG0X200Z200T00\r\nT0707(SCLCR 2020K12) \r\nG97S3000M3 \r\nG0X125Z3.5 \r\nG75X0Z.1P200000Q1000R1F.15 \r\nG0X200Z200T00\r\nN10(BROCA8MM)\r\nG55\r\nG0X200Z200T00\r\nT0202\r\nG97S2000M3 \r\nG0X0Z5 \r\nG83Z-12.5Q3000R0F.1\r\nG80\r\nG0X200Z200T00\r\nN20(BROCA1MM)\r\nG55\r\nG0X200Z200T00\r\nT0404\r\nG97S3000M3 \r\nG0X0Z2 \r\nG1Z-14.38F.07\r\nG0Z5 \r\nG0X200Z200T00\r\nN30(DESBASTE)(FRONTAL NEUTRA ASTE25MM)(QUADRANTE *2* R.2)\r\nG55\r\nG00X200Z200T00 \r\nT1212\r\nG97S4000M3 \r\nN25G0X124.84Z3.\r\nN30X116.784\r\nN35G1X112.784F.2 \r\nN40Z1. \r\nN45X105.208Z0. \r\nN50X0.4\r\nN55G0Z0.2\r\nN60X101.208\r\nN65G1X105.208Z0.F.1\r\nN70X97.63Z-1.\r\nN75X0.4\r\nN80G0Z-0.8 \r\nN85X97.63\r\nN90G1Z-1.\r\nN95X94.968Z-1.352F.05\r\nN100G2X94.787Z-1.404R0.2 \r\nN105G1X94.248Z-1.673 \r\nN110X92.598\r\nN115G2X92.495Z-1.68R0.2\r\nN120G1X90.084Z-2.F.1 \r\nN125X0.4 \r\nN130G0Z-1.8\r\nN135X90.084\r\nN140G1Z-2.F.1\r\nN145G3X82.505Z-3.R1448.143 \r\nN150G1X0.4 \r\nN155G0Z-2.8\r\nN160X82.504\r\nN165G1Z-3. \r\nN170G3X74.841Z-4.R1448.14"
+    },
+    {
+      "maquina": "GL280",
+      "arquivo": "127.txt",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0707",
+        "T0505",
+        "T0303",
+        "T0909"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESB/ACAB/EXT",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "DESB INT",
+          "ferramenta": "T0707"
+        },
+        {
+          "numero": 3,
+          "descricao": "ACAB INT",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 4,
+          "descricao": "B2TAEGU",
+          "ferramenta": "T0303"
+        },
+        {
+          "numero": 5,
+          "descricao": "DESB/ACAB/EXT",
+          "ferramenta": "T0909"
+        },
+        {
+          "numero": 6,
+          "descricao": "DESB INT",
+          "ferramenta": "T0707"
+        },
+        {
+          "numero": 7,
+          "descricao": "ACAB INT",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 8,
+          "descricao": "B2TAEGU",
+          "ferramenta": "T0303"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": false,
+        "temContorno": false,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "%\n\r\rO0127(BRONZE 1.60.12.827)(2/1<ECA)(CAST P G280)(6BAR)\n\r\rG21G40G90G95 \n\r\rM99P5\n\r\rN1(DESB/ACAB/EXT)\n\r\rG55\n\r\rG0X200Z200T00\n\r\rT0707(V4LADO)\n\r\rG97S2500M3 \n\r\rG0X60Z.1 \n\r\rM8 \n\r\rG1X20F.15\n\r\rG0X56.25Z5 \n\r\rG74X51.25Z-11.4P1500Q50000R1F.1\n\r\rG0X40\n\r\rG42\n\r\rG1Z0F.1\n\r\rX50.395R.05\n\r\rX51.125Z-1 \n\r\rZ-8.35 \n\r\rX50.025Z-9.85F.05\n\r\rZ-11.4 \n\r\rX60F.25\n\r\rG40\n\r\rM9 \n\r\rG0Z2 \n\r\rX200Z200T00\n\r\rN2(DESB INT) \n\r\rG55\n\r\rG0X200Z200T00\n\r\rT0505(A20T)\n\r\rG97S2500M3 \n\r\rG0X22.5Z5\n\r\rM8 \n\r\rG74X44.5Z-11.4P1500Q50000R1F.1 \n\r\rM9 \n\r\rG0X250Z250T00\n\r\rN3(ACAB INT) \n\r\rG55\n\r\rG0X200Z200T00\n\r\rT0303(A20T)\n\r\rG97S2500M3 \n\r\rG0X47Z5\n\r\rM8 \n\r\rG41\n\r\rG1Z.02F.1\n\r\rX45.97R.05 \n\r\rX44.7Z-1.1 \n\r\rZ-8.25 \n\r\rX46.43Z-9.75F.05 \n\r\rZ-11.4 \n\r\rX30\n\r\rG40\n\r\rM9 \n\r\rG0Z2 \n\r\rX200Z200T00\n\r\rN4(B2TAEGU)\n\r\rG55\n\r\rG0X200Z200T00\n\r\rT0909\n\r\rG97S800M3\n\r\rG0X60Z2\n\r\rG1Z-11.35F.35\n\r\rM38\n\r\rG1X46.5F.03\n\r\rM9 \n\r\rX42F.03\n\r\rX29F.15\n\r\rG0X60\n\r\rX200Z200T00\n\r\rM76\n\r\rM39\n\r\rN5(DESB/ACAB/EXT)\n\r\rG56\n\r\rG0X200Z200T00\n\r\rT0707(V4LADO)\n\r\rG97S2500M3 \n\r\rG0X60Z.1 \n\r\rM8 \n\r\rG1X20F.15\n\r\rG0X56.25Z5 \n\r\rG74X"
+    },
+    {
+      "maquina": "GL280",
+      "arquivo": "00000005.txt",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0303",
+        "T0101",
+        "T1111",
+        "T0505",
+        "T0909",
+        "T0707"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "FACEAMENTO E DESBASTE",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "ACABAMENTO",
+          "ferramenta": "T0303"
+        },
+        {
+          "numero": 3,
+          "descricao": "FURACAO T-MAX 29MM",
+          "ferramenta": "T0101"
+        },
+        {
+          "numero": 4,
+          "descricao": "DESBASTE INTERNO",
+          "ferramenta": "T1111"
+        },
+        {
+          "numero": 5,
+          "descricao": "ACABAMENTO INTERNO",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 6,
+          "descricao": "FACEAMENTO E DESBASTE",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 7,
+          "descricao": "ACABAMENTO EXTERNO",
+          "ferramenta": "T0303"
+        },
+        {
+          "numero": 8,
+          "descricao": "FURACAO T-MAX 29MM",
+          "ferramenta": "T0101"
+        },
+        {
+          "numero": 9,
+          "descricao": "DESBASTE INTERNO",
+          "ferramenta": "T1111"
+        },
+        {
+          "numero": 10,
+          "descricao": "ACABAMENTO INTERNO",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 11,
+          "descricao": "CANAL FRONTAL",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 12,
+          "descricao": "CANAL FRONTAL",
+          "ferramenta": "T0909"
+        },
+        {
+          "numero": 13,
+          "descricao": "ACABAMENTO CANAL",
+          "ferramenta": "T0909"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": true,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "%\r\nO0005(ENGRENAGEM 1.03.00.306)\r\n(MICROGEAR 1 LADO 10.58 SEG.) \r\nG21G40G90G95G99 \r\nN10(FACEAMENTO E DESBASTE) \r\nG55\r\nG0X250Z250T00\r\nT0303(TWLNR2020K06-WMNG060408)\r\nG96S250\r\nG92S2500M3 \r\nG0X166Z5 \r\nM8 \r\nG1Z-50F.25 \r\nX170 \r\nG0Z1 \r\nG96S200\r\nG92S2000M3 \r\nG75X0Z.1P200000Q1000R2F.25 \r\nG96S250\r\nG92S2500M3 \r\nG0X164Z5.\r\nG74X160Z-50P1000Q800000R1F.25\r\nG0Z-1\r\nG75X57.5Z-19.65P200000Q1000R2.F.25 \r\nM9 \r\nG0X250.Z250.T00\r\nN20(ACABAMENTO) \r\nG55\r\nG0X250Z250T00\r\nT0101(MTJNR2020K16-TNMG160408) \r\nG96S250\r\nG92S2500M3 \r\nG0X35Z5\r\nM8 \r\nG42\r\nG1Z0F.27 \r\nX56.55R.3\r\nZ-19.7 \r\nX159.4R.3\r\nZ-45 \r\nX165 \r\nG40\r\nM9 \r\nG0Z5 \r\nG0X250Z250T00\r\nN30(FURACAO T-MAX 29MM)\r\nG55\r\nG0X250Z250T00\r\nT1111(TDR4290-25T2-09)\r\nG97S1535M3 \r\nG0X0Z5 \r\nM8 \r\nG74Z-110.Q200000R0F.15\r\nM9 \r\nG0X250Z250T00\r\nN40(DESBASTE INTERNO)\r\nG55\r\nG0X250Z250T00\r\nT0505(A20QPTNR16-TNMG160408)\r\nG96S250\r\nG92S2000M3 \r\nG0X30Z5\r\nM8 \r\nG71U1R1. \r\nG71P100Q200U-.8W.1F.27 \r\nN100G0X41\r\nG1Z.02F.25 \r\nX38.08 \r\nX37.18Z-.81\r\nZ-36.8 \r\nN200X30.65Z-40.015 \r\nM9 \r\nG0X250Z250T00\r\nN50(ACAB"
+    },
+    {
+      "maquina": "GL280",
+      "arquivo": "O0307.txt",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0303",
+        "T1111",
+        "T0909",
+        "T0202",
+        "T0505"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "AWLNR2525M06-WNMG060408",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "TDR4290-25T-09",
+          "ferramenta": "T0303"
+        },
+        {
+          "numero": 3,
+          "descricao": "A20QPWLNR06-WNMG060408",
+          "ferramenta": "T1111"
+        },
+        {
+          "numero": 4,
+          "descricao": "CTER2525-3T25",
+          "ferramenta": "T0909"
+        },
+        {
+          "numero": 5,
+          "descricao": "CANAL FACE",
+          "ferramenta": "T0202"
+        },
+        {
+          "numero": 6,
+          "descricao": "AWLNR2525M06-WNMG060408",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 7,
+          "descricao": "A20Q-PWLNR06-WNMG060408",
+          "ferramenta": "T0303"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": true,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": false
+      },
+      "trechoPrograma": "%\nO0307(MICROGEAR 1.24.00.322) \n(TEMPO TOTAL 5MIN) \nG21G40G90G95 \nN10(AWLNR2525M06-WNMG060408) \nG55\nG0X250Z250T00\nT0303\nG96S280\nG92S2800M3 \nG0X100Z1.5 \nM8 \nG75X0Z0P90000Q1000R1F.3\nG0X95\nG74X90Z-20P1000Q30000R1F.3 \nZ-1.9\nG1X89.5F.2 \nX72.5Z.3 \nG0Z5 \nX30\nG42\nG1Z0F.3\nX72.5\nX89.3Z-2R.2\nZ-20 \nX98\nG40\nM9 \nG0Z5 \nG0X250Z250T00\nN20(TDR4290-25T-09)\nG55\nG0X250Z250T00\nT1111\nG97S1547M3 \nG0X0Z5 \nM8 \nG83Z-37.Q80000R0F.12 \nG80M9\nG0X250Z250T00\nN30(A20QPWLNR06-WNMG060408)\nG55\nG0X250Z250T00\nT0909\nG97S2500M3 \nG0X30Z3. \nM8 \nG74X36.85Z-37P1000Q60000R1F.27 \nG0X38\nG74X42Z-2.4P1000Q50000R1F.27 \nG0X45\nG41\nG1Z0F0.3 \nX42R.2 \nZ-2.5\nX36.85C.5\nZ-37 \nX34\nG40\nM9 \nG0Z5.\nG0X250Z250T00\nN40(CTER2525-3T25) \nG55\nG0X250Z250T00\nT0202\nG96S130\nG92S2200M3 \nG0X93Z5. \nZ-18.2 \nM8 \nG75R1. \nG75X60P1000R0F.1 \nG0Z-17.7 \nG1X60F.1 \nZ-17.9 \nG0X93\nZ-17.2 \nG1X89.3F.1 \nX88.3Z-17.7\nX92\nZ-18.7 \nG1X73.2F.1 \nX72.1Z-18.2\nG0X95\nM9 \nG0Z5 \nG0X250Z250T00\nN50(CANAL FACE)\nG55\nG0X250Z250T00\nT0505\nG97S1000M4 \nG0X47Z3\nM8 \nG74R.1 \nG74Z-3Q1000F.05\nG0Z0 \nG1X4"
+    },
+    {
+      "maquina": "LYNX220",
+      "arquivo": "Novo Documento de Texto.txt",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T1010",
+        "T1111"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESB FACE",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "ACAB EXT",
+          "ferramenta": "T1010"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": false
+      },
+      "trechoPrograma": "%\r\n:0238(FACEAR LIVENZA)\r\nG21G40G90G95 \r\nN10(DESB FACE) \r\nG55\r\nG0X200Z200T00\r\nT1010\r\nG96S200\r\nG92S1500M3 \r\nG0X210Z10\r\nG1Z.2F.35\r\nM8 \r\nG75X20Z.2P220000Q1000R1F.2 \r\nM9 \r\nG0X200Z200T00\r\nN20(ACAB EXT)\r\nG55\r\nG0X200Z200T00\r\nT1111\r\nG96S200\r\nG92S1500M3 \r\nG0X210Z5 \r\nM8 \r\nG1Z0F.2\r\nX20\r\nM9 \r\nG0Z5 \r\nX200Z200T00\r\n/M54 \r\nM30\r\n%"
+    },
+    {
+      "maquina": "LYNX220",
+      "arquivo": "00000178.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T1212",
+        "T0707",
+        "T0909",
+        "T1111",
+        "T0404"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESBASTE EX)( B ",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "TMAX 20",
+          "ferramenta": "T1212"
+        },
+        {
+          "numero": 3,
+          "descricao": "INTER MITSU)(12MM",
+          "ferramenta": "T0707"
+        },
+        {
+          "numero": 4,
+          "descricao": "CORTE B2",
+          "ferramenta": "T0909"
+        },
+        {
+          "numero": 5,
+          "descricao": "CORTE INTERNO)(GEHIR 16-13-3",
+          "ferramenta": "T1111"
+        },
+        {
+          "numero": 6,
+          "descricao": "ZERO",
+          "ferramenta": "T0404"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": true,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "\u001b&HE:\u001b&FWO0157            :\u0012% \r\n:0157(RFS 20021632 RING)(260 PC /BARRA 1M20CN) \r\nG21G40G90G95 \r\nN10(DESBASTE EX)( B )\r\nG55(191.00)\r\nG0X200Z250T00\r\nT1212\r\nM8 \r\nG97S3000M3 \r\nG0X60Z0\r\nG1X25F.05\r\nG0X45Z2\r\nG74X40.7Z-31P2500Q40000R1F.25\r\nG0X39.18 \r\nG1Z-31F.03 \r\nG1X55F.3 \r\nG0Z2 \r\nM9 \r\nG0X200Z250T00\r\nN20(TMAX 20) \r\nG55\r\nG0X200Z250T00\r\nT0707\r\nM8 \r\nG97S3000M3 \r\nG0X0Z2 \r\nG83Z-32Q50000R0F.15\r\nG80\r\nM9 \r\nG0X200Z250T00\r\nN30(INTER MITSU)(12MM) \r\nG55\r\nG0X200Z250T00\r\nT0909\r\nM8 \r\nG97S3000M3 \r\nG0X22Z2\r\nG74X26.3Z-31P1500Q50000R1F.25\r\nG0X27.35 \r\nG1Z-31F.05 \r\nG1X20\r\nG0Z2 \r\nM9 \r\nG0X200Z250T00\r\nN40(CORTE B2)\r\nG55\r\nG0X200Z250T00\r\nT1111\r\nM8 \r\nG97S1500M3 \r\nG0X55Z-6.2 \r\nG75R0\r\nG75X28.5Z-31P15000Q6200F.08\r\nM9 \r\nG0X200Z200T00\r\nN50(CORTE INTERNO)(GEHIR 16-13-3)\r\nG55\r\nG0X200Z200T00\r\nT0404\r\nM8 \r\nG97S1000M3 \r\nG0X24Z3\r\nG0Z-6.2\r\nG1X29F.03\r\nG0X24\r\nG0Z-6.23 \r\nG1X40F.05\r\nG0X24\r\nG0Z-12.4 \r\nG1X29F.03\r\nG0X24\r\nG0Z-12.43\r\nG1X40F.05\r\nG0X24\r\nG0Z-18.6 \r\nG1X29F.03\r\nG0X24\r\nG0Z-18.63\r\nG1X40F.05\r\nG0X24\r\nG0Z-24.8 \r\nG1X29F.03\r\nG0X24\r\nG0Z-"
+    },
+    {
+      "maquina": "LYNX220",
+      "arquivo": "00000248.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T1212",
+        "T1111",
+        "T0101",
+        "T1010"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESBASTE PERFIL",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "ACAB PERFIL",
+          "ferramenta": "T1212"
+        },
+        {
+          "numero": 3,
+          "descricao": "CORTE",
+          "ferramenta": "T1111"
+        },
+        {
+          "numero": 4,
+          "descricao": "CONE",
+          "ferramenta": "T0101"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": false,
+        "temRoscas": false,
+        "temCanais": false,
+        "temContorno": true,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "\u0012% \r\n:0043(RFS 280/6918)(30P/B=1MT24CM)(TP1M10S)(TB29M21S)( M ) \r\nG21G40G90G95 \r\nM99P40 \r\nN10(DESBASTE PERFIL) \r\nG55(190.00)\r\nG0X200Z200T00\r\nT1212G97S5000M3\r\nG0X40Z.5 \r\nG1X5F.45 \r\nG1X-.5F.1\r\nG0X38.2Z2\r\nG71U2R1\r\nG71P100Q200U1.W.5F.22\r\nN100G0X0 \r\nG42\r\nG1Z0F.05 \r\nG1X1.405 \r\nG1Z-3.415\r\nG1X3.79\r\nG1Z-6.125F.05\r\nG1X6.98\r\nG1Z-11.335 \r\nG1X8.2 \r\nG1X9Z-12.005 \r\nG1Z-14.635 \r\nG1X12.12 \r\nG1X25.4Z-25.82 \r\nG1X30.26 \r\nG1Z-30.91\r\nN200G40\r\nG0X200Z200T00\r\nN20(ACAB PERFIL) \r\nG55\r\nG0X200Z200T00\r\nT1111G97S5000M3\r\nG0X10Z0M8\r\nG1X-1F.05\r\nG0X38.2Z2\r\nG70P100Q200\r\nM9 \r\nG0X200Z200T00\r\nN30(CORTE) \r\nG55\r\nG0X200Z200T00\r\nT0101\r\nM8 \r\nG96S300\r\nG92S4000M3 \r\nG0X40Z-31\r\nG1X4F.08 \r\nM9 \r\nM5 \r\nM31\r\nM69\r\nG94\r\nG1Z.7F800\r\nM68\r\nG0X20\r\nM54\r\nM00\r\nG0X200Z200T00\r\n/M99 \r\nM30\r\nN40(CONE)\r\nG55\r\nG0X200Z200T00\r\nT1010G97S5000M3\r\nG0X35Z5\r\nG79X0Z-1.5R8F.12 \r\nZ-2.5\r\nZ-3.5\r\nG0X35Z4\r\nG1Z0F.15 \r\nG1Z2 \r\nM8 \r\nG41\r\nG1Z0F.1\r\nX25.4F.07\r\nX25.2Z-.04 \r\nX24.6Z-.16 \r\nX24Z-.278\r\nX23.4Z-.395\r\nX22.8Z-.511\r\nX22.2Z-.626\r\nX21.6Z-.739\r\nX21Z-.851\r\nX20.4Z-.962\r\nX19."
+    },
+    {
+      "maquina": "LYNX220",
+      "arquivo": "00000306.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T0606",
+        "T1212",
+        "T1010",
+        "T0404",
+        "T0505",
+        "T0808",
+        "T0202",
+        "T0303"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESB C",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "TMAX26",
+          "ferramenta": "T0606"
+        },
+        {
+          "numero": 3,
+          "descricao": "INTER ACAB VB",
+          "ferramenta": "T1212"
+        },
+        {
+          "numero": 4,
+          "descricao": "CANALB2",
+          "ferramenta": "T1010"
+        },
+        {
+          "numero": 5,
+          "descricao": "ACAB PCD",
+          "ferramenta": "T0404"
+        },
+        {
+          "numero": 6,
+          "descricao": "DESB",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 7,
+          "descricao": "INTER",
+          "ferramenta": "T0606"
+        },
+        {
+          "numero": 8,
+          "descricao": "ACAB PCD",
+          "ferramenta": "T0808"
+        },
+        {
+          "numero": 9,
+          "descricao": "BROCA 3,4",
+          "ferramenta": "T1010"
+        },
+        {
+          "numero": 10,
+          "descricao": "BROCA DENT",
+          "ferramenta": "T0202"
+        },
+        {
+          "numero": 11,
+          "descricao": "ACAB EXT",
+          "ferramenta": "T0303"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": true,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": true,
+        "temFaceamento": true
+      },
+      "trechoPrograma": "\u001b&HE:\u001b&FWO0170            :\u0012% \r\n:0170(RFS 30022272)\r\nG21G40G90G95 \r\nN10(DESB C)\r\nG55\r\nG0X200Z200T00\r\nT0606\r\nG97S5000M3 \r\nG0X85Z2\r\nG75X0Z.1P100000Q1000R2F.25 \r\nG0X77Z2\r\nG96S500\r\nG92S5500M3 \r\nM8 \r\nG71U2R2\r\nG71P100Q200U.1W.1F.27\r\nN100G0X25\r\nG42\r\nG1Z0F.07 \r\nX46.73,C1.5\r\nZ-66 \r\nX73\r\nX77Z-68\r\nN200G40\r\nM9 \r\nG0X200Z200T00\r\nN20(TMAX26)\r\nG55\r\nG0X200Z200T00\r\nT1212\r\nG97S2000M3 \r\nG0X0Z5 \r\nM8 \r\nG74R.1 \r\nG74Z-88Q5000R0F.1\r\nM9 \r\nG0X200Z200T00\r\nN30(INTER ACAB VB) \r\nG55\r\nG0X200Z200T00\r\nT1010\r\nG97S5500M3 \r\nG0X28Z5\r\nM8 \r\nG41\r\nG1Z.02F.03 \r\nX26.18R.2\r\nZ-25 \r\nG40\r\nG1X25.5\r\nM9 \r\nG0Z5 \r\nG0X200Z200T00\r\nN40(CANALB2) \r\nG55\r\nG0X200Z200T00\r\nT0404\r\nG97S2500M3 \r\nG0X55Z-25\r\nM8 \r\nG1X42.68F.2\r\nG4U.5\r\nX48\r\nZ-24.8 \r\nX46.75F.15 \r\nX46.35Z-25 \r\nX48\r\nZ-26.05\r\nX42.68F.2\r\nG4U.5\r\nX48\r\nZ-26.25\r\nX46.75F.15 \r\nX46.35Z-26.05\r\nX50F.35\r\nM9 \r\nG0X200Z200T00\r\nN50(ACAB PCD)\r\nG55\r\nG0X200Z200T00\r\nT0505\r\nG97S5500M3 \r\nG0X78Z5\r\nM8 \r\nG70P100Q200\r\nM9 \r\nG0X200Z200T00\r\nM00(SEGUNDO LADO)\r\n \r\n \r\nN60(DESB)\r\nG56\r\nG0X200Z200T00\r\nT0606\r\nG97S5000M3 \r\nG0X8"
+    },
+    {
+      "maquina": "LYNX220",
+      "arquivo": "00000365.TXT",
+      "material": "NAO_ESPECIFICADO",
+      "ferramentas": [
+        "T1212",
+        "T0101",
+        "T0303",
+        "T0505",
+        "T1010",
+        "T1111",
+        "T0707"
+      ],
+      "operacoes": [
+        {
+          "numero": 1,
+          "descricao": "DESBASTE",
+          "ferramenta": null
+        },
+        {
+          "numero": 2,
+          "descricao": "BROCA 4,5",
+          "ferramenta": "T1212"
+        },
+        {
+          "numero": 3,
+          "descricao": "FRESA 4MM FRONTAL",
+          "ferramenta": "T0101"
+        },
+        {
+          "numero": 4,
+          "descricao": "FRESA 2MMREDONDA",
+          "ferramenta": "T0303"
+        },
+        {
+          "numero": 5,
+          "descricao": "ACAB",
+          "ferramenta": "T0505"
+        },
+        {
+          "numero": 6,
+          "descricao": "CORTE",
+          "ferramenta": "T1010"
+        },
+        {
+          "numero": 7,
+          "descricao": "TRACI",
+          "ferramenta": "T1111"
+        }
+      ],
+      "caracteristicas": {
+        "temFuros": true,
+        "temRoscas": false,
+        "temCanais": true,
+        "temContorno": false,
+        "temFaceamento": true
+      },
+      "trechoPrograma": ":0066(RFS 30011485)(T/P1M25S)( DURA )(70P/B 1MT) \r\nG21G40G90G95 \r\nN10(DESBASTE)\r\nG55(200.00)\r\nG0X200Z200T00\r\nT1212\r\nM8 \r\nG97S3500M3 \r\nG0X25Z.03\r\nG1X-.5F.35 \r\nG0X15.1Z2\r\nG1Z-1.2F.35\r\nG1X19.45 \r\nG1Z-19.2F.35 \r\nG1X25\r\nM9 \r\nG0X200Z200T00\r\nN20(BROCA 4,5) \r\nG55\r\nG0X200Z200T00\r\nT0101\r\nM8 \r\nG97S3500M3 \r\nG0X0Z2 \r\nG1Z-1F.03\r\nG4U.5\r\nG83Z-19Q5000R0F.15 \r\nG80M9\r\nG0Z5 \r\nM9 \r\nG0X200Z200T00\r\nN30(FRESA 4MM FRONTAL) \r\nG55\r\nG0X200Z200T00\r\nT0303\r\nM8 \r\nG97S4000M33\r\nG0X-10Z4C0 \r\nM88\r\nG12.1\r\nG1G41X0F.02\r\nG1Z-3.2\r\nG1X4.9C0F.04 \r\nG1X4.9C2.905 \r\nG3X0C5.405R2.5 \r\nG3X-5C2.905R2.5\r\nG1X-5C-2.905 \r\nG3X0C-5.405R2.5\r\nG3X5C-2.905R2.5\r\nG1X5C2.905 \r\nG3X0C5.405R2.5 \r\nG3X-5C2.905R2.5\r\nG1X-5C-2.905 \r\nG3X0C-5.405R2.5\r\nG3X5C-2.905R2.5\r\nG1X5C0 \r\nG1X5C2.905Z-6.4\r\nG3X0C5.405R2.5 \r\nG3X-5C2.905R2.5\r\nG1X-5C-2.905 \r\nG3X0C-5.405R2.5\r\nG3X5C-2.905R2.5\r\nG1X5C2.905 \r\nG3X0C5.405R2.5 \r\nG3X-5C2.905R2.5\r\nG1X-5C-2.905 \r\nG3X0C-5.405R2.5\r\nG3X5C-2.905R2.5\r\nG1X5C2 \r\nG1Z5F.25 \r\nG40\r\nG13.1M90 \r\nM9 \r\nG0X200Z200T00\r\nN40(FRESA 2MMREDONDA)\r\nG55\r\nG0X200"
+    }
+  ],
+  "conhecimento": {
+    "fixacao": [
+      {
+        "tipo": "CASTANHA_3_CASTANHAS",
+        "aplicacao": "Eixos e peças cilíndricas",
+        "diametroMin": 3,
+        "diametroMax": 200,
+        "precisao": "±0.05mm",
+        "observacao": "Mais comum para produção"
+      },
+      {
+        "tipo": "CASTANHA_4_CASTANHAS",
+        "aplicacao": "Peças quadradas ou irregulares",
+        "diametroMin": 10,
+        "diametroMax": 250,
+        "precisao": "±0.02mm",
+        "observacao": "Para centralização precisa"
+      },
+      {
+        "tipo": "PLACA_CASTANHA",
+        "aplicacao": "Peças planas ou flanges",
+        "diametroMin": 50,
+        "diametroMax": 300,
+        "precisao": "±0.05mm",
+        "observacao": "Para peças com face de referência"
+      },
+      {
+        "tipo": "PINCA",
+        "aplicacao": "Peças pequenas cilíndricas",
+        "diametroMin": 1,
+        "diametroMax": 50,
+        "precisao": "±0.01mm",
+        "observacao": "Alta precisão e repetibilidade"
+      }
+    ],
+    "sequenciasOperacao": [],
+    "temposReferencia": {
+      "FACEAMENTO": {
+        "descricao": "Tempo típico para faceamento",
+        "tempoMinutoPorMM2": 0.001,
+        "variavelPorMaterial": true,
+        "observacao": "Varia conforme diâmetro e profundidade"
+      },
+      "DESBASTE_EXTERNO": {
+        "descricao": "Tempo típico para desbaste externo",
+        "tempoMinutoPorMM3": 0.0005,
+        "variavelPorMaterial": true,
+        "observacao": "Depende do volume removido"
+      },
+      "ACABAMENTO_EXTERNO": {
+        "descricao": "Tempo típico para acabamento externo",
+        "tempoMinutoPorMM2": 0.002,
+        "variavelPorMaterial": true,
+        "observacao": "Depende da área superficial"
+      },
+      "FURACAO": {
+        "descricao": "Tempo típico para furação",
+        "tempoMinutoPorMM": 0.05,
+        "variavelPorMaterial": true,
+        "observacao": "Tempo por mm de profundidade"
+      },
+      "ROSCA_INTERNA": {
+        "descricao": "Tempo típico para rosca interna",
+        "tempoMinutoPorMM": 0.1,
+        "variavelPorMaterial": false,
+        "observacao": "Tempo por mm de profundidade de rosca"
+      }
+    },
+    "parametrosCorte": {
+      "AÇO_1045": {
+        "velocidadeCorteDesbaste": "240-330 m/min",
+        "velocidadeCorteAcabamento": "280-330 m/min",
+        "avancoDesbaste": "0.35-0.70 mm/rot",
+        "avancoAcabamento": "0.10-0.20 mm/rot",
+        "pastilhaRecomendada": "IC8250 (CVD)",
+        "fonte": "ISCAR + Experiência LASEC"
+      },
+      "AÇO_4140": {
+        "velocidadeCorteDesbaste": "200-280 m/min",
+        "velocidadeCorteAcabamento": "240-280 m/min",
+        "avancoDesbaste": "0.30-0.60 mm/rot",
+        "avancoAcabamento": "0.08-0.18 mm/rot",
+        "pastilhaRecomendada": "IC8250 (CVD)",
+        "fonte": "ISCAR + Experiência LASEC"
+      },
+      "ALUMINIO_6061": {
+        "velocidadeCorteDesbaste": "280-350 m/min",
+        "velocidadeCorteAcabamento": "220-300 m/min",
+        "avancoDesbaste": "0.12-0.25 mm/rot",
+        "avancoAcabamento": "0.05-0.08 mm/rot",
+        "pastilhaRecomendada": "IC20 (PCD)",
+        "fonte": "ISCAR + Experiência LASEC"
+      },
+      "LATAO": {
+        "velocidadeCorteDesbaste": "300-400 m/min",
+        "velocidadeCorteAcabamento": "280-350 m/min",
+        "avancoDesbaste": "0.15-0.30 mm/rot",
+        "avancoAcabamento": "0.05-0.12 mm/rot",
+        "pastilhaRecomendada": "IC908",
+        "fonte": "Experiência LASEC"
+      }
+    }
+  }
+}
