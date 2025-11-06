@@ -101,6 +101,13 @@
           "peca": "1.60.01.548",
           "valor": 3281.09436,
           "status": "pendente"
+        },
+        {
+          "numero": "005/2025",
+          "data": "2025-11-06",
+          "peca": "1.60.01.548",
+          "valor": 3281.09436,
+          "status": "pendente"
         }
       ]
     },
@@ -351,10 +358,25 @@
       "margem_liquida_percentual": 9.980620155038764,
       "status": "pendente",
       "arquivo": "d:\\lasec\\orcamentos\\2025\\0042025_MICROGEAR_1.60.01.548"
+    },
+    {
+      "numero": "005/2025",
+      "data": "2025-11-06",
+      "cliente": "MICROGEAR",
+      "peca": "1.60.01.548",
+      "material": "45 S 20 K",
+      "quantidade": 60,
+      "preco_unitario": 54.684906,
+      "valor_total": 3281.09436,
+      "tempo_peça_minutos": 13.415,
+      "hora_maquina_utilizada": 120,
+      "margem_liquida_percentual": 9.980620155038764,
+      "status": "pendente",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\0052025_MICROGEAR_1.60.01.548"
     }
   ],
   "configuracao_sistema": {
-    "contador_orcamento_ano": 4,
+    "contador_orcamento_ano": 5,
     "ano_atual": 2025,
     "pasta_orcamentos": "C:\\lasec\\orcamentos",
     "pasta_templates": "C:\\lasec\\templates",

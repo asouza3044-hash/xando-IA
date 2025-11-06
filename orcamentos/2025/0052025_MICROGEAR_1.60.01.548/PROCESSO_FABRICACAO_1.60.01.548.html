@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - 1.60.01.548</title>
+<style>
+body { font-family: Arial; margin: 30px; font-size: 10pt; }
+.header { background: #003366; color: white; padding: 20px; text-align: center; }
+.table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+.table th { background: #495057; color: white; padding: 8px; }
+.table td { border: 1px solid #ddd; padding: 6px; }
+.operation { background: #e7f3ff; border-left: 4px solid #0066cc; padding: 10px; margin: 10px 0; }
+.alert { background: #f8d7da; border-left: 4px solid #dc3545; padding: 10px; margin: 10px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h2>🔧 PROCESSO DE FABRICAÇÃO</h2>
+    <div>1.60.01.548 - Orçamento 005/2025</div>
+</div>
+
+<h3>DADOS DA PEÇA</h3>
+<table class="table">
+    <tr><td><strong>Código:</strong></td><td>1.60.01.548</td></tr>
+    <tr><td><strong>Cliente:</strong></td><td>MICROGEAR</td></tr>
+    <tr><td><strong>Material bruto:</strong></td><td>Ø16 H9 x 195mm</td></tr>
+    <tr><td><strong>Material acabado:</strong></td><td>45 S 20 K</td></tr>
+    <tr><td><strong>Comprimento:</strong></td><td>189 mm</td></tr>
+    <tr><td><strong>Máquina:</strong></td><td>Centro de Torneamento CNC Romi GL280</td></tr>
+</table>
+
+
+<div class="alert">
+    <strong>⚠️ CRÍTICO:</strong> Peça requer TRATAMENTO TÉRMICO 56±2 HRC (cliente faz).
+    <strong>DEIXAR SOBREMETAL: Diâmetros +1,5mm | Comprimentos +0,5mm</strong>
+</div>
+
+
+<h3>FERRAMENTAS - KENNAMETAL</h3>
+<table class="table">
+    <tr><th>Ferramenta</th><th>Aplicação</th><th>Pastilha</th><th>Grade</th></tr>
+    <tr><td>T01</td><td>Desbaste externo</td><td>CNMG 120408-KCP25</td><td>KC725M (CVD)</td></tr>
+    <tr><td>T02</td><td>Acabamento</td><td>CNMG 120404-MF3</td><td>KC5010 (PVD)</td></tr>
+    <tr><td>T03</td><td>Faceamento</td><td>DNMG 150608-KF</td><td>KC5010</td></tr>
+</table>
+
+<h3>PARÂMETROS DE CORTE (Aço C45 ~200HB)</h3>
+<table class="table">
+    <tr><th>Operação</th><th>Vc (m/min)</th><th>fn (mm/rot)</th><th>ap (mm)</th></tr>
+    <tr><td>Desbaste</td><td>220-250</td><td>0,30-0,50</td><td>2,0-4,0</td></tr>
+    <tr><td>Acabamento</td><td>280-320</td><td>0,08-0,15</td><td>0,2-0,5</td></tr>
+    <tr><td>Faceamento</td><td>220-250</td><td>0,20-0,35</td><td>1,0-3,0</td></tr>
+</table>
+
+<h3>SEQUÊNCIA DE OPERAÇÕES</h3>
+
+<div class="operation">
+    <strong>OP10 - FIXAÇÃO E SETUP</strong> (1.0 min)<br>
+    • Fixar peça na placa 3 castanhas<br>
+    • Verificar concentricidade < 0,1mm<br>
+    • Posicionar ponta rotativa (se necessário)<br>
+    • Zerar peça (Z0 na face, X0 no eixo)
+</div>
+
+<div class="operation">
+    <strong>OP20 - FACEAMENTO TOPO</strong> (0.5 min)<br>
+    • T03 - DNMG (faceamento)<br>
+    • Facear topo frontal - face plana e perpendicular<br>
+    • Estabelecer Z0 de referência
+</div>
+
+<div class="operation">
+    <strong>OP30 - DESBASTE DIÂMETROS</strong> (1.9 min)<br>
+    • T01 - CNMG (desbaste)<br>
+    • Desbastar todos os diâmetros<br>
+    • <strong>DEIXAR SOBREMETAL: +1,5mm nos diâmetros</strong><br>
+    • Passes de 3mm, do maior para o menor diâmetro
+</div>
+
+<div class="operation">
+    <strong>OP40 - ACABAMENTO FINAL</strong> (6.5 min)<br>
+    • T02 - CNMG (acabamento)<br>
+    • Acabamento fino de todos os diâmetros<br>
+    • <strong>Dimensões: Desenho + sobremetal</strong><br>
+    • Tolerâncias: H12<br>
+    • Acabamento Ra ≤ 1,6 μm
+</div>
+
+
+<div class="operation">
+    <strong>OP50 - OPERAÇÕES ESPECIAIS</strong> (1.0 min)<br>
+    • Canais, roscas, furos conforme desenho
+</div>
+
+
+<div class="operation">
+    <strong>OP60 - INSPEÇÃO DIMENSIONAL</strong> (2.5 min)<br>
+    • Verificar 100% das dimensões<br>
+    • <strong>Confirmar sobremetal em todos os diâmetros</strong><br>
+    • Instrumentos: Paquímetro, micrômetro, rugosímetro<br>
+    • Documentar: 1ª, 5ª e última peça
+</div>
+
+<h3>RESUMO DE TEMPOS</h3>
+<table class="table">
+    <tr><td><strong>Tempo total por peça:</strong></td><td><strong>13.4 minutos</strong></td></tr>
+    <tr><td>Produtividade:</td><td>4.5 peças/hora</td></tr>
+</table>
+
+<div style="margin-top: 30px; text-align: center; color: #666; font-size: 9pt;">
+    LASEC USINAGEM - Processo de Fabricação<br>
+    Orçamento 005/2025 | 06/11/2025 | <span style="color: #dc3545;">DOCUMENTO INTERNO</span><br>
+    🤖 Gerado automaticamente pelo Sistema de Orçamentos LASEC v1.0
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{
+  "codigoPeca": "1.60.01.548",
+  "descricao": "HASTE",
+  "cliente": "MICROGEAR",
+  "fonte": "Ordem de Produção AS-BUILT + Ficha de Processo",
+  "dataProducao": "10-13/out/2025",
+  "producaoReal": {
+    "maquina": "DOOSAN 2",
+    "programa": "O0404",
+    "operador": "ANDRE",
+    "fixacao": "Castanha T",
+    "tempos": {
+      "primeiroLado": {
+        "data": "10/out",
+        "horario": "10:30 - 15:00",
+        "totalMinutos": 210,
+        "quantidade": 10,
+        "minutoPorPeca": 21.00,
+        "pecaPorHora": 2.86,
+        "observacao": "Inclui setup inicial e ajustes de castanha"
+      },
+      "segundoLado": {
+        "data": "13/out",
+        "horario": "07:30 - 15:05",
+        "totalMinutos": 395,
+        "quantidade": 50,
+        "minutoPorPeca": 7.90,
+        "pecaPorHora": 7.59,
+        "observacao": "Setup ja realizado, producao em lote"
+      },
+      "mediaTotalComSetup": 14.45,
+      "mediaPecaPorHora": 5.23,
+      "tempoProducaoPuro": 7.90,
+      "totalPecasProduzidas": 60
+    },
+    "ferramentas": [
+      {
+        "ferramenta": "T04",
+        "descricao": "ACAB. EXT",
+        "codigoLasec": "08.08.087",
+        "suporte": "MVJNR2020K 16 (Pastilha VCGT16)",
+        "inserto": "VNMG160404-MP MC6125",
+        "rpm": 3000,
+        "avanco": "F 0,18",
+        "operacao": "Acabamento externo"
+      },
+      {
+        "ferramenta": "T05",
+        "descricao": "CANAL EXT",
+        "codigoLasec": "08.08.118",
+        "suporte": "RGY-2020-3T25 - SUPORTE DEBAME 3 MM - MITSU",
+        "inserto": "GY2M0200D020N-GS VP20RT (w=2mm)",
+        "rpm": 1500,
+        "avanco": "F 0,05",
+        "operacao": "Canal externo 2mm"
+      },
+      {
+        "ferramenta": "T06",
+        "descricao": "DEST EXT",
+        "codigoLasec": "08.08.041",
+        "suporte": "DWLNR2020K06 (Pastilha WNMG06)",
+        "inserto": "WNMG06T308-MP UE 6020",
+        "rpm": 2500,
+        "avanco": "F 0,18",
+        "operacao": "Desbaste externo"
+      },
+      {
+        "ferramenta": "T12",
+        "descricao": "BROCA DE CENTRO",
+        "codigoLasec": "08.12.065",
+        "suporte": "Broca de Centro 3",
+        "inserto": "N/A",
+        "rpm": "N/A",
+        "avanco": "N/A",
+        "operacao": "Furação de centro"
+      }
+    ],
+    "custos": {
+      "horaMaquinaTorno": 121.00,
+      "custoTotalTorno": 29.14,
+      "custoTotalCentro": 0.00,
+      "custoTotal": 29.14,
+      "observacao": "Valores da ordem de producao"
+    }
+  },
+  "analiseComparativa": {
+    "estimativaManualErrada": {
+      "tempo": 20.0,
+      "motivo": "Material lido errado (Ø60mm em vez de Ø16 H9)",
+      "erro": "+153%"
+    },
+    "estimativaAgente": {
+      "tempo": 13.4,
+      "motivo": "Calculo geometrico sem considerar experiencia do operador",
+      "erro": "+70%"
+    },
+    "estimativaProgramaCNC": {
+      "tempo": 29.2,
+      "motivo": "Programa tem movimentos redundantes e nao considera overrides",
+      "erro": "+270%"
+    },
+    "tempoReal": {
+      "tempo": 7.90,
+      "fonte": "Ordem de producao AS-BUILT - 2º lado sem setup",
+      "confiabilidade": "100% - Dado real de chao de fabrica"
+    }
+  },
+  "licoesAprendidas": [
+    "Apenas dados AS-BUILT de ordens de producao sao confiaveis",
+    "Programa CNC pode ter ate 270% de tempo a mais que execucao real",
+    "Operador experiente usa overrides e otimiza movimentos",
+    "Setup inicial aumenta tempo em 166% (21 min vs 7.9 min)",
+    "Para orcamentos em lote, usar tempo do 2º lado (7.9 min)",
+    "Para orcamentos unitarios, usar media total (14.45 min)"
+  ],
+  "recomendacaoOrcamento": {
+    "tempoUsar": 7.90,
+    "justificativa": "Tempo real de producao em lote sem setup",
+    "margemSeguranca": "10-15% sobre o tempo real",
+    "tempoFinal": 9.0,
+    "observacao": "Usar 9 min para orcamentos futuros dessa peca ou similares"
+  }
+}

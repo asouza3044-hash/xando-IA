@@ -1,0 +1,103 @@
+{
+  "dataCalculo": "2025-11-06T14:46:02.044Z",
+  "peca": "1.60.01.548",
+  "cliente": "MICROGEAR",
+  "quantidade": 60,
+  "tempoReal": 7.9,
+  "tempoOrcamento": 9,
+  "custos": {
+    "mod": 7.5,
+    "indiretos": 4.35,
+    "total": 11.85
+  },
+  "precos": {
+    "semImpostos": 15.29,
+    "impostos": 1.3,
+    "final": 16.59
+  },
+  "margem": {
+    "lucroUnitario": 3.44,
+    "percentual": 20.72
+  },
+  "totais": {
+    "custo": 711,
+    "nfe": 995.15,
+    "lucro": 206.19
+  },
+  "ferramentas": [
+    {
+      "ferramenta": "T04",
+      "descricao": "ACAB. EXT",
+      "codigoLasec": "08.08.087",
+      "suporte": "MVJNR2020K 16 (Pastilha VCGT16)",
+      "inserto": "VNMG160404-MP MC6125",
+      "rpm": 3000,
+      "avanco": "F 0,18",
+      "operacao": "Acabamento externo"
+    },
+    {
+      "ferramenta": "T05",
+      "descricao": "CANAL EXT",
+      "codigoLasec": "08.08.118",
+      "suporte": "RGY-2020-3T25 - SUPORTE DEBAME 3 MM - MITSU",
+      "inserto": "GY2M0200D020N-GS VP20RT (w=2mm)",
+      "rpm": 1500,
+      "avanco": "F 0,05",
+      "operacao": "Canal externo 2mm"
+    },
+    {
+      "ferramenta": "T06",
+      "descricao": "DEST EXT",
+      "codigoLasec": "08.08.041",
+      "suporte": "DWLNR2020K06 (Pastilha WNMG06)",
+      "inserto": "WNMG06T308-MP UE 6020",
+      "rpm": 2500,
+      "avanco": "F 0,18",
+      "operacao": "Desbaste externo"
+    },
+    {
+      "ferramenta": "T12",
+      "descricao": "BROCA DE CENTRO",
+      "codigoLasec": "08.12.065",
+      "suporte": "Broca de Centro 3",
+      "inserto": "N/A",
+      "rpm": "N/A",
+      "avanco": "N/A",
+      "operacao": "Furação de centro"
+    }
+  ],
+  "comparacao": [
+    {
+      "metodo": "MANUAL (ERRADO - Ø60mm)",
+      "tempo": 20,
+      "custo": 63.2,
+      "preco": 81.53,
+      "total": 4891.8,
+      "erro": "+153%"
+    },
+    {
+      "metodo": "AGENTE (ESTIMATIVA - Ø16)",
+      "tempo": 13.4,
+      "custo": 42.39,
+      "preco": 54.68,
+      "total": 3281.09,
+      "erro": "+49%"
+    },
+    {
+      "metodo": "PROGRAMA CNC O0404",
+      "tempo": 29.2,
+      "custo": 92.34,
+      "preco": 119.12,
+      "total": 7147.2,
+      "erro": "+224%"
+    },
+    {
+      "metodo": "REAL AS-BUILT (9 min)",
+      "tempo": 9,
+      "custo": "11.85",
+      "preco": "16.59",
+      "total": "995.15",
+      "erro": "✅ CORRETO"
+    }
+  ]
+}
