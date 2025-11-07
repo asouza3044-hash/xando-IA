@@ -395,10 +395,28 @@
       "maquina": "DOOSAN 2",
       "programa": "O0404",
       "operador": "ANDRE"
+    },
+    {
+      "numero": "007/2025",
+      "data": "2025-11-07",
+      "cliente": "DOST",
+      "peca": "TAMPA DE ALUMÍNIO",
+      "material": "Alumínio 6061",
+      "quantidade": 9,
+      "preco_unitario": 17.69,
+      "valor_total": 159.22,
+      "tempo_peça_minutos": 9.6,
+      "hora_maquina_utilizada": 121,
+      "margem_liquida_percentual": 20.7,
+      "status": "valido",
+      "arquivo": "d:\\lasec\\orcamentos\\2025\\DOST\\007_DOST_TAMPA_ALUMINIO",
+      "observacoes": "Agente V2 - Biblioteca CNC 11.785 programas - Metodologia Padrão",
+      "metodo": "METODOLOGIA_PADRAO",
+      "confiabilidade": "60-70%"
     }
   ],
   "configuracao_sistema": {
-    "contador_orcamento_ano": 6,
+    "contador_orcamento_ano": 7,
     "ano_atual": 2025,
     "pasta_orcamentos": "C:\\lasec\\orcamentos",
     "pasta_templates": "C:\\lasec\\templates",

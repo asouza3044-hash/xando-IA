@@ -1,0 +1,19 @@
+{
+  "numero": "007/2025",
+  "data": "2025-11-07",
+  "cliente": "DOST",
+  "peca": "TAMPA DE ALUMÍNIO",
+  "codigo": "TAMPA_ALUMINIO_001",
+  "material": "ALUMINIO",
+  "materialBruto": "Tarugo Ø25 x 50mm",
+  "quantidade": 9,
+  "tempoMinutos": 9.6,
+  "metodo": "METODOLOGIA_PADRAO",
+  "confiabilidade": "60-70%",
+  "custoUnitario": 12.64,
+  "precoUnitario": 17.69,
+  "valorTotal": 159.22,
+  "margemLiquida": 20.72,
+  "status": "valido",
+  "observacao": "Estimativa baseada em EIXO_SIMPLES + margem de segurança 20%"
+}
