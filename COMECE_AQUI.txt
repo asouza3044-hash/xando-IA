@@ -1,0 +1,294 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    🚀 COMECE AQUI - GUIA RÁPIDO
+═══════════════════════════════════════════════════════════════════════════════
+
+VOCÊ ESTÁ NO LUGAR CERTO! Vou te guiar passo a passo para instalar TUDO.
+
+═══════════════════════════════════════════════════════════════════════════════
+MÉTODO 1: INSTALAÇÃO AUTOMÁTICA (MAIS FÁCIL)
+═══════════════════════════════════════════════════════════════════════════════
+
+👉 SIGA ESTES PASSOS EXATAMENTE:
+
+PASSO 1: BAIXAR O REPOSITÓRIO
+──────────────────────────────
+
+  1.1. Vá no navegador (Chrome, Edge, etc.)
+  1.2. Digite: https://github.com/asouza3044-hash/xando-IA
+  1.3. Você verá uma página do GitHub com o projeto
+  1.4. Clique no botão verde "Code"
+  1.5. Clique em "Download ZIP"
+  1.6. Salve o arquivo (vai baixar: xando-IA-main.zip)
+
+
+PASSO 2: EXTRAIR OS ARQUIVOS
+────────────────────────────
+
+  2.1. Vá na pasta "Downloads" do seu computador
+  2.2. Encontre o arquivo: xando-IA-main.zip
+  2.3. Clique com botão DIREITO no arquivo
+  2.4. Escolha: "Extrair tudo..." ou "Extract All..."
+  2.5. Na janela que abrir, clique em "Extrair" ou "Extract"
+  2.6. Uma pasta chamada "xando-IA-main" será criada
+
+
+PASSO 3: MOVER PARA C:\
+───────────────────────
+
+  3.1. Abra a pasta extraída (xando-IA-main)
+  3.2. Você verá os arquivos dentro
+  3.3. Copie TODA esta pasta
+  3.4. Abra "Este Computador" ou "Meu Computador"
+  3.5. Entre no disco C:
+  3.6. Cole a pasta aqui
+  3.7. Renomeie de "xando-IA-main" para "xando-IA" (sem o -main)
+  3.8. Agora você tem: C:\xando-IA
+
+
+PASSO 4: EXECUTAR O INSTALADOR AUTOMÁTICO
+─────────────────────────────────────────
+
+  4.1. Abra a pasta: C:\xando-IA
+  4.2. Procure o arquivo: INSTALADOR_FACIL.ps1
+  4.3. Clique com BOTÃO DIREITO nele
+  4.4. Escolha: "Executar com PowerShell" ou "Run with PowerShell"
+
+  4.5. Se aparecer uma mensagem de segurança, clique em "Sim"
+
+  4.6. O instalador vai perguntar se quer continuar, digite: S
+
+  4.7. O instalador vai fazer TUDO automaticamente:
+      ✓ Verificar se o Git está instalado
+      ✓ Criar as pastas necessárias
+      ✓ Criar atalhos na Área de Trabalho
+      ✓ Configurar tudo
+
+  4.8. Se o Git NÃO estiver instalado:
+      → O instalador vai te avisar
+      → Vai abrir o site para baixar
+      → Baixe e instale o Git
+      → Execute o INSTALADOR_FACIL.ps1 novamente
+
+
+PASSO 5: PRONTO! USAR OS ATALHOS
+────────────────────────────────
+
+  5.1. Vá na Área de Trabalho (Desktop)
+  5.2. Você verá 4 novos atalhos:
+      • LASEC_Sync_SETUP.bat   (Execute UMA vez)
+      • LASEC_Sync_BAIXAR.bat  (Use todo dia de manhã)
+      • LASEC_Sync_ENVIAR.bat  (Use todo dia à noite)
+      • LASEC_Sync_STATUS.bat  (Para ver status)
+
+  5.3. Clique DUAS VEZES em: LASEC_Sync_SETUP.bat
+      → Vai configurar o Git pela primeira vez
+
+  5.4. Depois clique em: LASEC_Sync_BAIXAR.bat
+      → Vai sincronizar tudo pela primeira vez
+
+
+═══════════════════════════════════════════════════════════════════════════════
+MÉTODO 2: INSTALAÇÃO MANUAL (SE MÉTODO 1 NÃO FUNCIONAR)
+═══════════════════════════════════════════════════════════════════════════════
+
+PASSO 1: INSTALAR O GIT
+───────────────────────
+
+  1.1. Abra o navegador
+  1.2. Digite: https://git-scm.com/download/win
+  1.3. Clique em "Click here to download"
+  1.4. Execute o instalador baixado
+  1.5. Clique "Next" em tudo (use as opções padrão)
+  1.6. Quando terminar, REINICIE o computador
+
+
+PASSO 2: CLONAR O REPOSITÓRIO
+─────────────────────────────
+
+  2.1. Abra o PowerShell:
+      → Aperte tecla Windows
+      → Digite: powershell
+      → Clique com botão direito em "Windows PowerShell"
+      → Escolha "Executar como administrador"
+
+  2.2. Digite este comando (copie e cole):
+
+      cd C:\
+
+  2.3. Aperte ENTER
+
+  2.4. Agora digite:
+
+      git clone https://github.com/asouza3044-hash/xando-IA.git
+
+  2.5. Aperte ENTER
+  2.6. Aguarde o download (pode demorar alguns minutos)
+
+
+PASSO 3: CRIAR PASTAS
+─────────────────────
+
+  3.1. No PowerShell, digite:
+
+      mkdir "D:\Cloude IA"
+
+  3.2. Aperte ENTER
+
+  3.3. Digite:
+
+      mkdir "C:\lasec"
+
+  3.4. Aperte ENTER
+
+
+PASSO 4: CRIAR ATALHOS
+──────────────────────
+
+  4.1. No PowerShell, digite:
+
+      cd C:\xando-IA\projeto
+
+  4.2. Aperte ENTER
+
+  4.3. Digite:
+
+      powershell -ExecutionPolicy Bypass -File .\atalhos_sincronizacao.ps1
+
+  4.4. Aperte ENTER
+  4.5. Os atalhos serão criados na Área de Trabalho!
+
+
+PASSO 5: PRIMEIRA SINCRONIZAÇÃO
+───────────────────────────────
+
+  5.1. Vá na Área de Trabalho
+  5.2. Clique duas vezes em: LASEC_Sync_BAIXAR.bat
+  5.3. Aguarde sincronizar
+  5.4. Pronto!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+USO DIÁRIO (DEPOIS DE INSTALADO)
+═══════════════════════════════════════════════════════════════════════════════
+
+TODA MANHÃ:
+───────────
+  1. Vá na Área de Trabalho
+  2. Clique duas vezes em: LASEC_Sync_BAIXAR.bat
+  3. Aguarde sincronizar
+  4. Inicie o Claude Code
+  5. Trabalhe normalmente
+
+
+TODA NOITE:
+──────────
+  1. Salve todo seu trabalho
+  2. Vá na Área de Trabalho
+  3. Clique duas vezes em: LASEC_Sync_ENVIAR.bat
+  4. Digite uma mensagem (ou aperte ENTER para mensagem padrão)
+  5. Aguarde enviar para a nuvem
+  6. Pronto! Pode desligar o computador
+
+
+VER STATUS:
+──────────
+  1. Clique duas vezes em: LASEC_Sync_STATUS.bat
+  2. Veja informações sobre sincronização
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ONDE ESTÃO OS ARQUIVOS?
+═══════════════════════════════════════════════════════════════════════════════
+
+C:\xando-IA\          → Repositório Git (sincroniza com GitHub)
+  ├── projeto\        → Projeto LASEC completo
+  └── conversas\      → Histórico de conversas
+
+C:\lasec\             → Pasta de trabalho do projeto
+  ├── base_dados\     → Banco de dados
+  ├── orcamentos\     → Seus orçamentos
+  └── templates\      → Templates
+
+D:\Cloude IA\         → Conversas do Claude (sincronizadas)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+PROBLEMAS COMUNS E SOLUÇÕES
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ PROBLEMA: "Git não está instalado"
+✓ SOLUÇÃO:
+  1. Vá em: https://git-scm.com/download/win
+  2. Baixe e instale o Git
+  3. Reinicie o computador
+  4. Tente novamente
+
+❌ PROBLEMA: "Não consigo executar PowerShell"
+✓ SOLUÇÃO:
+  1. Clique com botão DIREITO no arquivo .ps1
+  2. Escolha "Executar com PowerShell"
+  3. Se não funcionar, abra PowerShell como Administrador
+  4. Digite: Set-ExecutionPolicy RemoteSigned
+  5. Digite: S
+  6. Tente novamente
+
+❌ PROBLEMA: "Pasta não encontrada"
+✓ SOLUÇÃO:
+  1. Crie as pastas manualmente:
+     - Abra "Este Computador"
+     - Entre no disco C:
+     - Clique com botão direito → Nova Pasta
+     - Nomeie: xando-IA
+  2. Repita para outras pastas necessárias
+
+❌ PROBLEMA: "Erro ao baixar do GitHub"
+✓ SOLUÇÃO:
+  1. Verifique sua conexão com internet
+  2. Tente fazer o download pelo navegador (Método 1)
+  3. Se persistir, me avise para ajudar!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+PRECISA DE AJUDA?
+═══════════════════════════════════════════════════════════════════════════════
+
+Se algo não funcionar:
+
+1. Leia este guia novamente COM CALMA
+2. Verifique se seguiu TODOS os passos
+3. Veja a seção "PROBLEMAS COMUNS" acima
+4. Me chame no Claude Code e me diga:
+   "Estou no passo X e aconteceu o erro Y"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+RESUMO SUPER RÁPIDO (PARA QUEM JÁ LEU TUDO)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Baixar ZIP do GitHub
+2. Extrair para C:\xando-IA
+3. Executar: INSTALADOR_FACIL.ps1
+4. Usar os atalhos criados na Área de Trabalho
+
+FIM! É só isso! 🎉
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ATALHOS DE TECLADO ÚTEIS
+═══════════════════════════════════════════════════════════════════════════════
+
+Windows + E          → Abre o Explorador de Arquivos
+Windows + R          → Abre Executar
+Ctrl + C             → Copiar
+Ctrl + V             → Colar
+Ctrl + A             → Selecionar tudo
+Alt + Tab            → Trocar entre janelas
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Criado em: 11/11/2025
+Versão: 1.0
+Sistema: Xando IA - LASEC Orçamentos
+
+═══════════════════════════════════════════════════════════════════════════════
