@@ -1,0 +1,47 @@
+{
+  "repositorio": {
+    "url": "https://github.com/asouza3044-hash/xando-IA.git",
+    "usuario": "asouza3044-hash",
+    "email": "asouza3044@gmail.com",
+    "nome_repo": "xando-IA"
+  },
+  "pastas": {
+    "repositorio_local": "C:\\xando-IA",
+    "conversas_claude": "D:\\Cloude IA",
+    "projeto_lasec": "C:\\lasec",
+    "backup_temp": "C:\\Users\\lasec\\AppData\\Local\\Temp\\xando-ia-sync"
+  },
+  "sincronizacao": {
+    "auto_commit": true,
+    "auto_push": false,
+    "intervalo_backup_minutos": 60,
+    "manter_backups_locais": 5
+  },
+  "branches": {
+    "principal": "main",
+    "desenvolvimento": "dev",
+    "atual": "main"
+  },
+  "arquivos_ignorar": [
+    "*.tmp",
+    "*.log",
+    "node_modules/",
+    ".git/",
+    "Thumbs.db",
+    ".DS_Store"
+  ],
+  "ultima_sincronizacao": {
+    "data": "",
+    "tipo": "",
+    "status": ""
+  },
+  "configuracao_claude": {
+    "contexto_inicial": "HISTORICO_CONVERSAS.txt",
+    "pasta_trabalho": "C:\\lasec",
+    "arquivos_importantes": [
+      "GUIA_RAPIDO_ORCAMENTOS.txt",
+      "SISTEMA_IMPLEMENTADO.txt",
+      "base_dados/dados_completos_orcamentos.json"
+    ]
+  }
+}
