@@ -1,0 +1,137 @@
+{
+  "empresa": {
+    "razao_social": "MALELO-INDÚSTRIA E COMERCIO FERRAMENTAS-SOCIEDADE LIMITADA ME",
+    "nome_fantasia": "Lasec",
+    "slogan": "Usinagem de Precisão",
+    "cnpj": "07.047.619/0001-09",
+    "inscricao_estadual": "117.116.373.116",
+    "inscricao_municipal": "3.351.866-1",
+    "data_fundacao": "2004-10-08",
+    "ramo_atividade": "Prestação de mão de obra de Usinagem de Metais"
+  },
+  "endereco": {
+    "logradouro": "Rua Álvaro Silva",
+    "numero": "233",
+    "bairro": "Bairro do Limão",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "02723-020"
+  },
+  "contatos": {
+    "telefone_principal": "(11) 3936-5041",
+    "telefone_secundario": "(11) 3935-1271",
+    "email": "contato@lasec.com.br"
+  },
+  "socios": [
+    "Marlene Gonçalves de Souza",
+    "Alexandre Gonçalves de Souza",
+    "Eloisio Caetano de Souza",
+    "Elizabete Barros de Oliveira Souza"
+  ],
+  "clientes": [
+    {
+      "nome": "RFS Brasil Telecomunicações Ltda",
+      "endereco": "Av. Jorge Alfredo Camasmie, 140 - Embu - SP",
+      "telefone": "(11) 4785-2433"
+    },
+    {
+      "nome": "Haste Tecnologia Ltda - ME",
+      "endereco": "Rua Azevedo Soares, 97 Tatuapé São Paulo - SP",
+      "telefone": "(11) 2141-4881"
+    },
+    {
+      "nome": "Microgear Indústria de Peças Ltda",
+      "endereco": "Rua Barão de São Luis, 70 – Jd. Primavera – São Paulo – SP",
+      "telefone": "(11) 2239-7388"
+    },
+    {
+      "nome": "Alfa Instrumentos Eletronicos Ltda",
+      "endereco": "Rua Cel. Mario de Azevedo, 138 – São Paulo – SP",
+      "telefone": "(11) 3952-2299"
+    }
+  ],
+  "fornecedores": [
+    {
+      "nome": "Lotusmetal Ltda",
+      "tipo": "Material",
+      "endereco": "Rua Itauna, 394 – São Paulo – SP",
+      "telefone": "(11) 3195-9500"
+    },
+    {
+      "nome": "Mitsu Com. Ferramentas Ltda",
+      "tipo": "Ferramentas",
+      "endereco": "Rua Manaus, 79 – Mooca – São Paulo – SP",
+      "telefone": "(11) 2966-4899"
+    },
+    {
+      "nome": "J.Duarte Lubrificantes Com. Representação Ltda",
+      "tipo": "Lubrificantes",
+      "endereco": "Rua Gustavo da Silveira, 269 V Santa Catarina – São Paulo - SP",
+      "telefone": "(11) 5562-1776"
+    },
+    {
+      "nome": "Jati Serviços Com. E Imp. De Aços Ltda",
+      "tipo": "Aços",
+      "endereco": "Rua Roberto Koch, 363 – Vila Independencia – São Paulo – SP",
+      "telefone": "(11) 2172-0405"
+    },
+    {
+      "nome": "MMC Metal do Brasil Ltda (Mitsubishi)",
+      "tipo": "Ferramentas",
+      "endereco": "Rua Cincinato Braga, 340 – 13º And. Cjs 131/132 Bela Vista",
+      "telefone": "(11) 3506-5600"
+    },
+    {
+      "nome": "Indústria Romi S.A.",
+      "tipo": "Máquinas",
+      "endereco": "Av. Pérola Byington, 56 Santa Bárbara d'Oeste – SP",
+      "telefone": "(19) 3455-9691",
+      "fax": "(19) 3455-1098"
+    }
+  ],
+  "banco": {
+    "nome": "Banco Bradesco",
+    "agencia": "0293",
+    "conta": "153376-2",
+    "endereco": "Av. Celestino Bourroul, 971 - Agencia do Limão"
+  },
+  "equipamentos": [
+    {
+      "tipo": "Torno CNC",
+      "modelo": "Romi GL280",
+      "fabricante": "Romi"
+    },
+    {
+      "tipo": "Torno CNC",
+      "modelo": "Dosan Linxs 220 LM",
+      "fabricante": "Dosan"
+    }
+  ],
+  "parametros_orcamento": {
+    "custo_hora_maquina": 156.28,
+    "custo_hora_maquina_competitivo": 120.00,
+    "custo_hora_maquina_anterior": 100.00,
+    "fonte_custo": "Pesquisa GRV Software 2024 - Grande São Paulo",
+    "data_atualizacao_custo": "2024-08-01",
+    "markup": 1.408,
+    "markup_reduzido": 1.290,
+    "aliquota_simples_nacional": 8.5,
+    "comissao_vendas": 3.0,
+    "despesas_comerciais": 2.5,
+    "margem_lucro": 15.0,
+    "margem_lucro_reduzida": 10.0,
+    "validade_proposta_dias": 15,
+    "forma_pagamento_padrao": "50% antecipado + 50% na entrega",
+    "frete_padrao": "FOB (por conta do cliente)"
+  },
+  "sistema_orcamentos": {
+    "versao": "1.0",
+    "data_implementacao": "2025-11-01",
+    "base_dados_completa": "C:\\lasec\\base_dados\\dados_completos_orcamentos.json",
+    "pasta_templates": "C:\\lasec\\templates",
+    "pasta_orcamentos": "C:\\lasec\\orcamentos",
+    "guia_rapido": "C:\\lasec\\GUIA_RAPIDO_ORCAMENTOS.txt",
+    "ultimo_numero_orcamento": 1,
+    "ano_atual": 2025
+  }
+}
