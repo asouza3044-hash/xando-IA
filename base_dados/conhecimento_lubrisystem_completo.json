@@ -1,0 +1,600 @@
+{
+  "cliente": "LUBRISYSTEM",
+  "data_atualizacao": "2025-11-10",
+  "fonte_conhecimento": "Programas CNC reais extraídos de D:\\centro usinagem diversos e D:\\lasec\\lubrisystem\\lubrisystem torno",
+  "aplicavel_para": "TODOS OS CLIENTES - Conhecimento genérico de processos CNC",
+
+  "resumo_executivo": {
+    "total_programas_analisados": 10,
+    "centro_usinagem": 4,
+    "torno_cnc": 6,
+    "descobertas_criticas": [
+      "Duas formas de fazer rosca BSP 1/8: G1002 (macho rígido) ou G76 (inserto)",
+      "Live tooling no torno: M33/M35 com G12.1/G13.1 para fresamento",
+      "Furos radiais: G1210 (centro) ou G87 (torno com C-axis)",
+      "Operações duas faces: G55/G56 work offsets",
+      "Bar feeder TRACI: M31/M69/M68"
+    ]
+  },
+
+  "programas_centro_usinagem": {
+    "O1904_CORPO_REGULADORA": {
+      "arquivo": "00009711.TXT",
+      "material": "Não especificado",
+      "operacoes_criticas": {
+        "rosca_bsp_1_8": {
+          "metodo": "Rigid tapping com macho",
+          "codigo": "G1002W1.D0.907I1.J10.L-10.5C2.P0.Z2.R2.S300.",
+          "ferramenta": "T7 (MACHO 1/8BSP)",
+          "rpm": 300,
+          "passo": "0.907mm (28 TPI)",
+          "profundidade": "10.5mm"
+        },
+        "furos_radiais": {
+          "metodo": "G1210 - Circular bolt pattern",
+          "codigo": "G1210B0.H19.V0.A44.C0.",
+          "parametros": {
+            "H": "19mm (raio)",
+            "A": "44° (ângulo)"
+          }
+        },
+        "spot_face": {
+          "diametro": "Ø19mm",
+          "profundidade": "Z-2.5",
+          "ferramenta": "T2"
+        }
+      },
+      "sequencia": [
+        "Face/desbaste",
+        "Furos Ø4.3mm",
+        "Spot face Ø19mm",
+        "Rosca BSP 1/8 com macho",
+        "Furos radiais padrão circular"
+      ]
+    },
+
+    "O0115_ANEL_INOX": {
+      "arquivo": "00009711.TXT",
+      "material": "Inox",
+      "operacoes_criticas": {
+        "chanfros_internos": {
+          "ferramenta": "T8 (FRESA 2C D12 R1)",
+          "raio": "R1",
+          "codigo": "G1064 - Fresamento trochoidal"
+        },
+        "acabamento_preciso": {
+          "tolerancia": "Alta precisão em inox",
+          "rpm_alto": "S6000-S8000"
+        }
+      }
+    },
+
+    "O0006_AMBEV_GARRAFA": {
+      "arquivo": "00009711.TXT",
+      "cliente": "AMBEV",
+      "operacoes_criticas": {
+        "live_tooling": {
+          "ativacao": "M33",
+          "desativacao": "M35",
+          "uso": "Operações de fresamento e furação radial"
+        },
+        "furos_radiais_8_posicoes": {
+          "metodo": "G87 - Ciclo furação com C-axis",
+          "codigo": "G87X0Q1000R0F.1",
+          "incremento_angular": "45° (8 posições)",
+          "ferramenta": "T15 (BROCA D1)"
+        },
+        "rosca_m3": {
+          "metodo": "Macho rígido M3x0.5",
+          "ferramenta": "T16",
+          "codigo": "G1002W1.D0.5I1.J10.L-6.C1.P0.Z2.R2.S600."
+        }
+      },
+      "sequencia_radial": [
+        "M33 - Ativa live tooling",
+        "Posiciona C0",
+        "G87 - Fura primeira posição",
+        "C45 - Incrementa 45°",
+        "Repete para 8 posições",
+        "M35 - Desativa live tooling"
+      ]
+    },
+
+    "O0023_AMBEV_GARRAFA_71MM": {
+      "arquivo": "00009711.TXT",
+      "cliente": "AMBEV",
+      "operacoes_criticas": {
+        "furos_radiais_16_posicoes": {
+          "quantidade": 16,
+          "incremento_angular": "22.5°",
+          "metodo": "G87 com C-axis",
+          "sequencia_angular": "C0, C22.5, C45, C67.5, C90... até C337.5"
+        }
+      },
+      "aprendizado": "Padrões circulares com muitas posições usam incrementos precisos calculados (360/n_furos)"
+    }
+  },
+
+  "programas_torno_cnc": {
+    "O0003_VAM_0010_02": {
+      "arquivo": "O0003",
+      "material": "Não especificado",
+      "operacao_especial": "FRESAMENTO NO TORNO usando live tooling",
+      "operacoes_criticas": {
+        "live_tooling_fresamento": {
+          "ativacao": "M33",
+          "desativacao": "M35",
+          "modo_polar": "G12.1 (ativa) / G13.1 (cancela)",
+          "feed_mode": "G94 (mm/min) para fresamento / G95 (mm/rot) para torno",
+          "codigo_exemplo": [
+            "T1111",
+            "G97S3500M33",
+            "G12.1",
+            "G94",
+            "G1Z-7F500",
+            "G42G1X13C0",
+            "C5.45",
+            "X-13",
+            "Z2",
+            "G40",
+            "G13.1",
+            "G95",
+            "M35"
+          ]
+        },
+        "furacao_radial_c_axis": {
+          "ferramenta": "T0202 (BROCA Ø1MM HSS)",
+          "codigo": "G87X0Q250R0F.07",
+          "posicao_angular": "C90",
+          "metodo": "Furação radial com eixo C"
+        },
+        "canais_especiais": {
+          "ferramenta_2mm": "T1010 (ESPECIAL)",
+          "ferramenta_1mm": "T1010 (ESPECIAL)",
+          "metodo": "Múltiplas passadas com ciclo G75"
+        }
+      },
+      "work_offsets": {
+        "G55": "Primeira face (operações principais)",
+        "G56": "Segunda face (após virar peça)"
+      }
+    },
+
+    "O0004_VAM_0006": {
+      "arquivo": "O0004",
+      "operacoes_padrao": {
+        "face": "T0505 - S3000",
+        "furacao": "T1212 (BROCA Ø10.5MD) - G83 ciclo quebra cavaco",
+        "desbaste_interno": "T1010 (DESB INT A06)",
+        "acabamento_externo": "T0606 (VR.2)",
+        "acabamento_interno": "T1010",
+        "bedame_b3": "T0404",
+        "traci_corte": "T0808"
+      },
+      "ciclos_importantes": {
+        "G74": "Desbaste de face com quebra cavaco",
+        "G83": "Furação profunda com quebra cavaco",
+        "G75": "Sangramento/canal radial"
+      }
+    },
+
+    "O0005_VAM_0004": {
+      "arquivo": "O0005",
+      "similar_a": "O0004",
+      "diferencial": "Canal interno adicional na primeira face"
+    },
+
+    "O0006_VAM_0005": {
+      "arquivo": "O0006",
+      "operacao_especial": "ROSQUEAMENTO RÍGIDO M5x0.5",
+      "operacoes_criticas": {
+        "rosca_m5_rigida": {
+          "ferramenta": "T0101 (não especificado se é macho)",
+          "metodo": "Rigid tapping G84",
+          "codigo": [
+            "M29S400",
+            "G84Z-30F.5"
+          ],
+          "rpm": 400,
+          "passo": "0.5mm",
+          "profundidade": "30mm",
+          "observacao": "Requer óleo (M00 manual antes da operação)"
+        },
+        "canal_externo_b1_4": {
+          "ferramenta": "T1414 (B1.4=1.07)",
+          "largura": "1.4mm",
+          "rpm": 1800,
+          "acabamento_fino": "S600 (reduz RPM para acabamento)"
+        },
+        "chanfro_segunda_face": {
+          "work_offset": "G56",
+          "ferramenta": "T0101",
+          "chanfro": "X4 até X5.8Z0 com raio"
+        }
+      }
+    },
+
+    "O0007_VAM_0007": {
+      "arquivo": "O0007",
+      "operacao_especial": "ROSCA BSP 1/8 COM INSERTO (não é macho!)",
+      "operacoes_criticas": {
+        "rosca_bsp_1_8_inserto": {
+          "ferramenta": "T1313 (RBH 1/8 BSP)",
+          "metodo": "G76 - Threading cycle com inserto",
+          "codigo": [
+            "G76P040060Q100R.05",
+            "G76X9.9Z-18P785Q150F.907"
+          ],
+          "passo": "0.907mm (28 TPI)",
+          "profundidade_rosca": "P785 (0.785mm radial)",
+          "passes": "Q150 (0.15mm primeira passada)",
+          "rpm": 1000,
+          "observacao": "DIFERENTE do centro usinagem que usa macho!"
+        },
+        "canal_externo_preciso": {
+          "ferramenta": "T1414",
+          "largura": "1mm exato",
+          "metodo": "Múltiplas passadas com redução de RPM",
+          "rpm_inicial": 1800,
+          "rpm_acabamento": 600,
+          "codigo_acabamento": [
+            "G1Z-2.1F.35",
+            "X8.7F.03",
+            "X6F.35"
+          ]
+        },
+        "duas_faces": {
+          "G55": "Face principal com rosca BSP",
+          "G56": "Face oposta com canal Ø6.5mm"
+        }
+      }
+    },
+
+    "O0011_PORCA_HARLEY": {
+      "arquivo": "Não fornecido mas referenciado",
+      "operacao_especial": "ROSCA M14x1.5",
+      "observacao": "Programa com rosca métrica grossa"
+    }
+  },
+
+  "conhecimento_tecnico_consolidado": {
+    "roscas": {
+      "BSP_1_8": {
+        "especificacao": "British Standard Pipe 1/8 polegada",
+        "passo_mm": 0.907,
+        "tpi": 28,
+        "metodo_1_centro_usinagem": {
+          "tipo": "Rigid tapping com macho",
+          "ciclo": "G1002",
+          "rpm": 300,
+          "aplicacao": "Centro de usinagem Romi D760",
+          "vantagens": "Mais rápido, menos desgaste ferramenta",
+          "programa_referencia": "O1904"
+        },
+        "metodo_2_torno": {
+          "tipo": "Threading com inserto",
+          "ciclo": "G76",
+          "rpm": 1000,
+          "aplicacao": "Torno Doosan Lynx 220 LM",
+          "vantagens": "Mais robusto, não quebra macho",
+          "programa_referencia": "O0007"
+        },
+        "quando_usar_cada_um": {
+          "macho": "Peças fixadas em mesa com dispositivo, produção alta",
+          "inserto": "Peças no torno, diâmetro externo acessível, mais seguro"
+        }
+      },
+      "M5x0_5": {
+        "metodo": "Rigid tapping G84",
+        "rpm": 400,
+        "observacao": "Requer óleo lubrificante, M00 para aplicação manual",
+        "programa_referencia": "O0006"
+      },
+      "M3x0_5": {
+        "metodo": "G1002 rigid tapping",
+        "rpm": 600,
+        "aplicacao": "Centro de usinagem",
+        "programa_referencia": "O0006 AMBEV"
+      }
+    },
+
+    "live_tooling": {
+      "ativacao_desativacao": {
+        "ligar": "M33",
+        "desligar": "M35",
+        "aplicacao": "Fresamento e furação radial no torno"
+      },
+      "modo_coordenadas": {
+        "polar_ativar": "G12.1",
+        "polar_cancelar": "G13.1",
+        "uso": "Fresamento de perfis com interpolação circular"
+      },
+      "feed_mode": {
+        "fresamento": "G94 (mm/min)",
+        "tornear": "G95 (mm/rot)",
+        "observacao": "SEMPRE trocar G94/G95 conforme operação"
+      },
+      "aplicacoes_tipicas": [
+        "Fresamento de flats radiais",
+        "Furação radial com C-axis",
+        "Canais longitudinais",
+        "Perfis não-cilíndricos"
+      ],
+      "programa_referencia": "O0003 (fresamento completo), O0006 AMBEV (furação radial)"
+    },
+
+    "furos_radiais": {
+      "centro_usinagem_g1210": {
+        "ciclo": "G1210",
+        "parametros": {
+          "B": "Ângulo inicial",
+          "H": "Raio do círculo",
+          "V": "Velocidade",
+          "A": "Incremento angular ou ângulo final",
+          "C": "Número de furos (0=manual)"
+        },
+        "exemplo": "G1210B0.H19.V0.A44.C0.",
+        "aplicacao": "Padrão circular de furos",
+        "programa_referencia": "O1904"
+      },
+      "torno_g87": {
+        "ciclo": "G87",
+        "parametros": {
+          "X": "Posição radial (0=centro)",
+          "Q": "Incremento penetração",
+          "R": "Plano de retorno",
+          "F": "Avanço"
+        },
+        "exemplo": "G87X0Q1000R0F.1",
+        "controle_angular": "Comandos C0, C45, C90, etc.",
+        "aplicacao": "Furação radial com indexação C-axis",
+        "padroes_comuns": {
+          "8_furos": "45° de incremento (C0, C45, C90, C135, C180, C225, C270, C315)",
+          "16_furos": "22.5° de incremento"
+        },
+        "programa_referencia": "O0006 AMBEV (8 furos), O0023 AMBEV (16 furos)"
+      }
+    },
+
+    "canais_externos": {
+      "ferramenta_padrao": "T1414 - Bedame largura específica",
+      "codigo_largura": "B1.4=1.07 significa bedame 1.4mm com inserto 1.07mm",
+      "metodo": {
+        "desbaste": "RPM alto (1800-2000), avanço rápido (F.35)",
+        "acabamento": "RPM baixo (600), avanço lento (F.03-F.05)",
+        "multiplas_passadas": "Geralmente 2-3 passadas com medição intermediária"
+      },
+      "codigo_tipico": [
+        "G97S1800M3",
+        "G1Z-35F1.",
+        "X12",
+        "G1X9.35F.05",
+        "X12F.35",
+        "S600",
+        "G1X9.35F.03"
+      ],
+      "programas_referencia": "O0006, O0007"
+    },
+
+    "work_offsets_duas_faces": {
+      "G55": "Primeira face (lado castanha)",
+      "G56": "Segunda face (após virar peça ou pegar no dispositivo)",
+      "G57": "Terceira face (raro, operações especiais)",
+      "uso_comum": "Peças com operações em ambas extremidades",
+      "programas_referencia": "O0003, O0006, O0007"
+    },
+
+    "bar_feeder_traci": {
+      "ferramenta": "T0808",
+      "comandos": {
+        "M31": "Não documentado (provavelmente abre pinça)",
+        "M69": "Retrai alimentador",
+        "M68": "Avança alimentador",
+        "M5": "Para spindle"
+      },
+      "sequencia_corte": [
+        "G94 - Feed mm/min",
+        "Z negativo rápido",
+        "M31",
+        "M69 - Retrai",
+        "G4U1. - Pausa",
+        "Z final de corte",
+        "M68 - Avança",
+        "G95 - Retorna mm/rot"
+      ],
+      "programas_referencia": "O0004, O0005, O0006, O0007"
+    },
+
+    "ciclos_importantes": {
+      "G74": {
+        "nome": "Desbaste face com quebra cavaco",
+        "formato": "G74X__Z__P__Q__R__F__",
+        "uso": "Desbaste pesado em diâmetro",
+        "exemplo": "G74X32.1Z-30P1500Q50000R1F.25"
+      },
+      "G75": {
+        "nome": "Sangramento/canal radial",
+        "formato": "G75X__Z__P__Q__R__F__",
+        "uso": "Canais, ranhuras, sangramento",
+        "exemplo": "G75X11.5P50000R0F.07"
+      },
+      "G76": {
+        "nome": "Threading cycle",
+        "formato": "G76P__Q__R__ seguido de G76X__Z__P__Q__F__",
+        "uso": "Roscamento com inserto",
+        "exemplo": "G76P040060Q100R.05 / G76X9.9Z-18P785Q150F.907"
+      },
+      "G83": {
+        "nome": "Furação profunda com quebra cavaco",
+        "formato": "G83Z__Q__R__F__",
+        "uso": "Furos profundos no torno",
+        "exemplo": "G83Z-32Q5000R0F.1"
+      },
+      "G84": {
+        "nome": "Rigid tapping cycle",
+        "formato": "G84Z__F__",
+        "uso": "Rosqueamento com macho rígido",
+        "pre_requisito": "M29S__ (ativa modo tap)",
+        "exemplo": "M29S400 / G84Z-30F.5"
+      },
+      "G87": {
+        "nome": "Furação radial (torno com C-axis)",
+        "formato": "G87X__Q__R__F__",
+        "uso": "Furos radiais com live tooling",
+        "exemplo": "G87X0Q1000R0F.1"
+      },
+      "G1002": {
+        "nome": "Rigid tapping (centro usinagem)",
+        "formato": "G1002W__D__I__J__L__C__P__Z__R__S__",
+        "uso": "Rosqueamento com macho no centro",
+        "exemplo": "G1002W1.D0.907I1.J10.L-10.5C2.P0.Z2.R2.S300."
+      },
+      "G1064": {
+        "nome": "Fresamento trochoidal",
+        "uso": "Desbaste pesado em cavidades",
+        "aplicacao": "Centro de usinagem"
+      },
+      "G1210": {
+        "nome": "Circular bolt hole pattern",
+        "formato": "G1210B__H__V__A__C__",
+        "uso": "Padrão circular de furos",
+        "exemplo": "G1210B0.H19.V0.A44.C0."
+      }
+    },
+
+    "ferramentas_padrao_lubrisystem": {
+      "torno": {
+        "T0101": "CB03RS-02B - Desbaste/acabamento interno",
+        "T0202": "Broca Ø1mm HSS",
+        "T0404": "Bedame B0.8mm ou B3 (Penta)",
+        "T0505": "Bedame B2 - Face/corte",
+        "T0606": "VR.2 - Acabamento externo",
+        "T0707": "Broca Ø4.5mm",
+        "T0808": "TRACI - Corte com alimentador ou broca centro",
+        "T1010": "A06 - Desbaste interno ou especiais",
+        "T1111": "Fresa para live tooling",
+        "T1212": "Broca Ø10.5MD ou Ø3.2mm HSS",
+        "T1313": "RBH 1/8 BSP - Inserto rosca ou broca Ø4.5mm HSS",
+        "T1414": "Canal externo B1.4=1.07"
+      },
+      "centro_usinagem": {
+        "T1": "Fresa Ø12",
+        "T2": "Spot face Ø19mm",
+        "T4": "Broca Ø4.3mm",
+        "T7": "Macho 1/8 BSP",
+        "T8": "Fresa 2C D12 R1",
+        "T15": "Broca D1",
+        "T16": "Macho M3x0.5"
+      }
+    },
+
+    "materiais_comuns": {
+      "aluminio": {
+        "rpm_desbaste": "2500-3000",
+        "rpm_acabamento": "3000-3500",
+        "avanco_desbaste": "0.15-0.25 mm/rot",
+        "avanco_acabamento": "0.05-0.12 mm/rot",
+        "lubrificacao": "M8 (óleo) recomendado"
+      },
+      "inox": {
+        "rpm_desbaste": "1500-2000",
+        "rpm_acabamento": "2000-2500",
+        "avanco_desbaste": "0.10-0.15 mm/rot",
+        "avanco_acabamento": "0.05-0.07 mm/rot",
+        "lubrificacao": "M8 OBRIGATÓRIO",
+        "observacao": "Usar G74/G75 para quebra cavaco"
+      }
+    },
+
+    "sequencias_processo_tipicas": {
+      "peca_cilindrica_furo_passante": [
+        "N10: Face e desbaste externo",
+        "N20: Centro e furação progressiva",
+        "N30: Desbaste interno",
+        "N40: Acabamento externo",
+        "N50: Acabamento interno",
+        "N60: Operações especiais (roscas, canais)",
+        "N70: Bedame/sangramento",
+        "N80: TRACI (corte)"
+      ],
+      "peca_duas_faces": [
+        "G55 - Operações face principal",
+        "M00 - Troca de lado",
+        "G56 - Operações face oposta"
+      ],
+      "peca_com_live_tooling": [
+        "Operações cilíndricas normais",
+        "M33 - Ativa live tooling",
+        "G12.1 - Modo polar (se fresamento)",
+        "G94 - Feed mm/min",
+        "Operações de fresamento/furação radial",
+        "G13.1 - Cancela polar",
+        "G95 - Feed mm/rot",
+        "M35 - Desativa live tooling",
+        "Retorna operações normais"
+      ]
+    }
+  },
+
+  "aplicacao_pratica_orcamentos": {
+    "quando_usar_dois_maquinas": [
+      "Peças com faces paralelas não-cilíndricas",
+      "Operações radiais complexas fora do eixo principal",
+      "Fresamento de perfis em corpo cilíndrico",
+      "Múltiplos furos radiais posicionados"
+    ],
+    "calculo_tempo": {
+      "torno": {
+        "setup": "10-15 min primeira peça",
+        "tempo_peca": "Somar tempo cada operação",
+        "troca_ferramenta": "2-5 seg cada",
+        "medição": "1-2 min a cada 10 peças"
+      },
+      "centro_usinagem": {
+        "setup": "15-20 min primeira peça com dispositivo",
+        "tempo_peca": "Somar tempo cada operação",
+        "troca_ferramenta": "3-6 seg cada",
+        "fixacao_peca": "1-2 min/peça se dispositivo"
+      }
+    },
+    "estimativa_operacoes": {
+      "face_desbaste": "1-2 min",
+      "furacao_profunda": "3-5 min",
+      "desbaste_interno": "2-4 min",
+      "acabamento": "3-5 min",
+      "roscas": "2-3 min",
+      "canais": "2-3 min",
+      "live_tooling_fresamento": "5-8 min",
+      "furos_radiais_8x": "4-6 min"
+    }
+  },
+
+  "observacoes_importantes": {
+    "seguranca": [
+      "SEMPRE verificar G54/G55/G56 antes de iniciar programa",
+      "M00 manual para roscas com macho (aplicar óleo)",
+      "M8/M9 controle refrigeração - NUNCA esquecer M9 no final",
+      "Live tooling: SEMPRE M35 antes de operações de torno"
+    ],
+    "qualidade": [
+      "Múltiplas passadas de acabamento melhoram qualidade",
+      "Reduzir RPM para acabamento fino (S600-S1000)",
+      "G4U1. (dwell) após operações críticas",
+      "Calibrar furos críticos após usinagem"
+    ],
+    "produtividade": [
+      "G74/G75/G83 quebra cavaco reduz tempo limpeza",
+      "Live tooling elimina segunda fixação",
+      "G55/G56 permite duas faces sem refixar",
+      "TRACI (bar feeder) elimina troca manual de barra"
+    ]
+  },
+
+  "proximos_passos_implementacao": {
+    "1": "Consolidar este conhecimento em biblioteca_cnc.json",
+    "2": "Aplicar conhecimento real ao orçamento VAM-0013",
+    "3": "Criar processo detalhado usando programas LUBRISYSTEM como base",
+    "4": "Este conhecimento serve para TODOS os clientes futuros, não só LUBRISYSTEM",
+    "5": "Atualizar constantemente com novos programas analisados"
+  }
+}
