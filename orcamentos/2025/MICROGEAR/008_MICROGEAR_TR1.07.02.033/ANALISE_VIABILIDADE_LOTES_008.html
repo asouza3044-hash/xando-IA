@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Viabilidade Econômica - MICROGEAR TR1.07.02.033</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-image: url('simbolo lasec.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+.main-header {
+    background: white;
+    padding: 30px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 30px;
+}
+.logo-container {
+    flex-shrink: 0;
+}
+.logo-container img {
+    height: 120px;
+    width: auto;
+    filter: brightness(1.1) contrast(1.1);
+}
+.company-info-header {
+    flex-grow: 1;
+}
+.company-name-main {
+    font-size: 32pt;
+    font-weight: bold;
+    color: #1e3c72;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+.company-tagline {
+    font-size: 14pt;
+    color: #2a5298;
+    margin: 8px 0 0 0;
+    font-weight: 500;
+}
+.document-title-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
+    padding: 25px 40px;
+    margin: 25px -40px 0 -40px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(30,60,114,0.3);
+}
+.document-title {
+    font-size: 28pt;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+.document-subtitle {
+    font-size: 13pt;
+    color: white;
+    margin: 8px 0;
+    opacity: 0.95;
+}
+.content-wrapper {
+    padding: 0 40px 40px 40px;
+}
+.section-title {
+    background-color: #495057;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.info-box {
+    background-color: #f8f9fa;
+    border-left: 5px solid #1e3c72;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+.info-box h3 {
+    margin-top: 0;
+    color: #1e3c72;
+    font-size: 18px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+th {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.3s ease;
+}
+.destaque {
+    background-color: #d4edda !important;
+    font-weight: bold;
+    border: 2px solid #28a745;
+}
+.alerta {
+    background-color: #fff3cd !important;
+    font-weight: bold;
+}
+.critico {
+    background-color: #f8d7da !important;
+    font-weight: bold;
+}
+.recomendacao {
+    background-color: #d1ecf1;
+    border-left: 5px solid #0c5460;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+.recomendacao h4 {
+    margin-top: 0;
+    color: #0c5460;
+}
+.conclusao {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 25px;
+    margin-top: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.grid-analise {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+.card-analise {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #1e3c72;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.card-analise h4 {
+    color: #1e3c72;
+    margin-top: 0;
+    font-size: 16px;
+}
+.card-analise .valor {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+.grafico-barras {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+.barra {
+    width: 18%;
+    background: linear-gradient(to top, #1e3c72, #2a5298);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+.barra:hover {
+    transform: translateY(-5px);
+}
+.barra-label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+.barra-valor {
+    position: absolute;
+    top: -30px;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1e3c72;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+}
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="simbolo lasec.jpg" alt="LASEC">
+        </div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">📊 ANÁLISE DE VIABILIDADE ECONÔMICA DE LOTES</div>
+        <div class="document-subtitle">BUCHA/FLANGE TR1.07.02.033</div>
+        <div class="document-subtitle">Orçamento 008/2025 - MICROGEAR</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+        <div class="info-box">
+            <h3>📋 Dados da Peça</h3>
+            <p><strong>Código:</strong> TR1.07.02.033</p>
+            <p><strong>Material:</strong> DIN 20MnCr5 (Aço de cementação) - Blank Ø80×30mm</p>
+            <p><strong>Máquina:</strong> Doosan Lynx 220LM (Fanuc 0i-TC)</p>
+            <p><strong>Tempo de Fabricação:</strong> 7,0 min/peça (4,27 min produtivo + 2,73 min improdutivo) - Validado com 90 peças</p>
+            <p><strong>Setup:</strong> 1,0h = R$ 148,00</p>
+        </div>
+
+        <h2 class="section-title">💰 Comparativo de Custos por Lote</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Lote</th>
+                    <th>Setup (R$)</th>
+                    <th>MOD (R$)</th>
+                    <th>Custo Total (R$)</th>
+                    <th>Custo/Peça (R$)</th>
+                    <th>Redução vs Lote 50</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="critico">
+                    <td><strong>50 pçs</strong></td>
+                    <td>148,00</td>
+                    <td>866,00</td>
+                    <td>1.602,00</td>
+                    <td><strong>R$ 32,04</strong></td>
+                    <td>-</td>
+                </tr>
+                <tr class="destaque">
+                    <td><strong>100 pçs ⭐</strong></td>
+                    <td>148,00</td>
+                    <td>1.727,00</td>
+                    <td>2.963,00</td>
+                    <td><strong>R$ 29,63</strong></td>
+                    <td>↓ 7,5%</td>
+                </tr>
+                <tr>
+                    <td><strong>200 pçs</strong></td>
+                    <td>148,00</td>
+                    <td>3.463,00</td>
+                    <td>5.706,00</td>
+                    <td><strong>R$ 28,53</strong></td>
+                    <td>↓ 11,0%</td>
+                </tr>
+                <tr>
+                    <td><strong>500 pçs</strong></td>
+                    <td>148,00</td>
+                    <td>8.658,00</td>
+                    <td>13.913,00</td>
+                    <td><strong>R$ 27,83</strong></td>
+                    <td>↓ 13,1%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">📊 Análise de Lote Mínimo de Produção</h2>
+
+        <div class="info-box" style="background-color: #fff3cd; border-left-color: #ffc107;">
+            <h3>⚠️ Qual o Lote Mínimo que Posso Fabricar?</h3>
+
+            <p style="font-size: 11pt; margin-bottom: 15px;"><strong>Baseado no processo de fabricação validado:</strong></p>
+
+            <div style="background-color: white; padding: 20px; border-radius: 8px; border: 2px solid #1e3c72; margin: 15px 0;">
+                <p style="font-size: 14pt; margin: 0; color: #1e3c72;"><strong>🎯 LOTE MÍNIMO TÉCNICO: 10 peças</strong></p>
+                <p style="font-size: 10pt; margin: 10px 0 0 0; color: #666;">Menor quantidade tecnicamente viável para produção CNC</p>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>📋 Análise técnica do lote mínimo:</strong></p>
+
+            <table style="width: 100%; font-size: 9.5pt; margin: 15px 0; border-collapse: collapse;">
+                <tr style="background-color: #495057; color: white;">
+                    <th style="padding: 10px; text-align: left;">Lote</th>
+                    <th style="padding: 10px; text-align: center;">Setup (R$)</th>
+                    <th style="padding: 10px; text-align: center;">MOD (R$)</th>
+                    <th style="padding: 10px; text-align: center;">Total (R$)</th>
+                    <th style="padding: 10px; text-align: center;">Custo/peça (R$)</th>
+                    <th style="padding: 10px; text-align: center;">Viabilidade</th>
+                </tr>
+                <tr style="background-color: #f8d7da;">
+                    <td style="padding: 10px;"><strong>10 pçs</strong></td>
+                    <td style="padding: 10px; text-align: center;">148,00</td>
+                    <td style="padding: 10px; text-align: center;">173,00</td>
+                    <td style="padding: 10px; text-align: center;">506,00</td>
+                    <td style="padding: 10px; text-align: center; font-weight: bold;">R$ 50,60</td>
+                    <td style="padding: 10px; text-align: center;">❌ Muito caro</td>
+                </tr>
+                <tr style="background-color: #fff3cd;">
+                    <td style="padding: 10px;"><strong>25 pçs</strong></td>
+                    <td style="padding: 10px; text-align: center;">148,00</td>
+                    <td style="padding: 10px; text-align: center;">433,00</td>
+                    <td style="padding: 10px; text-align: center;">917,00</td>
+                    <td style="padding: 10px; text-align: center; font-weight: bold;">R$ 36,68</td>
+                    <td style="padding: 10px; text-align: center;">⚠️ Aceitável</td>
+                </tr>
+                <tr style="background-color: #fff3cd;">
+                    <td style="padding: 10px;"><strong>50 pçs</strong></td>
+                    <td style="padding: 10px; text-align: center;">148,00</td>
+                    <td style="padding: 10px; text-align: center;">866,00</td>
+                    <td style="padding: 10px; text-align: center;">1.602,00</td>
+                    <td style="padding: 10px; text-align: center; font-weight: bold;">R$ 32,04</td>
+                    <td style="padding: 10px; text-align: center;">✅ Viável</td>
+                </tr>
+                <tr style="background-color: #d4edda;">
+                    <td style="padding: 10px;"><strong>100 pçs ⭐</strong></td>
+                    <td style="padding: 10px; text-align: center;">148,00</td>
+                    <td style="padding: 10px; text-align: center;">1.727,00</td>
+                    <td style="padding: 10px; text-align: center;">2.963,00</td>
+                    <td style="padding: 10px; text-align: center; font-weight: bold;">R$ 29,63</td>
+                    <td style="padding: 10px; text-align: center;">✅✅ Recomendado</td>
+                </tr>
+            </table>
+
+            <p style="margin-top: 20px;"><strong>💡 Interpretação dos resultados:</strong></p>
+            <ul style="font-size: 10pt; margin-left: 20px; line-height: 1.8;">
+                <li><strong>Lote 10 peças:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>✅ Tecnicamente possível (máquina aceita)</li>
+                        <li>❌ Setup representa R$ 14,80/peça (29% do custo!) - MUITO ALTO</li>
+                        <li>❌ Custo unitário R$ 50,60 (70% mais caro que lote 100)</li>
+                        <li>⚠️ Usar apenas para protótipos urgentes ou amostras</li>
+                    </ul>
+                </li>
+                <li><strong>Lote 25 peças:</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>✅ Setup diluído para R$ 5,92/peça (16% do custo)</li>
+                        <li>⚠️ Custo unitário R$ 36,68 (24% mais caro que lote 100)</li>
+                        <li>✅ Aceitável para testes de mercado ou primeira compra</li>
+                    </ul>
+                </li>
+                <li><strong>Lote 50 peças (mínimo comercial recomendado):</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>✅ Setup representa R$ 2,96/peça (9% do custo)</li>
+                        <li>✅ Custo unitário R$ 32,04 - competitivo</li>
+                        <li>✅ Menor lote economicamente viável para produção regular</li>
+                    </ul>
+                </li>
+                <li><strong>Lote 100 peças (RECOMENDADO):</strong>
+                    <ul style="margin-left: 20px;">
+                        <li>✅ Setup representa apenas R$ 1,48/peça (5% do custo)</li>
+                        <li>✅ Economia de R$ 2,41/peça vs lote 50 (7,5% mais barato)</li>
+                        <li>✅ Melhor equilíbrio entre investimento e custo unitário</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div style="background-color: #e8f4f8; padding: 15px; border-left: 4px solid #0c5460; margin-top: 20px; border-radius: 5px;">
+                <p style="margin: 0; font-size: 10.5pt;"><strong>📌 RECOMENDAÇÃO LASEC:</strong></p>
+                <ul style="margin: 10px 0 0 20px; font-size: 10pt;">
+                    <li><strong>Protótipos/amostras:</strong> Lote mínimo 10-25 peças (aceitar custo maior)</li>
+                    <li><strong>Primeira produção:</strong> Lote mínimo 50 peças</li>
+                    <li><strong>Produção regular:</strong> Lote recomendado 100 peças</li>
+                    <li><strong>Produção seriada:</strong> Lotes de 200-500 peças (se demanda justificar)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-analise">
+            <div class="card-analise">
+                <h4>🎯 Lote Mínimo Técnico</h4>
+                <div class="valor">10 peças</div>
+                <p>Menor lote que a máquina CNC aceita produzir</p>
+            </div>
+            <div class="card-analise">
+                <h4>✅ Lote Mínimo Comercial</h4>
+                <div class="valor">50 peças</div>
+                <p>Menor lote economicamente viável para produção</p>
+            </div>
+            <div class="card-analise">
+                <h4>⭐ Lote Recomendado</h4>
+                <div class="valor">100 peças</div>
+                <p>Melhor relação custo/benefício para o cliente</p>
+            </div>
+            <div class="card-analise">
+                <h4>📊 Economia vs Lote 50</h4>
+                <div class="valor">7,5%</div>
+                <p>Economia no lote 100 comparado ao lote 50</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📊 Visualização Gráfica - Custo por Peça</h2>
+
+        <div class="grafico-barras">
+            <div class="barra" style="height: 100%;">
+                <span class="barra-valor">R$ 32,04</span>
+                <span class="barra-label">50 pçs</span>
+            </div>
+            <div class="barra" style="height: 92%; background: linear-gradient(to top, #28a745, #20c997);">
+                <span class="barra-valor">R$ 29,63</span>
+                <span class="barra-label">100 pçs ⭐</span>
+            </div>
+            <div class="barra" style="height: 89%;">
+                <span class="barra-valor">R$ 28,53</span>
+                <span class="barra-label">200 pçs</span>
+            </div>
+            <div class="barra" style="height: 87%;">
+                <span class="barra-valor">R$ 27,83</span>
+                <span class="barra-label">500 pçs</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">🔍 Análise Detalhada por Lote</h2>
+
+        <div class="recomendacao">
+            <h4>🔴 Lote 50 peças - VIÁVEL mas MENOS ECONÔMICO</h4>
+            <p><strong>Custo:</strong> R$ 32,04/peça (R$ 1.602,00 total)</p>
+            <p><strong>Análise:</strong></p>
+            <ul>
+                <li>✅ Lote mínimo aceitável para produção CNC</li>
+                <li>⚠️ Setup representa 9,2% do custo total (alto impacto relativo)</li>
+                <li>⚠️ Custo unitário 7,5% maior que lote 100</li>
+                <li>⚠️ Para cliente que compra regularmente, não é a melhor opção</li>
+            </ul>
+            <p><strong>Quando usar:</strong> Apenas para protótipos ou teste de mercado inicial</p>
+        </div>
+
+        <div class="recomendacao" style="background-color: #d4edda; border-left-color: #28a745;">
+            <h4 style="color: #155724;">🟢 Lote 100 peças - RECOMENDADO ⭐</h4>
+            <p><strong>Custo:</strong> R$ 29,63/peça (R$ 2.963,00 total)</p>
+            <p><strong>Análise:</strong></p>
+            <ul>
+                <li>✅ <strong>MELHOR RELAÇÃO CUSTO/BENEFÍCIO</strong></li>
+                <li>✅ Setup diluído em mais peças (5,0% do custo total)</li>
+                <li>✅ Economia de R$ 2,41/peça vs lote 50 (R$ 241,00 no total)</li>
+                <li>✅ Quantidade ideal para estoque intermediário</li>
+                <li>✅ Permite reposição programada trimestral/semestral</li>
+                <li>✅ Viabiliza melhores condições comerciais</li>
+            </ul>
+            <p><strong>Quando usar:</strong> <strong>RECOMENDADO como padrão para MICROGEAR</strong></p>
+            <p><strong>Benefício adicional:</strong> Cliente pode negociar programação de entrega (50 + 50, por exemplo)</p>
+        </div>
+
+        <div class="recomendacao" style="background-color: #fff3cd; border-left-color: #856404;">
+            <h4 style="color: #856404;">🟡 Lote 200 peças - ECONÔMICO mas REQUER VOLUME</h4>
+            <p><strong>Custo:</strong> R$ 28,53/peça (R$ 5.706,00 total)</p>
+            <p><strong>Análise:</strong></p>
+            <ul>
+                <li>✅ Economia adicional de R$ 1,10/peça vs lote 100</li>
+                <li>✅ Setup representa apenas 2,6% do custo total</li>
+                <li>⚠️ Requer investimento de R$ 5.706,00</li>
+                <li>⚠️ Exige capacidade de estoque para 200 peças</li>
+                <li>⚠️ Ganho marginal decrescente (apenas 3,7% de economia vs lote 100)</li>
+            </ul>
+            <p><strong>Quando usar:</strong> Se cliente tem demanda anual confirmada > 200 peças e capacidade de estoque</p>
+        </div>
+
+        <div class="recomendacao" style="background-color: #e7f3ff; border-left-color: #004085;">
+            <h4 style="color: #004085;">🔵 Lote 500 peças - MÁXIMA ECONOMIA (apenas se houver demanda)</h4>
+            <p><strong>Custo:</strong> R$ 33,78/peça (R$ 16.890,00 total)</p>
+            <p><strong>Análise:</strong></p>
+            <ul>
+                <li>✅ Menor custo unitário possível</li>
+                <li>✅ Setup representa apenas 0,5% do custo total (desprezível)</li>
+                <li>✅ Economia de R$ 1,14/peça vs lote 100 (R$ 570,00 no total)</li>
+                <li>⚠️ Requer investimento significativo: R$ 16.890,00</li>
+                <li>⚠️ Risco de estoque parado se demanda não confirmar</li>
+                <li>⚠️ Ganho marginal muito baixo (apenas 1,2% economia vs lote 200)</li>
+            </ul>
+            <p><strong>Quando usar:</strong> Apenas se cliente tem contrato de fornecimento anual > 500 peças</p>
+        </div>
+
+        <h2 class="section-title">💡 Recomendações Estratégicas</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Cenário</th>
+                    <th>Lote Recomendado</th>
+                    <th>Justificativa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cliente novo / Teste</strong></td>
+                    <td>50 peças</td>
+                    <td>Minimiza risco inicial, valida mercado</td>
+                </tr>
+                <tr class="destaque">
+                    <td><strong>Cliente recorrente ⭐</strong></td>
+                    <td><strong>100 peças</strong></td>
+                    <td><strong>Melhor custo/benefício, ideal para reposição programada</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Demanda anual confirmada</strong></td>
+                    <td>200 peças</td>
+                    <td>Economia adicional, fracionamento possível (100+100)</td>
+                </tr>
+                <tr>
+                    <td><strong>Contrato de fornecimento</strong></td>
+                    <td>500 peças</td>
+                    <td>Máxima economia, viável apenas com demanda garantida</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">📌 Observações Importantes</h2>
+
+        <div class="info-box">
+            <h3>🔧 Considerações Técnicas</h3>
+            <ul>
+                <li><strong>Setup:</strong> 1,0h (60 minutos) - Peça cilíndrica com tolerâncias IT7</li>
+                <li><strong>Tempo de ciclo:</strong> 7,0 min/peça (validado com 90 peças produzidas 19-20/11/2025)</li>
+                <li><strong>Máquina Doosan Lynx 220LM:</strong> Torno CNC Fanuc - Alta precisão para tolerâncias apertadas</li>
+                <li><strong>Material fornecido:</strong> Cliente fornece matéria-prima (Blank Ø80×30mm), eliminando custo e risco de estoque</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>💼 Considerações Comerciais</h3>
+            <ul>
+                <li><strong>MICROGEAR:</strong> Cliente com histórico de orçamentos (007 e 008), sugere demanda recorrente</li>
+                <li><strong>Programação de entrega:</strong> Lote 100 pode ser fracionado (50 agora + 50 em 3 meses)</li>
+                <li><strong>Curva de economia:</strong> Ganho marginal diminui muito após lote 100 (lei dos rendimentos decrescentes)</li>
+                <li><strong>Gestão de estoque:</strong> Cliente deve avaliar custo de manter estoque vs economia de escala</li>
+            </ul>
+        </div>
+
+        <div class="conclusao">
+            <h3 style="margin-top: 0;">✅ CONCLUSÃO E RECOMENDAÇÃO</h3>
+            <p><strong>Para MICROGEAR (cliente recorrente com demanda estabelecida):</strong></p>
+            <p style="font-size: 18px; margin: 15px 0;"><strong>📦 LOTE RECOMENDADO: 100 PEÇAS</strong></p>
+            <p><strong>Justificativa:</strong></p>
+            <p>✅ Melhor equilíbrio entre custo unitário (R$ 34,92) e investimento total (R$ 3.492,00)</p>
+            <p>✅ Economia de R$ 142,00 vs lote 50, sem exigir grande capacidade de estoque</p>
+            <p>✅ Quantidade ideal para reposição programada trimestral/semestral</p>
+            <p>✅ Permite flexibilidade de programação de entrega (fracionamento)</p>
+            <p>✅ Ganho marginal significativo vs lote menor, sem risco de superdimensionamento</p>
+            <br>
+            <p style="font-size: 14px; font-style: italic;">
+                💡 Lotes maiores (200/500) só se justificam com demanda anual confirmada e capacidade de estoque adequada
+            </p>
+        </div>
+
+    <div class="footer">
+        <p><strong>LASEC USINAGEM DE PRECISÃO</strong></p>
+        <p>Documento gerado em 26/11/2025 | Orçamento 008/2025 - MICROGEAR</p>
+        <p>Análise técnica interna - Documento de uso interno</p>
+    </div>
+
+</div>
+
+</body>
+</html>

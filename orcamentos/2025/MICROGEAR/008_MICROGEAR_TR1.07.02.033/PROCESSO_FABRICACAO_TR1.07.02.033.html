@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - MICROGEAR TR1.07.02.033</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-image: url('simbolo lasec.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+.main-header {
+    background: white;
+    padding: 30px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 30px;
+}
+.logo-container {
+    flex-shrink: 0;
+}
+.logo-container img {
+    height: 120px;
+    width: auto;
+    filter: brightness(1.1) contrast(1.1);
+}
+.company-info-header {
+    flex-grow: 1;
+}
+.company-name-main {
+    font-size: 32pt;
+    font-weight: bold;
+    color: #1e3c72;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+.company-tagline {
+    font-size: 14pt;
+    color: #2a5298;
+    margin: 8px 0 0 0;
+    font-weight: 500;
+}
+.document-title-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
+    padding: 25px 40px;
+    margin: 25px -40px 0 -40px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(30,60,114,0.3);
+}
+.document-title {
+    font-size: 28pt;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+.document-subtitle {
+    font-size: 13pt;
+    color: white;
+    margin: 8px 0;
+    opacity: 0.95;
+}
+.content-wrapper {
+    padding: 0 40px 40px 40px;
+}
+.confidential {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.section-title {
+    background-color: #495057;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 10pt;
+}
+.info-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+.info-table td:first-child {
+    font-weight: bold;
+    width: 35%;
+    background-color: #f8f9fa;
+}
+.info-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.warning-box {
+    background-color: #fff3cd;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #ffc107;
+}
+.success-box {
+    background-color: #d4edda;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #28a745;
+}
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1e3c72;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+}
+code {
+    background-color: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+}
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="simbolo lasec.jpg" alt="LASEC">
+        </div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">🔧 PROCESSO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">BUCHA/FLANGE TR1.07.02.033</div>
+        <div class="document-subtitle">Orçamento 008/2025 - MICROGEAR</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">
+    ⚠️ DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE
+</div>
+
+<div class="section-title">1. DADOS GERAIS DA PEÇA</div>
+<table class="info-table">
+    <tr>
+        <td>Código:</td>
+        <td>TR1.07.02.033 (Padrão A4)</td>
+    </tr>
+    <tr>
+        <td>Descrição:</td>
+        <td>BUCHA/FLANGE CILÍNDRICA COM DEGRAUS</td>
+    </tr>
+    <tr>
+        <td>Cliente:</td>
+        <td>MICROGEAR</td>
+    </tr>
+    <tr>
+        <td>Material:</td>
+        <td><strong>DIN 20MnCr5</strong> (Aço de cementação / Case hardening steel) - Fornecido pelo cliente</td>
+    </tr>
+    <tr>
+        <td>Dimensões matéria-prima:</td>
+        <td><strong>BLANK Ø80mm × 30mm</strong> (tarugo cortado fornecido pelo cliente)</td>
+    </tr>
+    <tr>
+        <td>Máquina:</td>
+        <td><strong>Doosan Lynx 220LM</strong> (Torno CNC - Comando Fanuc)</td>
+    </tr>
+    <tr>
+        <td>Programa CNC:</td>
+        <td><strong>:0408(1.07.02.033)</strong> - Programa validado (AS-BUILT)</td>
+    </tr>
+    <tr>
+        <td>Fixação:</td>
+        <td><strong>Castanha 3 garras</strong> - Duas operações: G55 (1ª face) + G56 (2ª face após virada manual)</td>
+    </tr>
+    <tr>
+        <td>Operações:</td>
+        <td><strong>2 fixações</strong> - Operador vira a peça manualmente entre G55 e G56</td>
+    </tr>
+    <tr>
+        <td>Tempo produtivo/peça:</td>
+        <td><strong>4,27 minutos</strong> (1º lado 2'37" + 2º lado 1'39") - Tempo marcado pelo operador</td>
+    </tr>
+    <tr>
+        <td>Tempo improdutivo/peça:</td>
+        <td><strong>2,73 minutos</strong> (trocas ferramenta + aproximações + medições + virada peça)</td>
+    </tr>
+    <tr>
+        <td>Tempo TOTAL/peça:</td>
+        <td><strong>7,0 minutos</strong> - Medido em produção real de 90 peças (19-20/11/2025)</td>
+    </tr>
+    <tr>
+        <td>Setup:</td>
+        <td><strong>1,0h</strong> (60 minutos) - Torno CNC peça cilíndrica</td>
+    </tr>
+</table>
+
+<div class="section-title">2. DIMENSÕES FINAIS</div>
+<table class="info-table">
+    <tr>
+        <td>Diâmetro externo máximo:</td>
+        <td>Ø 74mm (referência)</td>
+    </tr>
+    <tr>
+        <td>Degrau intermediário:</td>
+        <td>Ø 58 ±0,3mm</td>
+    </tr>
+    <tr>
+        <td>Degrau menor:</td>
+        <td>Ø 46 ±0,3mm</td>
+    </tr>
+    <tr>
+        <td>Furo interno (CRÍTICO):</td>
+        <td>Ø 24,87/24,83mm (tolerância 0,04mm - IT7)</td>
+    </tr>
+    <tr>
+        <td>Altura total:</td>
+        <td>25 ±0,05mm (tolerância apertada)</td>
+    </tr>
+    <tr>
+        <td>Degrau interno:</td>
+        <td>Ø 20,22mm (Ref.)</td>
+    </tr>
+    <tr>
+        <td>Chanfros:</td>
+        <td>1×45° (2 lados)</td>
+    </tr>
+    <tr>
+        <td>Raios:</td>
+        <td>R 0,2 e R 2,0</td>
+    </tr>
+    <tr>
+        <td>Acabamento:</td>
+        <td>Natural (fofo nodular após usinagem)</td>
+    </tr>
+</table>
+
+<div class="section-title">3. SEQUÊNCIA DETALHADA DE OPERAÇÕES - DOOSAN LYNX 220LM</div>
+
+<table class="info-table" style="font-size: 9pt;">
+<thead>
+        <tr style="background-color: #495057; color: white; text-align: center;">
+            <th style="padding: 8px; border: 1px solid #ddd; width: 4%;">Seq</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 9%;">Operação</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 4%;">Tool</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 6%;">Cód. BD</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 13%;">Ferramenta</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">Vc</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">RPM</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">Avanço</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">Ciclo</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 44%;">Descrição Detalhada</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- G55 - 1º LADO -->
+        <tr style="background-color: #e7f3ff;">
+            <td colspan="10" style="font-weight: bold; padding: 10px; font-size: 11pt;">📍 G55 - 1º LADO (FRONTAL) - Castanha "CAST S" (Ø69.5mm grip) - Blank Ø80×30mm</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N10</strong></td>
+            <td>Furação Tmax Ø20</td>
+            <td style="text-align: center;"><strong>T12</strong></td>
+            <td style="text-align: center;">08.08.061<br>08.07.038</td>
+            <td>Broca Tmax Ø20<br>SPMG 060204</td>
+            <td style="text-align: center;">-</td>
+            <td style="text-align: center;">1850</td>
+            <td style="text-align: center;">F 120</td>
+            <td style="text-align: center;"><strong>G83</strong></td>
+            <td><strong>Furação profunda Z-33mm</strong><br>
+            • Ciclo peck drilling G83 (furação intermitente)<br>
+            • Profundidade: 33mm<br>
+            • Incremento: Q60000 (controle de cavacos)<br>
+            • G94 (avanço mm/min), G97 (RPM constante)<br>
+            • M8/M9: Refrigeração ligada/desligada</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N20</strong></td>
+            <td>Desbaste externo</td>
+            <td style="text-align: center;"><strong>T06</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.171</td>
+            <td>Desbaste ext.<br>Insert P-aço</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.25</td>
+            <td style="text-align: center;"><strong>G71</strong></td>
+            <td><strong>Desbaste dos degraus externos</strong><br>
+            • G71 (ciclo desbaste automático) P1→Q2<br>
+            • Perfil: Ø74→Ø58→Ø46 com raios R0.3, R1, R0.5<br>
+            • Sobremetal: U0.1 W0.05<br>
+            • G96 Vc=250 m/min (vel. corte constante)<br>
+            • G92 S3000 (limitador RPM máximo)<br>
+            • G42 (compensação raio direita)</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"></td>
+            <td>Sangramento face</td>
+            <td style="text-align: center;"><strong>T06</strong></td>
+            <td style="text-align: center;">(mesma)</td>
+            <td>(mesma)</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.18</td>
+            <td style="text-align: center;"><strong>G75</strong></td>
+            <td><strong>Ranhura/sangramento facial X18→Z0.1</strong><br>
+            • G75 (ciclo faceamento/grooving)<br>
+            • P80000 Q1000 R1 (parâmetros de incremento)<br>
+            • Melhora acabamento superficial da face</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N30</strong></td>
+            <td>Desbaste interno</td>
+            <td style="text-align: center;"><strong>T10</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.171</td>
+            <td>Mandrilamento<br>Insert P-aço</td>
+            <td style="text-align: center;">180</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.25</td>
+            <td style="text-align: center;"><strong>G74</strong></td>
+            <td><strong>Mandrilamento furo até Ø24.5mm</strong><br>
+            • G74 (ciclo desbaste faceamento/furo)<br>
+            • X24.5 Z-35 (diâmetro e profundidade)<br>
+            • P1500 Q50000 R0.5 (parâmetros)<br>
+            • Deixa sobremetal 0,35mm para acabamento<br>
+            • G96 Vc=180 m/min (menor vel. p/ interno)</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N40</strong></td>
+            <td>Acabamento externo</td>
+            <td style="text-align: center;"><strong>T05</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.xxx</td>
+            <td>Acabamento fino<br>Insert preciso</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.25<br>F 0.18</td>
+            <td style="text-align: center;"><strong>G70</strong></td>
+            <td><strong>Acabamento perfil externo</strong><br>
+            • G70 P1→Q2 (repete perfil em acabamento)<br>
+            • Faceamento Z0 + Ø externo até Ø23<br>
+            • Remove sobremetal deixado pelo G71<br>
+            • Define dimensões finais Ø74, Ø58±0.3, Ø46±0.3</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N50</strong></td>
+            <td>Acabamento interno</td>
+            <td style="text-align: center;"><strong>T08</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.xxx</td>
+            <td>Acab. interno fino<br>Insert preciso</td>
+            <td style="text-align: center;">200</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.18</td>
+            <td style="text-align: center;">-</td>
+            <td><strong>Acabamento furo Ø24.87/24.83mm IT7 ⚠️</strong><br>
+            • Chanfro entrada: X26.85→X24.85 R0.3<br>
+            • Furo final: X24.89 Z-35 (Ø24.89mm nominal)<br>
+            • Tolerância IT7: 0,04mm - MUITO APERTADA!<br>
+            • G41 (compensação raio esquerda)<br>
+            • Controle dimensional obrigatório (micrômetro)</td>
+        </tr>
+
+        <tr style="background-color: #e1f5e1;">
+            <td colspan="7" style="text-align: right; padding: 8px; font-weight: bold;">🟢 TEMPO PRODUTIVO 1º LADO (operador):</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #4CAF50; color: white; font-weight: bold; font-size: 12pt;">
+            ⏱️ 2,62 min (2'37") - Tempo com cavaco<br>
+            <small style="font-size: 8pt;">5 ferramentas (N10+N20+N30+N40+N50)</small></td>
+        </tr>
+        <tr style="background-color: #fff3cd;">
+            <td colspan="7" style="text-align: right; padding: 8px; font-weight: bold;">🟡 TEMPO IMPRODUTIVO 1º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #FFC107; font-weight: bold; font-size: 12pt;">
+            ⚙️ 1,82 min - Trocas (4×20s) + G00 + virada<br>
+            <small style="font-size: 8pt;">Inclui virada manual + inspeção (~60-90s)</small></td>
+        </tr>
+        <tr style="background-color: #2196F3; color: white;">
+            <td colspan="7" style="text-align: right; padding: 8px; font-weight: bold; font-size: 11pt;">⏱️ SUBTOTAL 1º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; font-weight: bold; font-size: 13pt;">
+            4,44 min/peça</td>
+        </tr>
+
+        <!-- VIRADA MANUAL -->
+        <tr style="background-color: #ff9800; color: white; font-weight: bold;">
+            <td colspan="10" style="padding: 10px; text-align: center; font-size: 11pt;">
+            🔄 VIRADA MANUAL: Operador retira peça → Rotaciona 180° → Refixação castanha → Inspeção dimensional 1º lado → M54 (troca offset G55→G56)
+            </td>
+        </tr>
+
+        <!-- G56 - 2º LADO -->
+        <tr style="background-color: #fff3cd;">
+            <td colspan="10" style="font-weight: bold; padding: 10px; font-size: 11pt;">📍 G56 - 2º LADO (TRASEIRO) - Peça virada 180° - Define altura 25±0,05mm</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N60</strong></td>
+            <td>Desbaste externo lado 2</td>
+            <td style="text-align: center;"><strong>T06</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.171</td>
+            <td>Desbaste ext.<br>Insert P-aço</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.18</td>
+            <td style="text-align: center;"><strong>G71</strong></td>
+            <td><strong>Desbaste lado traseiro (conicidade)</strong><br>
+            • G71 P3→Q4 (ciclo desbaste lado 2)<br>
+            • Perfil cônico: X54.8→X74 com ângulo 140.994°<br>
+            • Sobremetal: U0.1 W0.05<br>
+            • G42 (compensação raio direita)</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"></td>
+            <td>Sangramento face 2</td>
+            <td style="text-align: center;"><strong>T06</strong></td>
+            <td style="text-align: center;">(mesma)</td>
+            <td>(mesma)</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.18</td>
+            <td style="text-align: center;"><strong>G75</strong></td>
+            <td><strong>Ranhura/sangramento facial lado 2</strong><br>
+            • G75 X20→Z0.1<br>
+            • P90000 Q1000 R1<br>
+            • Acabamento superficial face traseira</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N80</strong></td>
+            <td>Acabamento externo + face</td>
+            <td style="text-align: center;"><strong>T05</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.xxx</td>
+            <td>Acabamento fino<br>Insert preciso</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.25<br>F 0.18</td>
+            <td style="text-align: center;"><strong>G70</strong></td>
+            <td><strong>Acabamento lado 2 + ALTURA FINAL ⚠️</strong><br>
+            • Faceamento Z0: Define H=25±0,05mm<br>
+            • G70 P3→Q4 (acabamento perfil lado 2)<br>
+            • Tolerância altura APERTADA!<br>
+            • Medição obrigatória paquímetro/micrômetro</td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;"><strong>N100</strong></td>
+            <td>Chanfro interno entrada</td>
+            <td style="text-align: center;"><strong>T08</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.xxx</td>
+            <td>Acab. interno fino</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;">3000*</td>
+            <td style="text-align: center;">F 0.25<br>F 0.18</td>
+            <td style="text-align: center;">-</td>
+            <td><strong>Chanfro entrada furo lado 2</strong><br>
+            • X26.85→X24.85 Z-1 (chanfro cônico)<br>
+            • X24.75 Z-3 (ajuste entrada)<br>
+            • Facilita montagem + acabamento entrada</td>
+        </tr>
+
+        <tr style="background-color: #e1f5e1;">
+            <td colspan="7" style="text-align: right; padding: 8px; font-weight: bold;">🟢 TEMPO PRODUTIVO 2º LADO (operador):</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #4CAF50; color: white; font-weight: bold; font-size: 12pt;">
+            ⏱️ 1,65 min (1'39") - Tempo com cavaco<br>
+            <small style="font-size: 8pt;">3 ferramentas (N60+N80+N100)</small></td>
+        </tr>
+        <tr style="background-color: #fff3cd;">
+            <td colspan="7" style="text-align: right; padding: 8px; font-weight: bold;">🟡 TEMPO IMPRODUTIVO 2º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #FFC107; font-weight: bold; font-size: 12pt;">
+            ⚙️ 0,91 min - Trocas (2×20s) + G00<br>
+            <small style="font-size: 8pt;">Aproximações + afastamentos + posicionamentos</small></td>
+        </tr>
+        <tr style="background-color: #2196F3; color: white;">
+            <td colspan="7" style="text-align: right; padding: 8px; font-weight: bold; font-size: 11pt;">⏱️ SUBTOTAL 2º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; font-weight: bold; font-size: 13pt;">
+            2,56 min/peça</td>
+        </tr>
+
+        <!-- TOTAIS FINAIS -->
+        <tr style="background-color: #4CAF50; font-weight: bold; color: white;">
+            <td colspan="7" style="text-align: right; padding: 10px; font-size: 13pt;">✅ TEMPO PRODUTIVO TOTAL (operador):</td>
+            <td colspan="3" style="text-align: left; padding: 10px; font-size: 15pt;">
+            4,27 min (2'37" + 1'39")</td>
+        </tr>
+        <tr style="background-color: #FFC107; font-weight: bold; color: #000;">
+            <td colspan="7" style="text-align: right; padding: 10px; font-size: 13pt;">⚙️ TEMPO IMPRODUTIVO TOTAL:</td>
+            <td colspan="3" style="text-align: left; padding: 10px; font-size: 15pt;">
+            2,73 min (trocas + virada + inspeção)</td>
+        </tr>
+        <tr style="background-color: #1976D2; font-weight: bold; color: white;">
+            <td colspan="7" style="text-align: right; padding: 12px; font-size: 14pt;">⏱️ TEMPO TOTAL REAL (medido):</td>
+            <td colspan="3" style="text-align: left; padding: 12px; font-size: 16pt;">
+            <strong>7,0 min/peça</strong><br>
+            <small style="font-size: 10pt;">Validado com 90 peças - 19-20/11/2025<br>Setup: 1,0h | Programa: :0408</small></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="info-box" style="background-color: #e3f2fd; border-left: 5px solid #2196F3;">
+    <strong>ℹ️ LEGENDA CICLOS FANUC:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px; font-size: 9pt;">
+        <li><strong>G71:</strong> Ciclo de desbaste automático (roughing) - segue perfil N→N com sobremetal</li>
+        <li><strong>G70:</strong> Ciclo de acabamento (finishing) - repete perfil em acabamento</li>
+        <li><strong>G74:</strong> Ciclo de mandrilamento/faceamento profundo com incrementos</li>
+        <li><strong>G75:</strong> Ciclo de sangramento/ranhura facial (grooving)</li>
+        <li><strong>G83:</strong> Ciclo de furação profunda peck drilling (furação intermitente)</li>
+        <li><strong>G96/G97:</strong> Velocidade corte constante (Vc) / RPM constante</li>
+        <li><strong>G92:</strong> Limitador de RPM máximo (proteção)</li>
+        <li><strong>G41/G42:</strong> Compensação raio ferramenta (esquerda/direita)</li>
+        <li><strong>G94/G95:</strong> Avanço mm/min / Avanço mm/rot</li>
+        <li><strong>M54:</strong> Mudança de offset trabalho (G55→G56)</li>
+        <li><strong>*RPM máximo:</strong> G92 S3000 limita rotação para segurança</li>
+    </ul>
+</div>
+
+<div class="success-box">
+    <strong>✅ VANTAGENS DO DOOSAN LYNX 220LM:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Torno compacto e eficiente:</strong> Otimizado para peças de médio porte</li>
+        <li><strong>Comando Fanuc:</strong> Programação avançada, confiável e amplamente conhecida</li>
+        <li><strong>Alta precisão:</strong> Tolerâncias IT7 garantidas</li>
+        <li><strong>Ciclos automáticos G71/G70/G74/G75:</strong> Otimização de tempo e qualidade</li>
+        <li><strong>Torre com 12 posições:</strong> Todas as ferramentas prontas (T05, T06, T08, T10, T12)</li>
+        <li><strong>Refrigeração programável M8/M9:</strong> Controle preciso de refrigeração</li>
+        <li><strong>Capacidade sobrada:</strong> Peça Ø74×25mm bem dentro da capacidade</li>
+    </ul>
+</div>
+
+<div class="warning-box">
+    <strong>⚠️ PONTOS CRÍTICOS DE ATENÇÃO:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Furo Ø24,87/24,83mm:</strong> Tolerância IT7 (0,04mm) - MUITO APERTADA!</li>
+        <li>Requer ferramenta de acabamento específica T08 com inserto fino</li>
+        <li>Controle dimensional obrigatório com micrômetro interno</li>
+        <li><strong>Altura 25 ±0,05mm:</strong> Tolerância apertada - atenção no faceamento N80</li>
+        <li><strong>Material 20MnCr5 (aço):</strong> Usar insertos para aço (classe P - ISO)</li>
+        <li><strong>Refrigeração:</strong> Obrigatória em todas operações (M8/M9)</li>
+        <li><strong>Blank Ø80mm:</strong> Verificar centragem na castanha antes de iniciar</li>
+        <li><strong>Virada manual G55→G56:</strong> Cuidado para não marcar superfície acabada na refixação</li>
+        <li><strong>Ciclo G75:</strong> Ranhura para melhor acabamento superficial das faces</li>
+    </ul>
+</div>
+
+<div class="success-box">
+    <strong>✅ CAPACIDADE DA MÁQUINA DOOSAN LYNX 220LM:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Diâmetro máximo torneamento: 220mm ✓</li>
+        <li>Comprimento máximo: 500mm ✓</li>
+        <li>Velocidade máxima: 3.500 RPM ✓</li>
+        <li>Comando: Fanuc 0i-TC ✓</li>
+        <li>Torre: 12 posições ✓</li>
+        <li>Potência adequada para fofo nodular ✓</li>
+        <li>Precisão: ±0,005mm (repetibilidade) ✓</li>
+        <li>Ideal para peça Ø74×25mm - capacidade sobra! ✓</li>
+    </ul>
+</div>
+
+<div class="success-box">
+    <strong>✅ METODOLOGIA DE TEMPOS - ORÇAMENTO PRECISO:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>TEMPO PRODUTIVO (4,27 min):</strong> Marcado pelo operador na ficha de processo
+            <ul style="margin-left: 20px;">
+                <li>1º lado: <strong>2'37"</strong> (2,62 min) - Tempo gerando cavaco</li>
+                <li>2º lado: <strong>1'39"</strong> (1,65 min) - Tempo gerando cavaco</li>
+            </ul>
+        </li>
+        <li><strong>TEMPO IMPRODUTIVO (2,73 min):</strong> Calculado pela diferença entre tempo real medido e tempo produtivo
+            <ul style="margin-left: 20px;">
+                <li>Trocas de ferramenta (cavaco-cavaco)</li>
+                <li>Aproximações e afastamentos rápidos (G00)</li>
+                <li>Virada manual da peça (~60-90s)</li>
+                <li>Inspeção dimensional rápida</li>
+            </ul>
+        </li>
+        <li><strong>TEMPO TOTAL REAL (7,0 min):</strong> Medido em produção de <strong>90 peças</strong> (19-20/11/2025)</li>
+        <li>Programa: <strong>:0408(1.07.02.033)</strong> | Máquina: <strong>Doosan Lynx 220LM</strong></li>
+        <li>Material: <strong>DIN 20MnCr5</strong> | Tolerância IT7 garantida</li>
+        <li><strong>Esta metodologia garante orçamento PRECISO baseado em dados reais!</strong></li>
+    </ul>
+</div>
+
+<div class="footer">
+    <p><strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC</p>
+    <p>Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020</p>
+    <p>Tel: (11) 3936-5041 | (11) 3935-1271</p>
+    <p style="margin-top: 15px; color: #999;">📋 Documento gerado em 23/11/2025</p>
+    <p style="margin-top: 5px; color: #cc0000; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</p>
+</div>
+
+</div>
+</body>
+</html>
