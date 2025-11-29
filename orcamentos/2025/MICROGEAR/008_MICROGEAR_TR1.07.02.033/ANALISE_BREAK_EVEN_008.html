@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Break Even - MICROGEAR TR1.07.02.033</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}
+h1 {
+    color: #1e3c72;
+    border-bottom: 3px solid #1e3c72;
+    padding-bottom: 10px;
+}
+h2 {
+    color: #2a5298;
+    background-color: #f0f4f8;
+    padding: 10px;
+    border-left: 5px solid #2a5298;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th {
+    background-color: #1e3c72;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.destaque {
+    background-color: #d4edda !important;
+    font-weight: bold;
+}
+.sucesso {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+}
+.info-box {
+    background-color: #e7f3ff;
+    border-left: 5px solid #2196F3;
+    padding: 15px;
+    margin: 20px 0;
+}
+.formula {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #6c757d;
+    font-family: 'Courier New', monospace;
+    margin: 15px 0;
+}
+</style>
+</head>
+<body>
+
+<h1>📊 ANÁLISE DE BREAK EVEN - Orçamento 008/2025</h1>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3 style="margin-top: 0;">Cliente: MICROGEAR</h3>
+    <p><strong>Peça:</strong> TR1.07.02.033 (BUCHA/FLANGE)</p>
+    <p><strong>Material:</strong> DIN 20MnCr5 (fornecido pelo cliente)</p>
+    <p><strong>Máquina:</strong> Doosan Lynx 220LM</p>
+    <p><strong>Hora-Máquina:</strong> R$ 83,08/h (Planilha LASEC 2025 atualizada)</p>
+    <p><strong>Data:</strong> Janeiro 2025</p>
+</div>
+
+<h2>🎯 O QUE É BREAK EVEN?</h2>
+
+<div class="info-box">
+    <p><strong>Break Even (Ponto de Equilíbrio):</strong> É a quantidade mínima de peças que precisamos produzir para cobrir TODOS os custos (fixos + variáveis), sem lucro nem prejuízo.</p>
+    <p><strong>Por que é importante?</strong> Nos diz:</p>
+    <ul>
+        <li>✅ A partir de quantas peças começamos a ter LUCRO</li>
+        <li>✅ Qual o volume mínimo viável para aceitar o pedido</li>
+        <li>✅ Como o setup impacta a rentabilidade</li>
+    </ul>
+</div>
+
+<h2>💰 ESTRUTURA DE CUSTOS</h2>
+
+<h3>1️⃣ Custos FIXOS (não mudam com quantidade)</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Observação</th>
+    </tr>
+    <tr>
+        <td><strong>Setup Máquina</strong></td>
+        <td>R$ 83,08</td>
+        <td>1,0h × R$ 83,08/h - Pago independente da quantidade</td>
+    </tr>
+    <tr class="destaque">
+        <td><strong>TOTAL CUSTOS FIXOS</strong></td>
+        <td><strong>R$ 83,08</strong></td>
+        <td>Diluído entre as peças do lote</td>
+    </tr>
+</table>
+
+<h3>2️⃣ Custos VARIÁVEIS (por peça)</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Cálculo</th>
+    </tr>
+    <tr>
+        <td>MOD (usinagem)</td>
+        <td>R$ 9,70/pç</td>
+        <td>7,0 min × R$ 83,08/h ÷ 60 min</td>
+    </tr>
+    <tr>
+        <td>CIF (58% sobre MOD+Setup)</td>
+        <td>~R$ 6,11/pç</td>
+        <td>Energia, depreciação, manutenção</td>
+    </tr>
+    <tr>
+        <td>Material</td>
+        <td>R$ 0,00/pç</td>
+        <td>Fornecido pelo cliente</td>
+    </tr>
+    <tr class="destaque">
+        <td><strong>CUSTO VARIÁVEL por peça</strong></td>
+        <td><strong>R$ 15,81/pç</strong></td>
+        <td>MOD + CIF proporcional</td>
+    </tr>
+</table>
+
+<h2>📐 CÁLCULO DO BREAK EVEN</h2>
+
+<div class="formula">
+<strong>Fórmula Break Even:</strong>
+
+Quantidade Break Even = Custos Fixos ÷ (Preço Venda - Custo Variável)
+
+Onde:
+• Custos Fixos = R$ 83,08 (setup)
+• Preço Venda = R$ 24,76/pç (lote 100)
+• Custo Variável = R$ 15,81/pç (MOD + CIF)
+
+Break Even = R$ 83,08 ÷ (R$ 24,76 - R$ 15,81)
+Break Even = R$ 83,08 ÷ R$ 8,95
+<strong>Break Even = 9,28 peças ≈ 10 peças</strong>
+</div>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ INTERPRETAÇÃO:</h4>
+    <p><strong>Precisamos produzir e vender NO MÍNIMO 10 peças para não ter prejuízo!</strong></p>
+    <ul>
+        <li>✅ Com 10 peças: Receita = Custo Total (ponto de equilíbrio)</li>
+        <li>❌ Menos de 10 peças: PREJUÍZO (não cobre o setup)</li>
+        <li>✅ Mais de 10 peças: LUCRO (cada peça adicional gera margem)</li>
+    </ul>
+</div>
+
+<h2>📊 ANÁLISE POR LOTE</h2>
+
+<table>
+    <tr>
+        <th>Lote</th>
+        <th>Preço/pç</th>
+        <th>Receita Total</th>
+        <th>Custo Total</th>
+        <th>Lucro Bruto</th>
+        <th>Margem %</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>10 pçs (Break Even)</td>
+        <td>R$ 24,76</td>
+        <td>R$ 247,60</td>
+        <td>R$ 241,18</td>
+        <td>R$ 6,42</td>
+        <td>2,6%</td>
+        <td>🟢 Pequeno lucro</td>
+    </tr>
+    <tr>
+        <td>50 pçs</td>
+        <td>R$ 26,71</td>
+        <td>R$ 1.335,50</td>
+        <td>R$ 897,57</td>
+        <td><span style="color: green;">R$ 437,93</span></td>
+        <td>32,8%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr class="destaque">
+        <td>100 pçs ⭐</td>
+        <td>R$ 24,76</td>
+        <td>R$ 2.476,00</td>
+        <td>R$ 1.663,87</td>
+        <td><span style="color: green;">R$ 812,13</span></td>
+        <td>32,8%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr>
+        <td>200 pçs</td>
+        <td>R$ 23,78</td>
+        <td>R$ 4.756,00</td>
+        <td>R$ 3.196,47</td>
+        <td><span style="color: green;">R$ 1.559,53</span></td>
+        <td>32,8%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr>
+        <td>500 pçs</td>
+        <td>R$ 23,20</td>
+        <td>R$ 11.600,00</td>
+        <td>R$ 7.794,27</td>
+        <td><span style="color: green;">R$ 3.805,73</span></td>
+        <td>32,8%</td>
+        <td>✅ Lucro</td>
+    </tr>
+</table>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">🎉 EXCELENTE NOTÍCIA!</h4>
+    <p><strong>TODOS OS LOTES geram LUCRO SAUDÁVEL de ~33%!</strong></p>
+    <ul>
+        <li>✅ Lote 50: Lucro de R$ 437,93 (32,8% margem)</li>
+        <li>✅ Lote 100: Lucro de R$ 812,13 (32,8% margem) ⭐ RECOMENDADO</li>
+        <li>✅ Lote 200: Lucro de R$ 1.559,53 (32,8% margem)</li>
+        <li>✅ Lote 500: Lucro de R$ 3.805,73 (32,8% margem)</li>
+    </ul>
+</div>
+
+<h2>📈 COMPARAÇÃO COM LIMITE DO CLIENTE</h2>
+
+<table>
+    <tr>
+        <th>Lote</th>
+        <th>Nosso Preço</th>
+        <th>Limite Cliente</th>
+        <th>Diferença</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>50 pçs</td>
+        <td>R$ 26,71</td>
+        <td>R$ 27,00</td>
+        <td>R$ 0,29 abaixo (-1,1%)</td>
+        <td>✅ Dentro</td>
+    </tr>
+    <tr class="destaque">
+        <td>100 pçs ⭐</td>
+        <td>R$ 24,76</td>
+        <td>R$ 27,00</td>
+        <td>R$ 2,24 abaixo (-8,3%)</td>
+        <td>✅ Muito competitivo</td>
+    </tr>
+    <tr>
+        <td>200 pçs</td>
+        <td>R$ 23,78</td>
+        <td>R$ 27,00</td>
+        <td>R$ 3,22 abaixo (-11,9%)</td>
+        <td>✅ Muito competitivo</td>
+    </tr>
+    <tr>
+        <td>500 pçs</td>
+        <td>R$ 23,20</td>
+        <td>R$ 27,00</td>
+        <td>R$ 3,80 abaixo (-14,1%)</td>
+        <td>✅ Muito competitivo</td>
+    </tr>
+</table>
+
+<h2>🎯 RECOMENDAÇÃO FINAL</h2>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ RECOMENDAÇÃO: ACEITAR O PEDIDO</h4>
+
+    <p><strong>LOTE RECOMENDADO: 100 PEÇAS</strong></p>
+    <ul>
+        <li>💰 <strong>Preço:</strong> R$ 24,76/peça (R$ 2.476,00 total)</li>
+        <li>✅ <strong>8,3% ABAIXO</strong> do limite do cliente (R$ 27,00)</li>
+        <li>✅ <strong>Lucro bruto:</strong> R$ 812,13 (margem 32,8%)</li>
+        <li>✅ <strong>Break even:</strong> Apenas 10 peças (muito seguro)</li>
+        <li>✅ <strong>Viabilidade:</strong> Mesmo se produzir 50 peças, já cobre todos os custos + lucro</li>
+    </ul>
+
+    <p><strong>VANTAGENS ESTRATÉGICAS:</strong></p>
+    <ul>
+        <li>🎯 Preço competitivo mantém margem saudável</li>
+        <li>🤝 Cliente recorrente (relacionamento de longo prazo)</li>
+        <li>📈 Potencial de pedidos futuros maiores</li>
+        <li>⚙️ Máquina Doosan hora-máquina R$ 83,08 (custo real LASEC 2025)</li>
+        <li>💪 Markup 30% + Perdas 4% = precificação sustentável</li>
+    </ul>
+
+    <p style="font-size: 18px; margin-top: 30px;"><strong>✅ DECISÃO: APROVAR ORÇAMENTO E ENVIAR PROPOSTA AO CLIENTE</strong></p>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 12px;">
+    <p><strong>LASEC USINAGEM DE PRECISÃO</strong></p>
+    <p>Análise Break Even - Orçamento 008/2025 MICROGEAR</p>
+    <p><strong>Hora-máquina:</strong> R$ 83,08/h (Doosan - Planilha LASEC 2025 atualizada)</p>
+    <p>Documento interno - Não enviar ao cliente</p>
+</div>
+
+</body>
+</html>

@@ -48,6 +48,97 @@ D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md
 
 ---
 
+## 📄 PADRÃO PROPOSTA COMERCIAL - OBRIGATÓRIO!
+
+**⚠️ SEMPRE criar PROPOSTA COMERCIAL no formato aprovado!**
+
+### Template Oficial (APROVADO):
+```
+D:\lasec\.templates\TEMPLATE_PROPOSTA_COMERCIAL_PADRAO_LASEC.md
+```
+
+### Arquivo de Referência (MODELO PERFEITO):
+```
+D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROPOSTA_COMERCIAL_MICROGEAR_TR1.07.02.033.html
+D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROPOSTA_COMERCIAL_MICROGEAR_TR1.07.02.033.pdf (1,79 MB)
+```
+
+### Características OBRIGATÓRIAS:
+
+1. **EXATAMENTE 2 PÁGINAS** (não mais, não menos!)
+2. **Página 1:** Cabeçalho + Dados + Tabela de Preços + Observação
+3. **Página 2:** Recomendação + Condições + Validade + Contato (destaque azul)
+4. **Lote recomendado:** Badge ⭐ com fundo verde
+5. **Contato final:** Box azul gradiente com "Alexandre Souza" em dourado
+
+### O QUE NUNCA INCLUIR (Confidencial):
+- ❌ Hora-máquina (R$ 83,08/h)
+- ❌ Custos internos (MOD, CIF, setup)
+- ❌ Metodologia de cálculo
+- ❌ Seção "Por que escolher LASEC"
+- ❌ Especificações técnicas detalhadas
+- ❌ Informações duplicadas em rodapé
+
+### Espaçamentos Críticos (garantem 2 páginas):
+- Entre dados e tabela: 40px
+- Entre recomendação e condições: 40px
+- Entre validade e contato: 35px
+
+**Este formato foi testado e aprovado. Usar em TODOS os orçamentos futuros!**
+
+---
+
+## 📊 FONTES DE CONSULTA PERMANENTES - OBRIGATÓRIO CONSULTAR!
+
+### 1. Hora-Máquina LASEC (CRÍTICO):
+```
+Arquivo: D:\lasec\henrique\custos_ferramentaria lasec.xls
+Planilha: Custos 2025 (atualizada com IPCA + Dissídio Metalúrgicos SP)
+```
+
+**Máquinas Principais LASEC 2025:**
+- **33 - DOOSAN Lynx 220LM:** R$ 83,08/h ⭐ (Torno CNC alta precisão)
+- **35 - ROMI GL 280M:** R$ 76,95/h (Torno CNC médio porte)
+- **28 - ROMI Centur 30D:** R$ 60,48/h (Torno CNC pequeno porte)
+- **01 - Torno Universal:** R$ 38,62/h (Torno convencional)
+
+**⚠️ SEMPRE consultar planilha atualizada antes de calcular custos!**
+**⚠️ NÃO usar valores fixos ou desatualizados!**
+
+### 2. Códigos MINIPCP (Ferramentas):
+```
+Arquivo 1: D:\lasec\MINIPCP.csv (Rápido consulta)
+Arquivo 2: D:\lasec\BD MINIPCP.xlsx (Banco completo)
+```
+
+**Categorias principais:**
+- 08.08.xxx: Suportes de ferramenta
+- 08.07.xxx: Insertos
+- 05.05.xxx: Pastilhas
+- 10.01.xxx: Brocas
+
+**Uso:** Incluir na coluna "Cód. BD" do PROCESSO_FABRICACAO
+
+### 3. Parâmetros de Corte:
+- Catálogos Sandvik: www.sandvik.coromant.com
+- Catálogos Iscar: www.iscar.com
+- Catálogos Taegutec: www.taegutec.com
+
+### 4. Templates Completos:
+```
+D:\lasec\.templates\FLUXO_COMPLETO_ORCAMENTO_PADRAO_LASEC.md (FLUXO COMPLETO)
+D:\lasec\.templates\TEMPLATE_PROPOSTA_COMERCIAL_PADRAO_LASEC.md (PROPOSTA)
+D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md (PROCESSO)
+```
+
+### 5. Orçamento Referência (PERFEITO):
+```
+D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\
+```
+**Todos os 7 HTMLs aprovados - Usar como modelo!**
+
+---
+
 ## ⚠️ CUSTOS HORÁRIOS - CRÍTICO!
 
 ### Setup vs Produção

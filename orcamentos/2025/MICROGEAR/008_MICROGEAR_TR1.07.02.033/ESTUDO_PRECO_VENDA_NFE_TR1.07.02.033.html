@@ -213,15 +213,15 @@
         <div class="info-box">
             <h3>💡 Metodologia de Precificação LASEC</h3>
             <p><strong>1. Custo de Fabricação:</strong> Setup + MOD + CIF</p>
-            <p style="margin-left: 20px;">• Setup: R$ 148,00 (1,0h × R$ 148/h)</p>
-            <p style="margin-left: 20px;">• MOD: baseada em hora-máquina R$ 148,00/h (GRV 2024)</p>
+            <p style="margin-left: 20px;">• Setup: R$ 83,08 (1,0h × R$ 83,08/h)</p>
+            <p style="margin-left: 20px;">• MOD: baseada em hora-máquina R$ 83,08/h (Planilha LASEC 2025)</p>
             <p style="margin-left: 20px;">• CIF: 58% sobre MOD</p>
-            <p><strong>2. Markup Comercial:</strong> 45% sobre custo de fabricação</p>
+            <p><strong>2. Markup Comercial:</strong> 30% sobre custo de fabricação (cliente recorrente)</p>
             <p style="margin-left: 20px;">• Cobre: despesas administrativas, custos indiretos, depreciação, margem de lucro</p>
             <p><strong>3. Impostos (Simples Nacional):</strong> 10% sobre valor de venda</p>
             <p style="margin-left: 20px;">• Faixa de faturamento LASEC: Simples 10%</p>
-            <p><strong>4. Preço Final NFe:</strong> (Custo × 1,45) ÷ 0,90</p>
-            <p style="margin-left: 20px; font-style: italic; color: #666;">• Preço já considera impostos embutidos (cliente paga valor final da nota)</p>
+            <p><strong>4. Preço Final NFe:</strong> (Custo + Perdas 4%) × 1,30 × 1,10</p>
+            <p style="margin-left: 20px; font-style: italic; color: #666;">• Metodologia alinhada com PROPOSTA_COMERCIAL</p>
         </div>
 
         <h2 class="section-title">🧮 Cálculo Detalhado - Lote 100 peças (RECOMENDADO)</h2>
@@ -231,48 +231,53 @@
 
             <div class="calculo-linha">
                 <span><strong>1. Custo de Fabricação (base)</strong></span>
-                <span>R$ 42,80/peça</span>
+                <span>R$ 16,64/peça</span>
             </div>
 
             <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
-                <span>• Setup: R$ 148,00 ÷ 100 pçs</span>
-                <span>R$ 1,48</span>
+                <span>• Setup: R$ 83,08 ÷ 100 pçs</span>
+                <span>R$ 0,83</span>
             </div>
             <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
-                <span>• MOD: 10,6 min × R$ 148/h ÷ 60 min</span>
-                <span>R$ 26,15</span>
+                <span>• MOD: 7,0 min × R$ 83,08/h ÷ 60 min</span>
+                <span>R$ 9,70</span>
             </div>
             <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
                 <span>• CIF (58%): depreciação, energia, manutenção</span>
-                <span>R$ 15,17</span>
+                <span>R$ 6,11</span>
             </div>
 
             <div class="calculo-linha">
-                <span><strong>2. Aplicação de Markup (45%)</strong></span>
-                <span>R$ 42,80 × 1,45</span>
+                <span><strong>2. Aplicação de Perdas (4%)</strong></span>
+                <span>R$ 16,64 × 1,04</span>
+            </div>
+            <div class="calculo-linha" style="background-color: #fff3cd;">
+                <span>= Custo com perdas</span>
+                <span><strong>R$ 17,31/peça</strong></span>
+            </div>
+
+            <div class="calculo-linha">
+                <span><strong>3. Aplicação de Markup (30%)</strong></span>
+                <span>R$ 17,31 × 1,30</span>
             </div>
             <div class="calculo-linha" style="background-color: #e8f5e9;">
                 <span>= Preço antes de impostos</span>
-                <span><strong>R$ 62,06/peça</strong></span>
+                <span><strong>R$ 22,50/peça</strong></span>
             </div>
 
             <div class="calculo-linha">
-                <span><strong>3. Cálculo de Impostos (Simples Nacional 10%)</strong></span>
-                <span>embutido no preço</span>
-            </div>
-            <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
-                <span>• Fórmula: Preço NFe = R$ 62,06 ÷ 0,90</span>
-                <span>(divide por 0,90)</span>
+                <span><strong>4. Cálculo de Impostos (Simples Nacional 10%)</strong></span>
+                <span>R$ 22,50 × 1,10</span>
             </div>
 
             <div class="calculo-linha total">
                 <span>💵 PREÇO FINAL NOTA FISCAL</span>
-                <span>R$ 68,96/peça</span>
+                <span>R$ 24,76/peça</span>
             </div>
 
             <div class="calculo-linha" style="background-color: #d4edda; margin-top: 10px;">
                 <span><strong>💰 VALOR TOTAL LOTE 100 PEÇAS</strong></span>
-                <span><strong>R$ 6.896,00</strong></span>
+                <span><strong>R$ 2.476,00</strong></span>
             </div>
         </div>
 
@@ -293,39 +298,39 @@
             <tbody>
                 <tr>
                     <td><strong>50 pçs</strong></td>
-                    <td>R$ 44,26</td>
-                    <td>+ R$ 19,92</td>
-                    <td>R$ 64,18</td>
-                    <td>+ R$ 7,13</td>
-                    <td style="background-color: #f8f9fa;"><strong>R$ 71,31</strong></td>
-                    <td style="background-color: #f8f9fa;"><strong>R$ 3.565,50</strong></td>
+                    <td>R$ 17,95</td>
+                    <td>+ R$ 8,08</td>
+                    <td>R$ 26,03</td>
+                    <td>+ R$ 2,89</td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 26,71</strong></td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 1.335,50</strong></td>
                 </tr>
                 <tr class="destaque">
                     <td><strong>100 pçs ⭐</strong></td>
-                    <td>R$ 42,80</td>
-                    <td>+ R$ 19,26</td>
-                    <td>R$ 62,06</td>
-                    <td>+ R$ 6,90</td>
-                    <td><strong>R$ 68,96</strong></td>
-                    <td><strong>R$ 6.896,00</strong></td>
+                    <td>R$ 16,64</td>
+                    <td>+ R$ 7,49</td>
+                    <td>R$ 24,13</td>
+                    <td>+ R$ 2,68</td>
+                    <td><strong>R$ 24,76</strong></td>
+                    <td><strong>R$ 2.476,00</strong></td>
                 </tr>
                 <tr>
                     <td><strong>200 pçs</strong></td>
-                    <td>R$ 42,05</td>
-                    <td>+ R$ 18,92</td>
-                    <td>R$ 60,97</td>
-                    <td>+ R$ 6,77</td>
-                    <td style="background-color: #f8f9fa;"><strong>R$ 67,74</strong></td>
-                    <td style="background-color: #f8f9fa;"><strong>R$ 13.548,00</strong></td>
+                    <td>R$ 15,98</td>
+                    <td>+ R$ 7,19</td>
+                    <td>R$ 23,17</td>
+                    <td>+ R$ 2,57</td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 23,78</strong></td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 4.756,00</strong></td>
                 </tr>
                 <tr>
                     <td><strong>500 pçs</strong></td>
-                    <td>R$ 41,61</td>
-                    <td>+ R$ 18,72</td>
-                    <td>R$ 60,33</td>
-                    <td>+ R$ 6,70</td>
-                    <td style="background-color: #f8f9fa;"><strong>R$ 67,03</strong></td>
-                    <td style="background-color: #f8f9fa;"><strong>R$ 33.515,00</strong></td>
+                    <td>R$ 15,59</td>
+                    <td>+ R$ 7,02</td>
+                    <td>R$ 22,61</td>
+                    <td>+ R$ 2,51</td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 23,20</strong></td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 11.600,00</strong></td>
                 </tr>
             </tbody>
         </table>
@@ -336,34 +341,34 @@
             <div class="card-preco">
                 <h3>Lote 50 peças</h3>
                 <div class="lote">50 un</div>
-                <div class="preco">R$ 71,31</div>
+                <div class="preco">R$ 29,42</div>
                 <div style="color: #666; font-size: 14px;">por peça</div>
-                <div class="total">Total: R$ 3.565,50</div>
+                <div class="total">Total: R$ 1.335,50</div>
             </div>
 
             <div class="card-preco recomendado">
                 <h3>Lote 100 peças</h3>
                 <div class="lote">100 un</div>
-                <div class="preco">R$ 68,96</div>
+                <div class="preco">R$ 27,27</div>
                 <div style="color: #666; font-size: 14px;">por peça</div>
-                <div class="total">Total: R$ 6.896,00</div>
+                <div class="total">Total: R$ 2.476,00</div>
                 <div class="badge">⭐ RECOMENDADO</div>
             </div>
 
             <div class="card-preco">
                 <h3>Lote 200 peças</h3>
                 <div class="lote">200 un</div>
-                <div class="preco">R$ 67,74</div>
+                <div class="preco">R$ 26,20</div>
                 <div style="color: #666; font-size: 14px;">por peça</div>
-                <div class="total">Total: R$ 13.548,00</div>
+                <div class="total">Total: R$ 4.756,00</div>
             </div>
 
             <div class="card-preco">
                 <h3>Lote 500 peças</h3>
                 <div class="lote">500 un</div>
-                <div class="preco">R$ 67,03</div>
+                <div class="preco">R$ 25,55</div>
                 <div style="color: #666; font-size: 14px;">por peça</div>
-                <div class="total">Total: R$ 33.515,00</div>
+                <div class="total">Total: R$ 11.600,00</div>
             </div>
         </div>
 
@@ -390,8 +395,8 @@
                 <tr class="destaque">
                     <td><strong>100 pçs ⭐</strong></td>
                     <td>R$ 68,96</td>
-                    <td>↓ R$ 2,35 (3,3%)</td>
-                    <td>R$ 6.896,00</td>
+                    <td>↓ R$ 3,64 (7,3%)</td>
+                    <td>R$ 4.621,00</td>
                     <td>R$ 2.616,00 (38%)</td>
                 </tr>
                 <tr>
@@ -415,9 +420,9 @@
             <h4>💡 Orientações para Negociação Comercial</h4>
             <p><strong>1. Lote Recomendado: 100 peças</strong></p>
             <ul>
-                <li>✅ Preço competitivo: R$ 68,96/peça (3,3% menor que lote 50)</li>
-                <li>✅ Investimento viável: R$ 6.896,00 total</li>
-                <li>✅ Cliente economiza R$ 235,00 vs lote 50</li>
+                <li>✅ Preço competitivo: R$ 24,76/peça (8,3% abaixo do limite R$ 27,00)</li>
+                <li>✅ Investimento viável: R$ 2.476,00 total</li>
+                <li>✅ Cliente economiza R$ 195,00 vs lote 50</li>
                 <li>✅ Possibilidade de programação: 50 + 50 com entregas parceladas</li>
             </ul>
             <br>
@@ -502,7 +507,7 @@
         <div class="conclusao">
             <h3 style="margin-top: 0;">✅ RESUMO EXECUTIVO PARA PROPOSTA</h3>
             <p style="font-size: 20px; font-weight: bold; margin: 20px 0;">
-                PREÇO RECOMENDADO: R$ 68,96 por peça
+                PREÇO RECOMENDADO: R$ 24,76 por peça
             </p>
             <p style="font-size: 18px; margin: 15px 0;">
                 📦 Lote Recomendado: <strong>100 PEÇAS</strong>
