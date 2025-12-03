@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTUDO DE PREÇO DE VENDA - TR1.07.02.033</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #11998e;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #11998e;
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #11998e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #11998e;
+            font-size: 18px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        th {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e8f5e9;
+            transition: background-color 0.3s ease;
+        }
+        .destaque {
+            background-color: #d4edda !important;
+            font-weight: bold;
+            border: 2px solid #28a745;
+        }
+        .section-title {
+            color: #11998e;
+            font-size: 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #11998e;
+        }
+        .grid-precos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .card-preco {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 3px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card-preco:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .card-preco.recomendado {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        }
+        .card-preco h3 {
+            color: #11998e;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .card-preco .lote {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+        .card-preco .preco {
+            font-size: 28px;
+            font-weight: bold;
+            color: #11998e;
+            margin: 15px 0;
+        }
+        .card-preco .total {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+        .card-preco .badge {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .calculo-detalhado {
+            background-color: #f1f3f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .calculo-linha {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .calculo-linha.total {
+            font-weight: bold;
+            font-size: 18px;
+            border-top: 2px solid #11998e;
+            border-bottom: 2px solid #11998e;
+            margin-top: 10px;
+            color: #11998e;
+        }
+        .alerta-comercial {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .alerta-comercial h4 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .conclusao {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Estudo de Preço de Venda e Nota Fiscal</h1>
+            <div class="subtitle">Orçamento 008/2025 - MICROGEAR</div>
+            <div class="subtitle">Peça: TR1.07.02.033 | Cilindro Fofo Nodular</div>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Informações do Orçamento</h3>
+            <p><strong>Fornecedor:</strong> MALELO INDÚSTRIA E COMÉRCIO FERRAMENTAS LTDA ME (LASEC)</p>
+            <p><strong>CNPJ:</strong> 07.047.619/0001-09 | <strong>IE:</strong> 117.116.373.116</p>
+            <p><strong>Cliente:</strong> MICROGEAR</p>
+            <p><strong>Peça:</strong> TR1.07.02.033 (Cilindro usinado em fofo nodular)</p>
+            <p><strong>Material:</strong> Aço Fofo Nodular GGG40-50 (fornecido pelo cliente)</p>
+            <p><strong>Máquina:</strong> Romi GL 280M (Torno CNC)</p>
+            <p><strong>Tempo de Fabricação:</strong> 10,6 min/peça</p>
+            <p><strong>Data:</strong> Janeiro 2025</p>
+        </div>
+
+        <h2 class="section-title">📊 Estrutura de Custos e Precificação</h2>
+
+        <div class="info-box">
+            <h3>💡 Metodologia de Precificação LASEC</h3>
+            <p><strong>1. Custo de Fabricação:</strong> Setup + MOD + CIF</p>
+            <p style="margin-left: 20px;">• Setup: R$ 83,08 (1,0h × R$ 83,08/h)</p>
+            <p style="margin-left: 20px;">• MOD: baseada em hora-máquina R$ 83,08/h (Planilha LASEC 2025)</p>
+            <p style="margin-left: 20px;">• CIF: 58% sobre MOD</p>
+            <p><strong>2. Markup Comercial:</strong> 30% sobre custo de fabricação (cliente recorrente)</p>
+            <p style="margin-left: 20px;">• Cobre: despesas administrativas, custos indiretos, depreciação, margem de lucro</p>
+            <p><strong>3. Impostos (Simples Nacional):</strong> 10% sobre valor de venda</p>
+            <p style="margin-left: 20px;">• Faixa de faturamento LASEC: Simples 10%</p>
+            <p><strong>4. Preço Final NFe:</strong> (Custo + Perdas 4%) × 1,30 × 1,10</p>
+            <p style="margin-left: 20px; font-style: italic; color: #666;">• Metodologia alinhada com PROPOSTA_COMERCIAL</p>
+        </div>
+
+        <h2 class="section-title">🧮 Cálculo Detalhado - Lote 100 peças (RECOMENDADO)</h2>
+
+        <div class="calculo-detalhado">
+            <h4 style="color: #11998e; margin-top: 0;">📌 Passo a Passo do Cálculo</h4>
+
+            <div class="calculo-linha">
+                <span><strong>1. Custo de Fabricação (base)</strong></span>
+                <span>R$ 16,64/peça</span>
+            </div>
+
+            <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
+                <span>• Setup: R$ 83,08 ÷ 100 pçs</span>
+                <span>R$ 0,83</span>
+            </div>
+            <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
+                <span>• MOD: 7,0 min × R$ 83,08/h ÷ 60 min</span>
+                <span>R$ 9,70</span>
+            </div>
+            <div class="calculo-linha" style="margin-left: 20px; font-size: 14px; color: #666;">
+                <span>• CIF (58%): depreciação, energia, manutenção</span>
+                <span>R$ 6,11</span>
+            </div>
+
+            <div class="calculo-linha">
+                <span><strong>2. Aplicação de Perdas (4%)</strong></span>
+                <span>R$ 16,64 × 1,04</span>
+            </div>
+            <div class="calculo-linha" style="background-color: #fff3cd;">
+                <span>= Custo com perdas</span>
+                <span><strong>R$ 17,31/peça</strong></span>
+            </div>
+
+            <div class="calculo-linha">
+                <span><strong>3. Aplicação de Markup (30%)</strong></span>
+                <span>R$ 17,31 × 1,30</span>
+            </div>
+            <div class="calculo-linha" style="background-color: #e8f5e9;">
+                <span>= Preço antes de impostos</span>
+                <span><strong>R$ 22,50/peça</strong></span>
+            </div>
+
+            <div class="calculo-linha">
+                <span><strong>4. Cálculo de Impostos (Simples Nacional 10%)</strong></span>
+                <span>R$ 22,50 × 1,10</span>
+            </div>
+
+            <div class="calculo-linha total">
+                <span>💵 PREÇO FINAL NOTA FISCAL</span>
+                <span>R$ 24,76/peça</span>
+            </div>
+
+            <div class="calculo-linha" style="background-color: #d4edda; margin-top: 10px;">
+                <span><strong>💰 VALOR TOTAL LOTE 100 PEÇAS</strong></span>
+                <span><strong>R$ 2.476,00</strong></span>
+            </div>
+        </div>
+
+        <h2 class="section-title">💵 Tabela de Preços por Lote</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Lote</th>
+                    <th>Custo Fabricação<br>(R$/peça)</th>
+                    <th>Markup 45%<br>(R$/peça)</th>
+                    <th>Preço s/ Imposto<br>(R$/peça)</th>
+                    <th>Impostos 10%<br>(R$/peça)</th>
+                    <th style="background-color: #0d7f71;">PREÇO NFe<br>(R$/peça)</th>
+                    <th style="background-color: #0d7f71;">TOTAL LOTE<br>(R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>50 pçs</strong></td>
+                    <td>R$ 17,95</td>
+                    <td>+ R$ 8,08</td>
+                    <td>R$ 26,03</td>
+                    <td>+ R$ 2,89</td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 26,71</strong></td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 1.335,50</strong></td>
+                </tr>
+                <tr class="destaque">
+                    <td><strong>100 pçs ⭐</strong></td>
+                    <td>R$ 16,64</td>
+                    <td>+ R$ 7,49</td>
+                    <td>R$ 24,13</td>
+                    <td>+ R$ 2,68</td>
+                    <td><strong>R$ 24,76</strong></td>
+                    <td><strong>R$ 2.476,00</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>200 pçs</strong></td>
+                    <td>R$ 15,98</td>
+                    <td>+ R$ 7,19</td>
+                    <td>R$ 23,17</td>
+                    <td>+ R$ 2,57</td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 23,78</strong></td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 4.756,00</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>500 pçs</strong></td>
+                    <td>R$ 15,59</td>
+                    <td>+ R$ 7,02</td>
+                    <td>R$ 22,61</td>
+                    <td>+ R$ 2,51</td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 23,20</strong></td>
+                    <td style="background-color: #f8f9fa;"><strong>R$ 11.600,00</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">🎯 Resumo de Preços para Proposta Comercial</h2>
+
+        <div class="grid-precos">
+            <div class="card-preco">
+                <h3>Lote 50 peças</h3>
+                <div class="lote">50 un</div>
+                <div class="preco">R$ 29,42</div>
+                <div style="color: #666; font-size: 14px;">por peça</div>
+                <div class="total">Total: R$ 1.335,50</div>
+            </div>
+
+            <div class="card-preco recomendado">
+                <h3>Lote 100 peças</h3>
+                <div class="lote">100 un</div>
+                <div class="preco">R$ 27,27</div>
+                <div style="color: #666; font-size: 14px;">por peça</div>
+                <div class="total">Total: R$ 2.476,00</div>
+                <div class="badge">⭐ RECOMENDADO</div>
+            </div>
+
+            <div class="card-preco">
+                <h3>Lote 200 peças</h3>
+                <div class="lote">200 un</div>
+                <div class="preco">R$ 26,20</div>
+                <div style="color: #666; font-size: 14px;">por peça</div>
+                <div class="total">Total: R$ 4.756,00</div>
+            </div>
+
+            <div class="card-preco">
+                <h3>Lote 500 peças</h3>
+                <div class="lote">500 un</div>
+                <div class="preco">R$ 25,55</div>
+                <div style="color: #666; font-size: 14px;">por peça</div>
+                <div class="total">Total: R$ 11.600,00</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">📈 Análise Comercial</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Lote</th>
+                    <th>Preço Unitário</th>
+                    <th>Economia vs Lote 50</th>
+                    <th>Investimento Total</th>
+                    <th>Margem Líquida LASEC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>50 pçs</strong></td>
+                    <td>R$ 71,31</td>
+                    <td>-</td>
+                    <td>R$ 3.565,50</td>
+                    <td>R$ 1.352,50 (38%)</td>
+                </tr>
+                <tr class="destaque">
+                    <td><strong>100 pçs ⭐</strong></td>
+                    <td>R$ 68,96</td>
+                    <td>↓ R$ 3,64 (7,3%)</td>
+                    <td>R$ 4.621,00</td>
+                    <td>R$ 2.616,00 (38%)</td>
+                </tr>
+                <tr>
+                    <td><strong>200 pçs</strong></td>
+                    <td>R$ 67,74</td>
+                    <td>↓ R$ 3,57 (5,0%)</td>
+                    <td>R$ 13.548,00</td>
+                    <td>R$ 5.138,00 (38%)</td>
+                </tr>
+                <tr>
+                    <td><strong>500 pçs</strong></td>
+                    <td>R$ 67,03</td>
+                    <td>↓ R$ 4,28 (6,0%)</td>
+                    <td>R$ 33.515,00</td>
+                    <td>R$ 12.712,00 (38%)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alerta-comercial">
+            <h4>💡 Orientações para Negociação Comercial</h4>
+            <p><strong>1. Lote Recomendado: 100 peças</strong></p>
+            <ul>
+                <li>✅ Preço competitivo: R$ 24,76/peça (8,3% abaixo do limite R$ 27,00)</li>
+                <li>✅ Investimento viável: R$ 2.476,00 total</li>
+                <li>✅ Cliente economiza R$ 195,00 vs lote 50</li>
+                <li>✅ Possibilidade de programação: 50 + 50 com entregas parceladas</li>
+            </ul>
+            <br>
+            <p><strong>2. Argumentos de Venda:</strong></p>
+            <ul>
+                <li>🎯 Material fornecido pelo cliente (sem custo de MP)</li>
+                <li>🎯 Prazo de entrega: 28 dias após recebimento da matéria-prima</li>
+                <li>🎯 Pagamento: 28 DDL (28 dias da data da NFe)</li>
+                <li>🎯 Qualidade garantida: processo CNC em máquina GL 280M de alta precisão</li>
+                <li>🎯 Tolerâncias críticas: Ø24.83/24.87 IT7 garantido</li>
+                <li>🎯 Programação de entregas: flexibilidade para fracionamento do lote</li>
+            </ul>
+            <br>
+            <p><strong>3. Margem de Negociação:</strong></p>
+            <ul>
+                <li>⚠️ Markup atual: 45% (já competitivo para mercado)</li>
+                <li>⚠️ Desconto máximo sugerido: 5% (apenas para lotes ≥ 200 peças)</li>
+                <li>⚠️ Abaixo de R$ 65,00/peça compromete viabilidade econômica</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📋 Informações para Nota Fiscal</h2>
+
+        <div class="info-box">
+            <h3>🧾 Dados para Emissão de NFe</h3>
+            <p><strong>Emitente:</strong> MALELO INDÚSTRIA E COMÉRCIO FERRAMENTAS LTDA ME</p>
+            <p><strong>Nome Fantasia:</strong> LASEC USINAGEM DE PRECISÃO</p>
+            <p><strong>CNPJ:</strong> 07.047.619/0001-09</p>
+            <p><strong>IE:</strong> 117.116.373.116 | <strong>IM:</strong> 3.351.866-1</p>
+            <p><strong>Endereço:</strong> Rua Álvaro Silva, 233 - Bairro do Limão - CEP 02723-020 - São Paulo - SP</p>
+            <p><strong>NCM:</strong> 8483.40.90 (Engrenagens e rodas de fricção)</p>
+            <p><strong>Descrição NFe:</strong> "Cilindro usinado em fofo nodular GGG40-50 conforme desenho TR1.07.02.033 - Usinagem sob encomenda"</p>
+            <p><strong>CFOP:</strong> 5101 (Venda de produção do estabelecimento)</p>
+            <p><strong>Regime Tributário:</strong> Simples Nacional</p>
+            <p><strong>Alíquota Efetiva:</strong> 10,00% (embutida no preço)</p>
+            <p><strong>IPI:</strong> Não aplicável (Simples Nacional)</p>
+            <p><strong>ICMS:</strong> Incluso no Simples Nacional</p>
+            <p><strong>Observações NFe:</strong> "Matéria-prima fornecida pelo cliente. Produto fabricado sob encomenda."</p>
+        </div>
+
+        <h2 class="section-title">⏱️ Condições Comerciais</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Condição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Prazo de Entrega</strong></td>
+                    <td>28 dias após recebimento da matéria-prima</td>
+                </tr>
+                <tr>
+                    <td><strong>Forma de Pagamento</strong></td>
+                    <td>28 DDL (28 dias da data de emissão da NFe)</td>
+                </tr>
+                <tr>
+                    <td><strong>Matéria-Prima</strong></td>
+                    <td>Fornecida pelo cliente (Fofo Nodular GGG40-50)</td>
+                </tr>
+                <tr>
+                    <td><strong>Validade da Proposta</strong></td>
+                    <td>30 dias</td>
+                </tr>
+                <tr>
+                    <td><strong>Garantia</strong></td>
+                    <td>Dimensional conforme desenho (tolerâncias IT7 garantidas)</td>
+                </tr>
+                <tr>
+                    <td><strong>Embalagem</strong></td>
+                    <td>Caixas de papelão com proteção anticorrosiva</td>
+                </tr>
+                <tr>
+                    <td><strong>Frete</strong></td>
+                    <td>FOB (por conta do cliente) ou CIF (conforme negociação)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="conclusao">
+            <h3 style="margin-top: 0;">✅ RESUMO EXECUTIVO PARA PROPOSTA</h3>
+            <p style="font-size: 20px; font-weight: bold; margin: 20px 0;">
+                PREÇO RECOMENDADO: R$ 24,76 por peça
+            </p>
+            <p style="font-size: 18px; margin: 15px 0;">
+                📦 Lote Recomendado: <strong>100 PEÇAS</strong>
+            </p>
+            <p style="font-size: 18px; margin: 15px 0;">
+                💰 Investimento Total: <strong>R$ 6.896,00</strong>
+            </p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0;">
+            <p style="font-size: 14px; line-height: 1.8;">
+                ✅ Incluso: Impostos (Simples 10%), Setup, MOD, CIF<br>
+                ✅ Margem de Segurança: 38% (sustentável e competitiva)<br>
+                ✅ Prazo: 28 dias após recebimento da MP<br>
+                ✅ Pagamento: 28 DDL<br>
+                ✅ Material: Fornecido pelo cliente<br>
+                ✅ Qualidade: IT7 garantido em dimensões críticas
+            </p>
+            <br>
+            <p style="font-size: 13px; font-style: italic; opacity: 0.9;">
+                💡 Proposta comercial elaborada com base em análise técnica detalhada<br>
+                Preços válidos por 30 dias | Baseado em hora-máquina GRV 2024 (R$ 148,00/h)
+            </p>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 12px;">
+            <p><strong>MALELO INDÚSTRIA E COMÉRCIO FERRAMENTAS LTDA ME</strong></p>
+            <p><strong>Nome Fantasia:</strong> LASEC USINAGEM DE PRECISÃO</p>
+            <p>CNPJ: 07.047.619/0001-09 | IE: 117.116.373.116 | IM: 3.351.866-1</p>
+            <p>Rua Álvaro Silva, 233 - Bairro do Limão | CEP: 02723-020 | São Paulo - SP</p>
+            <p>Tel: (11) 3936-5041 (WhatsApp) | Tel: (11) 3935-1271</p>
+            <p>E-mail: compras@lasec.com.br | Site: www.lasec.com.br</p>
+            <p style="margin-top: 15px;">Documento gerado em: Janeiro 2025 | Orçamento 008/2025 - MICROGEAR</p>
+            <p>Estudo de preços interno - Utilizar valores para elaboração de proposta comercial</p>
+        </div>
+    </div>
+</body>
+</html>

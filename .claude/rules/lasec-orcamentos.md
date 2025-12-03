@@ -17,6 +17,39 @@
 
 ---
 
+## 🤖 AGENTE ORÇAMENTO LASEC - USE SEMPRE! 🤖
+
+**⚠️ NOVO FLUXO AUTOMÁTICO - RECOMENDADO PARA TODOS OS ORÇAMENTOS!**
+
+### Como Usar:
+```bash
+/orcamento-lasec
+```
+
+### O Que o Agente Faz:
+✅ Conduz através das **7 etapas obrigatórias** sequencialmente
+✅ Respeita os **3 gates de aprovação** (não pula etapas)
+✅ Cria **todos os 7 arquivos** com padronização total
+✅ Faz **validação cruzada automática** entre documentos
+✅ Remove **informações confidenciais** da proposta cliente
+✅ Pesquisa **ferramentas adequadas** (Iscar, Sandvik, MINIPCP)
+✅ Integra com `/buscar-programa` para tempos históricos
+✅ Gera **commit Git padronizado** ao final
+
+### Vantagens:
+- 🚫 **Sem agente:** Risco de esquecer etapas, valores inconsistentes, dados confidenciais vazados
+- ✅ **Com agente:** Processo completo garantido, qualidade assegurada, zero erros
+
+### Documentação Completa:
+```
+D:\lasec\AGENTE-ORCAMENTO-LASEC-GUIA-USO.md
+D:\lasec\.claude\commands\orcamento-lasec.md (arquivo do agente)
+```
+
+**Para novos orçamentos: SEMPRE use `/orcamento-lasec` como ponto de partida!**
+
+---
+
 ## 📋 PADRÃO PROCESSO DE FABRICAÇÃO - OBRIGATÓRIO!
 
 **⚠️ SEMPRE criar PROCESSO_FABRICACAO com TABELA DETALHADA!**
@@ -50,17 +83,18 @@ D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md
 
 ## 📄 PADRÃO PROPOSTA COMERCIAL - OBRIGATÓRIO!
 
-**⚠️ SEMPRE criar PROPOSTA COMERCIAL no formato aprovado!**
+**⚠️ REGRA CRÍTICA: ORÇAMENTO 008 É O PADRÃO UNIVERSAL PARA TODOS!**
 
-### Template Oficial (APROVADO):
-```
-D:\lasec\.templates\TEMPLATE_PROPOSTA_COMERCIAL_PADRAO_LASEC.md
-```
+### Workflow Correto:
+1. ✅ COPIAR os 7 HTMLs do orçamento 008 para novo diretório
+2. ✅ Usar Edit tool para substituir APENAS os dados específicos
+3. ❌ NUNCA recriar layouts, estruturas ou templates
+4. ❌ NUNCA modificar CSS ou espaçamentos
 
-### Arquivo de Referência (MODELO PERFEITO):
+### Templates Padrão:
 ```
-D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROPOSTA_COMERCIAL_MICROGEAR_TR1.07.02.033.html
-D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROPOSTA_COMERCIAL_MICROGEAR_TR1.07.02.033.pdf (1,79 MB)
+D:\lasec\.templates\ORCAMENTO_PADRAO_LASEC\
+7 HTMLs + logo - copiar para novos orçamentos
 ```
 
 ### Características OBRIGATÓRIAS:
@@ -73,11 +107,25 @@ D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROPOSTA_COMERCIA
 
 ### O QUE NUNCA INCLUIR (Confidencial):
 - ❌ Hora-máquina (R$ 83,08/h)
+- ❌ Tempo de fabricação (8,5 min/peça, 13,5 min/peça, etc.)
+- ❌ Nome específico da máquina (Doosan Lynx 220LM, Romi GL 280M, etc.)
 - ❌ Custos internos (MOD, CIF, setup)
 - ❌ Metodologia de cálculo
+- ❌ Markup aplicado (18%, 20%, 45%, etc.)
+- ❌ Tempo de setup (0,5h, 2h, etc.)
+- ❌ Taxa de indiretos (58%)
+- ❌ Custo/peça antes do markup
 - ❌ Seção "Por que escolher LASEC"
 - ❌ Especificações técnicas detalhadas
 - ❌ Informações duplicadas em rodapé
+
+### Conversão para PDF:
+**⚠️ CONVERSÃO MANUAL PELO USUÁRIO**
+- ❌ NÃO criar scripts de conversão automática (salvo se usuário solicitar)
+- ❌ NÃO tentar converter PDF de volta para HTML
+- ✅ Criar HTML perfeito e completo
+- ✅ Abrir HTML no navegador para revisão
+- ✅ Informar que HTML está pronto para conversão manual pelo usuário
 
 ### Espaçamentos Críticos (garantem 2 páginas):
 - Entre dados e tabela: 40px
@@ -90,7 +138,44 @@ D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROPOSTA_COMERCIA
 
 ## 📊 FONTES DE CONSULTA PERMANENTES - OBRIGATÓRIO CONSULTAR!
 
-### 1. Hora-Máquina LASEC (CRÍTICO):
+### 1. Banco de Dados CNC - Programas Similares (NOVO! 🆕):
+```
+Banco: D:\lasec\PROG_CNC_DATABASE.json (11.592 programas catalogados)
+Sistema: D:\lasec\SISTEMA_PROGRAMAS_CNC.ps1
+Busca: D:\lasec\buscar_programa_similar.ps1
+Comando: /buscar-programa
+```
+
+**QUANDO USAR:**
+- ✅ **SEMPRE** ao iniciar novo orçamento - buscar programas similares
+- ✅ Para estimar tempo de ciclo baseado em histórico real
+- ✅ Para identificar ferramentas necessárias
+- ✅ Para determinar complexidade da peça
+- ✅ Para escolher máquina adequada
+
+**COMO USAR:**
+```powershell
+# Durante orçamento, buscar similar:
+.\buscar_programa_similar.ps1 -Material "Aço" -Maquina "LYNX220" -Operacoes @("ROSCA")
+
+# Ou usar comando slash:
+/buscar-programa
+```
+
+**INFORMAÇÕES FORNECIDAS:**
+- Tempo estimado de ciclo (2-5 min SIMPLES, 5-10 min MEDIA, 10-30 min COMPLEXA)
+- Número típico de ferramentas
+- Complexidade (SIMPLES/MEDIA/COMPLEXA)
+- Operações padrão
+- Parâmetros de corte típicos
+
+**⚠️ INTEGRAÇÃO COM ORÇAMENTO:**
+1. `/buscar-programa` → Encontrar similar
+2. Analisar tempo e complexidade retornados
+3. Usar dados para criar PROCESSO_FABRICACAO
+4. Calcular custos baseado em tempos reais
+
+### 2. Hora-Máquina LASEC (CRÍTICO):
 ```
 Arquivo: D:\lasec\henrique\custos_ferramentaria lasec.xls
 Planilha: Custos 2025 (atualizada com IPCA + Dissídio Metalúrgicos SP)
@@ -105,7 +190,7 @@ Planilha: Custos 2025 (atualizada com IPCA + Dissídio Metalúrgicos SP)
 **⚠️ SEMPRE consultar planilha atualizada antes de calcular custos!**
 **⚠️ NÃO usar valores fixos ou desatualizados!**
 
-### 2. Códigos MINIPCP (Ferramentas):
+### 3. Códigos MINIPCP (Ferramentas):
 ```
 Arquivo 1: D:\lasec\MINIPCP.csv (Rápido consulta)
 Arquivo 2: D:\lasec\BD MINIPCP.xlsx (Banco completo)
@@ -119,19 +204,19 @@ Arquivo 2: D:\lasec\BD MINIPCP.xlsx (Banco completo)
 
 **Uso:** Incluir na coluna "Cód. BD" do PROCESSO_FABRICACAO
 
-### 3. Parâmetros de Corte:
+### 4. Parâmetros de Corte:
 - Catálogos Sandvik: www.sandvik.coromant.com
 - Catálogos Iscar: www.iscar.com
 - Catálogos Taegutec: www.taegutec.com
 
-### 4. Templates Completos:
+### 5. Templates Completos:
 ```
 D:\lasec\.templates\FLUXO_COMPLETO_ORCAMENTO_PADRAO_LASEC.md (FLUXO COMPLETO)
 D:\lasec\.templates\TEMPLATE_PROPOSTA_COMERCIAL_PADRAO_LASEC.md (PROPOSTA)
 D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md (PROCESSO)
 ```
 
-### 5. Orçamento Referência (PERFEITO):
+### 6. Orçamento Referência (PERFEITO):
 ```
 D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\
 ```
@@ -373,6 +458,26 @@ D:\lasec\BD MINIPCP.xlsx
 8. **Mostrar informações confidenciais ao cliente** ❌
    - Remover: tempo de fabricação, máquina específica, hora-máquina
    - Substituir por informações genéricas
+
+9. **Recriar layout de proposta do zero** ❌
+   - SEMPRE copiar HTML aprovado do template ou orçamento anterior
+   - Usar Edit tool para mudar apenas dados
+   - NUNCA modificar CSS ou estrutura HTML
+
+10. **Logo muito grande ou página 1 diferente** ❌
+    - Sintoma: Usuário reclama de layout
+    - Causa: Modificou estrutura HTML
+    - Solução: Copiar HTML aprovado sem alterações de layout
+
+11. **Apagar HTML aprovado sem backup** ❌
+    - SEMPRE mover para _OBSOLETOS
+    - NUNCA deletar permanentemente
+    - Templates aprovados podem ser recuperados da Lixeira Windows
+
+12. **Esquecer de atualizar todos os preços no HTML** ❌
+    - Usar Grep para encontrar TODAS as ocorrências
+    - Preços aparecem em: tabela, CTA box, recomendações
+    - Atualizar TODAS as ocorrências simultaneamente
 
 ## 📞 INFORMAÇÕES LASEC
 
