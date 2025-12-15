@@ -218,6 +218,54 @@ Quando invocar `/orcamento-lasec`, apresente:
 
 ---
 
+## 🔴 REGRA ABSOLUTA 0: FUNÇÃO DESCOBRIR_PROXIMO_ORCAMENTO
+
+**Quando invocar o agente, SEMPRE executar esta função PRIMEIRO:**
+
+```bash
+# Pseudocódigo que o agente DEVE executar:
+
+FUNCAO descobrir_proximo_orcamento():
+    diretorio = "D:\lasec\orcamentos\2025\"
+
+    SE diretorio não existe:
+        RETORNAR "001"  # Primeiro orçamento
+
+    lista_numeros = []
+
+    PARA CADA cliente_pasta EM diretorio:
+        PARA CADA sub_pasta EM cliente_pasta:
+            SE sub_pasta_nome matches "^(\d{3})_":
+                numero = extrair_primeiros_3_digitos(sub_pasta_nome)
+                lista_numeros.adicionar(numero)
+
+    SE lista_numeros vazia:
+        RETORNAR "001"
+
+    maior_numero = máximo(lista_numeros)
+    proximo = maior_numero + 1
+
+    EXIBIR: "✅ Último encontrado: [[maior_numero]]"
+    EXIBIR: "📊 Próximo será: [[proximo]]/2025"
+
+    RETORNAR proximo
+```
+
+**Exemplo de execução:**
+```
+Consultando D:\lasec\orcamentos\2025\...
+├─ BBOX\010_BBOX_PP04_00001
+├─ BBOX\011_BBOX_PP04_00002
+├─ LIVENZA\008_LIVENZA_2.0610.L082590
+├─ LIVENZA\009_LIVENZA_1.0055.0105650
+└─ LIVENZA\011_LIVENZA_1.0055.0105650
+
+✅ Último encontrado: 011
+📊 Próximo será: 012/2025
+```
+
+---
+
 ## 🔴 REGRA ABSOLUTA 1: CHECKPOINT EM 90% DE TOKENS
 
 **QUANDO atingir 90% de uso de tokens:**
