@@ -1382,56 +1382,54 @@
                                 <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-4">
                                     <h3 class="text-xl font-bold text-gray-800 mb-4">📊 Orçamento Calculado</h3>
 
-                                    <div class="space-y-3 text-sm">
-                                        <div class="flex justify-between py-2 border-b">
+                                    <div class="space-y-2 text-sm mb-4">
+                                        <div class="flex justify-between py-1">
                                             <span class="text-gray-600">Peça:</span>
-                                            <span id="resumoPeca" class="font-semibold">-</span>
+                                            <span id="resumoPeca" class="font-semibold text-right text-xs max-w-[150px] truncate">-</span>
                                         </div>
-                                        <div class="flex justify-between py-2 border-b">
+                                        <div class="flex justify-between py-1">
                                             <span class="text-gray-600">Material:</span>
                                             <span id="resumoMaterial" class="font-semibold">-</span>
                                         </div>
-                                        <div class="flex justify-between py-2 border-b">
-                                            <span class="text-gray-600">Quantidade:</span>
-                                            <span id="resumoQtd" class="font-semibold">1</span>
-                                        </div>
-                                        <div class="flex justify-between py-2 border-b">
-                                            <span class="text-gray-600">Tempo Usinagem:</span>
+                                        <div class="flex justify-between py-1">
+                                            <span class="text-gray-600">Tempo/peça:</span>
                                             <span id="resumoTempo" class="font-semibold">-</span>
                                         </div>
                                     </div>
 
-                                    <hr class="my-4">
+                                    <hr class="my-3">
 
-                                    <div class="space-y-2 text-sm mb-4">
-                                        <div class="flex justify-between">
-                                            <span class="text-gray-600">Custo Material:</span>
-                                            <span id="custoMaterial" class="font-mono">R$ --</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span class="text-gray-600">Custo Usinagem:</span>
-                                            <span id="custoUsinagem" class="font-mono">R$ --</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span class="text-gray-600">Custo Setup:</span>
-                                            <span id="custoSetup" class="font-mono">R$ --</span>
-                                        </div>
+                                    <!-- TABELA DE LOTES -->
+                                    <div class="mb-4">
+                                        <h4 class="text-sm font-bold text-gray-700 mb-2">📦 Preço por Lote</h4>
+                                        <table class="w-full text-xs">
+                                            <thead>
+                                                <tr class="bg-gray-100">
+                                                    <th class="py-2 px-2 text-left rounded-tl-lg">Qtd</th>
+                                                    <th class="py-2 px-2 text-right">Unit.</th>
+                                                    <th class="py-2 px-2 text-right rounded-tr-lg">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabelaLotes">
+                                                <!-- Preenchido dinamicamente -->
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                     <div class="bg-gradient-to-r from-lasec-primary to-lasec-secondary text-white rounded-xl p-4 text-center">
-                                        <p class="text-sm opacity-80">Preço de Venda</p>
-                                        <p id="resumoValor" class="text-3xl font-bold">R$ --,--</p>
-                                        <p id="precoUnitario" class="text-sm opacity-80 mt-1"></p>
+                                        <p class="text-xs opacity-80">Lote Recomendado: 100 pçs</p>
+                                        <p id="resumoValor" class="text-2xl font-bold">R$ --,--</p>
+                                        <p id="precoUnitario" class="text-xs opacity-80 mt-1"></p>
                                     </div>
 
-                                    <div class="mt-6 space-y-3">
-                                        <button onclick="recalcularOrcamento()" class="w-full bg-lasec-success text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition flex items-center justify-center">
+                                    <div class="mt-4 space-y-2">
+                                        <button onclick="recalcularOrcamento()" class="w-full bg-lasec-success text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition flex items-center justify-center text-sm">
                                             <span class="mr-2">🔄</span> Recalcular
                                         </button>
-                                        <button onclick="gerarDocumentos()" class="w-full bg-lasec-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center">
+                                        <button onclick="gerarDocumentos()" class="w-full bg-lasec-primary text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center text-sm">
                                             <span class="mr-2">📄</span> Gerar 6 Documentos
                                         </button>
-                                        <button onclick="novoOrcamento()" class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center justify-center">
+                                        <button onclick="novoOrcamento()" class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center justify-center text-sm">
                                             <span class="mr-2">➕</span> Novo Orçamento
                                         </button>
                                     </div>
@@ -1890,70 +1888,95 @@
             IMPOSTOS: 0.10    // 10% Simples Nacional
         };
 
-        function calcularOrcamentoAutomatico() {
-            const quantidade = parseInt(document.getElementById('orcQuantidade').value) || 1;
-            const precoKg = parseFloat(document.getElementById('orcPrecoKg').value) || 8.50;
-            const dimX = parseFloat(document.getElementById('orcDimX').value) || 25;
-            const dimZ = parseFloat(document.getElementById('orcDimZ').value) || 80;
-            const tempoUsinagem = parseFloat(document.getElementById('orcTempoUsinagem').value) || 30;
-            const maquina = document.getElementById('orcMaquina').value || 'TORNO_CNC';
+        // Lotes padrão LASEC
+        const LOTES_PADRAO = [10, 30, 50, 100, 200];
 
-            // Cálculo do peso (cilindro em kg)
-            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000; // m³
-            const densidade = 7850; // kg/m³ (aço)
-            const peso = volume * densidade; // kg
-
-            // Custo do material
-            const custoMaterial = peso * precoKg * quantidade;
-
-            // Taxa hora-máquina LASEC
-            const taxaHora = LASEC_PARAMS.horaMaquina[maquina] || 88.41;
-            const setupHoras = LASEC_PARAMS.setupHoras[maquina] || 0.5;
+        // Função para calcular preço de um lote específico
+        function calcularPrecoLote(qtd, pesoUnitario, precoKg, taxaHora, setupHoras, tempoUsinagem) {
+            // Custo material do lote
+            const custoMaterial = pesoUnitario * precoKg * qtd;
 
             // Setup (fixo por projeto)
             const custoSetup = setupHoras * taxaHora;
 
             // MOD - Mão de Obra Direta
-            const custoMOD = (tempoUsinagem / 60) * taxaHora * quantidade;
+            const custoMOD = (tempoUsinagem / 60) * taxaHora * qtd;
 
             // CIF - 58% sobre (Setup + MOD)
             const custoCIF = (custoSetup + custoMOD) * LASEC_PARAMS.CIF;
 
-            // Custo total de fabricação
+            // Custo total
             const custoTotal = custoMaterial + custoSetup + custoMOD + custoCIF;
 
-            // Aplicar perdas (2%)
-            const custoComPerdas = custoTotal * (1 + LASEC_PARAMS.PERDAS);
+            // Aplicar perdas (2%) + markup (35%) + impostos (10%)
+            const precoNFe = custoTotal * (1 + LASEC_PARAMS.PERDAS) * (1 + LASEC_PARAMS.MARKUP) * (1 + LASEC_PARAMS.IMPOSTOS);
 
-            // Aplicar markup (35%)
-            const precoSemImposto = custoComPerdas * (1 + LASEC_PARAMS.MARKUP);
-
-            // Aplicar impostos (10% Simples Nacional)
-            const precoNFe = precoSemImposto * (1 + LASEC_PARAMS.IMPOSTOS);
-
-            // Atualizar display
-            document.getElementById('resumoPeca').textContent = document.getElementById('orcDescricao').value;
-            document.getElementById('resumoMaterial').textContent = document.getElementById('orcMaterial').value;
-            document.getElementById('resumoQtd').textContent = quantidade;
-            document.getElementById('resumoTempo').textContent = tempoUsinagem + ' min';
-
-            document.getElementById('custoMaterial').textContent = 'R$ ' + custoMaterial.toFixed(2);
-            document.getElementById('custoUsinagem').textContent = 'R$ ' + custoMOD.toFixed(2);
-            document.getElementById('custoSetup').textContent = 'R$ ' + custoSetup.toFixed(2);
-
-            document.getElementById('resumoValor').textContent = 'R$ ' + precoNFe.toFixed(2).replace('.', ',');
-            document.getElementById('precoUnitario').textContent = 'Unitário: R$ ' + (precoNFe/quantidade).toFixed(2);
-
-            // Guardar dados para geração de documentos
-            window.orcamentoCalculado = {
-                quantidade,
+            return {
+                quantidade: qtd,
                 custoMaterial,
                 custoSetup,
                 custoMOD,
                 custoCIF,
                 custoTotal,
                 precoNFe,
-                precoUnitario: precoNFe / quantidade,
+                precoUnitario: precoNFe / qtd
+            };
+        }
+
+        function calcularOrcamentoAutomatico() {
+            const precoKg = parseFloat(document.getElementById('orcPrecoKg').value) || 8.50;
+            const dimX = parseFloat(document.getElementById('orcDimX').value) || 65;
+            const dimZ = parseFloat(document.getElementById('orcDimZ').value) || 85;
+            const tempoUsinagem = parseFloat(document.getElementById('orcTempoUsinagem').value) || 18;
+            const maquina = document.getElementById('orcMaquina').value || 'TORNO_CNC';
+
+            // Cálculo do peso unitário (cilindro em kg)
+            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000; // m³
+            const densidade = 7850; // kg/m³ (aço)
+            const pesoUnitario = volume * densidade; // kg
+
+            // Taxa hora-máquina LASEC
+            const taxaHora = LASEC_PARAMS.horaMaquina[maquina] || 88.41;
+            const setupHoras = LASEC_PARAMS.setupHoras[maquina] || 0.5;
+
+            // Calcular todos os lotes
+            const lotes = {};
+            LOTES_PADRAO.forEach(qtd => {
+                lotes[qtd] = calcularPrecoLote(qtd, pesoUnitario, precoKg, taxaHora, setupHoras, tempoUsinagem);
+            });
+
+            // Atualizar display básico
+            document.getElementById('resumoPeca').textContent = document.getElementById('orcDescricao').value;
+            document.getElementById('resumoMaterial').textContent = document.getElementById('orcMaterial').value;
+            document.getElementById('resumoTempo').textContent = tempoUsinagem + ' min';
+
+            // Preencher tabela de lotes
+            const tabelaLotes = document.getElementById('tabelaLotes');
+            tabelaLotes.innerHTML = LOTES_PADRAO.map(qtd => {
+                const lote = lotes[qtd];
+                const isRecomendado = qtd === 100;
+                const rowClass = isRecomendado ? 'bg-green-100 font-bold' : (qtd % 2 === 0 ? 'bg-gray-50' : '');
+                const badge = isRecomendado ? '<span class="ml-1 text-[10px] bg-green-500 text-white px-1 rounded">REC</span>' : '';
+
+                return `
+                    <tr class="${rowClass}">
+                        <td class="py-2 px-2 border-b">${qtd}${badge}</td>
+                        <td class="py-2 px-2 border-b text-right font-mono">R$ ${lote.precoUnitario.toFixed(2)}</td>
+                        <td class="py-2 px-2 border-b text-right font-mono">R$ ${lote.precoNFe.toFixed(2)}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            // Mostrar lote 100 como destaque
+            const lote100 = lotes[100];
+            document.getElementById('resumoValor').textContent = 'R$ ' + lote100.precoNFe.toFixed(2).replace('.', ',');
+            document.getElementById('precoUnitario').textContent = 'Unitário: R$ ' + lote100.precoUnitario.toFixed(2);
+
+            // Guardar dados para geração de documentos
+            window.orcamentoCalculado = {
+                lotes,
+                loteRecomendado: lotes[100],
+                pesoUnitario,
                 maquina,
                 taxaHora,
                 tempoUsinagem
@@ -1963,22 +1986,31 @@
         function recalcularOrcamento() {
             calcularOrcamentoAutomatico();
             const orc = window.orcamentoCalculado;
+
+            // Montar tabela de lotes
+            let tabelaLotes = 'TABELA DE PREÇOS POR LOTE:\n\n';
+            tabelaLotes += 'Qtd\tUnit.\t\tTotal\n';
+            tabelaLotes += '─────────────────────────────\n';
+
+            LOTES_PADRAO.forEach(qtd => {
+                const lote = orc.lotes[qtd];
+                const rec = qtd === 100 ? ' ⭐REC' : '';
+                tabelaLotes += `${qtd}\tR$ ${lote.precoUnitario.toFixed(2)}\t\tR$ ${lote.precoNFe.toFixed(2)}${rec}\n`;
+            });
+
             alert(`ORÇAMENTO RECALCULADO (Padrão LASEC 2025)
 
-CUSTOS:
-• Material: R$ ${orc.custoMaterial.toFixed(2)}
-• Setup: R$ ${orc.custoSetup.toFixed(2)}
-• MOD: R$ ${orc.custoMOD.toFixed(2)}
-• CIF (58%): R$ ${orc.custoCIF.toFixed(2)}
-• Custo Total: R$ ${orc.custoTotal.toFixed(2)}
+${tabelaLotes}
+─────────────────────────────
+LOTE RECOMENDADO: 100 peças
+Preço Total: R$ ${orc.loteRecomendado.precoNFe.toFixed(2)}
+Preço Unitário: R$ ${orc.loteRecomendado.precoUnitario.toFixed(2)}
 
-PRECIFICAÇÃO:
-• + Perdas (2%): aplicado
-• + Markup (35%): aplicado
-• + Impostos (10%): aplicado
-
-PREÇO NFe: R$ ${orc.precoNFe.toFixed(2)}
-Unitário: R$ ${orc.precoUnitario.toFixed(2)}`);
+PARÂMETROS:
+• Tempo/peça: ${orc.tempoUsinagem} min
+• Máquina: ${orc.maquina}
+• Taxa: R$ ${orc.taxaHora.toFixed(2)}/h
+• CIF: 58% | Markup: 35% | Impostos: 10%`);
         }
 
         function gerarDocumentos() {
