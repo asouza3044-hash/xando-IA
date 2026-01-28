@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Database | Portal LASEC</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Configuração Tailwind personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lasec-primary': '#1e40af',
+                        'lasec-secondary': '#3b82f6',
+                        'lasec-accent': '#60a5fa',
+                        'lasec-success': '#10b981',
+                        'lasec-warning': '#f59e0b',
+                        'lasec-danger': '#ef4444',
+                        'lasec-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .sidebar-active {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.15);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-lasec-primary rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">L</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-lasec-primary">PORTAL LASEC</h1>
+                            <p class="text-xs text-gray-500">Consulta Database PostgreSQL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="text-sm font-semibold text-green-700">PostgreSQL Online</span>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm font-semibold text-gray-700">Usuário LASEC</p>
+                        <p class="text-xs text-gray-500">Administrador</p>
+                    </div>
+                    <div class="w-10 h-10 bg-lasec-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">U</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white shadow-lg h-screen sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <nav class="space-y-2">
+                    <a href="index.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🏠</span>
+                        <span>Home</span>
+                    </a>
+                    <a href="dashboard.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="documentacao.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📖</span>
+                        <span>Documentação</span>
+                    </a>
+                    <a href="orcamentos.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🎯</span>
+                        <span>Portal Orçamentos</span>
+                    </a>
+                    <a href="database.html" class="flex items-center px-4 py-3 rounded-lg sidebar-active transition">
+                        <span class="mr-3 text-xl">🔍</span>
+                        <span>Consulta Database</span>
+                    </a>
+                </nav>
+
+                <hr class="my-6">
+
+                <div class="space-y-2">
+                    <p class="px-4 text-xs font-semibold text-gray-500 uppercase">Consultas Rápidas</p>
+                    <button onclick="searchPiece('9005032')" class="w-full text-left flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        🔸 Peça 9005032
+                    </button>
+                    <button onclick="searchPiece('1.0055.0105650')" class="w-full text-left flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        🔸 Peça 1.0055.0105650
+                    </button>
+                    <button onclick="viewAlerts()" class="w-full text-left flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        ⚠️ Alertas de Prejuízo
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-8">
+
+            <!-- HEADER -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-2">🔍 Consulta Database PostgreSQL</h2>
+                <p class="text-gray-600">Busca histórica de peças, análise de custos e detecção de prejuízos</p>
+            </div>
+
+            <!-- BUSCA -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="grid lg:grid-cols-3 gap-4">
+                    <div class="lg:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">🔍 Código da Peça</label>
+                        <input id="searchInput" type="text" placeholder="Ex: 9005032, 1.0055.0105650, PP04_00001..."
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent text-lg">
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="performSearch()" class="w-full bg-lasec-primary text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-800 transition shadow-lg">
+                            Buscar Histórico
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESULTADOS (oculto inicialmente) -->
+            <div id="results" class="hidden">
+
+                <!-- ALERTAS -->
+                <div id="alertSection" class="hidden mb-8">
+                    <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-6">
+                        <div class="flex items-start gap-4">
+                            <span class="text-4xl">⚠️</span>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-red-900 mb-3">ALERTA: PREJUÍZO DETECTADO</h3>
+                                <p class="text-red-800 mb-4">
+                                    Histórico mostra <strong><span id="prejuizoCount">2</span> de <span id="totalVendas">5</span> vendas (40%)</strong> desta peça com MARGEM NEGATIVA.
+                                </p>
+                                <div class="bg-white rounded-lg p-4 mb-4">
+                                    <h4 class="font-bold text-red-900 mb-3">📊 Resumo Financeiro:</h4>
+                                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                        <div>
+                                            <p class="text-gray-600">Custo Unitário Médio</p>
+                                            <p class="text-xl font-bold text-red-700">R$ <span id="custoMedio">62,30</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600">Preço de Venda Médio</p>
+                                            <p class="text-xl font-bold text-red-700">R$ <span id="precoMedio">58,50</span></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600">Prejuízo por Peça</p>
+                                            <p class="text-xl font-bold text-red-900">R$ <span id="prejuizoUnit">3,80</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                                    <h4 class="font-bold text-yellow-900 mb-2">🚨 RECOMENDAÇÕES:</h4>
+                                    <ul class="text-sm text-yellow-800 space-y-1">
+                                        <li>1. Revisar processo de fabricação para reduzir tempo/custo</li>
+                                        <li>2. Aumentar preço de venda para margem mínima de 35%</li>
+                                        <li>3. Avaliar se vale a pena continuar fabricando esta peça</li>
+                                        <li>4. Preço sugerido (35% margem): <strong>R$ 116,20</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES DA PEÇA -->
+                <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-sm font-semibold text-gray-600 mb-2">Código da Peça</h3>
+                        <p class="text-3xl font-bold text-lasec-primary mono" id="pieceCode">9005032</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-sm font-semibold text-gray-600 mb-2">Total de Vendas</h3>
+                        <p class="text-3xl font-bold text-lasec-dark" id="salesCount">5 pedidos</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-sm font-semibold text-gray-600 mb-2">Margem Média</h3>
+                        <p class="text-3xl font-bold" id="marginAvg">
+                            <span class="text-red-600">-6,1%</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- HISTÓRICO DE VENDAS -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-lasec-dark mb-6">📋 Histórico de Vendas</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Pedido</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Data</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Qtd</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Preço Venda</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Custo Unit.</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Margem</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Margem %</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-mono text-sm">12345</td>
+                                    <td class="py-4 px-4 text-sm">15/11/2025</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">50</td>
+                                    <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 85,50</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">R$ 62,30</td>
+                                    <td class="py-4 px-4 text-right font-bold text-green-600">R$ 23,20</td>
+                                    <td class="py-4 px-4 text-right">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-bold">+37,2%</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 bg-red-50">
+                                    <td class="py-4 px-4 font-mono text-sm">12346</td>
+                                    <td class="py-4 px-4 text-sm">20/11/2025</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">30</td>
+                                    <td class="py-4 px-4 text-right font-bold text-red-600">R$ 48,00</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">R$ 58,40</td>
+                                    <td class="py-4 px-4 text-right font-bold text-red-700">-R$ 10,40</td>
+                                    <td class="py-4 px-4 text-right">
+                                        <span class="bg-red-200 text-red-900 px-2 py-1 rounded text-xs font-bold">-17,8%</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-mono text-sm">12347</td>
+                                    <td class="py-4 px-4 text-sm">05/12/2025</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">100</td>
+                                    <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 72,30</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">R$ 52,10</td>
+                                    <td class="py-4 px-4 text-right font-bold text-green-600">R$ 20,20</td>
+                                    <td class="py-4 px-4 text-right">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-bold">+38,8%</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 bg-red-50">
+                                    <td class="py-4 px-4 font-mono text-sm">12348</td>
+                                    <td class="py-4 px-4 text-sm">15/12/2025</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">20</td>
+                                    <td class="py-4 px-4 text-right font-bold text-red-600">R$ 55,00</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">R$ 68,20</td>
+                                    <td class="py-4 px-4 text-right font-bold text-red-700">-R$ 13,20</td>
+                                    <td class="py-4 px-4 text-right">
+                                        <span class="bg-red-200 text-red-900 px-2 py-1 rounded text-xs font-bold">-19,4%</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-mono text-sm">12349</td>
+                                    <td class="py-4 px-4 text-sm">22/12/2025</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">75</td>
+                                    <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 68,90</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">R$ 55,50</td>
+                                    <td class="py-4 px-4 text-right font-bold text-green-600">R$ 13,40</td>
+                                    <td class="py-4 px-4 text-right">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-bold">+24,1%</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- GRÁFICOS -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-8">
+
+                    <!-- Gráfico: Tendência de Custos -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-6">📈 Tendência de Custos</h3>
+                        <canvas id="chartCustos" height="250"></canvas>
+                    </div>
+
+                    <!-- Gráfico: Distribuição de Margens -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-6">📊 Distribuição de Margens</h3>
+                        <canvas id="chartMargens" height="250"></canvas>
+                    </div>
+
+                </div>
+
+                <!-- COMPOSIÇÃO BOM -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-lasec-dark mb-6">🔧 Composição BOM (Bill of Materials)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Seq</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Componente</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Descrição</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Quantidade</th>
+                                    <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Custo Unit.</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Origem</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-mono text-sm">01</td>
+                                    <td class="py-4 px-4 font-mono text-sm">MAT-001</td>
+                                    <td class="py-4 px-4 text-sm">Barra PMMA Ø50mm</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">0,15 m</td>
+                                    <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 12,50</td>
+                                    <td class="py-4 px-4 text-sm">
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Fornecido Cliente</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-mono text-sm">02</td>
+                                    <td class="py-4 px-4 font-mono text-sm">FER-023</td>
+                                    <td class="py-4 px-4 text-sm">Pastilha TNMG 160408</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">0,05 un</td>
+                                    <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 3,20</td>
+                                    <td class="py-4 px-4 text-sm">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">LASEC Estoque</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-mono text-sm">03</td>
+                                    <td class="py-4 px-4 font-mono text-sm">FLU-002</td>
+                                    <td class="py-4 px-4 text-sm">Fluido de Corte</td>
+                                    <td class="py-4 px-4 text-right font-mono text-sm">0,02 L</td>
+                                    <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 0,80</td>
+                                    <td class="py-4 px-4 text-sm">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">LASEC Estoque</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- AÇÕES -->
+                <div class="flex gap-4 justify-end">
+                    <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition">
+                        📄 Exportar CSV
+                    </button>
+                    <button class="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                        📊 Exportar Excel
+                    </button>
+                    <button class="px-6 py-3 bg-lasec-primary text-white rounded-lg font-semibold hover:bg-blue-800 transition">
+                        📥 Gerar Relatório PDF
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- EMPTY STATE (mostrado inicialmente) -->
+            <div id="emptyState" class="text-center py-20">
+                <div class="text-6xl mb-6">🔍</div>
+                <h3 class="text-2xl font-bold text-lasec-dark mb-4">Busque uma Peça no Banco de Dados</h3>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Digite o código de uma peça para visualizar histórico completo de vendas,
+                    análise de custos, composição BOM e alertas de prejuízo.
+                </p>
+                <div class="flex gap-4 justify-center">
+                    <button onclick="searchPiece('9005032')" class="px-6 py-3 bg-lasec-primary text-white rounded-lg font-semibold hover:bg-blue-800 transition">
+                        Exemplo: 9005032
+                    </button>
+                    <button onclick="searchPiece('1.0055.0105650')" class="px-6 py-3 bg-lasec-success text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                        Exemplo: 1.0055.0105650
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.color = '#6b7280';
+
+        function searchPiece(code) {
+            if (code) {
+                document.getElementById('searchInput').value = code;
+            }
+            performSearch();
+        }
+
+        function performSearch() {
+            const code = document.getElementById('searchInput').value;
+            if (!code) {
+                alert('Digite um código de peça!');
+                return;
+            }
+
+            // Esconder empty state e mostrar results
+            document.getElementById('emptyState').classList.add('hidden');
+            document.getElementById('results').classList.remove('hidden');
+
+            // Simular se tem prejuízo (código 9005032 tem prejuízo)
+            if (code.includes('9005032')) {
+                document.getElementById('alertSection').classList.remove('hidden');
+            } else {
+                document.getElementById('alertSection').classList.add('hidden');
+            }
+
+            // Atualizar código na página
+            document.getElementById('pieceCode').textContent = code;
+
+            // Scroll para resultados
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+            // Renderizar gráficos
+            renderCharts();
+        }
+
+        function viewAlerts() {
+            searchPiece('9005032');
+        }
+
+        function renderCharts() {
+            // Limpar gráficos anteriores
+            const chartCustosCanvas = document.getElementById('chartCustos');
+            const chartMargensCanvas = document.getElementById('chartMargens');
+
+            if (chartCustosCanvas.chart) chartCustosCanvas.chart.destroy();
+            if (chartMargensCanvas.chart) chartMargensCanvas.chart.destroy();
+
+            // Gráfico 1: Tendência de Custos
+            const ctxCustos = chartCustosCanvas.getContext('2d');
+            chartCustosCanvas.chart = new Chart(ctxCustos, {
+                type: 'line',
+                data: {
+                    labels: ['15/11', '20/11', '05/12', '15/12', '22/12'],
+                    datasets: [
+                        {
+                            label: 'Preço de Venda',
+                            data: [85.50, 48.00, 72.30, 55.00, 68.90],
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            pointRadius: 5
+                        },
+                        {
+                            label: 'Custo Unitário',
+                            data: [62.30, 58.40, 52.10, 68.20, 55.50],
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            pointRadius: 5
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            backgroundColor: '#1f2937',
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': R$ ' + context.parsed.y.toFixed(2);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return 'R$ ' + value.toFixed(0);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfico 2: Distribuição de Margens
+            const ctxMargens = chartMargensCanvas.getContext('2d');
+            chartMargensCanvas.chart = new Chart(ctxMargens, {
+                type: 'bar',
+                data: {
+                    labels: ['Ped. 12345', 'Ped. 12346', 'Ped. 12347', 'Ped. 12348', 'Ped. 12349'],
+                    datasets: [{
+                        label: 'Margem (%)',
+                        data: [37.2, -17.8, 38.8, -19.4, 24.1],
+                        backgroundColor: function(context) {
+                            const value = context.parsed.y;
+                            return value >= 0 ? 'rgba(16, 185, 129, 0.8)' : 'rgba(239, 68, 68, 0.8)';
+                        },
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#1f2937',
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Margem: ' + context.parsed.y.toFixed(1) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            grid: {
+                                color: function(context) {
+                                    if (context.tick.value === 0) {
+                                        return '#000';
+                                    }
+                                    return 'rgba(0, 0, 0, 0.05)';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

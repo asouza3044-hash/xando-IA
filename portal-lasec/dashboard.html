@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Portal LASEC</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Configuração Tailwind personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lasec-primary': '#1e40af',
+                        'lasec-secondary': '#3b82f6',
+                        'lasec-accent': '#60a5fa',
+                        'lasec-success': '#10b981',
+                        'lasec-warning': '#f59e0b',
+                        'lasec-danger': '#ef4444',
+                        'lasec-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.15);
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-active {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse-animation {
+            animation: pulse-slow 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-lasec-primary rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">L</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-lasec-primary">PORTAL LASEC</h1>
+                            <p class="text-xs text-gray-500">Dashboard Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm font-semibold text-gray-700">Usuário LASEC</p>
+                        <p class="text-xs text-gray-500">Administrador</p>
+                    </div>
+                    <div class="w-10 h-10 bg-lasec-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">U</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white shadow-lg h-screen sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <nav class="space-y-2">
+                    <a href="index.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🏠</span>
+                        <span>Home</span>
+                    </a>
+                    <a href="dashboard.html" class="flex items-center px-4 py-3 rounded-lg sidebar-active transition">
+                        <span class="mr-3 text-xl">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📖</span>
+                        <span>Documentação</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🎯</span>
+                        <span>Portal Orçamentos</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🔍</span>
+                        <span>Consulta Database</span>
+                    </a>
+                </nav>
+
+                <hr class="my-6">
+
+                <div class="space-y-2">
+                    <p class="px-4 text-xs font-semibold text-gray-500 uppercase">Ações Rápidas</p>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">➕</span>
+                        <span>Novo Orçamento</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📄</span>
+                        <span>Gerar Relatório</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">⚙️</span>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-8">
+
+            <!-- HEADER -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-lasec-dark">Dashboard Analytics</h2>
+                        <p class="text-gray-600 mt-1">Visão geral dos orçamentos e métricas de performance</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                            <option>Últimos 30 dias</option>
+                            <option>Últimos 90 dias</option>
+                            <option>Este ano (2026)</option>
+                            <option>2025</option>
+                        </select>
+                        <button class="bg-lasec-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
+                            Atualizar Dados
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
+                <!-- Card 1: Total Orçamentos -->
+                <div class="stat-card card-hover border-l-4 border-lasec-primary">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-600 mb-1">Total Orçamentos</p>
+                            <h3 class="text-3xl font-bold text-lasec-dark">015</h3>
+                            <p class="text-sm text-lasec-success mt-2">
+                                <span class="font-semibold">↑ 12%</span> vs mês anterior
+                            </p>
+                        </div>
+                        <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Custo Médio -->
+                <div class="stat-card card-hover border-l-4 border-lasec-success">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-600 mb-1">Custo Médio (Lote 100)</p>
+                            <h3 class="text-3xl font-bold text-lasec-dark">R$ 68,45</h3>
+                            <p class="text-sm text-gray-500 mt-2">
+                                Range: R$ 32 - R$ 145
+                            </p>
+                        </div>
+                        <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tempo Médio -->
+                <div class="stat-card card-hover border-l-4 border-lasec-warning">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-600 mb-1">Tempo Médio/Peça</p>
+                            <h3 class="text-3xl font-bold text-lasec-dark">18 min</h3>
+                            <p class="text-sm text-gray-500 mt-2">
+                                Setup médio: 1.2h
+                            </p>
+                        </div>
+                        <div class="bg-yellow-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">⏱️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Margem Média -->
+                <div class="stat-card card-hover border-l-4 border-lasec-danger">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-600 mb-1">Margem Média</p>
+                            <h3 class="text-3xl font-bold text-lasec-dark">36%</h3>
+                            <p class="text-sm text-lasec-success mt-2">
+                                <span class="font-semibold">✓ Saudável</span> (target: 35%)
+                            </p>
+                        </div>
+                        <div class="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <span class="text-2xl">📈</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICOS - Linha 1 -->
+            <div class="grid lg:grid-cols-2 gap-6 mb-8">
+
+                <!-- Gráfico: Orçamentos por Mês -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-lasec-dark">Orçamentos por Mês (2025-2026)</h3>
+                        <span class="text-sm text-gray-500">📅 Timeline</span>
+                    </div>
+                    <canvas id="chartOrcamentosMes" height="250"></canvas>
+                </div>
+
+                <!-- Gráfico: Distribuição por Cliente -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-lasec-dark">Distribuição por Cliente</h3>
+                        <span class="text-sm text-gray-500">🏢 Top 5</span>
+                    </div>
+                    <canvas id="chartClientes" height="250"></canvas>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICOS - Linha 2 -->
+            <div class="grid lg:grid-cols-2 gap-6 mb-8">
+
+                <!-- Gráfico: Tempo Médio por Máquina -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-lasec-dark">Tempo Médio por Máquina</h3>
+                        <span class="text-sm text-gray-500">⚙️ Minutos/peça</span>
+                    </div>
+                    <canvas id="chartTempoMaquina" height="250"></canvas>
+                </div>
+
+                <!-- Gráfico: Custo por Lote -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-lasec-dark">Custo Unitário por Lote</h3>
+                        <span class="text-sm text-gray-500">💵 Economia de escala</span>
+                    </div>
+                    <canvas id="chartCustoLote" height="250"></canvas>
+                </div>
+
+            </div>
+
+            <!-- TABELA: Últimos Orçamentos -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-lasec-dark">Últimos Orçamentos Criados</h3>
+                    <button class="text-lasec-primary font-semibold hover:underline">Ver Todos →</button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Nº</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Cliente</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Código Peça</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Material</th>
+                                <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Máquina</th>
+                                <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Tempo</th>
+                                <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Preço (100un)</th>
+                                <th class="text-center py-3 px-4 font-semibold text-sm text-gray-600">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4 font-mono text-sm">015</td>
+                                <td class="py-4 px-4 font-semibold">RFS Industrial</td>
+                                <td class="py-4 px-4 font-mono text-sm">9005032</td>
+                                <td class="py-4 px-4 text-sm">PMMA</td>
+                                <td class="py-4 px-4 text-sm">GL280</td>
+                                <td class="py-4 px-4 text-right font-mono text-sm">12 min</td>
+                                <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 45,30</td>
+                                <td class="py-4 px-4 text-center">
+                                    <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-semibold">Aprovado</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4 font-mono text-sm">014</td>
+                                <td class="py-4 px-4 font-semibold">LASEC</td>
+                                <td class="py-4 px-4 font-mono text-sm">RFS_9005032</td>
+                                <td class="py-4 px-4 text-sm">PMMA</td>
+                                <td class="py-4 px-4 text-sm">GL280</td>
+                                <td class="py-4 px-4 text-right font-mono text-sm">14 min</td>
+                                <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 52,80</td>
+                                <td class="py-4 px-4 text-center">
+                                    <span class="bg-lasec-primary text-white px-3 py-1 rounded-full text-xs font-semibold">Em Análise</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4 font-mono text-sm">012</td>
+                                <td class="py-4 px-4 font-semibold">BBOX</td>
+                                <td class="py-4 px-4 font-mono text-sm">PP01_00003</td>
+                                <td class="py-4 px-4 text-sm">Aço SAE 1045</td>
+                                <td class="py-4 px-4 text-sm">Doosan Lynx 220LM</td>
+                                <td class="py-4 px-4 text-right font-mono text-sm">28 min</td>
+                                <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 142,60</td>
+                                <td class="py-4 px-4 text-center">
+                                    <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-semibold">Aprovado</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4 font-mono text-sm">011</td>
+                                <td class="py-4 px-4 font-semibold">BBOX</td>
+                                <td class="py-4 px-4 font-mono text-sm">PP04_00002</td>
+                                <td class="py-4 px-4 text-sm">Aço</td>
+                                <td class="py-4 px-4 text-sm">Discovery 760</td>
+                                <td class="py-4 px-4 text-right font-mono text-sm">22 min</td>
+                                <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 98,40</td>
+                                <td class="py-4 px-4 text-center">
+                                    <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-semibold">Aprovado</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-4 px-4 font-mono text-sm">009</td>
+                                <td class="py-4 px-4 font-semibold">LIVENZA</td>
+                                <td class="py-4 px-4 font-mono text-sm">1.0055.0105650</td>
+                                <td class="py-4 px-4 text-sm">Aço SAE 8620</td>
+                                <td class="py-4 px-4 text-sm">Doosan + GL280</td>
+                                <td class="py-4 px-4 text-right font-mono text-sm">35 min</td>
+                                <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 168,90</td>
+                                <td class="py-4 px-4 text-center">
+                                    <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-semibold">Aprovado</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- INSIGHTS E ALERTAS -->
+            <div class="grid lg:grid-cols-3 gap-6 mb-8">
+
+                <!-- Insight 1 -->
+                <div class="bg-blue-50 border-l-4 border-lasec-primary rounded-lg p-6">
+                    <div class="flex items-start">
+                        <span class="text-3xl mr-4">💡</span>
+                        <div>
+                            <h4 class="font-bold text-lasec-dark mb-2">Insight</h4>
+                            <p class="text-sm text-gray-700">
+                                Doosan Lynx 220LM tem o melhor custo-benefício para peças de até 30 minutos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerta 1 -->
+                <div class="bg-yellow-50 border-l-4 border-lasec-warning rounded-lg p-6">
+                    <div class="flex items-start">
+                        <span class="text-3xl mr-4">⚠️</span>
+                        <div>
+                            <h4 class="font-bold text-lasec-dark mb-2">Atenção</h4>
+                            <p class="text-sm text-gray-700">
+                                3 orçamentos aguardando aprovação há mais de 7 dias
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sucesso 1 -->
+                <div class="bg-green-50 border-l-4 border-lasec-success rounded-lg p-6">
+                    <div class="flex items-start">
+                        <span class="text-3xl mr-4">✅</span>
+                        <div>
+                            <h4 class="font-bold text-lasec-dark mb-2">Sucesso</h4>
+                            <p class="text-sm text-gray-700">
+                                Taxa de aprovação de 87% - acima da meta de 80%
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- SCRIPTS DOS GRÁFICOS -->
+    <script>
+        // Configuração padrão dos gráficos
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.color = '#6b7280';
+
+        // GRÁFICO 1: Orçamentos por Mês
+        const ctxMes = document.getElementById('chartOrcamentosMes').getContext('2d');
+        new Chart(ctxMes, {
+            type: 'line',
+            data: {
+                labels: ['Nov 2025', 'Dez 2025', 'Jan 2026'],
+                datasets: [{
+                    label: 'Orçamentos Criados',
+                    data: [3, 7, 5],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#3b82f6',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1f2937',
+                        padding: 12,
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 13 },
+                        cornerRadius: 8
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 2
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // GRÁFICO 2: Distribuição por Cliente
+        const ctxClientes = document.getElementById('chartClientes').getContext('2d');
+        new Chart(ctxClientes, {
+            type: 'doughnut',
+            data: {
+                labels: ['BBOX', 'LIVENZA', 'RFS', 'LASEC', 'Outros'],
+                datasets: [{
+                    data: [4, 3, 2, 2, 4],
+                    backgroundColor: [
+                        '#3b82f6',
+                        '#10b981',
+                        '#f59e0b',
+                        '#ef4444',
+                        '#8b5cf6'
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12,
+                                weight: '600'
+                            },
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1f2937',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percent = ((value / total) * 100).toFixed(1);
+                                return `${label}: ${value} (${percent}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // GRÁFICO 3: Tempo Médio por Máquina
+        const ctxTempo = document.getElementById('chartTempoMaquina').getContext('2d');
+        new Chart(ctxTempo, {
+            type: 'bar',
+            data: {
+                labels: ['Doosan Lynx 220LM', 'Discovery 760', 'GL280', 'GL240'],
+                datasets: [{
+                    label: 'Tempo Médio (min)',
+                    data: [28, 22, 14, 12],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(139, 92, 246, 0.8)'
+                    ],
+                    borderRadius: 8,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1f2937',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return `Tempo médio: ${context.parsed.y} minutos/peça`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + ' min';
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // GRÁFICO 4: Custo por Lote
+        const ctxCusto = document.getElementById('chartCustoLote').getContext('2d');
+        new Chart(ctxCusto, {
+            type: 'bar',
+            data: {
+                labels: ['Lote 10', 'Lote 30', 'Lote 50', 'Lote 100', 'Lote 200', 'Lote 500'],
+                datasets: [{
+                    label: 'Custo Unitário Médio (R$)',
+                    data: [145.20, 98.40, 78.30, 68.45, 62.10, 58.90],
+                    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                    borderRadius: 8,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1f2937',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return `Custo médio: R$ ${context.parsed.y.toFixed(2)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'R$ ' + value.toFixed(0);
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

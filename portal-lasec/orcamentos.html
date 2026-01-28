@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Orçamentos | Portal LASEC</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuração Tailwind personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lasec-primary': '#1e40af',
+                        'lasec-secondary': '#3b82f6',
+                        'lasec-accent': '#60a5fa',
+                        'lasec-success': '#10b981',
+                        'lasec-warning': '#f59e0b',
+                        'lasec-danger': '#ef4444',
+                        'lasec-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.15);
+        }
+
+        .sidebar-active {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .filter-active {
+            background: #1e40af;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            height: 90%;
+            border-radius: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-lasec-primary rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">L</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-lasec-primary">PORTAL LASEC</h1>
+                            <p class="text-xs text-gray-500">Portal de Orçamentos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm font-semibold text-gray-700">Usuário LASEC</p>
+                        <p class="text-xs text-gray-500">Administrador</p>
+                    </div>
+                    <div class="w-10 h-10 bg-lasec-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">U</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white shadow-lg h-screen sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <nav class="space-y-2">
+                    <a href="index.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🏠</span>
+                        <span>Home</span>
+                    </a>
+                    <a href="dashboard.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="documentacao.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📖</span>
+                        <span>Documentação</span>
+                    </a>
+                    <a href="orcamentos.html" class="flex items-center px-4 py-3 rounded-lg sidebar-active transition">
+                        <span class="mr-3 text-xl">🎯</span>
+                        <span>Portal Orçamentos</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🔍</span>
+                        <span>Consulta Database</span>
+                    </a>
+                </nav>
+
+                <hr class="my-6">
+
+                <div class="space-y-2">
+                    <p class="px-4 text-xs font-semibold text-gray-500 uppercase">Ações Rápidas</p>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">➕</span>
+                        <span>Novo Orçamento</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📄</span>
+                        <span>Gerar Relatório</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📊</span>
+                        <span>Exportar Excel</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-8">
+
+            <!-- HEADER -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-2">🎯 Portal de Orçamentos</h2>
+                <p class="text-gray-600">Galeria completa de orçamentos criados com visualização e download</p>
+            </div>
+
+            <!-- FILTROS E BUSCA -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="grid lg:grid-cols-4 gap-4 mb-4">
+
+                    <!-- Busca -->
+                    <div class="lg:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">🔍 Buscar</label>
+                        <input type="text" placeholder="Cliente, código peça, material..."
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                    </div>
+
+                    <!-- Filtro Cliente -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Cliente</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                            <option>Todos</option>
+                            <option>BBOX</option>
+                            <option>LIVENZA</option>
+                            <option>RFS</option>
+                            <option>LASEC</option>
+                            <option>MICROGEAR</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtro Status -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                            <option>Todos</option>
+                            <option>Aprovado</option>
+                            <option>Em Análise</option>
+                            <option>Pendente</option>
+                            <option>Rejeitado</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Filtros rápidos -->
+                <div class="flex flex-wrap gap-3">
+                    <p class="text-sm font-semibold text-gray-700 mr-2">Filtros rápidos:</p>
+                    <button class="px-4 py-2 bg-gray-100 hover:bg-lasec-primary hover:text-white rounded-lg text-sm font-semibold transition">
+                        Todos (15)
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 hover:bg-lasec-primary hover:text-white rounded-lg text-sm font-semibold transition">
+                        Aprovados (12)
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 hover:bg-lasec-primary hover:text-white rounded-lg text-sm font-semibold transition">
+                        Em Análise (2)
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 hover:bg-lasec-primary hover:text-white rounded-lg text-sm font-semibold transition">
+                        Este Mês (5)
+                    </button>
+                </div>
+            </div>
+
+            <!-- GALERIA DE ORÇAMENTOS -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card Orçamento 015 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-400 px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                            <h3 class="text-white text-3xl font-bold">015/2025</h3>
+                        </div>
+                        <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-lasec-dark text-xl mb-2">RFS Industrial</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between">
+                                <span>Código:</span>
+                                <span class="font-mono font-semibold">9005032</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Material:</span>
+                                <span class="font-semibold">PMMA</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Máquina:</span>
+                                <span class="font-semibold">GL280</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data:</span>
+                                <span class="font-semibold">23/01/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                            <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                            <p class="text-2xl font-bold text-lasec-primary">R$ 45,30/pç</p>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="viewProposal(015)" class="flex-1 bg-lasec-primary text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
+                                👁️ Visualizar
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Orçamento 014 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-400 px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                            <h3 class="text-white text-3xl font-bold">014/2025</h3>
+                        </div>
+                        <span class="bg-lasec-primary text-white px-3 py-1 rounded-full text-xs font-bold">Em Análise</span>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-lasec-dark text-xl mb-2">LASEC</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between">
+                                <span>Código:</span>
+                                <span class="font-mono font-semibold">RFS_9005032</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Material:</span>
+                                <span class="font-semibold">PMMA</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Máquina:</span>
+                                <span class="font-semibold">GL280</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data:</span>
+                                <span class="font-semibold">20/01/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                            <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                            <p class="text-2xl font-bold text-lasec-primary">R$ 52,80/pç</p>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="viewProposal(014)" class="flex-1 bg-lasec-primary text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
+                                👁️ Visualizar
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Orçamento 012 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-green-500 to-green-400 px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                            <h3 class="text-white text-3xl font-bold">012/2025</h3>
+                        </div>
+                        <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-lasec-dark text-xl mb-2">BBOX</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between">
+                                <span>Código:</span>
+                                <span class="font-mono font-semibold">PP01_00003</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Material:</span>
+                                <span class="font-semibold">Aço SAE 1045</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Máquina:</span>
+                                <span class="font-semibold">Doosan Lynx 220LM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data:</span>
+                                <span class="font-semibold">15/01/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 rounded-lg p-3 mb-4">
+                            <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                            <p class="text-2xl font-bold text-lasec-success">R$ 142,60/pç</p>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="viewProposal(012)" class="flex-1 bg-lasec-success text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                                👁️ Visualizar
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Orçamento 011 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-green-500 to-green-400 px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                            <h3 class="text-white text-3xl font-bold">011/2025</h3>
+                        </div>
+                        <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-lasec-dark text-xl mb-2">BBOX</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between">
+                                <span>Código:</span>
+                                <span class="font-mono font-semibold">PP04_00002</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Material:</span>
+                                <span class="font-semibold">Aço</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Máquina:</span>
+                                <span class="font-semibold">Discovery 760</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data:</span>
+                                <span class="font-semibold">10/01/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 rounded-lg p-3 mb-4">
+                            <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                            <p class="text-2xl font-bold text-lasec-success">R$ 98,40/pç</p>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="viewProposal(011)" class="flex-1 bg-lasec-success text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                                👁️ Visualizar
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Orçamento 009 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-green-500 to-green-400 px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                            <h3 class="text-white text-3xl font-bold">009/2025</h3>
+                        </div>
+                        <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-lasec-dark text-xl mb-2">LIVENZA</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between">
+                                <span>Código:</span>
+                                <span class="font-mono font-semibold">1.0055.0105650</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Material:</span>
+                                <span class="font-semibold">Aço SAE 8620</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Máquina:</span>
+                                <span class="font-semibold">Doosan + GL280</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data:</span>
+                                <span class="font-semibold">05/12/2025</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 rounded-lg p-3 mb-4">
+                            <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                            <p class="text-2xl font-bold text-lasec-success">R$ 168,90/pç</p>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="viewProposal(009)" class="flex-1 bg-lasec-success text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                                👁️ Visualizar
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Orçamento 001 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-400 px-6 py-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                            <h3 class="text-white text-3xl font-bold">001/2025</h3>
+                        </div>
+                        <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                    </div>
+
+                    <div class="p-6">
+                        <h4 class="font-bold text-lasec-dark text-xl mb-2">MICROGEAR</h4>
+                        <div class="space-y-2 text-sm text-gray-600 mb-4">
+                            <div class="flex justify-between">
+                                <span>Código:</span>
+                                <span class="font-mono font-semibold">1.34.12.710</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Material:</span>
+                                <span class="font-semibold">Aço</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Máquina:</span>
+                                <span class="font-semibold">Doosan Lynx 220LM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Data:</span>
+                                <span class="font-semibold">10/11/2025</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-purple-50 rounded-lg p-3 mb-4">
+                            <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                            <p class="text-2xl font-bold text-purple-700">R$ 95,20/pç</p>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="viewProposal(001)" class="flex-1 bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition">
+                                👁️ Visualizar
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PAGINAÇÃO -->
+            <div class="flex justify-center items-center gap-4 mt-8">
+                <button class="px-4 py-2 bg-white rounded-lg shadow hover:bg-gray-50 transition font-semibold text-gray-700">
+                    ← Anterior
+                </button>
+                <div class="flex gap-2">
+                    <button class="w-10 h-10 bg-lasec-primary text-white rounded-lg font-semibold">1</button>
+                    <button class="w-10 h-10 bg-white text-gray-700 rounded-lg hover:bg-gray-100 font-semibold">2</button>
+                    <button class="w-10 h-10 bg-white text-gray-700 rounded-lg hover:bg-gray-100 font-semibold">3</button>
+                </div>
+                <button class="px-4 py-2 bg-white rounded-lg shadow hover:bg-gray-50 transition font-semibold text-gray-700">
+                    Próximo →
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAL VISUALIZADOR -->
+    <div id="proposalModal" class="modal">
+        <div class="modal-content">
+            <div class="bg-lasec-primary text-white px-6 py-4 flex justify-between items-center">
+                <h3 class="text-xl font-bold">Proposta Comercial - Orçamento <span id="modalNumber"></span>/2025</h3>
+                <button onclick="closeModal()" class="text-white text-3xl hover:text-gray-200">&times;</button>
+            </div>
+            <div class="flex-1 bg-gray-100 p-6 overflow-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-lasec-primary mb-2">PROPOSTA COMERCIAL</h2>
+                        <p class="text-gray-600">Orçamento <span id="proposalNumber"></span>/2025</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-bold text-lasec-dark mb-3 text-lg">FORNECEDOR</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-bold text-lasec-primary text-xl mb-2">LASEC</p>
+                                <p class="text-sm text-gray-600">Usinagem CNC de Precisão</p>
+                                <p class="text-sm text-gray-600">contato@lasec.com.br</p>
+                                <p class="text-sm text-gray-600">(XX) XXXX-XXXX</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lasec-dark mb-3 text-lg">CLIENTE</h4>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="font-bold text-lg" id="proposalClient">RFS Industrial</p>
+                                <p class="text-sm text-gray-600">Código: <span id="proposalCode" class="font-mono">9005032</span></p>
+                                <p class="text-sm text-gray-600">Material: <span id="proposalMaterial">PMMA</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="font-bold text-lasec-dark mb-4 text-lg">TABELA DE PREÇOS</h4>
+                    <div class="overflow-x-auto mb-8">
+                        <table class="w-full border border-gray-200">
+                            <thead class="bg-lasec-primary text-white">
+                                <tr>
+                                    <th class="px-4 py-3 text-left">Lote</th>
+                                    <th class="px-4 py-3 text-right">Preço Unitário</th>
+                                    <th class="px-4 py-3 text-right">Total Lote</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 font-semibold">Lote PILOTO (10-20 pç)</td>
+                                    <td class="px-4 py-3 text-right">R$ 85,40</td>
+                                    <td class="px-4 py-3 text-right">R$ 1.708,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 font-semibold">Lote 30 peças</td>
+                                    <td class="px-4 py-3 text-right">R$ 68,20</td>
+                                    <td class="px-4 py-3 text-right">R$ 2.046,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 font-semibold">Lote 50 peças</td>
+                                    <td class="px-4 py-3 text-right">R$ 58,90</td>
+                                    <td class="px-4 py-3 text-right">R$ 2.945,00</td>
+                                </tr>
+                                <tr class="bg-green-50 border-l-4 border-green-500">
+                                    <td class="px-4 py-3 font-bold flex items-center gap-2">
+                                        Lote 100 peças
+                                        <span class="bg-green-600 text-white px-2 py-1 rounded text-xs">RECOMENDADO</span>
+                                    </td>
+                                    <td class="px-4 py-3 text-right font-bold text-green-700">R$ 45,30</td>
+                                    <td class="px-4 py-3 text-right font-bold text-green-700">R$ 4.530,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 font-semibold">Lote 200 peças</td>
+                                    <td class="px-4 py-3 text-right">R$ 38,60</td>
+                                    <td class="px-4 py-3 text-right">R$ 7.720,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 font-semibold">Lote 500 peças</td>
+                                    <td class="px-4 py-3 text-right">R$ 32,80</td>
+                                    <td class="px-4 py-3 text-right">R$ 16.400,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-8">
+                        <h4 class="font-bold text-blue-900 mb-2">Condições Comerciais</h4>
+                        <ul class="text-sm text-blue-800 space-y-1">
+                            <li>✓ Prazo de entrega: A definir conforme lote</li>
+                            <li>✓ Pagamento: 30 dias após entrega</li>
+                            <li>✓ Garantia de qualidade: 100% inspeção dimensional</li>
+                            <li>✓ Certificado de qualidade incluso</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center bg-gray-50 p-6 rounded-lg">
+                        <p class="text-sm text-gray-600 mb-2">Validade da Proposta</p>
+                        <p class="font-bold text-lasec-dark text-xl">30 dias</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-100 px-6 py-4 flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-400 transition">
+                    Fechar
+                </button>
+                <button class="px-6 py-2 bg-lasec-primary text-white rounded-lg font-semibold hover:bg-blue-800 transition">
+                    📥 Download PDF
+                </button>
+                <button class="px-6 py-2 bg-lasec-success text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                    ✉️ Enviar ao Cliente
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        function viewProposal(number) {
+            document.getElementById('proposalModal').classList.add('active');
+            document.getElementById('modalNumber').textContent = String(number).padStart(3, '0');
+            document.getElementById('proposalNumber').textContent = String(number).padStart(3, '0');
+
+            // Simular dados específicos por orçamento
+            const data = {
+                '015': { client: 'RFS Industrial', code: '9005032', material: 'PMMA' },
+                '014': { client: 'LASEC', code: 'RFS_9005032', material: 'PMMA' },
+                '012': { client: 'BBOX', code: 'PP01_00003', material: 'Aço SAE 1045' },
+                '011': { client: 'BBOX', code: 'PP04_00002', material: 'Aço' },
+                '009': { client: 'LIVENZA', code: '1.0055.0105650', material: 'Aço SAE 8620' },
+                '001': { client: 'MICROGEAR', code: '1.34.12.710', material: 'Aço' }
+            };
+
+            const orcamento = data[String(number).padStart(3, '0')];
+            if (orcamento) {
+                document.getElementById('proposalClient').textContent = orcamento.client;
+                document.getElementById('proposalCode').textContent = orcamento.code;
+                document.getElementById('proposalMaterial').textContent = orcamento.material;
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('proposalModal').classList.remove('active');
+        }
+
+        // Fechar modal ao clicar fora
+        document.getElementById('proposalModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

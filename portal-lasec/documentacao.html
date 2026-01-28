@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação | Portal LASEC</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuração Tailwind personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lasec-primary': '#1e40af',
+                        'lasec-secondary': '#3b82f6',
+                        'lasec-accent': '#60a5fa',
+                        'lasec-success': '#10b981',
+                        'lasec-warning': '#f59e0b',
+                        'lasec-danger': '#ef4444',
+                        'lasec-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.15);
+        }
+
+        .sidebar-active {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 1000px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .flow-arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #3b82f6;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #ef4444;
+        }
+
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1));
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-lasec-primary rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">L</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-lasec-primary">PORTAL LASEC</h1>
+                            <p class="text-xs text-gray-500">Documentação Completa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm font-semibold text-gray-700">Usuário LASEC</p>
+                        <p class="text-xs text-gray-500">Administrador</p>
+                    </div>
+                    <div class="w-10 h-10 bg-lasec-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">U</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white shadow-lg h-screen sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <nav class="space-y-2">
+                    <a href="index.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🏠</span>
+                        <span>Home</span>
+                    </a>
+                    <a href="dashboard.html" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="documentacao.html" class="flex items-center px-4 py-3 rounded-lg sidebar-active transition">
+                        <span class="mr-3 text-xl">📖</span>
+                        <span>Documentação</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🎯</span>
+                        <span>Portal Orçamentos</span>
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        <span class="mr-3 text-xl">🔍</span>
+                        <span>Consulta Database</span>
+                    </a>
+                </nav>
+
+                <hr class="my-6">
+
+                <div class="space-y-2">
+                    <p class="px-4 text-xs font-semibold text-gray-500 uppercase">Navegação Rápida</p>
+                    <a href="#fluxo" class="flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        📋 Fluxo dos 6 Documentos
+                    </a>
+                    <a href="#formulas" class="flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        🧮 Fórmulas e Cálculos
+                    </a>
+                    <a href="#maquinas" class="flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        ⚙️ Máquinas e Custos
+                    </a>
+                    <a href="#guia" class="flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        📘 Guia de Uso
+                    </a>
+                    <a href="#referencias" class="flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        📁 Referências Técnicas
+                    </a>
+                    <a href="#faq" class="flex items-center px-4 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition">
+                        ❓ FAQ
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-8">
+
+            <!-- HERO -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl p-10 mb-8 text-white shadow-xl">
+                <h1 class="text-4xl font-bold mb-4">📖 Documentação Completa</h1>
+                <p class="text-xl text-blue-100 mb-6">
+                    Tudo o que você precisa saber sobre o Agente Orçamento LASEC - Versão 2.3.0
+                </p>
+                <div class="flex gap-4">
+                    <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                        <span class="font-semibold">6 Documentos Automáticos</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                        <span class="font-semibold">4 Máquinas CNC</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                        <span class="font-semibold">100% Padronizado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLUXO DOS 6 DOCUMENTOS -->
+            <section id="fluxo" class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">🔄 Fluxo dos 6 Documentos</h2>
+                <p class="text-gray-600 mb-8">Pipeline completo de geração de orçamentos - sequencial e com gate de aprovação</p>
+
+                <div class="space-y-6">
+
+                    <!-- Documento 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-primary">
+                        <div class="flex items-start gap-6">
+                            <div class="step-number">1</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-2">PROCESSO_FABRICACAO</h3>
+                                <p class="text-sm text-lasec-primary font-semibold mb-3">⚠️ GATE DE APROVAÇÃO OBRIGATÓRIO</p>
+                                <p class="text-gray-700 mb-4">
+                                    Documento técnico detalhado com todas as operações de fabricação, ferramentas, pastilhas,
+                                    parâmetros de corte e cronometragem completa.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="font-semibold text-sm text-gray-700 mb-2">Conteúdo:</p>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>✓ Dados gerais (cliente, código, material)</li>
+                                            <li>✓ Dimensões finais da peça</li>
+                                            <li>✓ Operações por máquina (detalhadas)</li>
+                                            <li>✓ Ferramentas e pastilhas específicas</li>
+                                            <li>✓ Cronometragem (tempo total)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                                        <p class="font-semibold text-sm text-blue-900 mb-2">IMPORTANTE:</p>
+                                        <p class="text-sm text-blue-800">
+                                            Este documento é a <strong>FONTE DA VERDADE</strong>. Todos os 5 documentos
+                                            seguintes devem usar os mesmos tempos e dados deste processo.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow"></div>
+
+                    <!-- Documento 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-success">
+                        <div class="flex items-start gap-6">
+                            <div class="step-number">2</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-2">ESTUDO_CUSTO_FABRICACAO</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Cálculo detalhado de custos para múltiplos lotes (PILOTO, 30, 50, 100, 200, 500 peças).
+                                </p>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="font-semibold text-sm text-gray-700 mb-3">Fórmulas aplicadas:</p>
+                                    <div class="space-y-2 text-sm mono">
+                                        <div class="formula-box">SETUP = Setup_horas × Hora_máquina</div>
+                                        <div class="formula-box">MOD = (Quantidade × Tempo_min) ÷ 60 × Hora_máquina</div>
+                                        <div class="formula-box">CIF = (Setup + MOD) × 0,58</div>
+                                        <div class="formula-box">CUSTO_TOTAL = Setup + MOD + CIF</div>
+                                        <div class="formula-box">CUSTO_UNITÁRIO = CUSTO_TOTAL ÷ Quantidade</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow"></div>
+
+                    <!-- Documento 3 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-warning">
+                        <div class="flex items-start gap-6">
+                            <div class="step-number">3</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-2">ESTUDO_PRECO_VENDA_NFE</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Precificação comercial com markup, perdas e impostos do Simples Nacional.
+                                </p>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="font-semibold text-sm text-gray-700 mb-3">Fórmulas aplicadas:</p>
+                                    <div class="space-y-2 text-sm mono">
+                                        <div class="formula-box">CUSTO_COM_PERDAS = CUSTO_UNITÁRIO × 1,02 (2% perdas)</div>
+                                        <div class="formula-box">PREÇO_SEM_IMPOSTO = CUSTO_COM_PERDAS × 1,35 (35% markup)</div>
+                                        <div class="formula-box">PREÇO_NFE = PREÇO_SEM_IMPOSTO × 1,10 (10% impostos)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow"></div>
+
+                    <!-- Documento 4 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-purple-500">
+                        <div class="flex items-start gap-6">
+                            <div class="step-number">4</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-2">ANALISE_VIABILIDADE_LOTES</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Comparação entre lotes, economia percentual e recomendação de lote ideal (geralmente 100 peças).
+                                </p>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <p class="text-sm text-purple-900">
+                                        <strong>Output:</strong> Tabela comparativa, gráfico de economia de escala e badge "RECOMENDADO" no lote ótimo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow"></div>
+
+                    <!-- Documento 5 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-pink-500">
+                        <div class="flex items-start gap-6">
+                            <div class="step-number">5</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-2">ANALISE_BREAK_EVEN</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Cálculo do ponto de equilíbrio - quando o investimento extra em lote maior se paga.
+                                </p>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="font-semibold text-sm text-gray-700 mb-3">Fórmulas aplicadas:</p>
+                                    <div class="space-y-2 text-sm mono">
+                                        <div class="formula-box">INVESTIMENTO_EXTRA = Total_Lote_Grande - Total_Lote_Pequeno</div>
+                                        <div class="formula-box">ECONOMIA_POR_PEÇA = Preço_Lote_Pequeno - Preço_Lote_Grande</div>
+                                        <div class="formula-box">BREAK_EVEN = INVESTIMENTO_EXTRA ÷ ECONOMIA_POR_PEÇA</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow"></div>
+
+                    <!-- Documento 6 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-danger">
+                        <div class="flex items-start gap-6">
+                            <div class="step-number">6</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-2">PROPOSTA_COMERCIAL</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Documento final para apresentação ao cliente - limpo e profissional, SEM dados confidenciais.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <p class="font-semibold text-sm text-green-900 mb-2">Incluir:</p>
+                                        <ul class="text-sm text-green-800 space-y-1">
+                                            <li>✓ Logo LASEC e dados empresa</li>
+                                            <li>✓ Especificações da peça</li>
+                                            <li>✓ Tabela de preços por lote</li>
+                                            <li>✓ Condições comerciais</li>
+                                            <li>✓ Validade (30 dias)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-lg">
+                                        <p class="font-semibold text-sm text-red-900 mb-2">Remover:</p>
+                                        <ul class="text-sm text-red-800 space-y-1">
+                                            <li>✗ Hora-máquina</li>
+                                            <li>✗ Tempo de fabricação</li>
+                                            <li>✗ Setup interno</li>
+                                            <li>✗ CIF e custos internos</li>
+                                            <li>✗ Nome específico de máquinas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- FÓRMULAS E CÁLCULOS -->
+            <section id="formulas" class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">🧮 Fórmulas e Cálculos LASEC 2025</h2>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="text-left py-4 px-4 font-bold text-gray-700">Componente</th>
+                                    <th class="text-left py-4 px-4 font-bold text-gray-700">Fórmula</th>
+                                    <th class="text-left py-4 px-4 font-bold text-gray-700">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-primary">Setup</td>
+                                    <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">Setup_horas × Hora_máquina</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">Custo fixo de preparação (não varia por lote)</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-primary">MOD (Mão de Obra)</td>
+                                    <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">(Qtd × Tempo_min) ÷ 60 × Hora_máq</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">Custo variável de produção</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-primary">CIF (Custos Indiretos)</td>
+                                    <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">(Setup + MOD) × 0,58</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">58% sobre custos diretos (energia, deprec., manutenção)</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-primary">Custo Total Lote</td>
+                                    <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">Setup + MOD + CIF</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">Custo completo para produzir o lote</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-primary">Custo Unitário</td>
+                                    <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">Custo_Total ÷ Quantidade</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">Custo por peça (diminui em lotes maiores)</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 bg-yellow-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-warning">Perdas</td>
+                                    <td class="py-4 px-4 mono text-sm bg-yellow-100 rounded">Custo_Unit × 1,02</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">2% de perdas no processo</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 bg-green-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-success">Markup</td>
+                                    <td class="py-4 px-4 mono text-sm bg-green-100 rounded">Custo_com_Perdas × 1,35</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">35% de margem de lucro</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 bg-blue-50">
+                                    <td class="py-4 px-4 font-semibold text-lasec-secondary">Impostos</td>
+                                    <td class="py-4 px-4 mono text-sm bg-blue-100 rounded">Preço_sem_Imp × 1,10</td>
+                                    <td class="py-4 px-4 text-sm text-gray-600">10% Simples Nacional (preço final NFe)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MÁQUINAS E CUSTOS -->
+            <section id="maquinas" class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">⚙️ Máquinas CNC - Hora-Máquina 2025</h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <!-- Doosan -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-blue-100 w-14 h-14 rounded-lg flex items-center justify-center">
+                                <span class="text-2xl">🔧</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Doosan Lynx 220LM</h3>
+                                <p class="text-sm text-gray-500">Torno CNC de Alta Precisão</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Hora-Máquina</p>
+                                <p class="text-xl font-bold text-blue-600">R$ 105,00</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Setup Padrão</p>
+                                <p class="text-xl font-bold text-blue-600">1,5h</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded col-span-2">
+                                <p class="text-xs text-gray-600 mb-1">Custo Setup</p>
+                                <p class="text-2xl font-bold text-blue-700">R$ 157,50</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Discovery 760 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center">
+                                <span class="text-2xl">🔩</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Discovery 760 3-eixos</h3>
+                                <p class="text-sm text-gray-500">Centro de Usinagem Vertical</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Hora-Máquina</p>
+                                <p class="text-xl font-bold text-green-600">R$ 104,76</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Setup Padrão</p>
+                                <p class="text-xl font-bold text-green-600">1,0h</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded col-span-2">
+                                <p class="text-xs text-gray-600 mb-1">Custo Setup</p>
+                                <p class="text-2xl font-bold text-green-700">R$ 104,76</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GL280 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-yellow-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-yellow-100 w-14 h-14 rounded-lg flex items-center justify-center">
+                                <span class="text-2xl">⚙️</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">GL280</h3>
+                                <p class="text-sm text-gray-500">Torno CNC Convencional</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Hora-Máquina</p>
+                                <p class="text-xl font-bold text-yellow-600">R$ 83,08</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Setup Padrão</p>
+                                <p class="text-xl font-bold text-yellow-600">0,5h</p>
+                            </div>
+                            <div class="bg-yellow-50 p-3 rounded col-span-2">
+                                <p class="text-xs text-gray-600 mb-1">Custo Setup</p>
+                                <p class="text-2xl font-bold text-yellow-700">R$ 41,54</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GL240 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-purple-500">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-purple-100 w-14 h-14 rounded-lg flex items-center justify-center">
+                                <span class="text-2xl">🛠️</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">GL240</h3>
+                                <p class="text-sm text-gray-500">Torno CNC Econômico</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Hora-Máquina</p>
+                                <p class="text-xl font-bold text-purple-600">R$ 75,00</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded">
+                                <p class="text-xs text-gray-600 mb-1">Setup Padrão</p>
+                                <p class="text-xl font-bold text-purple-600">0,5h</p>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded col-span-2">
+                                <p class="text-xs text-gray-600 mb-1">Custo Setup</p>
+                                <p class="text-2xl font-bold text-purple-700">R$ 37,50</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Nota sobre processos combinados -->
+                <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6 mt-6">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">ℹ️</span>
+                        <div>
+                            <h4 class="font-bold text-blue-900 mb-2">Processos Combinados</h4>
+                            <p class="text-blue-800 text-sm">
+                                Quando o orçamento usa múltiplas máquinas (ex: Doosan + GL280), o <strong>Setup total = Setup_Doosan + Setup_GL280</strong>.
+                                Cada máquina mantém seu tempo de setup individual.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GUIA DE USO -->
+            <section id="guia" class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">📘 Guia de Uso do Agente</h2>
+
+                <div class="space-y-4">
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-4">Passo 1: Invocar o Agente</h3>
+                        <pre>claude /orcamento-lasec</pre>
+                        <p class="text-gray-600 mt-3">O agente iniciará automaticamente e descobrirá o próximo número de orçamento.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-4">Passo 2: Fornecer Informações</h3>
+                        <p class="text-gray-600 mb-3">O agente solicitará apenas:</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><strong>Cliente:</strong> Nome completo (ex: BBOX, LIVENZA, RFS)</li>
+                            <li><strong>Código da peça:</strong> Ex: 1.0055.0105650, PP04_00001</li>
+                            <li><strong>Material:</strong> Ex: Aço SAE 8620, PMMA, Alumínio 6061</li>
+                            <li><strong>Máquinas CNC:</strong> Doosan, Discovery 760, GL280, etc</li>
+                            <li><strong>Desenho técnico:</strong> PDF ou caminho para o arquivo</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-4">Passo 3: Aprovar PROCESSO_FABRICACAO</h3>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded mb-3">
+                            <p class="text-yellow-900 font-semibold">⚠️ GATE OBRIGATÓRIO</p>
+                            <p class="text-yellow-800 text-sm mt-1">
+                                O agente gerará o primeiro documento e aguardará sua aprovação explícita antes de continuar.
+                            </p>
+                        </div>
+                        <p class="text-gray-600">
+                            Revise tempos, operações, ferramentas e cronometragem. Se correto, aprove para prosseguir.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-4">Passo 4: Geração Automática dos 5 Documentos</h3>
+                        <p class="text-gray-600 mb-3">Após aprovação, o agente gera sequencialmente:</p>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="bg-green-50 p-3 rounded flex items-center gap-3">
+                                <span class="text-2xl">2️⃣</span>
+                                <span class="font-semibold text-green-900">Estudo de Custo</span>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded flex items-center gap-3">
+                                <span class="text-2xl">3️⃣</span>
+                                <span class="font-semibold text-green-900">Estudo de Preço NFe</span>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded flex items-center gap-3">
+                                <span class="text-2xl">4️⃣</span>
+                                <span class="font-semibold text-green-900">Análise de Viabilidade</span>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded flex items-center gap-3">
+                                <span class="text-2xl">5️⃣</span>
+                                <span class="font-semibold text-green-900">Análise Break-Even</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-4">Passo 5: Proposta Comercial</h3>
+                        <p class="text-gray-600 mb-3">
+                            Documento final para envio ao cliente - limpo, sem dados confidenciais, pronto para apresentação.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <p class="text-blue-900 text-sm">
+                                <strong>Output:</strong> 6 arquivos HTML na pasta <code>D:\lasec\orcamentos\2025\[CLIENTE]\[NUM]_[CLIENTE]_[CODIGO]\</code>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- REFERÊNCIAS TÉCNICAS -->
+            <section id="referencias" class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">📁 Referências Técnicas</h2>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-lasec-dark mb-4">Diretórios de Consulta (Ordem de Prioridade)</h3>
+
+                    <div class="space-y-6">
+
+                        <!-- Nível 0 -->
+                        <div class="border-l-4 border-lasec-primary pl-6">
+                            <h4 class="font-bold text-lg text-lasec-primary mb-2">NÍVEL 0: Descobrir Próximo Número</h4>
+                            <pre class="mb-3">D:\lasec\orcamentos\2025\</pre>
+                            <p class="text-sm text-gray-600">
+                                Listar diretórios, encontrar MAIOR número existente, usar próximo (+1). <strong>NÃO perguntar ao usuário!</strong>
+                            </p>
+                        </div>
+
+                        <!-- Nível 1 -->
+                        <div class="border-l-4 border-lasec-success pl-6">
+                            <h4 class="font-bold text-lg text-lasec-success mb-2">NÍVEL 1: Programas CNC Reais</h4>
+                            <pre class="mb-3">D:\IA MALELO\PROG_CNC\
+├── LYNX220\*.ALL          (Doosan Lynx 220LM)
+├── D760\RECEBIDO\*.TXT    (Discovery 760)
+├── GL280\                 (Torno GL280)
+└── GL240\                 (Torno GL240)</pre>
+                            <p class="text-sm text-gray-600">
+                                Buscar programa real por código de peça. Se encontrado, <strong>extrair operações, tempos e ferramentas do código Fanuc</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Nível 1.2.1 -->
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h4 class="font-bold text-lg text-purple-700 mb-2">NÍVEL 1.2.1: Consulta PostgreSQL (Histórico)</h4>
+                            <pre class="mb-3">powershell -ExecutionPolicy Bypass -File "D:\IA MALELO\scripts\consultar_programas_cnc_db.ps1" -CodigoPeca "[CODIGO]"</pre>
+                            <p class="text-sm text-gray-600 mb-2">
+                                Retorna histórico de vendas, custos unitários, margens e alertas de prejuízo.
+                            </p>
+                            <div class="bg-red-50 p-3 rounded text-sm text-red-800">
+                                <strong>⚠️ Se tem_prejuizo = true:</strong> Alertar usuário sobre vendas com margem negativa e sugerir revisão de custos/preços.
+                            </div>
+                        </div>
+
+                        <!-- Nível 2 -->
+                        <div class="border-l-4 border-yellow-500 pl-6">
+                            <h4 class="font-bold text-lg text-yellow-700 mb-2">NÍVEL 2: Banco de Dados Técnicos</h4>
+                            <pre class="mb-3">D:\IA MALELO\banco_dados\
+├── ferramentas_coromant.pdf     (Coromant - catálogo)
+├── ferramentas_iscar.pdf        (Iscar - catálogo)
+├── pastas_coolant.xlsx          (Fluidos de corte)
+└── tolerancias_iso.pdf          (ISO 286)</pre>
+                            <p class="text-sm text-gray-600">
+                                Consultar parâmetros de corte, ferramentas recomendadas por material, fluidos e tolerâncias.
+                            </p>
+                        </div>
+
+                        <!-- Nível 3 -->
+                        <div class="border-l-4 border-pink-500 pl-6">
+                            <h4 class="font-bold text-lg text-pink-700 mb-2">NÍVEL 3: Internet (Fabricantes)</h4>
+                            <div class="grid md:grid-cols-2 gap-3 text-sm">
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <strong>Coromant:</strong> sandvik.coromant.com
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <strong>Iscar:</strong> iscar.com
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <strong>Gühring:</strong> guehring.de (brocas)
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <strong>Taegutec:</strong> taegutec.com (insertos)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">❓ Perguntas Frequentes (FAQ)</h2>
+
+                <div class="space-y-4">
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full text-left p-6 hover:bg-gray-50 transition flex justify-between items-center">
+                            <span class="font-bold text-lasec-dark">Como o agente descobre o próximo número de orçamento?</span>
+                            <span class="text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-gray-600">
+                                O agente lista automaticamente <code>D:\lasec\orcamentos\2025\</code>, identifica o maior número existente (ex: 015)
+                                e usa o próximo (+1). Você <strong>não precisa informar</strong> o número manualmente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full text-left p-6 hover:bg-gray-50 transition flex justify-between items-center">
+                            <span class="font-bold text-lasec-dark">Posso pular o gate de aprovação do PROCESSO_FABRICACAO?</span>
+                            <span class="text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-gray-600">
+                                <strong>Não.</strong> O gate é obrigatório para garantir que todos os 5 documentos seguintes usem os mesmos dados (tempos, operações, máquinas).
+                                Sem aprovação, os cálculos de custo/preço podem ficar inconsistentes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full text-left p-6 hover:bg-gray-50 transition flex justify-between items-center">
+                            <span class="font-bold text-lasec-dark">Por que o CIF é 58%?</span>
+                            <span class="text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-gray-600">
+                                O CIF de 58% cobre custos indiretos de fabricação: energia elétrica, depreciação de máquinas, manutenção preventiva,
+                                overhead administrativo, etc. É um percentual calculado com base nos custos reais da LASEC.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full text-left p-6 hover:bg-gray-50 transition flex justify-between items-center">
+                            <span class="font-bold text-lasec-dark">Posso ajustar o markup de 35%?</span>
+                            <span class="text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-gray-600">
+                                Sim. O markup de 35% é padrão para clientes recorrentes, mas pode ser ajustado conforme estratégia comercial:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                <li>Cliente novo / volume alto: 30-32%</li>
+                                <li>Peça complexa / baixo volume: 38-40%</li>
+                                <li>Urgência / prazo curto: até 45%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full text-left p-6 hover:bg-gray-50 transition flex justify-between items-center">
+                            <span class="font-bold text-lasec-dark">O que fazer se o PostgreSQL retornar "tem_prejuizo = true"?</span>
+                            <span class="text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded mb-3">
+                                <p class="text-red-900 font-semibold">⚠️ ALERTA DE PREJUÍZO</p>
+                            </div>
+                            <p class="text-gray-600 mb-3">
+                                Significa que há histórico de vendas desta peça com <strong>margem negativa</strong> (prejuízo). O agente irá alertar e sugerir:
+                            </p>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-2">
+                                <li>Revisar processo de fabricação para reduzir tempo/custo</li>
+                                <li>Aumentar preço de venda para margem mínima de 35%</li>
+                                <li>Avaliar se vale a pena continuar fabricando esta peça</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button onclick="toggleAccordion(this)" class="w-full text-left p-6 hover:bg-gray-50 transition flex justify-between items-center">
+                            <span class="font-bold text-lasec-dark">Quais lotes são gerados automaticamente?</span>
+                            <span class="text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <p class="text-gray-600 mb-3">Sempre são calculados 6 lotes padrão:</p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <div class="bg-blue-50 p-3 rounded text-center">
+                                    <p class="font-bold text-blue-900">PILOTO</p>
+                                    <p class="text-sm text-blue-700">10-20 peças</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded text-center">
+                                    <p class="font-bold text-blue-900">Lote 30</p>
+                                    <p class="text-sm text-blue-700">30 peças</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded text-center">
+                                    <p class="font-bold text-blue-900">Lote 50</p>
+                                    <p class="text-sm text-blue-700">50 peças</p>
+                                </div>
+                                <div class="bg-green-50 p-3 rounded text-center">
+                                    <p class="font-bold text-green-900">Lote 100 ⭐</p>
+                                    <p class="text-sm text-green-700">Recomendado</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded text-center">
+                                    <p class="font-bold text-blue-900">Lote 200</p>
+                                    <p class="text-sm text-blue-700">200 peças</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded text-center">
+                                    <p class="font-bold text-blue-900">Lote 500</p>
+                                    <p class="text-sm text-blue-700">500 peças</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- REGRAS ABSOLUTAS -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-lasec-dark mb-6">🚨 Regras Absolutas (NUNCA QUEBRAR)</h2>
+
+                <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-6 mb-4">
+                    <h3 class="font-bold text-red-900 mb-4 text-xl">CRÍTICAS (Zero Tolerância)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <p class="font-semibold text-red-900">DESCOBRIR PRÓXIMO NÚMERO AUTOMATICAMENTE</p>
+                                <p class="text-sm text-red-800">Listar D:\lasec\orcamentos\2025\, encontrar maior, usar +1. NUNCA perguntar!</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <p class="font-semibold text-red-900">CHECKPOINT EM 90% TOKENS</p>
+                                <p class="text-sm text-red-800">Parar e resumir progresso para não perder contexto</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <p class="font-semibold text-red-900">NUNCA CRIAR NOVO TEMPLATE</p>
+                                <p class="text-sm text-red-800">Copiar de D:\IA MALELO\templates\, editar APENAS [[VARIÁVEIS]], manter HTML/CSS</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <p class="font-semibold text-red-900">SEMPRE USAR TEMPLATES CORRETOS</p>
+                                <p class="text-sm text-red-800">Nunca customizar estrutura HTML/CSS dos templates aprovados</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <p class="font-semibold text-red-900">EXTRAIR DADOS DO DESENHO PRIMEIRO</p>
+                                <p class="text-sm text-red-800">Apenas perguntar itens NÃO encontrados no desenho técnico</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <p class="font-semibold text-red-900">PROCESSO PRIMEIRO COM GATE</p>
+                                <p class="text-sm text-red-800">Aprovar PROCESSO_FABRICACAO antes de gerar os outros 5 documentos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6">
+                    <h3 class="font-bold text-blue-900 mb-4 text-xl">OPERACIONAIS</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Símbolo LASEC em todos 6 docs</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Buscar programa CNC real primeiro</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Setup é fixo (não varia por lote)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">CIF = 58% sobre (Setup + MOD)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Markup = 35% padrão</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Perdas = 2%, Impostos = 10%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Remover confidenciais de PROPOSTA</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✅</span>
+                            <span class="text-blue-900">Valores idênticos entre docs</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- SCRIPT ACCORDION -->
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('span:last-child');
+
+            content.classList.toggle('active');
+            icon.textContent = content.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+
+</body>
+</html>
