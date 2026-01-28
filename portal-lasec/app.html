@@ -1732,27 +1732,73 @@
             document.getElementById('extractedData').classList.remove('hidden');
         }
 
+        // ==========================================
+        // PARÂMETROS LASEC 2025 (Dissídio +6.4%)
+        // ==========================================
+        const LASEC_PARAMS = {
+            // Hora-máquina por tipo
+            horaMaquina: {
+                'TORNO_CNC': 88.41,           // GL280/GL280M
+                'TORNO_CONVENCIONAL': 75.00,  // GL240
+                'CENTRO_USINAGEM': 111.47,    // Discovery 760 3-eixos
+                'CENTRO_4EIXOS': 139.47,      // Discovery 4-eixos
+                'DOOSAN': 111.81              // Doosan Lynx 220LM
+            },
+            // Setup por máquina (horas)
+            setupHoras: {
+                'TORNO_CNC': 0.5,
+                'TORNO_CONVENCIONAL': 0.5,
+                'CENTRO_USINAGEM': 1.0,
+                'CENTRO_4EIXOS': 1.0,
+                'DOOSAN': 1.5
+            },
+            // Custos indiretos e markup
+            CIF: 0.58,        // 58% sobre (Setup + MOD)
+            PERDAS: 0.02,     // 2%
+            MARKUP: 0.35,     // 35%
+            IMPOSTOS: 0.10    // 10% Simples Nacional
+        };
+
         function calcularOrcamentoAutomatico() {
             const quantidade = parseInt(document.getElementById('orcQuantidade').value) || 1;
             const precoKg = parseFloat(document.getElementById('orcPrecoKg').value) || 8.50;
             const dimX = parseFloat(document.getElementById('orcDimX').value) || 25;
             const dimZ = parseFloat(document.getElementById('orcDimZ').value) || 80;
             const tempoUsinagem = parseFloat(document.getElementById('orcTempoUsinagem').value) || 30;
-            const maquina = document.getElementById('orcMaquina').value;
+            const maquina = document.getElementById('orcMaquina').value || 'TORNO_CNC';
 
-            // Cálculo do peso (cilindro)
-            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000;
-            const densidade = 7850; // aço
-            const peso = volume * densidade * 1000;
+            // Cálculo do peso (cilindro em kg)
+            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000; // m³
+            const densidade = 7850; // kg/m³ (aço)
+            const peso = volume * densidade; // kg
 
-            // Custos
-            const custoMat = peso * precoKg;
-            let taxaHora = maquina === 'CENTRO_USINAGEM' ? 150 : 120;
-            const custoUsin = (tempoUsinagem / 60) * taxaHora;
-            const custoSet = 50;
+            // Custo do material
+            const custoMaterial = peso * precoKg * quantidade;
 
-            const totalCusto = (custoMat + custoUsin + custoSet) * quantidade;
-            const precoVenda = totalCusto * 1.35;
+            // Taxa hora-máquina LASEC
+            const taxaHora = LASEC_PARAMS.horaMaquina[maquina] || 88.41;
+            const setupHoras = LASEC_PARAMS.setupHoras[maquina] || 0.5;
+
+            // Setup (fixo por projeto)
+            const custoSetup = setupHoras * taxaHora;
+
+            // MOD - Mão de Obra Direta
+            const custoMOD = (tempoUsinagem / 60) * taxaHora * quantidade;
+
+            // CIF - 58% sobre (Setup + MOD)
+            const custoCIF = (custoSetup + custoMOD) * LASEC_PARAMS.CIF;
+
+            // Custo total de fabricação
+            const custoTotal = custoMaterial + custoSetup + custoMOD + custoCIF;
+
+            // Aplicar perdas (2%)
+            const custoComPerdas = custoTotal * (1 + LASEC_PARAMS.PERDAS);
+
+            // Aplicar markup (35%)
+            const precoSemImposto = custoComPerdas * (1 + LASEC_PARAMS.MARKUP);
+
+            // Aplicar impostos (10% Simples Nacional)
+            const precoNFe = precoSemImposto * (1 + LASEC_PARAMS.IMPOSTOS);
 
             // Atualizar display
             document.getElementById('resumoPeca').textContent = document.getElementById('orcDescricao').value;
@@ -1760,28 +1806,70 @@
             document.getElementById('resumoQtd').textContent = quantidade;
             document.getElementById('resumoTempo').textContent = tempoUsinagem + ' min';
 
-            document.getElementById('custoMaterial').textContent = 'R$ ' + custoMat.toFixed(2);
-            document.getElementById('custoUsinagem').textContent = 'R$ ' + custoUsin.toFixed(2);
-            document.getElementById('custoSetup').textContent = 'R$ ' + custoSet.toFixed(2);
+            document.getElementById('custoMaterial').textContent = 'R$ ' + custoMaterial.toFixed(2);
+            document.getElementById('custoUsinagem').textContent = 'R$ ' + custoMOD.toFixed(2);
+            document.getElementById('custoSetup').textContent = 'R$ ' + custoSetup.toFixed(2);
 
-            document.getElementById('resumoValor').textContent = 'R$ ' + precoVenda.toFixed(2).replace('.', ',');
-            document.getElementById('precoUnitario').textContent = 'Unitário: R$ ' + (precoVenda/quantidade).toFixed(2);
+            document.getElementById('resumoValor').textContent = 'R$ ' + precoNFe.toFixed(2).replace('.', ',');
+            document.getElementById('precoUnitario').textContent = 'Unitário: R$ ' + (precoNFe/quantidade).toFixed(2);
+
+            // Guardar dados para geração de documentos
+            window.orcamentoCalculado = {
+                quantidade,
+                custoMaterial,
+                custoSetup,
+                custoMOD,
+                custoCIF,
+                custoTotal,
+                precoNFe,
+                precoUnitario: precoNFe / quantidade,
+                maquina,
+                taxaHora,
+                tempoUsinagem
+            };
         }
 
         function recalcularOrcamento() {
             calcularOrcamentoAutomatico();
-            alert('Orçamento recalculado com os novos valores!');
+            const orc = window.orcamentoCalculado;
+            alert(`ORÇAMENTO RECALCULADO (Padrão LASEC 2025)
+
+CUSTOS:
+• Material: R$ ${orc.custoMaterial.toFixed(2)}
+• Setup: R$ ${orc.custoSetup.toFixed(2)}
+• MOD: R$ ${orc.custoMOD.toFixed(2)}
+• CIF (58%): R$ ${orc.custoCIF.toFixed(2)}
+• Custo Total: R$ ${orc.custoTotal.toFixed(2)}
+
+PRECIFICAÇÃO:
+• + Perdas (2%): aplicado
+• + Markup (35%): aplicado
+• + Impostos (10%): aplicado
+
+PREÇO NFe: R$ ${orc.precoNFe.toFixed(2)}
+Unitário: R$ ${orc.precoUnitario.toFixed(2)}`);
         }
 
         function gerarDocumentos() {
-            alert('Gerando 6 documentos LASEC:\n\n' +
-                  '1. Ficha de Processo\n' +
-                  '2. Estudo de Custo\n' +
-                  '3. Estudo de Preço NFe\n' +
-                  '4. Proposta Comercial\n' +
-                  '5. Ordem de Serviço\n' +
-                  '6. Relatório Final\n\n' +
-                  'Os documentos serão salvos na pasta do projeto.');
+            const orc = window.orcamentoCalculado;
+            if (!orc) {
+                alert('Calcule o orçamento primeiro!');
+                return;
+            }
+
+            alert(`Gerando 6 documentos LASEC:
+
+1. PROCESSO_FABRICACAO (Gate de Aprovação)
+2. ESTUDO_CUSTO_FABRICACAO
+3. ESTUDO_PRECO_VENDA_NFE
+4. ANALISE_VIABILIDADE_LOTES
+5. ANALISE_BREAK_EVEN
+6. PROPOSTA_COMERCIAL
+
+Lotes calculados: Piloto, 30, 50, 100, 200, 500 peças
+
+Os documentos seguem o padrão D:\\IA MALELO\\templates\\
+e serão salvos em D:\\lasec\\orcamentos\\2025\\`);
         }
 
         function novoOrcamento() {
