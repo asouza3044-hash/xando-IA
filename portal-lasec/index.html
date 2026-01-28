@@ -1140,314 +1140,325 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <h1 class="text-4xl font-bold mb-2">Novo Orçamento</h1>
-                                <p class="text-blue-200">Preencha os dados para gerar orçamento profissional</p>
+                                <p class="text-blue-200">Envie o desenho em PDF e o agente extrai todas as informações</p>
                             </div>
-                            <div class="text-6xl">📝</div>
+                            <div class="text-6xl">🤖</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-                    <!-- Progress Steps -->
-                    <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="step-active w-10 h-10 rounded-full bg-lasec-primary text-white flex items-center justify-center font-bold">1</div>
-                                <span class="ml-3 font-semibold text-lasec-primary">Dados Básicos</span>
+                    <!-- ÁREA PRINCIPAL: UPLOAD PDF -->
+                    <div id="uploadArea" class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                        <div class="text-center mb-6">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-lasec-primary to-lasec-secondary rounded-full mb-4">
+                                <span class="text-4xl">📄</span>
                             </div>
-                            <div class="flex-1 h-1 bg-gray-200 mx-4"></div>
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">2</div>
-                                <span class="ml-3 text-gray-500">Material & Dimensões</span>
+                            <h2 class="text-2xl font-bold text-gray-800">Envie o Desenho Técnico</h2>
+                            <p class="text-gray-500 mt-2">O agente LASEC irá extrair automaticamente todas as informações do PDF</p>
+                        </div>
+
+                        <!-- Drop Zone -->
+                        <div id="dropZone"
+                             ondrop="handleDrop(event)"
+                             ondragover="handleDragOver(event)"
+                             ondragleave="handleDragLeave(event)"
+                             onclick="document.getElementById('pdfInput').click()"
+                             class="border-4 border-dashed border-blue-300 rounded-2xl p-12 text-center cursor-pointer hover:border-lasec-primary hover:bg-blue-50 transition-all duration-300">
+
+                            <div id="dropContent">
+                                <div class="text-6xl mb-4">📁</div>
+                                <p class="text-xl font-semibold text-gray-700 mb-2">Arraste o PDF aqui</p>
+                                <p class="text-gray-500 mb-4">ou clique para selecionar</p>
+                                <span class="inline-block bg-lasec-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                                    Selecionar PDF
+                                </span>
+                                <p class="text-xs text-gray-400 mt-4">Formatos aceitos: PDF, DWG, DXF, STEP</p>
                             </div>
-                            <div class="flex-1 h-1 bg-gray-200 mx-4"></div>
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">3</div>
-                                <span class="ml-3 text-gray-500">Operações CNC</span>
+
+                            <div id="filePreview" class="hidden">
+                                <div class="text-6xl mb-4">✅</div>
+                                <p id="fileName" class="text-xl font-semibold text-lasec-success mb-2"></p>
+                                <p class="text-gray-500">Arquivo carregado com sucesso</p>
                             </div>
-                            <div class="flex-1 h-1 bg-gray-200 mx-4"></div>
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">4</div>
-                                <span class="ml-3 text-gray-500">Revisão & Gerar</span>
+                        </div>
+
+                        <input type="file" id="pdfInput" accept=".pdf,.dwg,.dxf,.step,.stp" class="hidden" onchange="handleFileSelect(event)">
+
+                        <!-- Botão Processar -->
+                        <div id="processSection" class="hidden mt-6">
+                            <div class="flex gap-4 justify-center">
+                                <button onclick="processarDesenho()" class="bg-gradient-to-r from-lasec-primary to-lasec-secondary text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition flex items-center">
+                                    <span class="mr-3 text-2xl">🤖</span>
+                                    Processar com Agente LASEC
+                                </button>
+                                <button onclick="limparArquivo()" class="bg-gray-200 text-gray-700 px-6 py-4 rounded-xl font-semibold hover:bg-gray-300 transition">
+                                    Trocar Arquivo
+                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Formulário Principal -->
-                    <div class="grid lg:grid-cols-3 gap-8">
-
-                        <!-- Coluna Esquerda - Formulário -->
-                        <div class="lg:col-span-2 space-y-6">
-
-                            <!-- Card: Dados do Cliente -->
-                            <div class="bg-white rounded-2xl shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                                    <span class="w-8 h-8 bg-lasec-primary text-white rounded-lg flex items-center justify-center mr-3 text-sm">👤</span>
-                                    Dados do Cliente
-                                </h3>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Cliente *</label>
-                                        <select id="orcCliente" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                            <option value="">Selecione o cliente</option>
-                                            <option value="BBOX">BBOX</option>
-                                            <option value="LIVENZA">LIVENZA</option>
-                                            <option value="RFS">RFS</option>
-                                            <option value="MICROGEAR">MICROGEAR</option>
-                                            <option value="LASEC">LASEC (Interno)</option>
-                                            <option value="OUTRO">Outro (especificar)</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Contato</label>
-                                        <input type="text" id="orcContato" placeholder="Nome do contato" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                        <input type="email" id="orcEmail" placeholder="email@empresa.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
-                                        <input type="tel" id="orcTelefone" placeholder="(11) 99999-9999" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
+                    <!-- ÁREA DE PROCESSAMENTO (oculta inicialmente) -->
+                    <div id="processingArea" class="hidden">
+                        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                            <div class="flex items-center justify-center">
+                                <div class="animate-spin rounded-full h-16 w-16 border-4 border-lasec-primary border-t-transparent mr-4"></div>
+                                <div>
+                                    <p class="text-xl font-bold text-gray-800">Analisando desenho...</p>
+                                    <p id="processingStatus" class="text-gray-500">Extraindo informações do PDF</p>
                                 </div>
                             </div>
-
-                            <!-- Card: Dados da Peça -->
-                            <div class="bg-white rounded-2xl shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                                    <span class="w-8 h-8 bg-lasec-secondary text-white rounded-lg flex items-center justify-center mr-3 text-sm">⚙️</span>
-                                    Dados da Peça
-                                </h3>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div class="md:col-span-2">
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Descrição da Peça *</label>
-                                        <input type="text" id="orcDescricao" placeholder="Ex: Eixo escalonado com rosca M8" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Código da Peça</label>
-                                        <input type="text" id="orcCodigo" placeholder="Ex: 1.34.12.710" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent mono">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Quantidade *</label>
-                                        <input type="number" id="orcQuantidade" value="1" min="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Desenho Técnico</label>
-                                        <input type="file" id="orcDesenho" accept=".pdf,.dwg,.dxf,.step,.stp" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Prazo Solicitado</label>
-                                        <input type="date" id="orcPrazo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
+                            <div class="mt-6 bg-gray-100 rounded-lg p-4">
+                                <div class="flex items-center text-sm text-gray-600 mb-2">
+                                    <span class="mr-2">✅</span> Lendo arquivo PDF
+                                </div>
+                                <div id="step2" class="flex items-center text-sm text-gray-400 mb-2">
+                                    <span class="mr-2">⏳</span> Identificando dimensões e tolerâncias
+                                </div>
+                                <div id="step3" class="flex items-center text-sm text-gray-400 mb-2">
+                                    <span class="mr-2">⏳</span> Detectando material especificado
+                                </div>
+                                <div id="step4" class="flex items-center text-sm text-gray-400 mb-2">
+                                    <span class="mr-2">⏳</span> Calculando operações CNC necessárias
+                                </div>
+                                <div id="step5" class="flex items-center text-sm text-gray-400">
+                                    <span class="mr-2">⏳</span> Gerando orçamento
                                 </div>
                             </div>
-
-                            <!-- Card: Material e Dimensões -->
-                            <div class="bg-white rounded-2xl shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                                    <span class="w-8 h-8 bg-lasec-success text-white rounded-lg flex items-center justify-center mr-3 text-sm">📐</span>
-                                    Material e Dimensões Brutas
-                                </h3>
-                                <div class="grid md:grid-cols-3 gap-4">
-                                    <div class="md:col-span-2">
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Material *</label>
-                                        <select id="orcMaterial" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                            <option value="">Selecione o material</option>
-                                            <optgroup label="Aços Carbono">
-                                                <option value="SAE1020">SAE 1020 - Aço Baixo Carbono</option>
-                                                <option value="SAE1045">SAE 1045 - Aço Médio Carbono</option>
-                                                <option value="SAE4140">SAE 4140 - Aço Cromo-Molibdênio</option>
-                                            </optgroup>
-                                            <optgroup label="Aços Inoxidáveis">
-                                                <option value="INOX304">INOX 304 - Austenítico</option>
-                                                <option value="INOX316">INOX 316 - Austenítico</option>
-                                                <option value="INOX420">INOX 420 - Martensítico</option>
-                                            </optgroup>
-                                            <optgroup label="Alumínios">
-                                                <option value="AL6061">Alumínio 6061-T6</option>
-                                                <option value="AL7075">Alumínio 7075-T6</option>
-                                                <option value="AL5052">Alumínio 5052</option>
-                                            </optgroup>
-                                            <optgroup label="Latão/Bronze">
-                                                <option value="LATAO">Latão</option>
-                                                <option value="BRONZE">Bronze TM23</option>
-                                            </optgroup>
-                                            <optgroup label="Plásticos">
-                                                <option value="NYLON">Nylon PA6</option>
-                                                <option value="POM">Poliacetal (POM)</option>
-                                                <option value="PTFE">Teflon (PTFE)</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Preço/kg (R$)</label>
-                                        <input type="number" id="orcPrecoKg" step="0.01" placeholder="Ex: 12.50" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                    </div>
-                                </div>
-
-                                <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                                    <p class="text-sm font-medium text-gray-700 mb-3">Dimensões do Bruto (mm)</p>
-                                    <div class="grid grid-cols-3 gap-4">
-                                        <div>
-                                            <label class="block text-xs text-gray-500 mb-1">Diâmetro / Largura</label>
-                                            <input type="number" id="orcDimX" step="0.1" placeholder="Ø ou L" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-xs text-gray-500 mb-1">Altura (se aplicável)</label>
-                                            <input type="number" id="orcDimY" step="0.1" placeholder="H" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-xs text-gray-500 mb-1">Comprimento *</label>
-                                            <input type="number" id="orcDimZ" step="0.1" placeholder="C" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent mono">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card: Operações CNC -->
-                            <div class="bg-white rounded-2xl shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                                    <span class="w-8 h-8 bg-lasec-warning text-white rounded-lg flex items-center justify-center mr-3 text-sm">🔧</span>
-                                    Operações CNC Necessárias
-                                </h3>
-
-                                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Máquina Principal</label>
-                                        <select id="orcMaquina" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                            <option value="">Selecione a máquina</option>
-                                            <option value="TORNO_CNC">Torno CNC</option>
-                                            <option value="CENTRO_USINAGEM">Centro de Usinagem (Fresa CNC)</option>
-                                            <option value="TORNO_CONVENCIONAL">Torno Convencional</option>
-                                            <option value="FRESA_CONVENCIONAL">Fresa Convencional</option>
-                                            <option value="RETIFICA">Retífica</option>
-                                            <option value="ELETRO_EROSAO">Eletroerosão</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Complexidade</label>
-                                        <select id="orcComplexidade" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                            <option value="SIMPLES">Simples - Operações básicas</option>
-                                            <option value="MEDIO">Médio - Múltiplas operações</option>
-                                            <option value="COMPLEXO">Complexo - Setup especial</option>
-                                            <option value="MUITO_COMPLEXO">Muito Complexo - Tolerâncias apertadas</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="space-y-3">
-                                    <p class="text-sm font-medium text-gray-700">Operações (selecione todas aplicáveis):</p>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="FACEAMENTO"> Faceamento
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="DESBASTE"> Desbaste
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="ACABAMENTO"> Acabamento
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="FURACAO"> Furação
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="ROSCA"> Rosca
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="CANAL"> Canal / Rebaixo
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="CHANFRO"> Chanfro
-                                        </label>
-                                        <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                            <input type="checkbox" class="orcOperacao mr-2" value="RECARTILHA"> Recartilha
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="mt-4">
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tempo Estimado de Usinagem (min)</label>
-                                    <input type="number" id="orcTempoUsinagem" step="1" placeholder="Ex: 45" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent">
-                                </div>
-                            </div>
-
-                            <!-- Card: Observações -->
-                            <div class="bg-white rounded-2xl shadow-lg p-6">
-                                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                                    <span class="w-8 h-8 bg-gray-500 text-white rounded-lg flex items-center justify-center mr-3 text-sm">📝</span>
-                                    Observações e Requisitos Especiais
-                                </h3>
-                                <textarea id="orcObservacoes" rows="4" placeholder="Tolerâncias especiais, acabamento superficial, tratamentos térmicos, certificados necessários..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary focus:border-transparent"></textarea>
-                            </div>
-
-                        </div>
-
-                        <!-- Coluna Direita - Resumo -->
-                        <div class="space-y-6">
-
-                            <!-- Card: Resumo do Orçamento -->
-                            <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-4">
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">📊 Resumo do Orçamento</h3>
-
-                                <div class="space-y-4">
-                                    <div class="flex justify-between py-2 border-b">
-                                        <span class="text-gray-600">Cliente:</span>
-                                        <span id="resumoCliente" class="font-semibold">-</span>
-                                    </div>
-                                    <div class="flex justify-between py-2 border-b">
-                                        <span class="text-gray-600">Peça:</span>
-                                        <span id="resumoPeca" class="font-semibold">-</span>
-                                    </div>
-                                    <div class="flex justify-between py-2 border-b">
-                                        <span class="text-gray-600">Quantidade:</span>
-                                        <span id="resumoQtd" class="font-semibold">1</span>
-                                    </div>
-                                    <div class="flex justify-between py-2 border-b">
-                                        <span class="text-gray-600">Material:</span>
-                                        <span id="resumoMaterial" class="font-semibold">-</span>
-                                    </div>
-                                    <div class="flex justify-between py-2 border-b">
-                                        <span class="text-gray-600">Máquina:</span>
-                                        <span id="resumoMaquina" class="font-semibold">-</span>
-                                    </div>
-                                </div>
-
-                                <hr class="my-4">
-
-                                <div class="bg-gradient-to-r from-lasec-primary to-lasec-secondary text-white rounded-xl p-4 text-center">
-                                    <p class="text-sm opacity-80">Valor Estimado</p>
-                                    <p id="resumoValor" class="text-3xl font-bold">R$ --,--</p>
-                                    <p class="text-xs opacity-70 mt-1">*Valor sujeito a análise técnica</p>
-                                </div>
-
-                                <div class="mt-6 space-y-3">
-                                    <button onclick="calcularOrcamento()" class="w-full bg-lasec-success text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition flex items-center justify-center">
-                                        <span class="mr-2">🧮</span> Calcular Orçamento
-                                    </button>
-                                    <button onclick="gerarOrcamentoPDF()" class="w-full bg-lasec-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center">
-                                        <span class="mr-2">📄</span> Gerar PDF
-                                    </button>
-                                    <button onclick="salvarRascunho()" class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center justify-center">
-                                        <span class="mr-2">💾</span> Salvar Rascunho
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Card: Dicas -->
-                            <div class="bg-blue-50 rounded-2xl p-6 border border-blue-200">
-                                <h4 class="font-bold text-lasec-primary mb-3">💡 Dicas</h4>
-                                <ul class="text-sm text-gray-700 space-y-2">
-                                    <li>• Preencha todos os campos com * para cálculo preciso</li>
-                                    <li>• Anexe o desenho técnico para análise detalhada</li>
-                                    <li>• Selecione todas as operações necessárias</li>
-                                    <li>• Informe tolerâncias especiais nas observações</li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
+
+                    <!-- DADOS EXTRAÍDOS (oculta inicialmente) -->
+                    <div id="extractedData" class="hidden">
+                        <div class="bg-gradient-to-r from-green-500 to-green-400 text-white rounded-2xl p-6 mb-8">
+                            <div class="flex items-center">
+                                <span class="text-4xl mr-4">✅</span>
+                                <div>
+                                    <h3 class="text-xl font-bold">Dados Extraídos com Sucesso!</h3>
+                                    <p class="opacity-90">Revise e ajuste se necessário antes de gerar o orçamento</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <!-- Coluna Esquerda - Dados Extraídos -->
+                            <div class="lg:col-span-2 space-y-6">
+
+                                <!-- Dados do Cliente -->
+                                <div class="bg-white rounded-2xl shadow-lg p-6">
+                                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-8 h-8 bg-lasec-primary text-white rounded-lg flex items-center justify-center mr-3">👤</span>
+                                        Cliente
+                                    </h3>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Cliente</label>
+                                            <select id="orcCliente" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                                <option value="">Selecione</option>
+                                                <option value="BBOX">BBOX</option>
+                                                <option value="LIVENZA">LIVENZA</option>
+                                                <option value="RFS">RFS</option>
+                                                <option value="MICROGEAR">MICROGEAR</option>
+                                                <option value="LASEC">LASEC (Interno)</option>
+                                                <option value="OUTRO">Outro</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Quantidade</label>
+                                            <input type="number" id="orcQuantidade" value="1" min="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Dados Extraídos da Peça -->
+                                <div class="bg-white rounded-2xl shadow-lg p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                                            <span class="w-8 h-8 bg-lasec-secondary text-white rounded-lg flex items-center justify-center mr-3">⚙️</span>
+                                            Dados da Peça (Extraído do PDF)
+                                        </h3>
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Auto-detectado</span>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label>
+                                            <input type="text" id="orcDescricao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary bg-yellow-50">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Código da Peça</label>
+                                            <input type="text" id="orcCodigo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary mono bg-yellow-50">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Revisão</label>
+                                            <input type="text" id="orcRevisao" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary bg-yellow-50">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Material Extraído -->
+                                <div class="bg-white rounded-2xl shadow-lg p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                                            <span class="w-8 h-8 bg-lasec-success text-white rounded-lg flex items-center justify-center mr-3">📐</span>
+                                            Material e Dimensões
+                                        </h3>
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Auto-detectado</span>
+                                    </div>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Material</label>
+                                            <input type="text" id="orcMaterial" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary bg-yellow-50">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Preço/kg (R$)</label>
+                                            <input type="number" id="orcPrecoKg" step="0.01" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                                        <p class="text-sm font-medium text-gray-700 mb-3">Dimensões do Bruto (mm)</p>
+                                        <div class="grid grid-cols-3 gap-4">
+                                            <div>
+                                                <label class="block text-xs text-gray-500 mb-1">Diâmetro</label>
+                                                <input type="number" id="orcDimX" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-lg mono bg-yellow-50">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs text-gray-500 mb-1">Altura</label>
+                                                <input type="number" id="orcDimY" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-lg mono bg-yellow-50">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs text-gray-500 mb-1">Comprimento</label>
+                                                <input type="number" id="orcDimZ" step="0.1" class="w-full px-3 py-2 border border-gray-300 rounded-lg mono bg-yellow-50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Operações Detectadas -->
+                                <div class="bg-white rounded-2xl shadow-lg p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-xl font-bold text-gray-800 flex items-center">
+                                            <span class="w-8 h-8 bg-lasec-warning text-white rounded-lg flex items-center justify-center mr-3">🔧</span>
+                                            Operações CNC Detectadas
+                                        </h3>
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Auto-detectado</span>
+                                    </div>
+                                    <div id="operacoesDetectadas" class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                        <!-- Preenchido dinamicamente -->
+                                    </div>
+                                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Máquina Principal</label>
+                                            <select id="orcMaquina" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                                <option value="TORNO_CNC">Torno CNC</option>
+                                                <option value="CENTRO_USINAGEM">Centro de Usinagem</option>
+                                                <option value="TORNO_CONVENCIONAL">Torno Convencional</option>
+                                                <option value="FRESA_CONVENCIONAL">Fresa Convencional</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempo Estimado (min)</label>
+                                            <input type="number" id="orcTempoUsinagem" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary bg-yellow-50">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tolerâncias e Observações -->
+                                <div class="bg-white rounded-2xl shadow-lg p-6">
+                                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-8 h-8 bg-purple-500 text-white rounded-lg flex items-center justify-center mr-3">📋</span>
+                                        Tolerâncias e Observações
+                                    </h3>
+                                    <div id="toleranciasExtraidas" class="mb-4 p-4 bg-gray-50 rounded-lg">
+                                        <!-- Preenchido dinamicamente -->
+                                    </div>
+                                    <textarea id="orcObservacoes" rows="3" placeholder="Observações adicionais..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Coluna Direita - Resumo e Ações -->
+                            <div class="space-y-6">
+                                <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-4">
+                                    <h3 class="text-xl font-bold text-gray-800 mb-4">📊 Orçamento Calculado</h3>
+
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex justify-between py-2 border-b">
+                                            <span class="text-gray-600">Peça:</span>
+                                            <span id="resumoPeca" class="font-semibold">-</span>
+                                        </div>
+                                        <div class="flex justify-between py-2 border-b">
+                                            <span class="text-gray-600">Material:</span>
+                                            <span id="resumoMaterial" class="font-semibold">-</span>
+                                        </div>
+                                        <div class="flex justify-between py-2 border-b">
+                                            <span class="text-gray-600">Quantidade:</span>
+                                            <span id="resumoQtd" class="font-semibold">1</span>
+                                        </div>
+                                        <div class="flex justify-between py-2 border-b">
+                                            <span class="text-gray-600">Tempo Usinagem:</span>
+                                            <span id="resumoTempo" class="font-semibold">-</span>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <div class="space-y-2 text-sm mb-4">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Custo Material:</span>
+                                            <span id="custoMaterial" class="font-mono">R$ --</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Custo Usinagem:</span>
+                                            <span id="custoUsinagem" class="font-mono">R$ --</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Custo Setup:</span>
+                                            <span id="custoSetup" class="font-mono">R$ --</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-gradient-to-r from-lasec-primary to-lasec-secondary text-white rounded-xl p-4 text-center">
+                                        <p class="text-sm opacity-80">Preço de Venda</p>
+                                        <p id="resumoValor" class="text-3xl font-bold">R$ --,--</p>
+                                        <p id="precoUnitario" class="text-sm opacity-80 mt-1"></p>
+                                    </div>
+
+                                    <div class="mt-6 space-y-3">
+                                        <button onclick="recalcularOrcamento()" class="w-full bg-lasec-success text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition flex items-center justify-center">
+                                            <span class="mr-2">🔄</span> Recalcular
+                                        </button>
+                                        <button onclick="gerarDocumentos()" class="w-full bg-lasec-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center">
+                                            <span class="mr-2">📄</span> Gerar 6 Documentos
+                                        </button>
+                                        <button onclick="novoOrcamento()" class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition flex items-center justify-center">
+                                            <span class="mr-2">➕</span> Novo Orçamento
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Preview do PDF -->
+                                <div class="bg-white rounded-2xl shadow-lg p-6">
+                                    <h4 class="font-bold text-gray-800 mb-3">📎 Arquivo Anexado</h4>
+                                    <div class="bg-gray-100 rounded-lg p-4 flex items-center">
+                                        <span class="text-3xl mr-3">📄</span>
+                                        <div>
+                                            <p id="arquivoNome" class="font-semibold text-gray-800 text-sm"></p>
+                                            <p id="arquivoTamanho" class="text-xs text-gray-500"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modo Manual (link discreto) -->
+                    <div class="text-center mt-8">
+                        <button onclick="mostrarFormularioManual()" class="text-gray-500 hover:text-lasec-primary transition text-sm">
+                            Prefere preencher manualmente? Clique aqui
+                        </button>
+                    </div>
+
                 </div>
             </section>
 
@@ -1561,165 +1572,246 @@
         }
 
         // ==========================================
-        // FUNÇÕES NOVO ORÇAMENTO
+        // FUNÇÕES UPLOAD PDF - FLUXO PRINCIPAL
         // ==========================================
 
-        // Atualizar resumo em tempo real
-        function atualizarResumo() {
-            document.getElementById('resumoCliente').textContent =
-                document.getElementById('orcCliente').value || '-';
-            document.getElementById('resumoPeca').textContent =
-                document.getElementById('orcDescricao').value || '-';
-            document.getElementById('resumoQtd').textContent =
-                document.getElementById('orcQuantidade').value || '1';
-            document.getElementById('resumoMaterial').textContent =
-                document.getElementById('orcMaterial').value || '-';
-            document.getElementById('resumoMaquina').textContent =
-                document.getElementById('orcMaquina').value || '-';
+        let arquivoSelecionado = null;
+        let dadosExtraidos = null;
+
+        // Drag and Drop handlers
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('dropZone').classList.add('border-lasec-primary', 'bg-blue-50');
         }
 
-        // Calcular orçamento
-        function calcularOrcamento() {
-            const cliente = document.getElementById('orcCliente').value;
-            const descricao = document.getElementById('orcDescricao').value;
-            const quantidade = parseInt(document.getElementById('orcQuantidade').value) || 1;
-            const material = document.getElementById('orcMaterial').value;
-            const precoKg = parseFloat(document.getElementById('orcPrecoKg').value) || 15;
-            const dimX = parseFloat(document.getElementById('orcDimX').value) || 50;
-            const dimZ = parseFloat(document.getElementById('orcDimZ').value) || 100;
-            const maquina = document.getElementById('orcMaquina').value;
-            const complexidade = document.getElementById('orcComplexidade').value;
-            const tempoUsinagem = parseFloat(document.getElementById('orcTempoUsinagem').value) || 30;
+        function handleDragLeave(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('dropZone').classList.remove('border-lasec-primary', 'bg-blue-50');
+        }
 
-            if (!cliente || !descricao || !material) {
-                alert('Por favor, preencha os campos obrigatórios: Cliente, Descrição e Material');
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('dropZone').classList.remove('border-lasec-primary', 'bg-blue-50');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                processarArquivo(files[0]);
+            }
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                processarArquivo(files[0]);
+            }
+        }
+
+        function processarArquivo(file) {
+            const extensoesValidas = ['.pdf', '.dwg', '.dxf', '.step', '.stp'];
+            const extensao = '.' + file.name.split('.').pop().toLowerCase();
+
+            if (!extensoesValidas.includes(extensao)) {
+                alert('Formato não suportado. Use: PDF, DWG, DXF ou STEP');
                 return;
             }
 
-            // Cálculo do peso (aproximado para cilindro)
-            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000; // m³
-            const densidade = material.includes('AL') ? 2700 : 7850; // kg/m³
-            const peso = volume * densidade * 1000; // g para kg
+            arquivoSelecionado = file;
 
-            // Custo do material
-            const custoMaterial = peso * precoKg;
+            // Mostrar preview
+            document.getElementById('dropContent').classList.add('hidden');
+            document.getElementById('filePreview').classList.remove('hidden');
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('processSection').classList.remove('hidden');
+        }
 
-            // Taxa hora máquina
-            let taxaHora = 120; // R$/hora base
-            if (maquina === 'CENTRO_USINAGEM') taxaHora = 150;
-            if (maquina === 'RETIFICA') taxaHora = 180;
-            if (maquina === 'ELETRO_EROSAO') taxaHora = 200;
+        function limparArquivo() {
+            arquivoSelecionado = null;
+            document.getElementById('dropContent').classList.remove('hidden');
+            document.getElementById('filePreview').classList.add('hidden');
+            document.getElementById('processSection').classList.add('hidden');
+            document.getElementById('pdfInput').value = '';
+        }
 
-            // Fator complexidade
-            let fatorComplexidade = 1.0;
-            if (complexidade === 'MEDIO') fatorComplexidade = 1.3;
-            if (complexidade === 'COMPLEXO') fatorComplexidade = 1.6;
-            if (complexidade === 'MUITO_COMPLEXO') fatorComplexidade = 2.0;
+        // Processar desenho com "IA"
+        function processarDesenho() {
+            if (!arquivoSelecionado) {
+                alert('Selecione um arquivo primeiro');
+                return;
+            }
 
-            // Custo usinagem
-            const custoUsinagem = (tempoUsinagem / 60) * taxaHora * fatorComplexidade;
+            // Mostrar área de processamento
+            document.getElementById('uploadArea').classList.add('hidden');
+            document.getElementById('processingArea').classList.remove('hidden');
 
-            // Setup
-            const custoSetup = 50 * fatorComplexidade;
+            // Simular extração de dados (em produção seria uma API)
+            simularExtracao();
+        }
 
-            // Total por peça
-            const totalPeca = custoMaterial + custoUsinagem + custoSetup;
-            const totalLote = totalPeca * quantidade;
+        function simularExtracao() {
+            const steps = ['step2', 'step3', 'step4', 'step5'];
+            const statusTexts = [
+                'Identificando dimensões e tolerâncias...',
+                'Detectando material especificado...',
+                'Calculando operações CNC...',
+                'Gerando orçamento...'
+            ];
 
-            // Markup
-            const precoVenda = totalLote * 1.35;
+            let currentStep = 0;
+
+            const interval = setInterval(() => {
+                if (currentStep < steps.length) {
+                    document.getElementById('processingStatus').textContent = statusTexts[currentStep];
+                    document.getElementById(steps[currentStep]).innerHTML =
+                        '<span class="mr-2">✅</span>' + document.getElementById(steps[currentStep]).textContent.substring(2);
+                    document.getElementById(steps[currentStep]).classList.remove('text-gray-400');
+                    document.getElementById(steps[currentStep]).classList.add('text-gray-600');
+                    currentStep++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(mostrarDadosExtraidos, 500);
+                }
+            }, 800);
+        }
+
+        function mostrarDadosExtraidos() {
+            // Simular dados extraídos do PDF (baseado no padrão LASEC)
+            dadosExtraidos = {
+                descricao: 'Eixo escalonado com rosca M8x1.25',
+                codigo: '1.34.12.710',
+                revisao: 'REV.01',
+                material: 'SAE 1045',
+                dimX: 25.4,
+                dimY: null,
+                dimZ: 87.5,
+                operacoes: ['Faceamento', 'Desbaste', 'Acabamento', 'Rosca', 'Chanfro'],
+                maquina: 'TORNO_CNC',
+                tempoEstimado: 35,
+                tolerancias: [
+                    'Ø22h7 (-0.000/-0.021)',
+                    'Rosca M8x1.25 6g',
+                    'Ra 1.6 nas faces de apoio'
+                ],
+                precoKg: 8.50
+            };
+
+            // Preencher campos
+            document.getElementById('orcDescricao').value = dadosExtraidos.descricao;
+            document.getElementById('orcCodigo').value = dadosExtraidos.codigo;
+            document.getElementById('orcRevisao').value = dadosExtraidos.revisao;
+            document.getElementById('orcMaterial').value = dadosExtraidos.material;
+            document.getElementById('orcDimX').value = dadosExtraidos.dimX;
+            document.getElementById('orcDimZ').value = dadosExtraidos.dimZ;
+            document.getElementById('orcMaquina').value = dadosExtraidos.maquina;
+            document.getElementById('orcTempoUsinagem').value = dadosExtraidos.tempoEstimado;
+            document.getElementById('orcPrecoKg').value = dadosExtraidos.precoKg;
+
+            // Preencher operações detectadas
+            const opContainer = document.getElementById('operacoesDetectadas');
+            opContainer.innerHTML = dadosExtraidos.operacoes.map(op =>
+                `<span class="bg-blue-100 text-blue-800 px-3 py-2 rounded-lg text-sm font-medium">${op}</span>`
+            ).join('');
+
+            // Preencher tolerâncias
+            const tolContainer = document.getElementById('toleranciasExtraidas');
+            tolContainer.innerHTML = dadosExtraidos.tolerancias.map(tol =>
+                `<div class="flex items-center text-sm mb-1"><span class="text-lasec-primary mr-2">•</span>${tol}</div>`
+            ).join('');
+
+            // Arquivo info
+            document.getElementById('arquivoNome').textContent = arquivoSelecionado.name;
+            document.getElementById('arquivoTamanho').textContent = formatFileSize(arquivoSelecionado.size);
+
+            // Calcular orçamento
+            calcularOrcamentoAutomatico();
+
+            // Mostrar dados extraídos
+            document.getElementById('processingArea').classList.add('hidden');
+            document.getElementById('extractedData').classList.remove('hidden');
+        }
+
+        function calcularOrcamentoAutomatico() {
+            const quantidade = parseInt(document.getElementById('orcQuantidade').value) || 1;
+            const precoKg = parseFloat(document.getElementById('orcPrecoKg').value) || 8.50;
+            const dimX = parseFloat(document.getElementById('orcDimX').value) || 25;
+            const dimZ = parseFloat(document.getElementById('orcDimZ').value) || 80;
+            const tempoUsinagem = parseFloat(document.getElementById('orcTempoUsinagem').value) || 30;
+            const maquina = document.getElementById('orcMaquina').value;
+
+            // Cálculo do peso (cilindro)
+            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000;
+            const densidade = 7850; // aço
+            const peso = volume * densidade * 1000;
+
+            // Custos
+            const custoMat = peso * precoKg;
+            let taxaHora = maquina === 'CENTRO_USINAGEM' ? 150 : 120;
+            const custoUsin = (tempoUsinagem / 60) * taxaHora;
+            const custoSet = 50;
+
+            const totalCusto = (custoMat + custoUsin + custoSet) * quantidade;
+            const precoVenda = totalCusto * 1.35;
 
             // Atualizar display
-            document.getElementById('resumoValor').textContent =
-                'R$ ' + precoVenda.toFixed(2).replace('.', ',');
+            document.getElementById('resumoPeca').textContent = document.getElementById('orcDescricao').value;
+            document.getElementById('resumoMaterial').textContent = document.getElementById('orcMaterial').value;
+            document.getElementById('resumoQtd').textContent = quantidade;
+            document.getElementById('resumoTempo').textContent = tempoUsinagem + ' min';
 
-            // Mostrar detalhes
-            alert(`ORÇAMENTO CALCULADO
+            document.getElementById('custoMaterial').textContent = 'R$ ' + custoMat.toFixed(2);
+            document.getElementById('custoUsinagem').textContent = 'R$ ' + custoUsin.toFixed(2);
+            document.getElementById('custoSetup').textContent = 'R$ ' + custoSet.toFixed(2);
 
-Cliente: ${cliente}
-Peça: ${descricao}
-Quantidade: ${quantidade} un
-
-CUSTOS:
-• Material: R$ ${custoMaterial.toFixed(2)}
-• Usinagem: R$ ${custoUsinagem.toFixed(2)}
-• Setup: R$ ${custoSetup.toFixed(2)}
-• Custo Total: R$ ${totalLote.toFixed(2)}
-
-PREÇO DE VENDA (35% markup):
-R$ ${precoVenda.toFixed(2)}
-
-Preço unitário: R$ ${(precoVenda/quantidade).toFixed(2)}`);
+            document.getElementById('resumoValor').textContent = 'R$ ' + precoVenda.toFixed(2).replace('.', ',');
+            document.getElementById('precoUnitario').textContent = 'Unitário: R$ ' + (precoVenda/quantidade).toFixed(2);
         }
 
-        // Gerar PDF
-        function gerarOrcamentoPDF() {
-            const cliente = document.getElementById('orcCliente').value;
-            const descricao = document.getElementById('orcDescricao').value;
+        function recalcularOrcamento() {
+            calcularOrcamentoAutomatico();
+            alert('Orçamento recalculado com os novos valores!');
+        }
 
-            if (!cliente || !descricao) {
-                alert('Por favor, preencha os dados básicos antes de gerar o PDF');
-                return;
-            }
+        function gerarDocumentos() {
+            alert('Gerando 6 documentos LASEC:\n\n' +
+                  '1. Ficha de Processo\n' +
+                  '2. Estudo de Custo\n' +
+                  '3. Estudo de Preço NFe\n' +
+                  '4. Proposta Comercial\n' +
+                  '5. Ordem de Serviço\n' +
+                  '6. Relatório Final\n\n' +
+                  'Os documentos serão salvos na pasta do projeto.');
+        }
 
-            alert('Gerando PDF do orçamento...\n\nEm breve o documento será baixado automaticamente.');
+        function novoOrcamento() {
+            // Reset tudo
+            arquivoSelecionado = null;
+            dadosExtraidos = null;
 
-            // Aqui seria integrado com uma biblioteca de PDF como jsPDF
-            console.log('Dados para PDF:', {
-                cliente: cliente,
-                descricao: descricao,
-                quantidade: document.getElementById('orcQuantidade').value,
-                material: document.getElementById('orcMaterial').value,
-                maquina: document.getElementById('orcMaquina').value
+            document.getElementById('extractedData').classList.add('hidden');
+            document.getElementById('processingArea').classList.add('hidden');
+            document.getElementById('uploadArea').classList.remove('hidden');
+
+            limparArquivo();
+
+            // Reset steps
+            ['step2', 'step3', 'step4', 'step5'].forEach(id => {
+                const el = document.getElementById(id);
+                el.innerHTML = '<span class="mr-2">⏳</span>' + el.textContent.substring(2);
+                el.classList.add('text-gray-400');
+                el.classList.remove('text-gray-600');
             });
         }
 
-        // Salvar rascunho
-        function salvarRascunho() {
-            const dados = {
-                cliente: document.getElementById('orcCliente').value,
-                contato: document.getElementById('orcContato').value,
-                email: document.getElementById('orcEmail').value,
-                descricao: document.getElementById('orcDescricao').value,
-                codigo: document.getElementById('orcCodigo').value,
-                quantidade: document.getElementById('orcQuantidade').value,
-                material: document.getElementById('orcMaterial').value,
-                precoKg: document.getElementById('orcPrecoKg').value,
-                dimX: document.getElementById('orcDimX').value,
-                dimY: document.getElementById('orcDimY').value,
-                dimZ: document.getElementById('orcDimZ').value,
-                maquina: document.getElementById('orcMaquina').value,
-                complexidade: document.getElementById('orcComplexidade').value,
-                tempoUsinagem: document.getElementById('orcTempoUsinagem').value,
-                observacoes: document.getElementById('orcObservacoes').value,
-                dataRascunho: new Date().toISOString()
-            };
-
-            localStorage.setItem('orcamentoRascunho', JSON.stringify(dados));
-            alert('Rascunho salvo com sucesso!\n\nVocê pode continuar de onde parou a qualquer momento.');
+        function mostrarFormularioManual() {
+            alert('Modo manual: Em desenvolvimento.\n\nPor enquanto, use o upload de PDF para extração automática.');
         }
 
-        // Carregar rascunho
-        function carregarRascunho() {
-            const dados = JSON.parse(localStorage.getItem('orcamentoRascunho'));
-            if (dados) {
-                document.getElementById('orcCliente').value = dados.cliente || '';
-                document.getElementById('orcContato').value = dados.contato || '';
-                document.getElementById('orcEmail').value = dados.email || '';
-                document.getElementById('orcDescricao').value = dados.descricao || '';
-                document.getElementById('orcCodigo').value = dados.codigo || '';
-                document.getElementById('orcQuantidade').value = dados.quantidade || '1';
-                document.getElementById('orcMaterial').value = dados.material || '';
-                document.getElementById('orcPrecoKg').value = dados.precoKg || '';
-                document.getElementById('orcDimX').value = dados.dimX || '';
-                document.getElementById('orcDimY').value = dados.dimY || '';
-                document.getElementById('orcDimZ').value = dados.dimZ || '';
-                document.getElementById('orcMaquina').value = dados.maquina || '';
-                document.getElementById('orcComplexidade').value = dados.complexidade || '';
-                document.getElementById('orcTempoUsinagem').value = dados.tempoUsinagem || '';
-                document.getElementById('orcObservacoes').value = dados.observacoes || '';
-                atualizarResumo();
-            }
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
         }
 
         // ==========================================
@@ -1729,19 +1821,12 @@ Preço unitário: R$ ${(precoVenda/quantidade).toFixed(2)}`);
             // Ativar primeira opção da sidebar
             document.querySelector('.sidebar-link').classList.add('sidebar-active');
 
-            // Listeners para atualizar resumo em tempo real
-            const camposResumo = ['orcCliente', 'orcDescricao', 'orcQuantidade', 'orcMaterial', 'orcMaquina'];
-            camposResumo.forEach(campo => {
-                const el = document.getElementById(campo);
-                if (el) {
-                    el.addEventListener('change', atualizarResumo);
-                    el.addEventListener('input', atualizarResumo);
-                }
-            });
-
-            // Carregar rascunho se existir
-            if (localStorage.getItem('orcamentoRascunho')) {
-                carregarRascunho();
+            // Listener para quantidade (recalcular)
+            const qtdField = document.getElementById('orcQuantidade');
+            if (qtdField) {
+                qtdField.addEventListener('change', function() {
+                    if (dadosExtraidos) calcularOrcamentoAutomatico();
+                });
             }
         });
     </script>
