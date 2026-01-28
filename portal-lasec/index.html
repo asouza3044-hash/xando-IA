@@ -1437,6 +1437,14 @@
                                     </div>
                                 </div>
 
+                                <!-- Info do Orçamento -->
+                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6 border border-blue-200">
+                                    <h4 class="font-bold text-lasec-primary mb-3">📋 Dados do Orçamento</h4>
+                                    <div id="infoOrcamento">
+                                        <!-- Preenchido dinamicamente -->
+                                    </div>
+                                </div>
+
                                 <!-- Preview do PDF -->
                                 <div class="bg-white rounded-2xl shadow-lg p-6">
                                     <h4 class="font-bold text-gray-800 mb-3">📎 Arquivo Anexado</h4>
@@ -1578,6 +1586,52 @@
         let arquivoSelecionado = null;
         let dadosExtraidos = null;
 
+        // ==========================================
+        // GESTÃO DE CLIENTES E NUMERAÇÃO (LASEC)
+        // ==========================================
+        const LASEC_CLIENTES = {
+            // Clientes existentes em D:\lasec\orcamentos\2025\
+            existentes: ['BBOX', 'LASEC', 'LIVENZA', 'LUBRISYSTEM', 'MICROGEAR', 'RFS'],
+            // Próximo número de orçamento (descoberto automaticamente)
+            proximoNumero: 26,  // Baseado em: máximo atual = 025
+            // Diretório base
+            diretorioBase: 'D:\\lasec\\orcamentos\\2025'
+        };
+
+        // Detectar cliente do nome do arquivo
+        function detectarCliente(nomeArquivo) {
+            const nomeUpper = nomeArquivo.toUpperCase();
+
+            // Verificar se algum cliente conhecido está no nome
+            for (const cliente of LASEC_CLIENTES.existentes) {
+                if (nomeUpper.includes(cliente)) {
+                    return { cliente: cliente, novoCliente: false };
+                }
+            }
+
+            // Tentar extrair cliente do padrão de nome (ex: "CLIENTE_codigo.pdf")
+            const match = nomeArquivo.match(/^([A-Za-z]+)[_\-\s]/);
+            if (match) {
+                const clientePotencial = match[1].toUpperCase();
+                if (clientePotencial.length >= 3) {
+                    return { cliente: clientePotencial, novoCliente: true };
+                }
+            }
+
+            return { cliente: '', novoCliente: false };
+        }
+
+        // Gerar número do orçamento formatado
+        function getNumeroOrcamento() {
+            return String(LASEC_CLIENTES.proximoNumero).padStart(3, '0');
+        }
+
+        // Gerar caminho do diretório
+        function getDiretorioOrcamento(cliente, codigoPeca) {
+            const numero = getNumeroOrcamento();
+            return `${LASEC_CLIENTES.diretorioBase}\\${cliente}\\${numero}_${cliente}_${codigoPeca}`;
+        }
+
         // Drag and Drop handlers
         function handleDragOver(e) {
             e.preventDefault();
@@ -1677,8 +1731,13 @@
         }
 
         function mostrarDadosExtraidos() {
+            // Detectar cliente do nome do arquivo
+            const clienteInfo = detectarCliente(arquivoSelecionado.name);
+
             // Simular dados extraídos do PDF (baseado no padrão LASEC)
             dadosExtraidos = {
+                cliente: clienteInfo.cliente,
+                clienteNovo: clienteInfo.novoCliente,
                 descricao: 'Eixo escalonado com rosca M8x1.25',
                 codigo: '1.34.12.710',
                 revisao: 'REV.01',
@@ -1694,8 +1753,32 @@
                     'Rosca M8x1.25 6g',
                     'Ra 1.6 nas faces de apoio'
                 ],
-                precoKg: 8.50
+                precoKg: 8.50,
+                numeroOrcamento: getNumeroOrcamento()
             };
+
+            // Preencher campo cliente (detectado ou para seleção)
+            const selectCliente = document.getElementById('orcCliente');
+            if (dadosExtraidos.cliente) {
+                // Verificar se cliente existe no select
+                let clienteExiste = false;
+                for (let i = 0; i < selectCliente.options.length; i++) {
+                    if (selectCliente.options[i].value === dadosExtraidos.cliente) {
+                        selectCliente.value = dadosExtraidos.cliente;
+                        clienteExiste = true;
+                        break;
+                    }
+                }
+
+                // Se é um cliente novo, adicionar ao select
+                if (!clienteExiste && dadosExtraidos.clienteNovo) {
+                    const novaOption = document.createElement('option');
+                    novaOption.value = dadosExtraidos.cliente;
+                    novaOption.textContent = dadosExtraidos.cliente + ' (NOVO)';
+                    selectCliente.appendChild(novaOption);
+                    selectCliente.value = dadosExtraidos.cliente;
+                }
+            }
 
             // Preencher campos
             document.getElementById('orcDescricao').value = dadosExtraidos.descricao;
@@ -1724,12 +1807,43 @@
             document.getElementById('arquivoNome').textContent = arquivoSelecionado.name;
             document.getElementById('arquivoTamanho').textContent = formatFileSize(arquivoSelecionado.size);
 
+            // Mostrar número do orçamento e diretório
+            atualizarInfoOrcamento();
+
             // Calcular orçamento
             calcularOrcamentoAutomatico();
 
             // Mostrar dados extraídos
             document.getElementById('processingArea').classList.add('hidden');
             document.getElementById('extractedData').classList.remove('hidden');
+        }
+
+        function atualizarInfoOrcamento() {
+            const cliente = document.getElementById('orcCliente').value || 'CLIENTE';
+            const codigo = document.getElementById('orcCodigo').value || 'CODIGO';
+            const numero = getNumeroOrcamento();
+            const diretorio = getDiretorioOrcamento(cliente, codigo);
+
+            // Atualizar display do número e diretório (se existir elemento)
+            const infoOrc = document.getElementById('infoOrcamento');
+            if (infoOrc) {
+                const clienteNovo = dadosExtraidos?.clienteNovo;
+                infoOrc.innerHTML = `
+                    <div class="text-sm space-y-1">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Orçamento:</span>
+                            <span class="font-bold text-lasec-primary">${numero}/2025</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Cliente:</span>
+                            <span class="font-semibold">${cliente} ${clienteNovo ? '<span class="bg-yellow-100 text-yellow-700 text-xs px-2 py-0.5 rounded">NOVO</span>' : ''}</span>
+                        </div>
+                        <div class="mt-2 p-2 bg-gray-100 rounded text-xs font-mono break-all">
+                            ${diretorio}
+                        </div>
+                    </div>
+                `;
+            }
         }
 
         // ==========================================
@@ -1857,8 +1971,25 @@ Unitário: R$ ${orc.precoUnitario.toFixed(2)}`);
                 return;
             }
 
-            alert(`Gerando 6 documentos LASEC:
+            const cliente = document.getElementById('orcCliente').value || 'CLIENTE';
+            const codigo = document.getElementById('orcCodigo').value || 'CODIGO';
+            const numero = getNumeroOrcamento();
+            const diretorio = getDiretorioOrcamento(cliente, codigo);
 
+            // Verificar se é cliente novo
+            const clienteNovo = !LASEC_CLIENTES.existentes.includes(cliente);
+            const msgCliente = clienteNovo ? `\n⚠️ CLIENTE NOVO: Será criado diretório ${cliente}` : '';
+
+            alert(`GERANDO 6 DOCUMENTOS LASEC
+
+📋 ORÇAMENTO: ${numero}/2025
+👤 CLIENTE: ${cliente}${msgCliente}
+📦 CÓDIGO: ${codigo}
+
+LOTES PADRÃO: 10, 30, 50, 100, 200 peças
+(Recomendado: Lote 100)
+
+DOCUMENTOS:
 1. PROCESSO_FABRICACAO (Gate de Aprovação)
 2. ESTUDO_CUSTO_FABRICACAO
 3. ESTUDO_PRECO_VENDA_NFE
@@ -1866,10 +1997,13 @@ Unitário: R$ ${orc.precoUnitario.toFixed(2)}`);
 5. ANALISE_BREAK_EVEN
 6. PROPOSTA_COMERCIAL
 
-Lotes calculados: Piloto, 30, 50, 100, 200, 500 peças
+📁 DIRETÓRIO:
+${diretorio}
 
-Os documentos seguem o padrão D:\\IA MALELO\\templates\\
-e serão salvos em D:\\lasec\\orcamentos\\2025\\`);
+Templates: D:\\IA MALELO\\templates\\`);
+
+            // Incrementar número para próximo orçamento
+            LASEC_CLIENTES.proximoNumero++;
         }
 
         function novoOrcamento() {
@@ -1913,7 +2047,29 @@ e serão salvos em D:\\lasec\\orcamentos\\2025\\`);
             const qtdField = document.getElementById('orcQuantidade');
             if (qtdField) {
                 qtdField.addEventListener('change', function() {
-                    if (dadosExtraidos) calcularOrcamentoAutomatico();
+                    if (dadosExtraidos) {
+                        calcularOrcamentoAutomatico();
+                        atualizarInfoOrcamento();
+                    }
+                });
+            }
+
+            // Listener para cliente (atualizar diretório)
+            const clienteField = document.getElementById('orcCliente');
+            if (clienteField) {
+                clienteField.addEventListener('change', function() {
+                    if (dadosExtraidos) atualizarInfoOrcamento();
+                });
+            }
+
+            // Listener para código da peça (atualizar diretório)
+            const codigoField = document.getElementById('orcCodigo');
+            if (codigoField) {
+                codigoField.addEventListener('change', function() {
+                    if (dadosExtraidos) atualizarInfoOrcamento();
+                });
+                codigoField.addEventListener('input', function() {
+                    if (dadosExtraidos) atualizarInfoOrcamento();
                 });
             }
         });
