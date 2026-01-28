@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal LASEC | Sistema Integrado de Orçamentos CNC</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Configuração Tailwind personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lasec-primary': '#1e40af',
+                        'lasec-secondary': '#3b82f6',
+                        'lasec-accent': '#60a5fa',
+                        'lasec-success': '#10b981',
+                        'lasec-warning': '#f59e0b',
+                        'lasec-danger': '#ef4444',
+                        'lasec-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .sidebar-active {
+            background: rgba(30, 64, 175, 0.1);
+            color: #1e40af;
+            font-weight: 600;
+            border-left: 4px solid #1e40af;
+        }
+
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .flow-arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #3b82f6;
+            margin: 0 auto;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1));
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #ef4444;
+        }
+
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 1000px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            height: 90%;
+            border-radius: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="showSection('home')">
+                        <div class="w-10 h-10 bg-lasec-primary rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">L</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-lasec-primary">PORTAL LASEC</h1>
+                            <p class="text-xs text-gray-500">Sistema Integrado de Orçamentos CNC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm font-semibold text-gray-700">Usuário LASEC</p>
+                        <p class="text-xs text-gray-500">Administrador</p>
+                    </div>
+                    <div class="w-10 h-10 bg-lasec-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">U</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-white shadow-lg h-screen sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <nav class="space-y-2" id="sidebar-nav">
+                    <a onclick="showSection('home')" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">🏠</span>
+                        <span>Home</span>
+                    </a>
+                    <a onclick="showSection('dashboard')" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a onclick="showSection('documentacao')" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">📖</span>
+                        <span>Documentação</span>
+                    </a>
+                    <a onclick="showSection('orcamentos')" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">🎯</span>
+                        <span>Portal Orçamentos</span>
+                    </a>
+                    <a onclick="showSection('database')" class="sidebar-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">🔍</span>
+                        <span>Consulta Database</span>
+                    </a>
+                </nav>
+
+                <hr class="my-6">
+
+                <div class="space-y-2">
+                    <p class="px-4 text-xs font-semibold text-gray-500 uppercase">Ações Rápidas</p>
+                    <a onclick="alert('Função: Criar novo orçamento')" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">➕</span>
+                        <span>Novo Orçamento</span>
+                    </a>
+                    <a onclick="alert('Função: Gerar relatório')" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">📄</span>
+                        <span>Gerar Relatório</span>
+                    </a>
+                    <a onclick="alert('Função: Configurações')" class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                        <span class="mr-3 text-xl">⚙️</span>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1">
+
+            <!-- ========================================
+                 SEÇÃO HOME
+                 ======================================== -->
+            <section id="home" class="section-content active">
+
+                <!-- HERO SECTION -->
+                <div class="gradient-bg text-white py-20 lg:py-32">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                                    <span class="text-sm font-semibold">🚀 Versão 2.3.0 - Atualizado Janeiro 2026</span>
+                                </div>
+
+                                <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                                    Orçamentos CNC<br/>
+                                    <span class="text-blue-200">Profissionais em</span><br/>
+                                    Minutos
+                                </h1>
+
+                                <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                                    Sistema completo de gestão de orçamentos para usinagem CNC.
+                                    Integração com banco de dados, análise de custos, geração automática
+                                    de propostas comerciais e muito mais.
+                                </p>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <button onclick="alert('Função: Criar novo orçamento')" class="bg-white text-lasec-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl">
+                                        Criar Novo Orçamento
+                                    </button>
+                                    <button onclick="showSection('documentacao')" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition">
+                                        Ver Demonstração
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="hidden lg:block">
+                                <div class="relative">
+                                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl float-animation">
+                                        <div class="space-y-4">
+                                            <div class="bg-white/20 h-4 w-3/4 rounded"></div>
+                                            <div class="bg-white/20 h-4 w-full rounded"></div>
+                                            <div class="bg-white/20 h-4 w-5/6 rounded"></div>
+                                            <div class="grid grid-cols-3 gap-4 mt-6">
+                                                <div class="bg-lasec-success/30 h-20 rounded-lg"></div>
+                                                <div class="bg-lasec-warning/30 h-20 rounded-lg"></div>
+                                                <div class="bg-lasec-accent/30 h-20 rounded-lg"></div>
+                                            </div>
+                                            <div class="bg-white/20 h-32 rounded-lg mt-4"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="absolute -top-4 -right-4 bg-lasec-success text-white px-4 py-2 rounded-full shadow-lg font-bold">
+                                        ✓ Aprovado
+                                    </div>
+                                    <div class="absolute bottom-4 -left-4 bg-white text-lasec-primary px-4 py-2 rounded-full shadow-lg font-bold">
+                                        📊 Analytics
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESTATÍSTICAS RÁPIDAS -->
+                <div class="py-16 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <div class="text-center">
+                                <div class="stat-number">015+</div>
+                                <p class="text-gray-600 font-semibold mt-2">Orçamentos Criados</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-number">04</div>
+                                <p class="text-gray-600 font-semibold mt-2">Módulos Integrados</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-number">06</div>
+                                <p class="text-gray-600 font-semibold mt-2">Documentos Automáticos</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-number">99%</div>
+                                <p class="text-gray-600 font-semibold mt-2">Precisão de Custos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MÓDULOS PRINCIPAIS -->
+                <div class="py-20 bg-gray-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-bold text-lasec-dark mb-4">Módulos do Sistema</h2>
+                            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                                Plataforma completa para gestão de orçamentos, análise de dados e tomada de decisões estratégicas
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                            <!-- MÓDULO 1: Dashboard -->
+                            <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-lasec-primary">
+                                <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                                    <span class="text-3xl">📊</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-3">Dashboard</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Métricas em tempo real: orçamentos, tempos de fabricação, custos médios e análise de margens.
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Gráficos interativos
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> KPIs por máquina
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Análise de tendências
+                                    </li>
+                                </ul>
+                                <button onclick="showSection('dashboard')" class="w-full bg-lasec-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
+                                    Acessar Dashboard
+                                </button>
+                            </div>
+
+                            <!-- MÓDULO 2: Documentação -->
+                            <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-lasec-success">
+                                <div class="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                                    <span class="text-3xl">📖</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-3">Documentação</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Guia completo: fluxo dos 6 documentos, fórmulas, máquinas, hora-máquina e FAQ detalhado.
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Fluxo interativo
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Tabelas de fórmulas
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Guia passo a passo
+                                    </li>
+                                </ul>
+                                <button onclick="showSection('documentacao')" class="w-full bg-lasec-success text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                                    Ver Documentação
+                                </button>
+                            </div>
+
+                            <!-- MÓDULO 3: Portal de Orçamentos -->
+                            <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-lasec-warning">
+                                <div class="bg-yellow-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                                    <span class="text-3xl">🎯</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-3">Portal</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Galeria completa de orçamentos criados com filtros avançados, visualização e download PDF.
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Galeria visual
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Filtros inteligentes
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Download PDF
+                                    </li>
+                                </ul>
+                                <button onclick="showSection('orcamentos')" class="w-full bg-lasec-warning text-white py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">
+                                    Ver Orçamentos
+                                </button>
+                            </div>
+
+                            <!-- MÓDULO 4: Database -->
+                            <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-lasec-danger">
+                                <div class="bg-red-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                                    <span class="text-3xl">🔍</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-lasec-dark mb-3">Database</h3>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Consulta PostgreSQL: histórico de vendas, análise de custos, composição BOM e alertas de prejuízo.
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Busca inteligente
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Alertas automáticos
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="text-lasec-success mr-2">✓</span> Exportação Excel
+                                    </li>
+                                </ul>
+                                <button onclick="showSection('database')" class="w-full bg-lasec-danger text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition">
+                                    Consultar Base
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CALL TO ACTION -->
+                <div class="py-20 gradient-bg text-white">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                            Pronto para Revolucionar<br/>Seus Orçamentos?
+                        </h2>
+                        <p class="text-xl text-blue-100 mb-10">
+                            Comece agora a criar orçamentos profissionais em minutos com análise completa de custos e margens
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <button onclick="alert('Função: Criar primeiro orçamento')" class="bg-white text-lasec-primary px-10 py-5 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl">
+                                🚀 Criar Primeiro Orçamento
+                            </button>
+                            <button onclick="showSection('documentacao')" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-white/20 transition">
+                                📞 Ver Documentação
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="bg-gray-900 text-white py-12">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid md:grid-cols-4 gap-8 mb-8">
+                            <div>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-lasec-primary rounded-lg flex items-center justify-center mr-2">
+                                        <span class="text-white font-bold text-xl">L</span>
+                                    </div>
+                                    <span class="font-bold text-xl">PORTAL LASEC</span>
+                                </div>
+                                <p class="text-gray-400 text-sm">
+                                    Sistema integrado de orçamentos para usinagem CNC profissional
+                                </p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">Módulos</h4>
+                                <ul class="space-y-2 text-gray-400 text-sm">
+                                    <li><a onclick="showSection('dashboard')" class="hover:text-white transition cursor-pointer">Dashboard</a></li>
+                                    <li><a onclick="showSection('documentacao')" class="hover:text-white transition cursor-pointer">Documentação</a></li>
+                                    <li><a onclick="showSection('orcamentos')" class="hover:text-white transition cursor-pointer">Portal</a></li>
+                                    <li><a onclick="showSection('database')" class="hover:text-white transition cursor-pointer">Database</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">Recursos</h4>
+                                <ul class="space-y-2 text-gray-400 text-sm">
+                                    <li><a onclick="showSection('documentacao')" class="hover:text-white transition cursor-pointer">Guia de Uso</a></li>
+                                    <li><a onclick="showSection('documentacao')" class="hover:text-white transition cursor-pointer">FAQ</a></li>
+                                    <li><a href="#" class="hover:text-white transition">API Docs</a></li>
+                                    <li><a href="#" class="hover:text-white transition">Suporte</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">Contato</h4>
+                                <ul class="space-y-2 text-gray-400 text-sm">
+                                    <li>📧 contato@lasec.com.br</li>
+                                    <li>📞 (XX) XXXX-XXXX</li>
+                                    <li>📍 Endereço LASEC</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+                            <p>&copy; 2026 LASEC. Todos os direitos reservados. | Versão 2.3.0 | Desenvolvido com ❤️ para usinagem CNC de precisão</p>
+                        </div>
+                    </div>
+                </footer>
+
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO DASHBOARD
+                 ======================================== -->
+            <section id="dashboard" class="section-content">
+                <div class="p-8">
+                    <!-- HEADER -->
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h2 class="text-3xl font-bold text-lasec-dark">Dashboard Analytics</h2>
+                                <p class="text-gray-600 mt-1">Visão geral dos orçamentos e métricas de performance</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                    <option>Últimos 30 dias</option>
+                                    <option>Últimos 90 dias</option>
+                                    <option>Este ano (2026)</option>
+                                    <option>2025</option>
+                                </select>
+                                <button class="bg-lasec-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
+                                    Atualizar Dados
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI CARDS -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-primary">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-600 mb-1">Total Orçamentos</p>
+                                    <h3 class="text-3xl font-bold text-lasec-dark">015</h3>
+                                    <p class="text-sm text-lasec-success mt-2">
+                                        <span class="font-semibold">↑ 12%</span> vs mês anterior
+                                    </p>
+                                </div>
+                                <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">📊</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-success">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-600 mb-1">Custo Médio (Lote 100)</p>
+                                    <h3 class="text-3xl font-bold text-lasec-dark">R$ 68,45</h3>
+                                    <p class="text-sm text-gray-500 mt-2">
+                                        Range: R$ 32 - R$ 145
+                                    </p>
+                                </div>
+                                <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">💰</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-warning">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-600 mb-1">Tempo Médio/Peça</p>
+                                    <h3 class="text-3xl font-bold text-lasec-dark">18 min</h3>
+                                    <p class="text-sm text-gray-500 mt-2">
+                                        Setup médio: 1.2h
+                                    </p>
+                                </div>
+                                <div class="bg-yellow-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">⏱️</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-lasec-danger">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-600 mb-1">Margem Média</p>
+                                    <h3 class="text-3xl font-bold text-lasec-dark">36%</h3>
+                                    <p class="text-sm text-lasec-success mt-2">
+                                        <span class="font-semibold">✓ Saudável</span> (target: 35%)
+                                    </p>
+                                </div>
+                                <div class="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">📈</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GRÁFICOS -->
+                    <div class="grid lg:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-lasec-dark mb-6">Orçamentos por Mês (2025-2026)</h3>
+                            <canvas id="chartOrcamentosMes" height="250"></canvas>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-lasec-dark mb-6">Distribuição por Cliente</h3>
+                            <canvas id="chartClientes" height="250"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- TABELA ORÇAMENTOS -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-lasec-dark mb-6">Últimos Orçamentos Criados</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Nº</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Cliente</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Código Peça</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Material</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Máquina</th>
+                                        <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Tempo</th>
+                                        <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Preço (100un)</th>
+                                        <th class="text-center py-3 px-4 font-semibold text-sm text-gray-600">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50 transition">
+                                        <td class="py-4 px-4 font-mono text-sm">015</td>
+                                        <td class="py-4 px-4 font-semibold">RFS Industrial</td>
+                                        <td class="py-4 px-4 font-mono text-sm">9005032</td>
+                                        <td class="py-4 px-4 text-sm">PMMA</td>
+                                        <td class="py-4 px-4 text-sm">GL280</td>
+                                        <td class="py-4 px-4 text-right font-mono text-sm">12 min</td>
+                                        <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 45,30</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-semibold">Aprovado</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition">
+                                        <td class="py-4 px-4 font-mono text-sm">014</td>
+                                        <td class="py-4 px-4 font-semibold">LASEC</td>
+                                        <td class="py-4 px-4 font-mono text-sm">RFS_9005032</td>
+                                        <td class="py-4 px-4 text-sm">PMMA</td>
+                                        <td class="py-4 px-4 text-sm">GL280</td>
+                                        <td class="py-4 px-4 text-right font-mono text-sm">14 min</td>
+                                        <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 52,80</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="bg-lasec-primary text-white px-3 py-1 rounded-full text-xs font-semibold">Em Análise</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition">
+                                        <td class="py-4 px-4 font-mono text-sm">012</td>
+                                        <td class="py-4 px-4 font-semibold">BBOX</td>
+                                        <td class="py-4 px-4 font-mono text-sm">PP01_00003</td>
+                                        <td class="py-4 px-4 text-sm">Aço SAE 1045</td>
+                                        <td class="py-4 px-4 text-sm">Doosan Lynx 220LM</td>
+                                        <td class="py-4 px-4 text-right font-mono text-sm">28 min</td>
+                                        <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 142,60</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-semibold">Aprovado</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO DOCUMENTAÇÃO (parte 1 - continuarei no próximo bloco)
+                 ======================================== -->
+            <section id="documentacao" class="section-content">
+                <div class="p-8">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl p-10 mb-8 text-white shadow-xl">
+                        <h1 class="text-4xl font-bold mb-4">📖 Documentação Completa</h1>
+                        <p class="text-xl text-blue-100 mb-6">
+                            Tudo o que você precisa saber sobre o Agente Orçamento LASEC - Versão 2.3.0
+                        </p>
+                        <div class="flex gap-4">
+                            <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                                <span class="font-semibold">6 Documentos Automáticos</span>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                                <span class="font-semibold">4 Máquinas CNC</span>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                                <span class="font-semibold">100% Padronizado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <h2 class="text-3xl font-bold text-lasec-dark mb-6">🔄 Fluxo dos 6 Documentos</h2>
+                        <p class="text-gray-600 mb-6">Pipeline completo de geração de orçamentos - sequencial e com gate de aprovação</p>
+
+                        <div class="space-y-6">
+                            <div class="bg-white border-l-4 border-lasec-primary rounded-lg p-6 shadow">
+                                <div class="flex items-start gap-6">
+                                    <div class="step-number">1</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-lasec-dark mb-2">PROCESSO_FABRICACAO</h3>
+                                        <p class="text-sm text-lasec-primary font-semibold mb-3">⚠️ GATE DE APROVAÇÃO OBRIGATÓRIO</p>
+                                        <p class="text-gray-700 mb-4">
+                                            Documento técnico detalhado com todas as operações de fabricação, ferramentas, pastilhas,
+                                            parâmetros de corte e cronometragem completa.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-arrow"></div>
+
+                            <div class="bg-white border-l-4 border-lasec-success rounded-lg p-6 shadow">
+                                <div class="flex items-start gap-6">
+                                    <div class="step-number">2</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-lasec-dark mb-2">ESTUDO_CUSTO_FABRICACAO</h3>
+                                        <p class="text-gray-700">
+                                            Cálculo detalhado de custos para múltiplos lotes (PILOTO, 30, 50, 100, 200, 500 peças).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-arrow"></div>
+
+                            <div class="bg-white border-l-4 border-lasec-warning rounded-lg p-6 shadow">
+                                <div class="flex items-start gap-6">
+                                    <div class="step-number">3</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-lasec-dark mb-2">ESTUDO_PRECO_VENDA_NFE</h3>
+                                        <p class="text-gray-700">
+                                            Precificação comercial com markup, perdas e impostos do Simples Nacional.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-arrow"></div>
+
+                            <div class="bg-white border-l-4 border-purple-500 rounded-lg p-6 shadow">
+                                <div class="flex items-start gap-6">
+                                    <div class="step-number">4</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-lasec-dark mb-2">ANALISE_VIABILIDADE_LOTES</h3>
+                                        <p class="text-gray-700">
+                                            Comparação entre lotes, economia percentual e recomendação de lote ideal.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-arrow"></div>
+
+                            <div class="bg-white border-l-4 border-pink-500 rounded-lg p-6 shadow">
+                                <div class="flex items-start gap-6">
+                                    <div class="step-number">5</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-lasec-dark mb-2">ANALISE_BREAK_EVEN</h3>
+                                        <p class="text-gray-700">
+                                            Cálculo do ponto de equilíbrio - quando o investimento extra em lote maior se paga.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-arrow"></div>
+
+                            <div class="bg-white border-l-4 border-lasec-danger rounded-lg p-6 shadow">
+                                <div class="flex items-start gap-6">
+                                    <div class="step-number">6</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-lasec-dark mb-2">PROPOSTA_COMERCIAL</h3>
+                                        <p class="text-gray-700">
+                                            Documento final para apresentação ao cliente - limpo e profissional, SEM dados confidenciais.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-3xl font-bold text-lasec-dark mb-6">🧮 Fórmulas LASEC 2025</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b-2 border-gray-200">
+                                        <th class="text-left py-4 px-4 font-bold text-gray-700">Componente</th>
+                                        <th class="text-left py-4 px-4 font-bold text-gray-700">Fórmula</th>
+                                        <th class="text-left py-4 px-4 font-bold text-gray-700">Descrição</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-semibold text-lasec-primary">Setup</td>
+                                        <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">Setup_horas × Hora_máquina</td>
+                                        <td class="py-4 px-4 text-sm text-gray-600">Custo fixo de preparação</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-semibold text-lasec-primary">MOD</td>
+                                        <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">(Qtd × Tempo_min) ÷ 60 × Hora_máq</td>
+                                        <td class="py-4 px-4 text-sm text-gray-600">Custo variável de produção</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-semibold text-lasec-primary">CIF</td>
+                                        <td class="py-4 px-4 mono text-sm bg-gray-50 rounded">(Setup + MOD) × 0,58</td>
+                                        <td class="py-4 px-4 text-sm text-gray-600">58% custos indiretos</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-semibold text-lasec-warning">Perdas</td>
+                                        <td class="py-4 px-4 mono text-sm bg-yellow-100 rounded">Custo_Unit × 1,02</td>
+                                        <td class="py-4 px-4 text-sm text-gray-600">2% de perdas</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-semibold text-lasec-success">Markup</td>
+                                        <td class="py-4 px-4 mono text-sm bg-green-100 rounded">Custo_com_Perdas × 1,35</td>
+                                        <td class="py-4 px-4 text-sm text-gray-600">35% margem</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-semibold text-lasec-secondary">Impostos</td>
+                                        <td class="py-4 px-4 mono text-sm bg-blue-100 rounded">Preço_sem_Imp × 1,10</td>
+                                        <td class="py-4 px-4 text-sm text-gray-600">10% Simples Nacional</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO ORÇAMENTOS
+                 ======================================== -->
+            <section id="orcamentos" class="section-content">
+                <div class="p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-lasec-dark mb-2">🎯 Portal de Orçamentos</h2>
+                        <p class="text-gray-600">Galeria completa de orçamentos criados com visualização e download</p>
+                    </div>
+
+                    <!-- FILTROS -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <div class="grid lg:grid-cols-4 gap-4">
+                            <div class="lg:col-span-2">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">🔍 Buscar</label>
+                                <input type="text" placeholder="Cliente, código peça, material..."
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Cliente</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                    <option>Todos</option>
+                                    <option>BBOX</option>
+                                    <option>LIVENZA</option>
+                                    <option>RFS</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Status</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary">
+                                    <option>Todos</option>
+                                    <option>Aprovado</option>
+                                    <option>Em Análise</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GALERIA -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-400 px-6 py-4 flex justify-between items-center">
+                                <div>
+                                    <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                                    <h3 class="text-white text-3xl font-bold">015/2025</h3>
+                                </div>
+                                <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-lasec-dark text-xl mb-2">RFS Industrial</h4>
+                                <div class="space-y-2 text-sm text-gray-600 mb-4">
+                                    <div class="flex justify-between">
+                                        <span>Código:</span>
+                                        <span class="font-mono font-semibold">9005032</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Material:</span>
+                                        <span class="font-semibold">PMMA</span>
+                                    </div>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                                    <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                                    <p class="text-2xl font-bold text-lasec-primary">R$ 45,30/pç</p>
+                                </div>
+                                <button onclick="alert('Visualizar orçamento 015')" class="w-full bg-lasec-primary text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition">
+                                    👁️ Visualizar
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                            <div class="bg-gradient-to-r from-green-500 to-green-400 px-6 py-4 flex justify-between items-center">
+                                <div>
+                                    <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                                    <h3 class="text-white text-3xl font-bold">012/2025</h3>
+                                </div>
+                                <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-lasec-dark text-xl mb-2">BBOX</h4>
+                                <div class="space-y-2 text-sm text-gray-600 mb-4">
+                                    <div class="flex justify-between">
+                                        <span>Código:</span>
+                                        <span class="font-mono font-semibold">PP01_00003</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Material:</span>
+                                        <span class="font-semibold">Aço SAE 1045</span>
+                                    </div>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-3 mb-4">
+                                    <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                                    <p class="text-2xl font-bold text-lasec-success">R$ 142,60/pç</p>
+                                </div>
+                                <button onclick="alert('Visualizar orçamento 012')" class="w-full bg-lasec-success text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                                    👁️ Visualizar
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-400 px-6 py-4 flex justify-between items-center">
+                                <div>
+                                    <p class="text-white text-sm font-semibold opacity-90">Orçamento</p>
+                                    <h3 class="text-white text-3xl font-bold">009/2025</h3>
+                                </div>
+                                <span class="bg-lasec-success text-white px-3 py-1 rounded-full text-xs font-bold">Aprovado</span>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-lasec-dark text-xl mb-2">LIVENZA</h4>
+                                <div class="space-y-2 text-sm text-gray-600 mb-4">
+                                    <div class="flex justify-between">
+                                        <span>Código:</span>
+                                        <span class="font-mono font-semibold">1.0055.0105650</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Material:</span>
+                                        <span class="font-semibold">Aço SAE 8620</span>
+                                    </div>
+                                </div>
+                                <div class="bg-purple-50 rounded-lg p-3 mb-4">
+                                    <p class="text-xs text-gray-600 mb-1">Preço Recomendado (Lote 100)</p>
+                                    <p class="text-2xl font-bold text-purple-700">R$ 168,90/pç</p>
+                                </div>
+                                <button onclick="alert('Visualizar orçamento 009')" class="w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition">
+                                    👁️ Visualizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SEÇÃO DATABASE
+                 ======================================== -->
+            <section id="database" class="section-content">
+                <div class="p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-lasec-dark mb-2">🔍 Consulta Database PostgreSQL</h2>
+                        <p class="text-gray-600">Busca histórica de peças, análise de custos e detecção de prejuízos</p>
+                    </div>
+
+                    <!-- BUSCA -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <div class="grid lg:grid-cols-3 gap-4">
+                            <div class="lg:col-span-2">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">🔍 Código da Peça</label>
+                                <input id="searchInputDb" type="text" placeholder="Ex: 9005032, 1.0055.0105650..."
+                                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-lasec-primary text-lg">
+                            </div>
+                            <div class="flex items-end">
+                                <button onclick="performSearchDb()" class="w-full bg-lasec-primary text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-800 transition shadow-lg">
+                                    Buscar Histórico
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div id="emptyStateDb" class="text-center py-20">
+                        <div class="text-6xl mb-6">🔍</div>
+                        <h3 class="text-2xl font-bold text-lasec-dark mb-4">Busque uma Peça no Banco de Dados</h3>
+                        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                            Digite o código de uma peça para visualizar histórico completo de vendas,
+                            análise de custos, composição BOM e alertas de prejuízo.
+                        </p>
+                        <div class="flex gap-4 justify-center">
+                            <button onclick="searchDbPiece('9005032')" class="px-6 py-3 bg-lasec-primary text-white rounded-lg font-semibold hover:bg-blue-800 transition">
+                                Exemplo: 9005032
+                            </button>
+                            <button onclick="searchDbPiece('1.0055.0105650')" class="px-6 py-3 bg-lasec-success text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                                Exemplo: 1.0055.0105650
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- RESULTADOS (oculto inicialmente) -->
+                    <div id="resultsDb" class="hidden">
+                        <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-6 mb-8">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">⚠️</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-red-900 mb-3">ALERTA: PREJUÍZO DETECTADO</h3>
+                                    <p class="text-red-800 mb-4">
+                                        Histórico mostra <strong>2 de 5 vendas (40%)</strong> desta peça com MARGEM NEGATIVA.
+                                    </p>
+                                    <div class="bg-white rounded-lg p-4">
+                                        <h4 class="font-bold text-red-900 mb-3">📊 Resumo Financeiro:</h4>
+                                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                            <div>
+                                                <p class="text-gray-600">Custo Unitário Médio</p>
+                                                <p class="text-xl font-bold text-red-700">R$ 62,30</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-600">Preço de Venda Médio</p>
+                                                <p class="text-xl font-bold text-red-700">R$ 58,50</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-600">Prejuízo por Peça</p>
+                                                <p class="text-xl font-bold text-red-900">R$ 3,80</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-lasec-dark mb-6">📋 Histórico de Vendas</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="border-b-2 border-gray-200">
+                                            <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Pedido</th>
+                                            <th class="text-left py-3 px-4 font-semibold text-sm text-gray-600">Data</th>
+                                            <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Qtd</th>
+                                            <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Preço Venda</th>
+                                            <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Custo Unit.</th>
+                                            <th class="text-right py-3 px-4 font-semibold text-sm text-gray-600">Margem %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-100">
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="py-4 px-4 font-mono text-sm">12345</td>
+                                            <td class="py-4 px-4 text-sm">15/11/2025</td>
+                                            <td class="py-4 px-4 text-right font-mono text-sm">50</td>
+                                            <td class="py-4 px-4 text-right font-bold text-lasec-primary">R$ 85,50</td>
+                                            <td class="py-4 px-4 text-right font-mono text-sm">R$ 62,30</td>
+                                            <td class="py-4 px-4 text-right">
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-bold">+37,2%</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50 bg-red-50">
+                                            <td class="py-4 px-4 font-mono text-sm">12346</td>
+                                            <td class="py-4 px-4 text-sm">20/11/2025</td>
+                                            <td class="py-4 px-4 text-right font-mono text-sm">30</td>
+                                            <td class="py-4 px-4 text-right font-bold text-red-600">R$ 48,00</td>
+                                            <td class="py-4 px-4 text-right font-mono text-sm">R$ 58,40</td>
+                                            <td class="py-4 px-4 text-right">
+                                                <span class="bg-red-200 text-red-900 px-2 py-1 rounded text-xs font-bold">-17,8%</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // ==========================================
+        // NAVEGAÇÃO ENTRE SEÇÕES
+        // ==========================================
+        function showSection(sectionId) {
+            // Esconder todas as seções
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Mostrar seção selecionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Atualizar sidebar
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('sidebar-active');
+            });
+
+            // Ativar link correspondente (se for clicado na sidebar)
+            event.target.closest('.sidebar-link')?.classList.add('sidebar-active');
+
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Se for dashboard, renderizar gráficos
+            if (sectionId === 'dashboard') {
+                setTimeout(renderDashboardCharts, 100);
+            }
+        }
+
+        // ==========================================
+        // GRÁFICOS DO DASHBOARD
+        // ==========================================
+        function renderDashboardCharts() {
+            Chart.defaults.font.family = 'Inter';
+            Chart.defaults.color = '#6b7280';
+
+            // Gráfico 1: Orçamentos por Mês
+            const ctxMes = document.getElementById('chartOrcamentosMes').getContext('2d');
+            new Chart(ctxMes, {
+                type: 'line',
+                data: {
+                    labels: ['Nov 2025', 'Dez 2025', 'Jan 2026'],
+                    datasets: [{
+                        label: 'Orçamentos Criados',
+                        data: [3, 7, 5],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Gráfico 2: Distribuição por Cliente
+            const ctxClientes = document.getElementById('chartClientes').getContext('2d');
+            new Chart(ctxClientes, {
+                type: 'doughnut',
+                data: {
+                    labels: ['BBOX', 'LIVENZA', 'RFS', 'LASEC', 'Outros'],
+                    datasets: [{
+                        data: [4, 3, 2, 2, 4],
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+        }
+
+        // ==========================================
+        // FUNÇÕES DATABASE
+        // ==========================================
+        function searchDbPiece(code) {
+            document.getElementById('searchInputDb').value = code;
+            performSearchDb();
+        }
+
+        function performSearchDb() {
+            document.getElementById('emptyStateDb').classList.add('hidden');
+            document.getElementById('resultsDb').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // TOGGLE FAQ (ACCORDION)
+        // ==========================================
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('span:last-child');
+            content.classList.toggle('active');
+            icon.textContent = content.classList.contains('active') ? '−' : '+';
+        }
+
+        // ==========================================
+        // INICIALIZAÇÃO
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ativar primeira opção da sidebar
+            document.querySelector('.sidebar-link').classList.add('sidebar-active');
+        });
+    </script>
+
+</body>
+</html>
