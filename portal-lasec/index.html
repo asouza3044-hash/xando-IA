@@ -1930,10 +1930,16 @@
             const tempoUsinagem = parseFloat(document.getElementById('orcTempoUsinagem').value) || 18;
             const maquina = document.getElementById('orcMaquina').value || 'TORNO_CNC';
 
-            // Cálculo do peso unitário (cilindro em kg)
-            const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000; // m³
-            const densidade = 7850; // kg/m³ (aço)
-            const pesoUnitario = volume * densidade; // kg
+            // Usar peso do desenho se disponível, senão calcular pelo cilindro
+            let pesoUnitario;
+            if (dadosExtraidos && dadosExtraidos.peso) {
+                pesoUnitario = dadosExtraidos.peso; // Peso real do desenho
+            } else {
+                // Cálculo aproximado (cilindro sólido)
+                const volume = Math.PI * Math.pow(dimX/2, 2) * dimZ / 1000000000; // m³
+                const densidade = 7850; // kg/m³ (aço)
+                pesoUnitario = volume * densidade; // kg
+            }
 
             // Taxa hora-máquina LASEC
             const taxaHora = LASEC_PARAMS.horaMaquina[maquina] || 88.41;
