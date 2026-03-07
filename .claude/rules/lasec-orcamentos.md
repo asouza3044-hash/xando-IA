@@ -1,4 +1,4 @@
-# REGRAS DE NEGÓCIO LASEC - ORÇAMENTOS CNC
+﻿# REGRAS DE NEGÓCIO LASEC - ORÇAMENTOS CNC
 
 ## 🚨 REGRA CRÍTICA - NUNCA ESQUECER! 🚨
 
@@ -42,8 +42,8 @@
 
 ### Documentação Completa:
 ```
-D:\lasec\AGENTE-ORCAMENTO-LASEC-GUIA-USO.md
-D:\lasec\.claude\commands\orcamento-lasec.md (arquivo do agente)
+D:\IA MALELO\AGENTE-ORCAMENTO-LASEC-GUIA-USO.md
+C:\Users\lasec\.claude\commands\orcamento-lasec.md (arquivo do agente)
 ```
 
 **Para novos orçamentos: SEMPRE use `/orcamento-lasec` como ponto de partida!**
@@ -58,7 +58,7 @@ D:\lasec\.claude\commands\orcamento-lasec.md (arquivo do agente)
 1. **Tabela com 10 colunas:** Seq | Operação | Tool | **Cód. BD** | Ferramenta | Vc | RPM | Avanço | Ciclo | Descrição
 2. **Coluna Cód. BD (6% width):** Códigos MINIPCP entre Tool e Ferramenta
    - Formato: `08.08.xxx<br>08.07.xxx` (suporte/inserto)
-   - Fonte: D:\lasec\MINIPCP.csv ou BD MINIPCP.xlsx
+   - Fonte: D:\IA MALELO\banco_dados\MINIPCP.csv ou BD MINIPCP.xlsx
 3. **Linha por operação:** N10, N20, N30, N40, N50, N60, N80, N100... (NUNCA agrupar!)
 4. **Cores padrão:**
    - Verde (#4CAF50): Tempo PRODUTIVO (cavaco)
@@ -69,12 +69,12 @@ D:\lasec\.claude\commands\orcamento-lasec.md (arquivo do agente)
 
 ### Arquivo de Referência (MODELO PERFEITO):
 ```
-D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROCESSO_FABRICACAO_TR1.07.02.033.html
+D:\IA MALELO\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROCESSO_FABRICACAO_TR1.07.02.033.html
 ```
 
 ### Documentação Completa:
 ```
-D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md
+C:\Users\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md
 ```
 
 **NUNCA fazer tabela resumida! SEMPRE detalhar operação por operação!**
@@ -93,7 +93,7 @@ D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md
 
 ### Templates Padrão:
 ```
-D:\lasec\.templates\ORCAMENTO_PADRAO_LASEC\
+D:\IA MALELO\templates\ORCAMENTO_PADRAO_LASEC\
 7 HTMLs + logo - copiar para novos orçamentos
 ```
 
@@ -140,9 +140,9 @@ D:\lasec\.templates\ORCAMENTO_PADRAO_LASEC\
 
 ### 1. Banco de Dados CNC - Programas Similares (NOVO! 🆕):
 ```
-Banco: D:\lasec\PROG_CNC_DATABASE.json (11.592 programas catalogados)
-Sistema: D:\lasec\SISTEMA_PROGRAMAS_CNC.ps1
-Busca: D:\lasec\buscar_programa_similar.ps1
+Banco: D:\IA MALELO\banco_dados\PROG_CNC_DATABASE.json (11.592 programas catalogados)
+Sistema: D:\IA MALELO\scripts\SISTEMA_PROGRAMAS_CNC.ps1
+Busca: D:\IA MALELO\scripts\buscar_programa_similar.ps1
 Comando: /buscar-programa
 ```
 
@@ -177,11 +177,11 @@ Comando: /buscar-programa
 
 ### 2. Hora-Máquina LASEC (CRÍTICO):
 ```
-Arquivo: D:\lasec\henrique\custos_ferramentaria lasec.xls
-Planilha: Custos 2025 (atualizada com IPCA + Dissídio Metalúrgicos SP)
+Arquivo: D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls
+Planilha: Custos 2026 (atualizada com IPCA + Dissídio Metalúrgicos SP)
 ```
 
-**Máquinas Principais LASEC 2025:**
+**Máquinas Principais LASEC 2026:**
 - **33 - DOOSAN Lynx 220LM:** R$ 83,08/h ⭐ (Torno CNC alta precisão)
 - **35 - ROMI GL 280M:** R$ 76,95/h (Torno CNC médio porte)
 - **28 - ROMI Centur 30D:** R$ 60,48/h (Torno CNC pequeno porte)
@@ -192,8 +192,8 @@ Planilha: Custos 2025 (atualizada com IPCA + Dissídio Metalúrgicos SP)
 
 ### 3. Códigos MINIPCP (Ferramentas):
 ```
-Arquivo 1: D:\lasec\MINIPCP.csv (Rápido consulta)
-Arquivo 2: D:\lasec\BD MINIPCP.xlsx (Banco completo)
+Arquivo 1: D:\IA MALELO\banco_dados\MINIPCP.csv (Rápido consulta)
+Arquivo 2: D:\IA MALELO\banco_dados\BD MINIPCP.xlsx (Banco completo)
 ```
 
 **Categorias principais:**
@@ -211,16 +211,19 @@ Arquivo 2: D:\lasec\BD MINIPCP.xlsx (Banco completo)
 
 ### 5. Templates Completos:
 ```
-D:\lasec\.templates\FLUXO_COMPLETO_ORCAMENTO_PADRAO_LASEC.md (FLUXO COMPLETO)
-D:\lasec\.templates\TEMPLATE_PROPOSTA_COMERCIAL_PADRAO_LASEC.md (PROPOSTA)
-D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md (PROCESSO)
+D:\IA MALELO\templates\orcamento-lasec-hmtl\PROCESSO_FABRICACAO_PP01_00003.html
+D:\IA MALELO\templates\orcamento-lasec-hmtl\ESTUDO_CUSTO_FABRICACAO.html
+D:\IA MALELO\templates\orcamento-lasec-hmtl\ESTUDO_PRECO_VENDA_NFE.html
+D:\IA MALELO\templates\orcamento-lasec-hmtl\ANALISE_VIABILIDADE_LOTES.html
+D:\IA MALELO\templates\orcamento-lasec-hmtl\PROPOSTA_COMERCIAL.html
+D:\IA MALELO\agente\knowledge\processo-fabricacao-padrao-detalhado.md (PROCESSO)
 ```
 
 ### 6. Orçamento Referência (PERFEITO):
 ```
-D:\lasec\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\
+D:\IA MALELO\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\
 ```
-**Todos os 7 HTMLs aprovados - Usar como modelo!**
+**Todos os 6 HTMLs aprovados - Usar como modelo!**
 
 ---
 
@@ -360,7 +363,7 @@ PROCESSO_FABRICACAO (fonte verdade)
 
 **Documentação Completa:**
 ```
-D:\lasec\FLUXO-REFERENCIA-CRUZADA-PROPOSTA-COMERCIAL.md
+D:\IA MALELO\FLUXO-REFERENCIA-CRUZADA-PROPOSTA-COMERCIAL.md
 ```
 
 ## 🎨 DIAGRAMAÇÃO DE TABELAS
@@ -395,7 +398,7 @@ Colunas após remover "Ferr.":
 
 ### Localização
 ```
-D:\lasec\BD MINIPCP.xlsx
+D:\IA MALELO\banco_dados\BD MINIPCP.xlsx
 ```
 
 ## 📋 MATERIAIS E PROCESSOS

@@ -1,4 +1,4 @@
-# Calcular Orçamento de Usinagem CNC
+﻿# Calcular Orçamento de Usinagem CNC
 
 **ATENÇÃO:** Este comando gera 5 arquivos HTML com valores financeiros. Erros causam prejuízo real.
 
@@ -38,7 +38,7 @@ Você DEVE perguntar ao usuário e coletar:
 #### Dados de Ferramental (Item 3)
 ⚠️ **SEMPRE pesquisar ferramentas adequadas:**
 1. Sites fabricantes: Iscar, Hanita, Kennametal, ZCC, OSG
-2. Cruzar com BD MINIPCP (`D:\lasec\MINIPCP.csv`)
+2. Cruzar com BD MINIPCP (`D:\IA MALELO\banco_dados\MINIPCP.csv`)
 3. Códigos BD: 08.06.xxx (brocas), 08.07.xxx (pastilhas), 08.08.xxx (suportes), 08.09.xxx (machos), 08.11.xxx (fresas)
 
 - [ ] **Para cada ferramenta:**

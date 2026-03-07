@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricacao - LUBRISYSTEM LBD-0002 — Orc. 014/2026</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative;
+}
+body::before {
+    content: ''; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 400px; height: 400px;
+    background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat;
+    background-position: center; background-size: contain;
+    opacity: 0.03; z-index: -1; pointer-events: none;
+}
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container { flex-shrink: 0; }
+.logo-container img { height: 120px; width: auto; filter: brightness(1.1) contrast(1.1); }
+.company-info-header { flex-grow: 1; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; line-height: 1.1; letter-spacing: -0.5px; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; font-weight: 500; }
+.document-title-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
+    padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center;
+    box-shadow: 0 3px 15px rgba(30,60,114,0.3);
+}
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; opacity: 0.95; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px 12px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.machine-title { padding: 10px 12px; font-weight: bold; margin-top: 16px; margin-bottom: 8px; font-size: 12pt; border-left: 6px solid; }
+.machine-lynx { background-color: #e8f0fe; border-color: #1e3c72; color: #1e3c72; }
+.machine-centro { background-color: #e8f5e9; border-color: #2e7d32; color: #2e7d32; }
+.info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.info-table td { border: 1px solid #ddd; padding: 6px; }
+.info-table td:first-child { font-weight: bold; width: 35%; background-color: #f8f9fa; }
+.info-table tr:nth-child(even) { background-color: #f9f9f9; }
+.ops-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+.ops-table th { background-color: #495057; color: white; padding: 8px; border: 1px solid #ddd; text-align: center; }
+.ops-table td { border: 1px solid #ddd; padding: 6px; vertical-align: top; }
+.row-g55 { background-color: #e7f3ff; }
+.row-g56 { background-color: #fff8e1; }
+.row-centro { background-color: #f1f8e9; }
+.subtotal-prod { background-color: #4CAF50; color: white; font-weight: bold; }
+.subtotal-improd { background-color: #FFC107; font-weight: bold; }
+.subtotal-total { background-color: #1976D2; color: white; font-weight: bold; }
+.total-geral-prod { background-color: #2e7d32; color: white; font-weight: bold; font-size: 12pt; }
+.total-geral-improd { background-color: #f57f17; font-weight: bold; font-size: 12pt; }
+.total-geral { background-color: #0d47a1; color: white; font-weight: bold; font-size: 14pt; }
+.virada { background-color: #ff9800; color: white; font-weight: bold; text-align: center; }
+.warning-box { background-color: #fff3cd; padding: 15px; margin: 15px 0; border-left: 4px solid #ffc107; }
+.success-box { background-color: #d4edda; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745; }
+.info-box { background-color: #e3f2fd; padding: 15px; margin: 15px 0; border-left: 5px solid #2196F3; }
+.machine-specs { background-color: #f3e5f5; padding: 15px; margin: 15px 0; border-left: 5px solid #9c27b0; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisao CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">PROCESSO DE FABRICACAO</div>
+        <div class="document-subtitle">SUPORTE DE FIXACAO — LBD-0002 — Valvula de Dosagem</div>
+        <div class="document-subtitle">Orcamento 014/2026 — LUBRISYSTEM</div>
+        <div class="document-subtitle" style="font-size:11pt;">Documento de Uso Interno — Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL — USO INTERNO LASEC — NAO ENVIAR AO CLIENTE</div>
+
+<!-- SPECS MAQUINAS -->
+<div class="machine-specs">
+    <strong>ESPECIFICACOES DAS MAQUINAS (dados fabricante):</strong><br><br>
+    <strong>DOOSAN LYNX 220LM:</strong> Turret servo 12 posicoes — indexacao 0,11s/estacao (bidirecional) | Rapid X=30m/min Z=36m/min | C-axis 0,001o | Spindle max 6.000 RPM | Live tooling max 6.000 RPM (M33/M35) | G92 S3000 (limite RPM bloco retangular — seguranca)<br>
+    <strong>ROMI DISCOVERY 760:</strong> ATC 22 ferramentas — troca 5,5s chip-to-chip (carrossel bidirecional) | Rapid X/Y=30m/min Z=20m/min | Spindle max 7.500 RPM ISO-40 | 4o eixo divisor
+</div>
+
+<!-- SECAO 1: DADOS GERAIS -->
+<div class="section-title">1. DADOS GERAIS DA PECA</div>
+<table class="info-table">
+    <tr><td>Codigo LUBRISYSTEM:</td><td><strong>LBD-0002</strong></td></tr>
+    <tr><td>Descricao:</td><td>SUPORTE DE FIXACAO — Valvula de Dosagem</td></tr>
+    <tr><td>Operacao:</td><td>Usinagem CNC completa — BORE + FURACAO EIXO Z + FRESAMENTO PERFIL + FURACAO MULTI-FACE</td></tr>
+    <tr><td>Cliente:</td><td>LUBRISYSTEM</td></tr>
+    <tr><td>Material:</td><td><strong>Aluminio liga 6351-T6</strong> — Fornecido pelo cliente</td></tr>
+    <tr><td>Materia-prima:</td><td><strong>Bloco 48 x 40 x 63mm</strong> (sobremetal ~1mm/face sobre 46 x 37 x 61mm final)</td></tr>
+    <tr><td>Processo:</td><td><strong>2 maquinas:</strong> (1) Doosan Lynx 220LM — bore, furacao axial (O6,20), bolt circle 8xM4 &nbsp;|&nbsp; (2) Discovery 760 4o eixo — fresamento perfil R8/R25, furacao multi-face M5/M6, furo lateral O3</td></tr>
+    <tr><td>Fixacao Op.1 — LYNX:</td><td>Castanha mole usinada perfil bloco 46x37mm — G55 (face frontal, eixo bore)</td></tr>
+    <tr><td>Fixacao Op.2 — Centro:</td><td>Morsa de precisao + 4o eixo divisor — indexacao A0o/90o/180o sem refixa</td></tr>
+    <tr><td>Tempo Op.1 LYNX:</td><td><strong>6,3 min/peca</strong> (produtivo 4,0 min + improdutivo maquina 0,3 min + manipulacao 2,0 min)</td></tr>
+    <tr><td>Tempo Op.2 Centro:</td><td><strong>7,0 min/peca</strong> (produtivo 5,5 min + improdutivo 1,5 min)</td></tr>
+    <tr><td>Tempo TOTAL/peca:</td><td><strong>13,3 min</strong> (Op.1 6,3 + Op.2 7,0)</td></tr>
+    <tr><td>Setup Op.1 — LYNX:</td><td><strong>1,0 h</strong> (minimo aplicado)</td></tr>
+    <tr><td>Setup Op.2 — Centro 4o eixo:</td><td><strong>2,0 h</strong> (4o eixo + morsa + 10 ferramentas)</td></tr>
+    <tr><td>Setup Total:</td><td><strong>3,0 h</strong></td></tr>
+    <tr><td>Peso bruto:</td><td>~0,33 kg (bloco 48x40x63 Al 6351-T6, densidade 2,71 g/cm3)</td></tr>
+    <tr><td>Peso final estimado:</td><td>~0,23 kg (apos remocao de material)</td></tr>
+    <tr><td>Quantidade:</td><td>50 pecas (lote inicial)</td></tr>
+    <tr><td>Orcamento:</td><td>014/2026 — Data: 05/03/2026</td></tr>
+</table>
+
+<!-- SECAO 2: DIMENSOES -->
+<div class="section-title">2. DIMENSOES FINAIS</div>
+<table class="info-table">
+    <tr><td>Dimensoes gerais:</td><td><strong>46 x 37 x 61 mm</strong> (C x L x A)</td></tr>
+    <tr><td>Bore principal:</td><td><strong>O 19,90 mm</strong> — passante (eixo valvula de dosagem)</td></tr>
+    <tr><td>Bore lateral:</td><td><strong>O 18 mm</strong> — face lateral (conexao hidraulica)</td></tr>
+    <tr><td>Furo auxiliar:</td><td><strong>O 6,20 mm</strong> — passante (drenagem/piloto)</td></tr>
+    <tr><td>Furo piloto:</td><td><strong>O 3 prof. 8mm</strong> — face lateral</td></tr>
+    <tr><td>Bolt circle 8xM4:</td><td><strong>8x O 3,30 prof. 15mm + M4-6H prof. 8mm</strong> — face frontal (fixacao valvula)</td></tr>
+    <tr><td>Furos 4xM5:</td><td><strong>4x O 4,20 prof. 7mm + M5-6H prof. 7mm</strong> — face superior (fixacao suporte)</td></tr>
+    <tr><td>Furo M6 lateral esq:</td><td><strong>O 5 prof. 8mm + M6-6H prof. 12mm</strong> — face lateral esquerda</td></tr>
+    <tr><td>Furo M6 lateral dir:</td><td><strong>O 5 prof. 12mm + M6-6H prof. 12mm</strong> — face lateral direita</td></tr>
+    <tr><td>Perfil externo:</td><td><strong>R8 + R25</strong> — contorno arredondado (raios de concordancia)</td></tr>
+    <tr><td>Degraus altura:</td><td>Steps em 50, 53, 60, 61mm (perfil escalonado)</td></tr>
+    <tr><td>Chanfro bore:</td><td>0,30 x 45o</td></tr>
+    <tr><td>Chanfros gerais:</td><td>0,50 x 45o (cantos nao indicados)</td></tr>
+    <tr><td>Tolerancia geral:</td><td>+-0,05mm (inteiros) | +-0,02mm (decimais)</td></tr>
+    <tr><td>Rugosidade:</td><td>Geral 3,2 Ra | Bore 0,8 Ra | Faces montagem 0,8 Ra</td></tr>
+</table>
+
+<!-- SECAO 3: OP.1 LYNX -->
+<div class="section-title">3. OPERACAO 1 — DOOSAN LYNX 220LM — BORE + FURACAO EIXO Z + BOLT CIRCLE</div>
+<div class="machine-title machine-lynx">DOOSAN LYNX 220LM — Spindle/Live max 6.000 RPM (G92 S3000 bloco) | Turret 0,11s | Rapid 30/36 m/min | C-axis 0,001o</div>
+
+<table class="ops-table">
+<thead>
+    <tr>
+        <th style="width:4%;">Seq</th>
+        <th style="width:11%;">Operacao</th>
+        <th style="width:4%;">Tool</th>
+        <th style="width:7%;">Cod. BD</th>
+        <th style="width:14%;">Ferramenta</th>
+        <th style="width:5%;">Vc (m/min)</th>
+        <th style="width:5%;">RPM</th>
+        <th style="width:5%;">Avanco</th>
+        <th style="width:5%;">Ciclo</th>
+        <th style="width:40%;">Descricao Detalhada</th>
+    </tr>
+</thead>
+<tbody>
+
+<!-- G55 -->
+<tr class="row-g55">
+    <td colspan="10" style="font-weight:bold; padding:10px; font-size:11pt;">
+        G55 — FACE FRONTAL — Castanha mole perfil bloco 46x37mm — Eixo bore O19,90 alinhado ao spindle
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N10</strong></td>
+    <td>Furar O15,9 pre-furo bore</td>
+    <td style="text-align:center;"><strong>T01</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.100</td>
+    <td style="font-size:9pt;">Broca MD alto centrante<br>O15,9mm (spindle)</td>
+    <td style="text-align:center;">150</td>
+    <td style="text-align:center;">3000*</td>
+    <td style="text-align:center;">F 0.15</td>
+    <td style="text-align:center;"><strong>G83</strong></td>
+    <td><strong>Pre-furo para bore O19,90mm — MD alto centrante direto</strong><br>
+    * Spindle rotaciona bloco (G97 S3000) — operacao normal de torno<br>
+    * Broca MD alto centrante dispensa spotting (padrao LASEC)<br>
+    * G83 peck drilling — incrementos 3mm<br>
+    * Refrigeracao obrigatoria M8<br>
+    * G92 S3000 (seguranca bloco retangular)<br>
+    * Vc efetivo = pi x 15,9 x 3000 / 1000 = 150 m/min</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N20</strong></td>
+    <td>Mandrilhar O19,90</td>
+    <td style="text-align:center;"><strong>T02</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.08.115<br>08.07.025</td>
+    <td style="font-size:9pt;">Barra mandrilhar<br>CCGT 060204 IC20 (Al)</td>
+    <td style="text-align:center;">188*</td>
+    <td style="text-align:center;">3000*</td>
+    <td style="text-align:center;">F 0.10</td>
+    <td style="text-align:center;"><strong>G76</strong></td>
+    <td><strong>Mandrilhar bore O19,90mm — acabamento</strong><br>
+    * Bore principal — alojamento valvula de dosagem<br>
+    * G76 ciclo mandrilamento fino<br>
+    * Inserto classe N (aluminio) — CCGT geometria positiva<br>
+    * Rugosidade 0,8 Ra — avanco fino F0.10<br>
+    * G92 S3000 — Vc efetivo = pi x 19,9 x 3000 / 1000 = 188 m/min<br>
+    * (Vc ideal Al = 300+, limitado por RPM seguranca bloco retangular)</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N30</strong></td>
+    <td>Furar O6,20 passante</td>
+    <td style="text-align:center;"><strong>T03</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.021</td>
+    <td style="font-size:9pt;">Broca O6,20mm<br>Metal duro (spindle)</td>
+    <td style="text-align:center;">59</td>
+    <td style="text-align:center;">3000*</td>
+    <td style="text-align:center;">F 0.12</td>
+    <td style="text-align:center;"><strong>G83</strong></td>
+    <td><strong>Furo O6,20mm passante — drenagem/piloto (face fundo)</strong><br>
+    * Spindle rotaciona bloco (G97 S3000) — operacao normal de torno<br>
+    * Furo axial no fundo da peca — NAO precisa eixo C nem acionada<br>
+    * G83 peck drilling — incrementos 2mm<br>
+    * Refrigeracao M8 obrigatoria<br>
+    * G92 S3000 (seguranca bloco retangular)<br>
+    * Vc efetivo = pi x 6,2 x 3000 / 1000 = 59 m/min</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N40</strong></td>
+    <td>8x Furar O3,30 bolt circle</td>
+    <td style="text-align:center;"><strong>T04</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.030</td>
+    <td style="font-size:9pt;">Broca O3,30mm<br>HSS-Co (ferr. acionada)</td>
+    <td style="text-align:center;">29</td>
+    <td style="text-align:center;">2800</td>
+    <td style="text-align:center;">F 0.06</td>
+    <td style="text-align:center;"><strong>G87</strong></td>
+    <td><strong>8x furos O3,30 prof. 15mm — pre-furo M4</strong><br>
+    * G87 bolt circle (G12.1 coord. polares) + G83 peck<br>
+    * C-axis indexa 8 posicoes automaticamente<br>
+    * Ferramenta acionada M33 — refrigeracao M8<br>
+    * Vc = pi x 3,3 x 2800 / 1000 = 29 m/min (HSS-Co em Al — Dormer/Guhring)</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N50</strong></td>
+    <td>Chanfrar bore + furos</td>
+    <td style="text-align:center;"><strong>T06</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.11.053</td>
+    <td style="font-size:9pt;">Fresa chanfrar 90o<br>O6mm (ferr. acionada)</td>
+    <td style="text-align:center;">75</td>
+    <td style="text-align:center;">4000</td>
+    <td style="text-align:center;">F 0.05</td>
+    <td style="text-align:center;">—</td>
+    <td><strong>Chanfro 0,30x45o bore O19,90 + escareamento 8x furos M4</strong><br>
+    * Chanfro entrada bore conforme desenho<br>
+    * Escareamento 8x furos O3,30 (quebra aresta ANTES do macho)<br>
+    * Sequencia correta: furar → chanfrar → roscar<br>
+    * Vc = pi x 6 x 4000 / 1000 = 75 m/min</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N60</strong></td>
+    <td>8x Roscar M4-6H</td>
+    <td style="text-align:center;"><strong>T05</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.09.003</td>
+    <td style="font-size:9pt;">Macho M4x0,7 helicoidal<br>HSS-E (ferr. acionada)</td>
+    <td style="text-align:center;">10</td>
+    <td style="text-align:center;">800</td>
+    <td style="text-align:center;">F 0.70</td>
+    <td style="text-align:center;"><strong>G84</strong></td>
+    <td><strong>8x rosca M4-6H prof. 8mm — fixacao valvula</strong><br>
+    * G84 rigid tapping (G1002 Doosan)<br>
+    * Passo M4 = 0,7mm — F = passo (sincronizado)<br>
+    * Mesmas posicoes C-axis do N40<br>
+    * Macho helicoidal — cavaco ascendente aluminio<br>
+    * Furos ja chanfrados no N50 — entrada limpa para o macho<br>
+    * Vc = pi x 4 x 800 / 1000 = 10 m/min (ref. BD Lubrisystem: M5 S400, BSP S300)</td>
+</tr>
+
+<tr class="subtotal-prod">
+    <td colspan="7" style="text-align:right; padding:8px;">TEMPO PRODUTIVO G55:</td>
+    <td colspan="3" style="padding:8px;">4,0 min — 6 ferramentas (N10 a N60)</td>
+</tr>
+<tr class="subtotal-improd">
+    <td colspan="7" style="text-align:right; padding:8px;">TEMPO IMPRODUTIVO G55:</td>
+    <td colspan="3" style="padding:8px;">0,3 min (18s) — 5 trocas x 0,5s (turret 0,11s/est.) + C-axis 25 pos x 0,3s + M33/M35 3x1s + rapids 30/36 m/min</td>
+</tr>
+<tr class="subtotal-improd">
+    <td colspan="7" style="text-align:right; padding:8px;">MANIPULACAO OPERADOR:</td>
+    <td colspan="3" style="padding:8px;">2,0 min — carga/descarga bloco castanha mole + fixacao + medicao</td>
+</tr>
+<tr class="subtotal-total">
+    <td colspan="7" style="text-align:right; padding:8px; font-size:11pt;">SUBTOTAL G55:</td>
+    <td colspan="3" style="padding:8px; font-size:12pt;">6,3 min/peca</td>
+</tr>
+
+<!-- TOTAIS LYNX -->
+<tr class="total-geral-prod">
+    <td colspan="7" style="text-align:right; padding:10px;">TEMPO PRODUTIVO TOTAL — LYNX:</td>
+    <td colspan="3" style="padding:10px;">4,0 min</td>
+</tr>
+<tr class="total-geral-improd">
+    <td colspan="7" style="text-align:right; padding:10px;">TEMPO IMPRODUTIVO TOTAL — LYNX:</td>
+    <td colspan="3" style="padding:10px;">0,3 min (maquina) + 2,0 min (manipulacao) = 2,3 min</td>
+</tr>
+<tr class="total-geral">
+    <td colspan="7" style="text-align:right; padding:12px;">TEMPO TOTAL OP.1 — LYNX 220LM:</td>
+    <td colspan="3" style="padding:12px; font-size:15pt;"><strong>6,3 min/peca</strong></td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- SECAO 4: OP.2 CENTRO 4o EIXO -->
+<div class="section-title">4. OPERACAO 2 — DISCOVERY 760 — 4o EIXO — FRESAMENTO PERFIL + FURACAO MULTI-FACE</div>
+<div class="machine-title machine-centro">DISCOVERY 760 — ATC 5,5s | Rapid 30/30/20 m/min | Spindle max 7.500 RPM | 4o eixo divisor</div>
+
+<table class="ops-table">
+<thead>
+    <tr>
+        <th style="width:4%;">Seq</th>
+        <th style="width:11%;">Operacao</th>
+        <th style="width:4%;">Tool</th>
+        <th style="width:7%;">Cod. BD</th>
+        <th style="width:14%;">Ferramenta</th>
+        <th style="width:5%;">Vc (m/min)</th>
+        <th style="width:5%;">RPM</th>
+        <th style="width:5%;">Avanco</th>
+        <th style="width:5%;">Ciclo</th>
+        <th style="width:40%;">Descricao Detalhada</th>
+    </tr>
+</thead>
+<tbody>
+
+<tr class="row-centro">
+    <td colspan="10" style="font-weight:bold; padding:10px; font-size:11pt;">
+        4o EIXO — Morsa de precisao + divisor — Peca fixada pelo corpo — Indexacao A0o/90o/180o sem retirar
+    </td>
+</tr>
+
+<!-- A0 - FACE FRONTAL -->
+<tr style="background-color:#e8f5e9; font-weight:bold;">
+    <td colspan="10" style="padding:6px; font-size:10pt; color:#2e7d32;">
+        A0o — FACE FRONTAL (referencia) — Faceamento + Contorno perfil
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N10</strong></td>
+    <td>Facear topo referencia</td>
+    <td style="text-align:center;"><strong>T01</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.08.102<br>08.07.011</td>
+    <td style="font-size:9pt;">Fresa facear O50mm<br>APMT 1135 PDER (Al)</td>
+    <td style="text-align:center;">600</td>
+    <td style="text-align:center;">3800</td>
+    <td style="text-align:center;">F 1200</td>
+    <td style="text-align:center;">—</td>
+    <td><strong>Faceamento referencia Z0 — face topo</strong><br>
+    * 1 passe leve (0,3mm) — acertar face referencia<br>
+    * Vc = pi x 50 x 3800 / 1000 = 597 m/min<br>
+    * fz = 1200 / (3800 x 5 insertos) = 0,063 mm/dente<br>
+    * Vc 600 m/min — padrao Sandvik facear Al com carbide</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N20</strong></td>
+    <td>Fresamento contorno R8/R25</td>
+    <td style="text-align:center;"><strong>T02</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.11.060</td>
+    <td style="font-size:9pt;">Fresa O12mm 2 cortes<br>Metal duro (aluminio)</td>
+    <td style="text-align:center;">283</td>
+    <td style="text-align:center;">7500</td>
+    <td style="text-align:center;">F 1500</td>
+    <td style="text-align:center;">—</td>
+    <td><strong>Contorno externo perfil R8 + R25</strong><br>
+    * Fresamento concordante do perfil arredondado<br>
+    * Raios R8 (cantos menores) + R25 (raio principal)<br>
+    * Desbaste + acabamento em 2 passes<br>
+    * G41 compensacao raio ferramenta<br>
+    * Vc = pi x 12 x 7500 / 1000 = 283 m/min (spindle max D760)<br>
+    * fz = 1500 / (7500 x 2) = 0,10 mm/dente</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N30</strong></td>
+    <td>Fresamento degraus perfil</td>
+    <td style="text-align:center;"><strong>T02</strong></td>
+    <td style="text-align:center; font-size:8pt;">(mesma)</td>
+    <td style="font-size:9pt;">(mesma T02 — Fresa O12)</td>
+    <td style="text-align:center;">283</td>
+    <td style="text-align:center;">7500</td>
+    <td style="text-align:center;">F 1200</td>
+    <td style="text-align:center;">—</td>
+    <td><strong>Degraus escalonados: 50 / 53 / 60 / 61mm</strong><br>
+    * Steps do perfil externo conforme desenho<br>
+    * Profundidade por step conforme cotas<br>
+    * fz = 1200 / (7500 x 2) = 0,08 mm/dente (acabamento)</td>
+</tr>
+
+<!-- A90 - FACE SUPERIOR -->
+<tr style="background-color:#e8f5e9; font-weight:bold;">
+    <td colspan="10" style="padding:6px; font-size:10pt; color:#2e7d32;">
+        A90o — FACE SUPERIOR — 4x Furacao + Rosca M5
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N40</strong></td>
+    <td>4x Furar O4,20 prof. 7</td>
+    <td style="text-align:center;"><strong>T03</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.035</td>
+    <td style="font-size:9pt;">Broca O4,20mm<br>HSS-Co</td>
+    <td style="text-align:center;">29</td>
+    <td style="text-align:center;">2200</td>
+    <td style="text-align:center;">F 0.08</td>
+    <td style="text-align:center;"><strong>G83</strong></td>
+    <td><strong>4x furos O4,20 prof. 7mm — pre-furo M5</strong><br>
+    * 4o eixo em A90o — face superior exposta<br>
+    * G83 peck drilling — 4 furos em sequencia<br>
+    * Posicoes: 11,67 / 15,50 / 30 / 41,67mm (conf. desenho)<br>
+    * Vc = pi x 4,2 x 2200 / 1000 = 29 m/min (HSS-Co em Al)</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N50</strong></td>
+    <td>4x Chanfrar furos M5</td>
+    <td style="text-align:center;"><strong>T10</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.11.053</td>
+    <td style="font-size:9pt;">Fresa chanfrar 90o<br>O10mm metal duro</td>
+    <td style="text-align:center;">236</td>
+    <td style="text-align:center;">7500</td>
+    <td style="text-align:center;">F 500</td>
+    <td style="text-align:center;">—</td>
+    <td><strong>Chanfrar 4x furos O4,20 — ANTES de roscar M5</strong><br>
+    * Escareamento entrada furos (quebra aresta)<br>
+    * Sequencia: furar → chanfrar → roscar<br>
+    * Mesmas 4 posicoes do N40<br>
+    * Vc = pi x 10 x 7500 / 1000 = 236 m/min</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N60</strong></td>
+    <td>4x Roscar M5-6H prof. 7</td>
+    <td style="text-align:center;"><strong>T04</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.09.004</td>
+    <td style="font-size:9pt;">Macho M5x0,8 helicoidal<br>HSS-E</td>
+    <td style="text-align:center;">9</td>
+    <td style="text-align:center;">600</td>
+    <td style="text-align:center;">F 0.80</td>
+    <td style="text-align:center;"><strong>G84</strong></td>
+    <td><strong>4x rosca M5-6H prof. 7mm — fixacao suporte</strong><br>
+    * G84 rigid tapping — passo M5 = 0,8mm sincronizado<br>
+    * Mesmas 4 posicoes do N40<br>
+    * Furos ja chanfrados no N50 — entrada limpa<br>
+    * Macho helicoidal — aluminio<br>
+    * Vc = pi x 5 x 600 / 1000 = 9 m/min (ref. BD Lubrisystem: M5 S400)</td>
+</tr>
+
+<!-- A0 - FACE LATERAL ESQUERDA -->
+<tr style="background-color:#e8f5e9; font-weight:bold;">
+    <td colspan="10" style="padding:6px; font-size:10pt; color:#2e7d32;">
+        A0o — FACE LATERAL ESQUERDA — M6 lateral
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N70</strong></td>
+    <td>Furar O5 + Chanfrar + Roscar M6</td>
+    <td style="text-align:center;"><strong>T05<br>T10<br>T06</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.040<br>08.11.053<br>08.09.072</td>
+    <td style="font-size:9pt;">Broca O5,0mm HSS-Co<br>Fresa chanfrar O10<br>Macho M6x1,0 helic.</td>
+    <td style="text-align:center;">30 / 236 / 9</td>
+    <td style="text-align:center;">1900 / 7500 / 500</td>
+    <td style="text-align:center;">F 0.10 / 500 / 1.0</td>
+    <td style="text-align:center;"><strong>G83<br>—<br>G84</strong></td>
+    <td><strong>O5 prof. 8mm + chanfro + M6-6H prof. 12mm — lateral esq</strong><br>
+    * Sequencia: furar O5 (G83) → chanfrar (T10) → roscar M6 (G84)<br>
+    * Broca: Vc = pi x 5 x 1900 / 1000 = 30 m/min (HSS-Co)<br>
+    * Chanfro: escareamento entrada furo antes do macho<br>
+    * Macho: Vc = pi x 6 x 500 / 1000 = 9 m/min (HSS-E helicoidal)<br>
+    * Passo M6 = 1,0mm sincronizado</td>
+</tr>
+
+<!-- A180 - FACE LATERAL DIREITA -->
+<tr style="background-color:#e8f5e9; font-weight:bold;">
+    <td colspan="10" style="padding:6px; font-size:10pt; color:#2e7d32;">
+        A180o — FACE LATERAL DIREITA — M6 lateral + O18
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N80</strong></td>
+    <td>Furar O5 + Chanfrar + Roscar M6</td>
+    <td style="text-align:center;"><strong>T05<br>T10<br>T06</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.040<br>08.11.053<br>08.09.072</td>
+    <td style="font-size:9pt;">Broca O5,0mm HSS-Co<br>Fresa chanfrar O10<br>Macho M6x1,0 helic.</td>
+    <td style="text-align:center;">30 / 236 / 9</td>
+    <td style="text-align:center;">1900 / 7500 / 500</td>
+    <td style="text-align:center;">F 0.10 / 500 / 1.0</td>
+    <td style="text-align:center;"><strong>G83<br>—<br>G84</strong></td>
+    <td><strong>O5 prof. 12mm + chanfro + M6-6H prof. 12mm — lateral dir</strong><br>
+    * 4o eixo gira A180o — face lateral direita<br>
+    * Sequencia: furar → chanfrar → roscar<br>
+    * Profundidade furo maior (12mm) que lado esq (8mm)<br>
+    * Mesmas ferramentas T05/T10/T06</td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N90</strong></td>
+    <td>Furar + alargar O18</td>
+    <td style="text-align:center;"><strong>T07<br>T08</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.095<br>08.06.110</td>
+    <td style="font-size:9pt;">Broca O16mm metal duro<br>Alargador O18mm HSS</td>
+    <td style="text-align:center;">120 / 15</td>
+    <td style="text-align:center;">2400 / 265</td>
+    <td style="text-align:center;">F 0.15 / 0.30</td>
+    <td style="text-align:center;"><strong>G83</strong></td>
+    <td><strong>Bore O18mm — face lateral (conexao hidraulica)</strong><br>
+    * Pre-furar O16 (G83) + alargar O18mm acabamento<br>
+    * Broca: Vc = pi x 16 x 2400 / 1000 = 120 m/min (carbide em Al)<br>
+    * Alargador: Vc = pi x 18 x 265 / 1000 = 15 m/min (HSS alargar)<br>
+    * F alargador 0.30 mm/rot — padrao Al</td>
+</tr>
+
+<!-- FURO LATERAL O3 -->
+<tr style="background-color:#e8f5e9; font-weight:bold;">
+    <td colspan="10" style="padding:6px; font-size:10pt; color:#2e7d32;">
+        FACE LATERAL — Furo O3 piloto (4o eixo posicionado apos fresamento lados)
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N100</strong></td>
+    <td>Furar O3 prof. 8mm</td>
+    <td style="text-align:center;"><strong>T09</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.06.028</td>
+    <td style="font-size:9pt;">Broca O3mm<br>HSS-Co</td>
+    <td style="text-align:center;">30</td>
+    <td style="text-align:center;">3200</td>
+    <td style="text-align:center;">F 0.05</td>
+    <td style="text-align:center;"><strong>G83</strong></td>
+    <td><strong>Furo piloto O3 prof. 8mm — face lateral</strong><br>
+    * 4o eixo posiciona face lateral<br>
+    * Apos fresamento dos lados (contorno ja usinado)<br>
+    * G83 peck drilling — incrementos 1,5mm<br>
+    * Vc = pi x 3 x 3200 / 1000 = 30 m/min (HSS-Co em Al)</td>
+</tr>
+
+<!-- ACABAMENTO -->
+<tr style="background-color:#e8f5e9; font-weight:bold;">
+    <td colspan="10" style="padding:6px; font-size:10pt; color:#2e7d32;">
+        ACABAMENTO — Chanfros gerais (retorna A0o)
+    </td>
+</tr>
+
+<tr>
+    <td style="text-align:center;"><strong>N110</strong></td>
+    <td>Chanfros gerais 0,50x45o</td>
+    <td style="text-align:center;"><strong>T10</strong></td>
+    <td style="text-align:center; font-size:8pt;">08.11.053</td>
+    <td style="font-size:9pt;">Fresa chanfrar 90o<br>O10mm metal duro</td>
+    <td style="text-align:center;">236</td>
+    <td style="text-align:center;">7500</td>
+    <td style="text-align:center;">F 500</td>
+    <td style="text-align:center;">—</td>
+    <td><strong>Chanfros 0,50x45o — todos os cantos vivos</strong><br>
+    * "Quebrar cantos vivos" conforme nota desenho<br>
+    * Chanfros nao indicados = 0,50x45o<br>
+    * Vc = pi x 10 x 7500 / 1000 = 236 m/min (carbide em Al)<br>
+    * Indexa 4o eixo conforme necessidade</td>
+</tr>
+
+<tr class="subtotal-prod">
+    <td colspan="7" style="text-align:right; padding:8px;">TEMPO PRODUTIVO Op.2:</td>
+    <td colspan="3" style="padding:8px;">5,5 min — 11 operacoes (N10 a N110), 10 ferramentas</td>
+</tr>
+<tr class="subtotal-improd">
+    <td colspan="7" style="text-align:right; padding:8px;">TEMPO IMPRODUTIVO Op.2:</td>
+    <td colspan="3" style="padding:8px;">1,5 min — 12 trocas x 5,5s ATC (66s) + indexacoes 4o eixo (8s) + G00 rapids (16s)</td>
+</tr>
+<tr class="total-geral">
+    <td colspan="7" style="text-align:right; padding:12px;">TEMPO TOTAL OP.2 — DISCOVERY 760 4o EIXO:</td>
+    <td colspan="3" style="padding:12px; font-size:15pt;"><strong>7,0 min/peca</strong></td>
+</tr>
+
+<!-- TOTAL COMBINADO -->
+<tr style="background-color:#0a2463; color:white; font-weight:bold;">
+    <td colspan="7" style="text-align:right; padding:14px; font-size:14pt;">TEMPO TOTAL COMBINADO (Op.1 + Op.2):</td>
+    <td colspan="3" style="padding:14px; font-size:16pt;"><strong>13,3 min/peca</strong><br><small style="font-size:10pt;">LYNX 6,3 min (4,0 prod + 0,3 maq + 2,0 manip) + Centro 7,0 min</small></td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- LEGENDA -->
+<div class="info-box">
+    <strong>LEGENDA CICLOS:</strong>
+    <ul style="margin-left:20px; margin-top:10px; font-size:9pt;">
+        <li><strong>G76:</strong> Ciclo mandrilamento fino — bore de precisao</li>
+        <li><strong>G83:</strong> Ciclo furacao profunda peck drilling — incrementos programados</li>
+        <li><strong>G84:</strong> Ciclo rosqueamento rigido (rigid tapping) — sincronizado spindle/avanco</li>
+        <li><strong>G87:</strong> Ciclo bolt circle — furacao circular automatica (Doosan)</li>
+        <li><strong>G12.1/G13.1:</strong> Coordenadas polares ON/OFF — posicionamento C-axis</li>
+        <li><strong>G1002:</strong> Rigid tapping Doosan — rosqueamento sincronizado ferramenta acionada</li>
+        <li><strong>M33/M35:</strong> Liga/desliga ferramenta acionada (live tool) Doosan</li>
+        <li><strong>G97/G92:</strong> RPM constante / Limitador RPM maximo (protecao bloco retangular)</li>
+        <li><strong>G41/G42:</strong> Compensacao raio ferramenta esquerda/direita</li>
+        <li><strong>4o Eixo:</strong> A0o (frontal) / A90o (superior) / A180o (lateral oposta)</li>
+        <li><strong>*S3000:</strong> G92 S3000 limita RPM no LYNX (spindle max 6000, limitado a 3000 por seguranca bloco retangular)</li>
+        <li><strong>*S6000:</strong> RPM max spindle + live tooling LYNX 220LM</li>
+        <li><strong>*S7500:</strong> RPM max spindle Discovery 760 (ISO-40)</li>
+    </ul>
+</div>
+
+<!-- VALIDACAO PARAMETROS -->
+<div class="info-box" style="border-color:#4CAF50; background-color:#e8f5e9;">
+    <strong>VALIDACAO PARAMETROS DE CORTE — Al 6351-T6:</strong>
+    <table style="width:100%; font-size:9pt; margin-top:10px; border-collapse:collapse;">
+        <tr style="background:#4CAF50; color:white; font-weight:bold;">
+            <td style="padding:4px; border:1px solid #ddd;">Operacao</td>
+            <td style="padding:4px; border:1px solid #ddd;">Vc usado</td>
+            <td style="padding:4px; border:1px solid #ddd;">Vc ref. (Al)</td>
+            <td style="padding:4px; border:1px solid #ddd;">RPM</td>
+            <td style="padding:4px; border:1px solid #ddd;">RPM check</td>
+            <td style="padding:4px; border:1px solid #ddd;">Status</td>
+        </tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Facemill O50 carbide</td><td style="padding:3px; border:1px solid #ddd;">600</td><td style="padding:3px; border:1px solid #ddd;">500-1000</td><td style="padding:3px; border:1px solid #ddd;">3800</td><td style="padding:3px; border:1px solid #ddd;">3820</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">End mill O12 carbide</td><td style="padding:3px; border:1px solid #ddd;">283</td><td style="padding:3px; border:1px solid #ddd;">300-600</td><td style="padding:3px; border:1px solid #ddd;">7500</td><td style="padding:3px; border:1px solid #ddd;">MAX D760</td><td style="padding:3px; border:1px solid #ddd; color:orange; font-weight:bold;">LIMITE</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Boring O19,9 carbide</td><td style="padding:3px; border:1px solid #ddd;">188</td><td style="padding:3px; border:1px solid #ddd;">200-400</td><td style="padding:3px; border:1px solid #ddd;">3000</td><td style="padding:3px; border:1px solid #ddd;">G92 LYNX</td><td style="padding:3px; border:1px solid #ddd; color:orange; font-weight:bold;">LIMITE</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Drill O15,9 carbide</td><td style="padding:3px; border:1px solid #ddd;">150</td><td style="padding:3px; border:1px solid #ddd;">150-250</td><td style="padding:3px; border:1px solid #ddd;">3000</td><td style="padding:3px; border:1px solid #ddd;">3003</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Drill O6,2 carbide (spindle)</td><td style="padding:3px; border:1px solid #ddd;">59</td><td style="padding:3px; border:1px solid #ddd;">100-200</td><td style="padding:3px; border:1px solid #ddd;">3000</td><td style="padding:3px; border:1px solid #ddd;">G92 LYNX</td><td style="padding:3px; border:1px solid #ddd; color:orange; font-weight:bold;">LIMITE</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Drill O3-5 HSS-Co</td><td style="padding:3px; border:1px solid #ddd;">29-30</td><td style="padding:3px; border:1px solid #ddd;">25-35</td><td style="padding:3px; border:1px solid #ddd;">1900-3200</td><td style="padding:3px; border:1px solid #ddd;">calc.</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Drill O16 carbide</td><td style="padding:3px; border:1px solid #ddd;">120</td><td style="padding:3px; border:1px solid #ddd;">100-200</td><td style="padding:3px; border:1px solid #ddd;">2400</td><td style="padding:3px; border:1px solid #ddd;">2387</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Tapping M4-M6 HSS-E helic.</td><td style="padding:3px; border:1px solid #ddd;">9-10</td><td style="padding:3px; border:1px solid #ddd;">8-15</td><td style="padding:3px; border:1px solid #ddd;">500-800</td><td style="padding:3px; border:1px solid #ddd;">BD Lubri</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Reamer O18 HSS</td><td style="padding:3px; border:1px solid #ddd;">15</td><td style="padding:3px; border:1px solid #ddd;">10-20</td><td style="padding:3px; border:1px solid #ddd;">265</td><td style="padding:3px; border:1px solid #ddd;">265</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Drill O3 HSS-Co (lateral)</td><td style="padding:3px; border:1px solid #ddd;">30</td><td style="padding:3px; border:1px solid #ddd;">25-35</td><td style="padding:3px; border:1px solid #ddd;">3200</td><td style="padding:3px; border:1px solid #ddd;">3183</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+        <tr><td style="padding:3px; border:1px solid #ddd;">Chanfrar O6-10 carbide</td><td style="padding:3px; border:1px solid #ddd;">75-236</td><td style="padding:3px; border:1px solid #ddd;">100-300</td><td style="padding:3px; border:1px solid #ddd;">4000-7500</td><td style="padding:3px; border:1px solid #ddd;">calc.</td><td style="padding:3px; border:1px solid #ddd; color:green; font-weight:bold;">OK</td></tr>
+    </table>
+    <p style="font-size:8pt; margin-top:8px; color:#666;">
+        <strong>LIMITE:</strong> Vc abaixo do ideal para Al — limitado por RPM max (G92 S3000 LYNX bloco retangular: bore Vc 188, furo O6,20 Vc 59 | S7500 D760 spindle max)<br>
+        <strong>Fonte:</strong> Sandvik Coromant Al 6xxx series | BD Lubrisystem conhecimento_completo.json | Catálogos fabricante Doosan/Romi
+    </p>
+</div>
+
+<!-- PONTOS CRITICOS -->
+<div class="warning-box">
+    <strong>PONTOS CRITICOS DE ATENCAO:</strong>
+    <ul style="margin-left:20px; margin-top:10px;">
+        <li><strong>Materia-prima:</strong> Bloco aluminio 6351-T6 — verificar dimensoes brutas (48x40x63mm min.) antes de fixar</li>
+        <li><strong>Fixacao LYNX:</strong> Castanha mole usinada no perfil do bloco — garantir concentricidade do bore com eixo spindle</li>
+        <li><strong>RPM limitado LYNX:</strong> G92 S3000 — bloco retangular gera desbalanceamento em alta RPM — bore Vc 188, furo O6,20 Vc 59 (ideais 300+ e 150+)</li>
+        <li><strong>RPM limitado D760:</strong> Spindle max 7.500 RPM — fresa O12 opera no limite (Vc 283 vs ideal 350+)</li>
+        <li><strong>Bore O19,90mm:</strong> Tolerancia geral +-0,05 — verificar com calibrador tampao</li>
+        <li><strong>8x M4-6H:</strong> Verificar profundidade rosca (8mm) com calibrador passa/nao-passa</li>
+        <li><strong>4x M5-6H:</strong> Profundidade furo e rosca iguais (7mm) — cuidado com fundo cego</li>
+        <li><strong>2x M6-6H:</strong> Laterais — profundidades diferentes (esq 8mm furo / dir 12mm furo)</li>
+        <li><strong>O18mm lateral:</strong> Bore de conexao hidraulica — verificar posicao e profundidade</li>
+        <li><strong>Perfil R8/R25:</strong> Verificar raios com gabarito — critico para montagem</li>
+        <li><strong>Degraus 50/53/60/61:</strong> Verificar alturas dos steps com paquimetro</li>
+        <li><strong>Chanfros:</strong> 0,30x45o no bore | 0,50x45o gerais — "quebrar cantos vivos"</li>
+        <li><strong>Rugosidade:</strong> Bore 0,8 Ra | Geral 3,2 Ra — controlar avanco no acabamento</li>
+        <li><strong>Aluminio 6351-T6:</strong> Insertos classe N (geometria positiva) — evitar aresta postica — refrigeracao M8 obrigatoria</li>
+    </ul>
+</div>
+
+<!-- FERRAMENTAS -->
+<div class="success-box">
+    <strong>FERRAMENTAS NECESSARIAS:</strong><br><br>
+    <strong>DOOSAN LYNX 220LM (Op.1) — 6 ferramentas:</strong>
+    <ul style="margin-left:20px; margin-top:5px;">
+        <li><strong>T01:</strong> Broca O15,9mm MD alto centrante (08.06.100) — pre-furo bore [spindle]</li>
+        <li><strong>T02:</strong> Barra mandrilhar (08.08.115) + CCGT 060204 IC20 (08.07.025) — bore O19,90 [spindle]</li>
+        <li><strong>T03:</strong> Broca O6,20mm metal duro (08.06.021) — furo drenagem [spindle]</li>
+        <li><strong>T04:</strong> Broca O3,30mm HSS-Co (08.06.030) — 8x pre-furo M4 [ferr. acionada]</li>
+        <li><strong>T05:</strong> Macho M4x0,7 helicoidal HSS-E (08.09.003) — 8x rosca M4 [ferr. acionada]</li>
+        <li><strong>T06:</strong> Fresa chanfrar 90o O6mm (08.11.053) — chanfro bore + escareamento [ferr. acionada]</li>
+    </ul>
+    <strong>DISCOVERY 760 4o EIXO (Op.2) — 10 ferramentas:</strong>
+    <ul style="margin-left:20px; margin-top:5px;">
+        <li><strong>T01:</strong> Fresa facear O50mm (08.08.102) + APMT 1135 (08.07.011) — faceamento</li>
+        <li><strong>T02:</strong> Fresa O12mm 2 cortes aluminio (08.11.060) — contorno + degraus</li>
+        <li><strong>T03:</strong> Broca O4,20mm HSS-Co (08.06.035) — 4x pre-furo M5</li>
+        <li><strong>T04:</strong> Macho M5x0,8 helicoidal HSS-E (08.09.004) — 4x rosca M5</li>
+        <li><strong>T05:</strong> Broca O5,0mm HSS-Co (08.06.040) — pre-furo M6 (2 lados)</li>
+        <li><strong>T06:</strong> Macho M6x1,0 helicoidal HSS-E (08.09.072) — rosca M6 (2 lados)</li>
+        <li><strong>T07:</strong> Broca O16mm metal duro (08.06.095) — pre-furo O18</li>
+        <li><strong>T08:</strong> Alargador O18mm HSS (08.06.110) — acabamento bore lateral</li>
+        <li><strong>T09:</strong> Broca O3mm HSS-Co (08.06.028) — furo piloto lateral</li>
+        <li><strong>T10:</strong> Fresa chanfrar 90o O10mm (08.11.053) — chanfros gerais</li>
+    </ul>
+    <strong>Fixacao:</strong>
+    <ul style="margin-left:20px; margin-top:5px;">
+        <li><strong>LYNX:</strong> Castanha mole (3 garras) — usinada no perfil do bloco 46x37mm</li>
+        <li><strong>Centro:</strong> Morsa de precisao + divisor 4o eixo — indexacao automatica</li>
+    </ul>
+</div>
+
+<div class="footer">
+    <p><strong>LASEC USINAGEM</strong> — Usinagem de Precisao CNC</p>
+    <p>Rua Alvaro Silva, 233 — Bairro do Limao — Sao Paulo/SP — CEP 02723-020</p>
+    <p>Tel: (11) 3936-5041 | (11) 3935-1271</p>
+    <p style="margin-top:15px; color:#999;">Orcamento 014/2026 — Gerado em 05/03/2026 — Parametros validados fabricante Doosan/Romi + Sandvik + BD Lubrisystem</p>
+    <p style="margin-top:5px; color:#cc0000; font-weight:bold;">CONFIDENCIAL — NAO DISTRIBUIR</p>
+</div>
+
+</div>
+</body>
+</html>

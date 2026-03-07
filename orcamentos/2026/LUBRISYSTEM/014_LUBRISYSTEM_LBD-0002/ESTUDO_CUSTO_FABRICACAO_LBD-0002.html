@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Custo de Fabricacao - LBD-0002</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative;
+}
+body::before {
+    content: ''; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 400px; height: 400px;
+    background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat;
+    background-position: center; background-size: contain;
+    opacity: 0.03; z-index: -1; pointer-events: none;
+}
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container { flex-shrink: 0; }
+.logo-container img { height: 120px; width: auto; filter: brightness(1.1) contrast(1.1); }
+.company-info-header { flex-grow: 1; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; line-height: 1.1; letter-spacing: -0.5px; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; font-weight: 500; }
+.document-title-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
+    padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center;
+    box-shadow: 0 3px 15px rgba(30,60,114,0.3);
+}
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; opacity: 0.95; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.info-table td { border: 1px solid #ddd; padding: 6px; }
+.info-table td:first-child { font-weight: bold; width: 35%; background-color: #f8f9fa; }
+.info-table tr:nth-child(even) { background-color: #f9f9f9; }
+.calculo-detalhado { background-color: #f1f3f5; padding: 25px; border-radius: 10px; margin: 20px 0; }
+.calculo-linha { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #dee2e6; }
+.calculo-linha.destaque-calc { background-color: #d4edda; padding: 12px 15px; margin: 10px -15px; border-radius: 5px; font-weight: bold; border: 2px solid #28a745; }
+table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 15px; text-align: center; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+td { padding: 12px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+tr:hover { background-color: #e3f2fd; transition: background-color 0.3s ease; }
+.destaque { background-color: #d4edda !important; font-weight: bold; border: 2px solid #28a745; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; font-size: 18px; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.alerta-importante h4 { margin-top: 0; color: #856404; font-size: 16px; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisao CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">ESTUDO DE CUSTO DE FABRICACAO</div>
+        <div class="document-subtitle">SUPORTE DE FIXACAO — LBD-0002 — Valvula de Dosagem</div>
+        <div class="document-subtitle">Orcamento 014/2026 — LUBRISYSTEM</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno — Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL — USO INTERNO LASEC — NAO ENVIAR AO CLIENTE</div>
+
+<div class="alerta-importante">
+    <h4>DADOS ATUALIZADOS LASEC 2026</h4>
+    <p><strong>Processo:</strong> 2 maquinas — Doosan Lynx 220LM + Discovery 760 (4o eixo)</p>
+    <p><strong>Hora-maquina producao:</strong> R$ 120,00/h</p>
+    <p><strong>Hora-maquina setup:</strong> R$ 180,00/h (1,5x producao)</p>
+    <p><strong>Fonte:</strong> Planilha "custos_ferramentaria lasec.xls" (IPCA + dissidio metalurgicos 2025-2026)</p>
+    <p><strong>Simples Nacional LASEC:</strong> 10% (faixa de faturamento atual)</p>
+    <p><strong>Setup LYNX:</strong> 1,5h = R$ 270,00 | <strong>Setup Centro:</strong> 1,0h = R$ 180,00 | <strong>Setup Total:</strong> 2,5h = R$ 450,00</p>
+</div>
+
+<div class="info-box">
+    <h3>Dados da Peca</h3>
+    <p><strong>Codigo:</strong> LBD-0002</p>
+    <p><strong>Descricao:</strong> Suporte de Fixacao — Valvula de Dosagem</p>
+    <p><strong>Material:</strong> Aluminio liga 6351-T6 — Fornecido pelo cliente</p>
+    <p><strong>Maquinas:</strong> Doosan Lynx 220LM (Op.1: 5,0 min) + Discovery 760 4o eixo (Op.2: 7,0 min)</p>
+    <p><strong>Tempo de Fabricacao:</strong> 12,0 min/peca (9,5 min produtivo + 2,5 min improdutivo)</p>
+</div>
+
+<h2 class="section-title">Parametros de Calculo</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Parametro</th>
+            <th>Valor</th>
+            <th>Observacoes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Hora-Maquina (producao)</strong></td>
+            <td><strong>R$ 120,00/h</strong></td>
+            <td>Ambas maquinas — taxa padrao LASEC 2026</td>
+        </tr>
+        <tr>
+            <td><strong>Hora-Maquina (setup)</strong></td>
+            <td><strong>R$ 180,00/h</strong></td>
+            <td>1,5x producao — operador especializado</td>
+        </tr>
+        <tr>
+            <td><strong>Setup Op.1 — LYNX</strong></td>
+            <td><strong>1,5h = R$ 270,00</strong></td>
+            <td>Castanha mole + programacao + 1a peca</td>
+        </tr>
+        <tr>
+            <td><strong>Setup Op.2 — Centro 4o eixo</strong></td>
+            <td><strong>1,0h = R$ 180,00</strong></td>
+            <td>Morsa + 4o eixo + programacao + 1a peca</td>
+        </tr>
+        <tr>
+            <td><strong>Setup Total (custo fixo)</strong></td>
+            <td><strong>2,5h = R$ 450,00</strong></td>
+            <td>Diluido no lote</td>
+        </tr>
+        <tr>
+            <td><strong>Tempo Op.1 LYNX</strong></td>
+            <td>5,0 min/peca</td>
+            <td>Bore + furacao Z + bolt circle 8xM4</td>
+        </tr>
+        <tr>
+            <td><strong>Tempo Op.2 Centro</strong></td>
+            <td>7,0 min/peca</td>
+            <td>Fresamento perfil + furacao multi-face</td>
+        </tr>
+        <tr>
+            <td><strong>Tempo Total/Peca</strong></td>
+            <td><strong>12,0 min</strong></td>
+            <td>LYNX 5,0 + Centro 7,0</td>
+        </tr>
+        <tr>
+            <td><strong>CIF (Custos Indiretos)</strong></td>
+            <td>58% sobre MOD</td>
+            <td>Energia, depreciacao, manutencao, ferramentas</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 class="section-title">Calculo Detalhado — Lote 50 pecas (SOLICITADO PELO CLIENTE)</h2>
+
+<div class="calculo-detalhado">
+    <h4 style="color: #1e3c72; margin-top: 0;">Demonstracao de Calculo</h4>
+
+    <div class="calculo-linha">
+        <span><strong>1. Setup (custo fixo — 2 maquinas)</strong></span>
+        <span></span>
+    </div>
+    <div class="calculo-linha">
+        <span>* Op.1 LYNX: 1,5h x R$ 180,00/h</span>
+        <span>R$ 270,00</span>
+    </div>
+    <div class="calculo-linha">
+        <span>* Op.2 Centro: 1,0h x R$ 180,00/h</span>
+        <span>R$ 180,00</span>
+    </div>
+    <div class="calculo-linha destaque-calc">
+        <span>Setup Total</span>
+        <span>R$ 450,00</span>
+    </div>
+
+    <div class="calculo-linha" style="margin-top: 20px;">
+        <span><strong>2. Mao de Obra Direta (MOD)</strong></span>
+        <span></span>
+    </div>
+    <div class="calculo-linha">
+        <span>* Tempo total producao: 50 pcs x 12,0 min</span>
+        <span>600 minutos</span>
+    </div>
+    <div class="calculo-linha">
+        <span>* Conversao para horas: 600 min / 60</span>
+        <span>10,00 horas</span>
+    </div>
+    <div class="calculo-linha">
+        <span>* Custo MOD: 10,00h x R$ 120,00/h</span>
+        <span>R$ 1.200,00</span>
+    </div>
+    <div class="calculo-linha destaque-calc">
+        <span>MOD Total</span>
+        <span>R$ 1.200,00</span>
+    </div>
+
+    <div class="calculo-linha" style="margin-top: 20px;">
+        <span><strong>3. Custos Indiretos de Fabricacao (CIF)</strong></span>
+        <span></span>
+    </div>
+    <div class="calculo-linha">
+        <span>* Base CIF: Setup + MOD</span>
+        <span>R$ 450,00 + R$ 1.200,00 = R$ 1.650,00</span>
+    </div>
+    <div class="calculo-linha">
+        <span>* CIF = 58% sobre (Setup + MOD)</span>
+        <span>R$ 1.650,00 x 0,58</span>
+    </div>
+    <div class="calculo-linha destaque-calc">
+        <span>CIF Total</span>
+        <span>R$ 957,00</span>
+    </div>
+
+    <div class="calculo-linha" style="margin-top: 20px; border-top: 3px solid #1e3c72; padding-top: 15px; font-size: 18px; font-weight: bold; color: #1e3c72;">
+        <span>CUSTO TOTAL LOTE 50</span>
+        <span>R$ 2.607,00</span>
+    </div>
+
+    <div class="calculo-linha" style="font-size: 20px; font-weight: bold; color: #28a745; border: 3px solid #28a745; background-color: #d4edda; padding: 15px; margin: 15px -15px; border-radius: 8px;">
+        <span>CUSTO POR PECA (LOTE 50)</span>
+        <span>R$ 52,14/peca</span>
+    </div>
+</div>
+
+<h2 class="section-title">Tabela Comparativa de Custos por Lote</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Lote<br>(pecas)</th>
+            <th>Setup<br>(R$)</th>
+            <th>MOD<br>(R$)</th>
+            <th>CIF 58%<br>(R$)</th>
+            <th>Custo Total<br>(R$)</th>
+            <th style="background-color: #1a3260;">Custo/Peca<br>(R$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>10 pecas</strong></td>
+            <td>450,00</td>
+            <td>240,00</td>
+            <td>400,20</td>
+            <td>1.090,20</td>
+            <td style="background-color: #f8f9fa;"><strong>R$ 109,02</strong></td>
+        </tr>
+        <tr>
+            <td><strong>30 pecas</strong></td>
+            <td>450,00</td>
+            <td>720,00</td>
+            <td>678,60</td>
+            <td>1.848,60</td>
+            <td style="background-color: #f8f9fa;"><strong>R$ 61,62</strong></td>
+        </tr>
+        <tr class="destaque">
+            <td><strong>50 pecas</strong></td>
+            <td>450,00</td>
+            <td>1.200,00</td>
+            <td>957,00</td>
+            <td>2.607,00</td>
+            <td><strong>R$ 52,14</strong></td>
+        </tr>
+        <tr>
+            <td><strong>100 pecas</strong></td>
+            <td>450,00</td>
+            <td>2.400,00</td>
+            <td>1.653,00</td>
+            <td>4.503,00</td>
+            <td style="background-color: #f8f9fa;"><strong>R$ 45,03</strong></td>
+        </tr>
+        <tr>
+            <td><strong>200 pecas</strong></td>
+            <td>450,00</td>
+            <td>4.800,00</td>
+            <td>3.045,00</td>
+            <td>8.295,00</td>
+            <td style="background-color: #f8f9fa;"><strong>R$ 41,48</strong></td>
+        </tr>
+        <tr>
+            <td><strong>500 pecas</strong></td>
+            <td>450,00</td>
+            <td>12.000,00</td>
+            <td>7.221,00</td>
+            <td>19.671,00</td>
+            <td style="background-color: #f8f9fa;"><strong>R$ 39,34</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="info-box">
+    <h3>Observacoes Importantes</h3>
+    <ul>
+        <li><strong>Setup:</strong> Custo fixo de R$ 450,00 (2,5h em 2 maquinas) diluido entre as pecas do lote</li>
+        <li><strong>MOD:</strong> Maior componente do custo — 12,0 min/peca x R$ 120,00/h = R$ 24,00/peca</li>
+        <li><strong>CIF:</strong> 58% sobre (Setup + MOD) — cobre energia, depreciacao, manutencao, ferramentas</li>
+        <li><strong>Material:</strong> Aluminio 6351-T6 fornecido pelo cliente — NAO incluso no custo</li>
+        <li><strong>Impacto do Setup:</strong> Setup/peca cai de R$ 45,00 (lote 10) para R$ 0,90 (lote 500)</li>
+        <li><strong>Ponto otimo:</strong> A partir de 100 pecas o custo estabiliza (~R$ 45/peca)</li>
+    </ul>
+</div>
+
+<div class="alerta-importante">
+    <h4>CONCLUSAO — LOTE 50 PECAS (SOLICITADO PELO CLIENTE)</h4>
+    <p><strong>Custo por peca: R$ 52,14</strong></p>
+    <p><strong>Custo total lote: R$ 2.607,00</strong></p>
+    <br>
+    <p><strong>Recomendacao:</strong> Lote de 100 pecas reduz custo para R$ 45,03/peca (economia de 14% vs lote 50). Se o cliente tiver demanda recorrente, sugerir lote 100.</p>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> — Usinagem de Precisao CNC<br>
+    Rua Alvaro Silva, 233 — Bairro do Limao — Sao Paulo/SP — CEP 02723-020<br>
+    Tel: (11) 3936-5041 / (11) 3935-1271<br>
+    Data: 06/03/2026 | Orcamento 014/2026 — LUBRISYSTEM | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL — NAO DISTRIBUIR</span>
+</div>
+
+</div>
+
+</body>
+</html>

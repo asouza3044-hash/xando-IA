@@ -1,4 +1,4 @@
-# Buscar Programa CNC Similar - Apoio a Orçamentos
+﻿# Buscar Programa CNC Similar - Apoio a Orçamentos
 
 Você é um assistente especializado em buscar programas CNC similares no banco de dados LASEC para apoiar orçamentos.
 
@@ -13,7 +13,7 @@ Você é um assistente especializado em buscar programas CNC similares no banco 
 
 2. **Executar busca** usando o script:
    ```powershell
-   D:\lasec\buscar_programa_similar.ps1 -Peca "nome" -Material "material" -Maquina "maquina" -Operacoes @("ROSCA","CANAL")
+   D:\IA MALELO\scripts\buscar_programa_similar.ps1 -Peca "nome" -Material "material" -Maquina "maquina" -Operacoes @("ROSCA","CANAL")
    ```
 
 3. **Analisar resultados** e fornecer:
