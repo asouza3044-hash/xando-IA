@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Organizador Financeiro - Alexandre</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root { --app-blue:#1565C0; --app-dark:#0D47A1; }
+    body { background:#f0f4f8; font-family:'Segoe UI',sans-serif; padding-bottom:90px; }
+
+    .navbar { background:var(--app-dark); }
+    .navbar-brand { font-weight:700; letter-spacing:1px; color:#fff !important; }
+
+    .nav-tabs .nav-link { color:#555; font-weight:500; font-size:.9rem; padding:.5rem .8rem; }
+    .nav-tabs .nav-link.active { color:var(--app-blue); font-weight:700; border-bottom:3px solid var(--app-blue); background:none; }
+
+    .card-resumo { border:none; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.1); }
+    .card-resumo .valor { font-size:1.4rem; font-weight:700; }
+
+    .item-row { background:#fff; border-radius:10px; padding:14px 18px;
+                margin-bottom:8px; box-shadow:0 1px 4px rgba(0,0,0,.07);
+                cursor:pointer; transition:box-shadow .2s; }
+    .item-row:hover { box-shadow:0 3px 12px rgba(0,0,0,.15); }
+
+    /* ── Badges ─────────────────────────────────────────────── */
+    .badge-tipo { font-size:.72rem; font-weight:600; padding:3px 9px; border-radius:20px; white-space:nowrap; }
+    .badge-fixo        { background:#e3f2fd; color:#1565C0; }
+    .badge-imposto     { background:#fce4ec; color:#c62828; }
+    .badge-parcela     { background:#f3e5f5; color:#7b1fa2; }
+    .badge-moradia     { background:#e3f2fd; color:#0d47a1; }
+    .badge-alimentacao { background:#fff3e0; color:#e65100; }
+    .badge-transporte  { background:#e8eaf6; color:#3949ab; }
+    .badge-saude       { background:#fce4ec; color:#c62828; }
+    .badge-lazer       { background:#f3e5f5; color:#7b1fa2; }
+    .badge-educacao    { background:#e8f5e9; color:#1b5e20; }
+    .badge-vestuario   { background:#fce4ec; color:#880e4f; }
+    .badge-servicos    { background:#fff8e1; color:#e65100; }
+    .badge-restaurante { background:#fff3e0; color:#bf360c; }
+    .badge-mercado     { background:#f1f8e9; color:#33691e; }
+    .badge-salario     { background:#e8f5e9; color:#2e7d32; }
+    .badge-cliente     { background:#e0f2f1; color:#00695c; }
+    .badge-aluguel     { background:#fff8e1; color:#f57f17; }
+    .badge-investimento{ background:#e8eaf6; color:#283593; }
+    .badge-bonus       { background:#e0f2f1; color:#004d40; }
+    .badge-outros      { background:#eceff1; color:#546e7a; }
+    .badge-corrente    { background:#e3f2fd; color:#1565C0; }
+    .badge-poupanca    { background:#e8f5e9; color:#2e7d32; }
+    .badge-digital     { background:#f3e5f5; color:#7b1fa2; }
+    .badge-carteira    { background:#fff8e1; color:#f57f17; }
+
+    /* ── Status ─────────────────────────────────────────────── */
+    .status-icon { font-size:1.3rem; }
+    .status-pago,.status-recebido { color:#2e7d32; }
+    .status-vencida,.status-atrasado { color:#c62828; }
+    .status-a_vencer { color:#f57f17; }
+    .status-ok,.status-pendente { color:#1565C0; }
+    .status-despesa { color:#c62828; }
+    .status-receita { color:#2e7d32; }
+
+    .nav-mes { font-size:1.1rem; font-weight:600; color:var(--app-blue); min-width:160px; text-align:center; }
+    .filtro-btn.active { background:var(--app-blue) !important; color:#fff !important; border-color:var(--app-blue) !important; }
+    .section-title { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#888; margin:18px 0 8px; }
+    .saldo-positivo { color:#2e7d32; }
+    .saldo-negativo { color:#c62828; }
+
+    /* ── Cartão card ─────────────────────────────────────────── */
+    .cartao-card { background:#fff; border-radius:14px; padding:18px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,.1); }
+    .cartao-card .fatura-total { font-size:1.8rem; font-weight:700; color:#c62828; }
+
+    /* ── Conta bancária card ─────────────────────────────────── */
+    .banco-card { background:#fff; border-radius:14px; padding:18px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,.1); }
+
+    /* ── FAB ─────────────────────────────────────────────────── */
+    #btn-fab { position:fixed; bottom:28px; right:28px; width:58px; height:58px;
+               border-radius:50%; font-size:1.6rem; z-index:10001; border:none;
+               display:flex; align-items:center; justify-content:center;
+               box-shadow:0 4px 16px rgba(0,0,0,.3); cursor:pointer;
+               background:#c62828; color:#fff; transition:transform .15s; }
+    #btn-fab:hover { transform:scale(1.1); }
+
+    #toast-container { position:fixed; top:80px; right:24px; z-index:9999; pointer-events:none; }
+    #toast-container .toast { pointer-events:auto; }
+    canvas { max-height:280px; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark px-4 py-2">
+  <span class="navbar-brand"><i class="bi bi-wallet2 me-2"></i>Organizador Financeiro · Alexandre</span>
+</nav>
+
+<div class="container-fluid px-3 mt-3">
+
+  <!-- Navegação mês -->
+  <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+    <button class="btn btn-outline-secondary btn-sm" onclick="mudarMes(-1)"><i class="bi bi-chevron-left"></i></button>
+    <span class="nav-mes" id="label-mes">Carregando...</span>
+    <button class="btn btn-outline-secondary btn-sm" onclick="mudarMes(1)"><i class="bi bi-chevron-right"></i></button>
+    <button class="btn btn-link btn-sm text-secondary" onclick="irParaHoje()">Hoje</button>
+    <div class="ms-auto d-flex gap-2 align-items-center">
+      <button class="btn btn-sm btn-outline-success" onclick="abrirImportar()" title="Importar extrato bancário">
+        <i class="bi bi-upload me-1"></i>Importar Extrato
+      </button>
+      <div class="d-none" id="btn-novo-container">
+        <button class="btn btn-sm btn-primary" id="btn-novo" onclick="abrirNovoContextual()">
+          <i class="bi bi-plus-lg me-1"></i><span id="btn-novo-label">Novo</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Abas -->
+  <ul class="nav nav-tabs mb-3" id="abas-principais">
+    <li class="nav-item"><a class="nav-link active" href="#" onclick="mostrarAba('dashboard',this)"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('a-pagar',this)"><i class="bi bi-arrow-up-circle me-1"></i>A Pagar</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('a-receber',this)"><i class="bi bi-arrow-down-circle me-1"></i>A Receber</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('cartao',this)"><i class="bi bi-credit-card me-1"></i>Cartão</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('contas',this)"><i class="bi bi-bank me-1"></i>Contas</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('lancamentos',this)"><i class="bi bi-list-ul me-1"></i>Lançamentos</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('relatorios',this)"><i class="bi bi-bar-chart-line me-1"></i>Relatórios</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarAba('historico',this)"><i class="bi bi-clock-history me-1"></i>Histórico</a></li>
+  </ul>
+
+  <!-- ═══ DASHBOARD ═══ -->
+  <div id="painel-dashboard">
+    <div class="row g-2 mb-3">
+      <div class="col-6 col-md-2"><div class="card card-resumo p-3"><div class="text-muted small">A Pagar</div><div class="valor text-danger" id="d-saidas">R$ –</div></div></div>
+      <div class="col-6 col-md-2"><div class="card card-resumo p-3"><div class="text-muted small">Pago</div><div class="valor text-secondary" id="d-pago">R$ –</div></div></div>
+      <div class="col-6 col-md-2"><div class="card card-resumo p-3"><div class="text-muted small">A Receber</div><div class="valor text-success" id="d-entradas">R$ –</div></div></div>
+      <div class="col-6 col-md-2"><div class="card card-resumo p-3"><div class="text-muted small">Recebido</div><div class="valor text-success" id="d-recebido">R$ –</div></div></div>
+      <div class="col-6 col-md-2"><div class="card card-resumo p-3"><div class="text-muted small">Cartão</div><div class="valor text-warning" id="d-cartao">R$ –</div></div></div>
+      <div class="col-6 col-md-2"><div class="card card-resumo p-3"><div class="text-muted small fw-bold">Saldo Real</div><div class="valor" id="d-saldo">R$ –</div></div></div>
+    </div>
+    <div id="dashboard-alertas" class="mb-2"></div>
+    <div id="dashboard-orcamentos" class="mb-3"></div>
+  </div>
+
+  <!-- ═══ A PAGAR ═══ -->
+  <div id="painel-a-pagar" class="d-none">
+    <div class="d-flex gap-2 flex-wrap mb-3">
+      <button class="btn btn-sm btn-outline-secondary filtro-btn active" data-filtro="todos" onclick="filtrar(this,'pagar')">Todos</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="fixo" onclick="filtrar(this,'pagar')">Fixo</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="imposto" onclick="filtrar(this,'pagar')">Imposto</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="parcela" onclick="filtrar(this,'pagar')">Parcela</button>
+      <button class="btn btn-sm btn-outline-danger filtro-btn ms-2" data-filtro="vencida" onclick="filtrar(this,'pagar')"><i class="bi bi-exclamation-triangle-fill me-1"></i>Vencidas</button>
+    </div>
+    <div id="lista-pagar"></div>
+  </div>
+
+  <!-- ═══ A RECEBER ═══ -->
+  <div id="painel-a-receber" class="d-none">
+    <div class="d-flex gap-2 flex-wrap mb-3">
+      <button class="btn btn-sm btn-outline-secondary filtro-btn active" data-filtro="todos" onclick="filtrar(this,'receber')">Todos</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="salario" onclick="filtrar(this,'receber')">Salário</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="cliente" onclick="filtrar(this,'receber')">Cliente</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="aluguel" onclick="filtrar(this,'receber')">Aluguel</button>
+      <button class="btn btn-sm btn-outline-secondary filtro-btn" data-filtro="outros" onclick="filtrar(this,'receber')">Outros</button>
+    </div>
+    <div id="lista-receber"></div>
+  </div>
+
+  <!-- ═══ CARTÃO ═══ -->
+  <div id="painel-cartao" class="d-none"><div id="lista-cartoes-painel"></div></div>
+
+  <!-- ═══ CONTAS BANCÁRIAS ═══ -->
+  <div id="painel-contas" class="d-none"><div id="lista-contas-bancarias"></div></div>
+
+  <!-- ═══ LANÇAMENTOS AVULSOS ═══ -->
+  <div id="painel-lancamentos" class="d-none">
+    <div class="d-flex gap-2 flex-wrap mb-3">
+      <button class="btn btn-sm btn-outline-secondary filtro-btn active" data-filtro="todos" onclick="filtrar(this,'lanc')">Todos</button>
+      <button class="btn btn-sm btn-outline-danger filtro-btn" data-filtro="despesa" onclick="filtrar(this,'lanc')"><i class="bi bi-arrow-up me-1"></i>Despesas</button>
+      <button class="btn btn-sm btn-outline-success filtro-btn" data-filtro="receita" onclick="filtrar(this,'lanc')"><i class="bi bi-arrow-down me-1"></i>Receitas</button>
+    </div>
+    <div id="lista-lancamentos"></div>
+  </div>
+
+  <!-- ═══ RELATÓRIOS ═══ -->
+  <div id="painel-relatorios" class="d-none">
+    <div class="row g-3">
+      <div class="col-12 col-lg-8"><div class="card card-resumo p-3"><div class="section-title mb-2">Entradas vs Saídas — 12 meses</div><canvas id="chart-barras"></canvas></div></div>
+      <div class="col-12 col-lg-4"><div class="card card-resumo p-3"><div class="section-title mb-2">Gastos por categoria</div><canvas id="chart-rosca"></canvas></div></div>
+      <div class="col-12"><div class="card card-resumo p-3"><div class="section-title mb-2">Saldo mês a mês</div><canvas id="chart-linha"></canvas></div></div>
+      <div class="col-12">
+        <div class="card card-resumo p-3">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="section-title mb-0">Orçamento vs Gasto real</div>
+            <button class="btn btn-sm btn-outline-primary" onclick="abrirModalOrcamento()"><i class="bi bi-plus-lg me-1"></i>Novo orçamento</button>
+          </div>
+          <div id="relatorio-orcamentos"><p class="text-muted small">Nenhum orçamento configurado.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HISTÓRICO ═══ -->
+  <div id="painel-historico" class="d-none">
+    <div class="row g-3">
+      <div class="col-12 col-md-6"><div class="section-title">Pagamentos realizados</div><div id="lista-hist-pagamentos"></div></div>
+      <div class="col-12 col-md-6"><div class="section-title">Valores recebidos</div><div id="lista-hist-recebimentos"></div></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FAB -->
+<button id="btn-fab" onclick="abrirQuickAdd()" title="Lançamento rápido">
+  <i class="bi bi-plus-lg"></i>
+</button>
+
+<div id="toast-container"></div>
+
+<!-- ═══════════════════════════════ MODAIS ═══════════════════════════════ -->
+
+<!-- Importar Extrato -->
+<div class="modal fade" id="modalImportar" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="background:#1b5e20">
+        <h5 class="modal-title text-white"><i class="bi bi-upload me-2"></i>Importar Extrato Bancário</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Step 1: upload + conta -->
+        <div id="imp-step1">
+          <div id="imp-dropzone"
+               class="rounded-3 p-5 text-center mb-3"
+               style="border:2px dashed #adb5bd;cursor:pointer;transition:border-color .2s"
+               onclick="document.getElementById('imp-file').click()"
+               ondragover="event.preventDefault();this.style.borderColor='#0d6efd'"
+               ondragleave="this.style.borderColor='#adb5bd'"
+               ondrop="importarDrop(event)">
+            <i class="bi bi-cloud-upload fs-1 text-success d-block mb-2"></i>
+            <p class="mb-1 fw-semibold">Arraste o arquivo aqui ou clique para selecionar</p>
+            <p class="text-muted small mb-1">Formatos suportados: <strong>OFX · QFX · CSV · TXT · XLS · XLSX</strong></p>
+            <p class="text-muted small mb-0">Nubank · Itaú · Bradesco · Santander · Banco do Brasil · Caixa · Inter · C6 · Sicoob · Sicredi · PagBank · e mais</p>
+          </div>
+          <input type="file" id="imp-file" class="d-none"
+                 accept=".ofx,.qfx,.csv,.txt,.xls,.xlsx"
+                 onchange="importarArquivo(this.files[0])">
+          <div class="mb-2">
+            <label class="form-label fw-semibold">Vincular à conta bancária (opcional)</label>
+            <select class="form-select" id="imp-conta-bancaria">
+              <option value="">— nenhuma —</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="imp-loading" class="d-none text-center py-5">
+          <div class="spinner-border text-success"></div>
+          <p class="mt-3 text-muted">Processando arquivo...</p>
+        </div>
+
+        <!-- Step 2: preview -->
+        <div id="imp-step2" class="d-none">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span id="imp-resumo" class="fw-semibold text-success"></span>
+            <button class="btn btn-sm btn-outline-secondary" onclick="voltarImport()">
+              <i class="bi bi-arrow-left me-1"></i>Voltar
+            </button>
+          </div>
+          <div class="table-responsive" style="max-height:380px;overflow-y:auto">
+            <table class="table table-sm table-hover mb-0">
+              <thead class="table-light sticky-top">
+                <tr>
+                  <th style="width:36px"><input type="checkbox" id="imp-sel-all" checked onchange="selecionarTodosImport(this)"></th>
+                  <th style="width:90px">Data</th>
+                  <th>Descrição</th>
+                  <th style="width:80px">Tipo</th>
+                  <th style="width:100px">Valor</th>
+                  <th style="width:130px">Categoria</th>
+                </tr>
+              </thead>
+              <tbody id="imp-preview-body"></tbody>
+            </table>
+          </div>
+          <p class="text-muted small mt-2 mb-0">
+            <i class="bi bi-info-circle me-1"></i>Desmarque linhas que não quer importar. Ajuste a categoria antes de confirmar.
+          </p>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="abrirRegras()">
+          <i class="bi bi-tags me-1"></i>Regras de Classificação
+        </button>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-success d-none" id="imp-btn-confirmar" onclick="confirmarImportacao()">
+            <i class="bi bi-check-lg me-1"></i>Importar selecionados
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Regras de Classificação -->
+<div class="modal fade" id="modalRegras" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-tags me-2"></i>Regras de Classificação</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted small mb-3">Palavras-chave encontradas na descrição da transação → categoria automática. As regras do topo têm prioridade.</p>
+
+        <!-- Adicionar regra -->
+        <div class="card mb-3">
+          <div class="card-body py-2">
+            <div class="row g-2 align-items-end">
+              <div class="col-5">
+                <label class="form-label small fw-semibold mb-1">Palavra-chave</label>
+                <input type="text" class="form-control form-control-sm" id="reg-kw" placeholder="Ex: IFOOD, UBER...">
+              </div>
+              <div class="col-5">
+                <label class="form-label small fw-semibold mb-1">Categoria</label>
+                <select class="form-select form-select-sm" id="reg-cat">
+                  <option value="moradia">Moradia</option>
+                  <option value="alimentacao">Alimentação</option>
+                  <option value="transporte">Transporte</option>
+                  <option value="saude">Saúde</option>
+                  <option value="lazer">Lazer</option>
+                  <option value="educacao">Educação</option>
+                  <option value="vestuario">Vestuário</option>
+                  <option value="servicos">Serviços</option>
+                  <option value="restaurante">Restaurante</option>
+                  <option value="mercado">Mercado</option>
+                  <option value="salario">Salário</option>
+                  <option value="cliente">Cliente</option>
+                  <option value="aluguel">Aluguel</option>
+                  <option value="investimento">Investimento</option>
+                  <option value="bonus">Bônus</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-primary btn-sm w-100" onclick="adicionarRegra()"><i class="bi bi-plus-lg"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de regras -->
+        <div id="reg-lista" style="max-height:380px;overflow-y:auto"></div>
+
+        <div class="mt-3 border-top pt-2">
+          <button class="btn btn-sm btn-outline-danger" onclick="restaurarRegras()">
+            <i class="bi bi-arrow-counterclockwise me-1"></i>Restaurar regras padrão
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="fecharRegras()">
+          <i class="bi bi-check-lg me-1"></i>Salvar e fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Add -->
+<div class="modal fade" id="modalQuickAdd" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header py-2" id="qa-header" style="background:#c62828">
+        <h5 class="modal-title text-white"><i class="bi bi-lightning-fill me-2"></i>Lançamento Rápido</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex gap-2 mb-3">
+          <button class="btn flex-fill btn-danger" id="qa-btn-despesa" onclick="setTipoQA('despesa')"><i class="bi bi-arrow-up-circle me-1"></i>Despesa</button>
+          <button class="btn flex-fill btn-outline-success" id="qa-btn-receita" onclick="setTipoQA('receita')"><i class="bi bi-arrow-down-circle me-1"></i>Receita</button>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Valor (R$) *</label>
+          <input type="number" class="form-control form-control-lg" id="qa-valor" min="0" step="0.01" placeholder="0,00" style="font-size:1.4rem;font-weight:700">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Descrição *</label>
+          <input type="text" class="form-control" id="qa-descricao" placeholder="Ex: Mercado, Uber, Salário...">
+        </div>
+        <div class="row g-2 mb-3">
+          <div class="col-6">
+            <label class="form-label fw-semibold">Categoria *</label>
+            <select class="form-select" id="qa-categoria"></select>
+          </div>
+          <div class="col-6">
+            <label class="form-label fw-semibold">Data *</label>
+            <input type="date" class="form-control" id="qa-data">
+          </div>
+        </div>
+        <div class="mb-2">
+          <label class="form-label fw-semibold">Conta bancária</label>
+          <select class="form-select" id="qa-conta-bancaria"><option value="">— nenhuma —</option></select>
+        </div>
+        <div class="mt-2">
+          <a href="#" class="small text-muted" onclick="toggleQaObs(event)">+ Observação opcional</a>
+          <textarea class="form-control mt-1 d-none" id="qa-obs" rows="2" placeholder="Observação..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarQuickAdd()"><i class="bi bi-check-lg me-1"></i>Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Conta a Pagar -->
+<div class="modal fade" id="modalConta" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title" id="modalContaTitulo">Nova Conta</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="conta-id">
+        <div class="mb-3"><label class="form-label fw-semibold">Nome *</label><input type="text" class="form-control" id="conta-nome"></div>
+        <div class="row g-2 mb-3">
+          <div class="col-4"><label class="form-label fw-semibold">Tipo *</label>
+            <select class="form-select" id="conta-tipo" onchange="atualizarCamposTipo()">
+              <option value="fixo">Fixo</option><option value="imposto">Imposto</option><option value="parcela">Parcela</option>
+            </select>
+          </div>
+          <div class="col-4"><label class="form-label fw-semibold">Dia venc. *</label><input type="number" class="form-control" id="conta-dia" min="1" max="31"></div>
+          <div class="col-4"><label class="form-label fw-semibold">Valor *</label><input type="number" class="form-control" id="conta-valor" min="0" step="0.01"></div>
+        </div>
+        <div class="mb-3"><label class="form-label fw-semibold">Categoria</label>
+          <select class="form-select" id="conta-categoria">
+            <option value="moradia">Moradia</option><option value="alimentacao">Alimentação</option>
+            <option value="transporte">Transporte</option><option value="saude">Saúde</option>
+            <option value="educacao">Educação</option><option value="lazer">Lazer</option>
+            <option value="servicos">Serviços</option><option value="outros" selected>Outros</option>
+          </select>
+        </div>
+        <div class="mb-3 d-none" id="campo-parcelas"><label class="form-label fw-semibold">Total de parcelas</label><input type="number" class="form-control" id="conta-parcelas-total" min="1"></div>
+        <div class="mb-3"><label class="form-label fw-semibold">Descrição</label><textarea class="form-control" id="conta-descricao" rows="2"></textarea></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger me-auto d-none" id="btn-arquivar-conta" onclick="arquivarContaAtual()"><i class="bi bi-archive me-1"></i>Arquivar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarConta()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Receita -->
+<div class="modal fade" id="modalReceita" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title" id="modalReceitaTitulo">Nova Receita</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="receita-id">
+        <div class="mb-3"><label class="form-label fw-semibold">Nome *</label><input type="text" class="form-control" id="receita-nome"></div>
+        <div class="row g-2 mb-3">
+          <div class="col-4"><label class="form-label fw-semibold">Tipo *</label>
+            <select class="form-select" id="receita-tipo">
+              <option value="salario">Salário</option><option value="cliente">Cliente</option><option value="aluguel">Aluguel</option><option value="outros">Outros</option>
+            </select>
+          </div>
+          <div class="col-4"><label class="form-label fw-semibold">Dia previsto *</label><input type="number" class="form-control" id="receita-dia" min="1" max="31"></div>
+          <div class="col-4"><label class="form-label fw-semibold">Valor *</label><input type="number" class="form-control" id="receita-valor" min="0" step="0.01"></div>
+        </div>
+        <div class="mb-3"><label class="form-label fw-semibold">Categoria</label>
+          <select class="form-select" id="receita-categoria">
+            <option value="salario">Salário</option><option value="cliente">Cliente</option>
+            <option value="aluguel">Aluguel</option><option value="investimento">Investimento</option>
+            <option value="bonus">Bônus</option><option value="outros" selected>Outros</option>
+          </select>
+        </div>
+        <div class="mb-3"><label class="form-label fw-semibold">Descrição</label><textarea class="form-control" id="receita-descricao" rows="2"></textarea></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger me-auto d-none" id="btn-arquivar-receita" onclick="arquivarReceitaAtual()"><i class="bi bi-archive me-1"></i>Arquivar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" onclick="salvarReceita()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cartão -->
+<div class="modal fade" id="modalCartao" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title" id="modalCartaoTitulo">Novo Cartão</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="cartao-id">
+        <div class="mb-3"><label class="form-label fw-semibold">Nome *</label><input type="text" class="form-control" id="cartao-nome" placeholder="Ex: Nubank, Itaú..."></div>
+        <div class="row g-2 mb-3">
+          <div class="col-4"><label class="form-label fw-semibold">Limite</label><input type="number" class="form-control" id="cartao-limite" min="0" step="0.01"></div>
+          <div class="col-4"><label class="form-label fw-semibold">Fechamento *</label><input type="number" class="form-control" id="cartao-fechamento" min="1" max="31" placeholder="dia"></div>
+          <div class="col-4"><label class="form-label fw-semibold">Vencimento *</label><input type="number" class="form-control" id="cartao-vencimento" min="1" max="31" placeholder="dia"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarCartao()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lançamento Cartão -->
+<div class="modal fade" id="modalLancamento" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Novo Lançamento</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="lanc-cartao-id">
+        <div class="mb-3"><label class="form-label fw-semibold">Descrição *</label><input type="text" class="form-control" id="lanc-descricao" placeholder="Ex: Supermercado..."></div>
+        <div class="row g-2 mb-3">
+          <div class="col-6"><label class="form-label fw-semibold">Valor *</label><input type="number" class="form-control" id="lanc-valor" min="0" step="0.01"></div>
+          <div class="col-6"><label class="form-label fw-semibold">Categoria</label>
+            <select class="form-select" id="lanc-categoria">
+              <option value="alimentacao">Alimentação</option><option value="transporte">Transporte</option>
+              <option value="saude">Saúde</option><option value="lazer">Lazer</option>
+              <option value="restaurante">Restaurante</option><option value="mercado">Mercado</option>
+              <option value="vestuario">Vestuário</option><option value="outros" selected>Outros</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3"><label class="form-label fw-semibold">Data *</label><input type="date" class="form-control" id="lanc-data"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarLancamento()">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Conta Bancária -->
+<div class="modal fade" id="modalContaBancaria" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title" id="modalBancoTitulo">Nova Conta Bancária</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <input type="hidden" id="banco-id">
+        <div class="mb-3"><label class="form-label fw-semibold">Nome *</label><input type="text" class="form-control" id="banco-nome" placeholder="Ex: Nubank, Bradesco, Carteira..."></div>
+        <div class="row g-2 mb-3">
+          <div class="col-6"><label class="form-label fw-semibold">Tipo *</label>
+            <select class="form-select" id="banco-tipo">
+              <option value="digital">Digital</option><option value="corrente">Corrente</option>
+              <option value="poupanca">Poupança</option><option value="carteira">Carteira/Dinheiro</option>
+            </select>
+          </div>
+          <div class="col-6"><label class="form-label fw-semibold">Saldo inicial (R$)</label><input type="number" class="form-control" id="banco-saldo" min="0" step="0.01" placeholder="0,00"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarContaBancaria()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Orçamento -->
+<div class="modal fade" id="modalOrcamento" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Novo Orçamento</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label fw-semibold">Categoria *</label>
+          <select class="form-select" id="orc-categoria">
+            <option value="moradia">Moradia</option><option value="alimentacao">Alimentação</option>
+            <option value="transporte">Transporte</option><option value="saude">Saúde</option>
+            <option value="lazer">Lazer</option><option value="educacao">Educação</option>
+            <option value="vestuario">Vestuário</option><option value="servicos">Serviços</option>
+            <option value="restaurante">Restaurante</option><option value="mercado">Mercado</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+        <div class="mb-3"><label class="form-label fw-semibold">Limite mensal (R$) *</label><input type="number" class="form-control" id="orc-limite" min="0" step="0.01"></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" id="orc-recorrente" checked><label class="form-check-label" for="orc-recorrente">Recorrente (todos os meses)</label></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarOrcamento()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ações (pagar/receber) -->
+<div class="modal fade" id="modalAcoes" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header"><h6 class="modal-title" id="acoes-nome">–</h6><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body d-grid gap-2">
+        <button class="btn btn-success" id="btn-acao-principal" onclick="abrirModalRegistro()"><i class="bi bi-check-circle me-2"></i><span id="label-acao-principal">Registrar pagamento</span></button>
+        <button class="btn btn-outline-primary" onclick="editarItemAtual()"><i class="bi bi-pencil me-2"></i>Editar</button>
+        <button class="btn btn-outline-danger" onclick="arquivarItemAtual()"><i class="bi bi-archive me-2"></i>Arquivar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Registrar pagamento/recebimento -->
+<div class="modal fade" id="modalRegistro" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title" id="registro-titulo">Registrar</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body">
+        <p class="text-muted mb-3" id="registro-nome">–</p>
+        <div class="mb-3"><label class="form-label fw-semibold">Data *</label><input type="date" class="form-control" id="registro-data"></div>
+        <div class="mb-3"><label class="form-label fw-semibold" id="registro-label-valor">Valor *</label><input type="number" class="form-control" id="registro-valor" min="0" step="0.01"></div>
+        <div class="mb-3"><label class="form-label fw-semibold">Observação</label><input type="text" class="form-control" id="registro-obs"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" onclick="confirmarRegistro()"><i class="bi bi-check-lg me-1"></i>Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="/static/app.js?v=2"></script>
+</body>
+</html>
