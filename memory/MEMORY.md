@@ -110,6 +110,11 @@
 - SEMPRE incluir link file:// clicavel apos criar/atualizar HTML
   - Formato: `file:///D:/IA%20MALELO/orcamentos/...`
 
+## REGRA: Sync Repo Automatico
+- SEMPRE commit+push ao final de sessoes com mudancas significativas
+- NAO esperar o usuario pedir — fazer proativamente
+- Detalhes: `feedback_sync_repo.md`
+
 ## Geracao de PDF (CRITICO)
 - Proposta comercial DEVE caber em **1 unica pagina**
 - NAO usar `--print-to-pdf` direto do Edge (ignora CSS scale/zoom)
