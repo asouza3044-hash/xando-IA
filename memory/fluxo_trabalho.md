@@ -52,3 +52,12 @@
 - Nunca depender apenas do CHECKPOINT (ele e por orcamento)
 - Memoria do projeto = conhecimento que atravessa TODOS os orcamentos
 - Se Alexandre corrigir algo que ja esta na memoria → ATUALIZAR a memoria
+
+## Backup em 3 Destinos (apos mudancas importantes)
+1. **Local:** `D:\IA MALELO\` — fonte de verdade (sempre atualizado)
+2. **GitHub:** commit + push para `origin/lasec-orcamentos`
+   - Repo: `C:\Users\lasec\OneDrive\Documentos\GitHub\xando-IA`
+   - Git user: "Alexandre Souza - LASEC" <lasec@malelo.com.br>
+3. **VM Oracle:** SCP para `ubuntu@137.131.140.7:/home/ubuntu/backup_lasec/`
+   - Chave: `D:\IA MALELO\ssh-key-2026-02-04.key`
+- **Quando sincronizar:** novo orcamento, correcoes grandes, novos aprendizados, fim de sessao produtiva
