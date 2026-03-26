@@ -13,6 +13,7 @@
 | `financeiro.md` | Contas, saldos, cartoes, metas financeiras | Em qualquer assunto financeiro |
 | `regras_usinagem.md` | Regras do Alexandre, sequencias, specs maquinas improdutivo | SEMPRE em orcamento |
 | `maquinas_specs.md` | Specs completas LYNX, D760, GL280, Centur | Ao definir maquina/tempos |
+| `pos_processador_regras.md` | Regras construcao pos SolidCAM, erros passados, estrutura vmid | Ao construir/editar pos-processador |
 | `parametros_corte.md` | Vc/RPM/avanco validados por material | Ao definir dados de corte |
 | `fluxo_trabalho.md` | Como trabalhar, retroalimentar, evitar perda | SEMPRE no inicio |
 | `orcamentos_estado.md` | Orcamentos ativos, proximo numero | SEMPRE no inicio |
@@ -41,7 +42,7 @@
 - Regras: `C:\Users\lasec\.claude\rules\lasec-orcamentos.md`
 - Templates: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
 - Dados: `D:\IA MALELO\banco_dados\` (23 arquivos, indice em INDICE_BANCO_DADOS_LASEC.md)
-- ANO ATUAL: 2026 | Proximo orcamento: 023/2026
+- ANO ATUAL: 2026 | Proximo orcamento: 024/2026
 
 ## REGRAS RAPIDAS (detalhes em regras_usinagem.md)
 1. Sem broca de centro — MD alto centrante direto
@@ -60,6 +61,11 @@
 14. Lote <10: SEMPRE incluir custos fixos (programacao, setup entre modelos, inspecao 1a peca)
 - `template_multipecas.md` — Layout aprovado para orcamentos com multiplos modelos similares
 - `template_proposta_1pagina.md` — Proposta 022/SPEEDMAQ: layout aprovado, referencia para futuras propostas
+- `feedback_versionamento_pos.md` — OBRIGATORIO: atualizar CHECKPOINT.md a cada Write/Edit em GPP/vmid/MAC
+- `feedback_nunca_criar_html.md` — **CRITICO**: NUNCA criar HTML do zero, SEMPRE copiar template aprovado e editar dados
+- `template_processo_lote_pequeno.md` — PROCESSO para lotes pequenos: SEMPRE incluir prog CNC + setup diferenciado + inspeção nos dados gerais
+- `feedback_custos_fixos_lote_pequeno.md` — **CRITICO**: Prog+Setup+Inspeção SEMPRE a taxa 1,5× (NUNCA taxa produção) — prejuízo real 022/2026
+- `feedback_leadtime_28ddl.md` — Leadtime LASEC = **28 DDL** (NUNCA 15)
 
 ## AVISO PowerShell
 - NUNCA usar `-replace` inline em bash com `$_`
@@ -70,9 +76,16 @@
 - Chave SSH: `D:\IA MALELO\ssh-key-2026-02-04.key`
 - Backup em: `/home/ubuntu/backup_lasec/`
 
-## Repositorio GitHub
-- Repo: `C:\Users\lasec\OneDrive\Documentos\GitHub\xando-IA`
-- Branch: `lasec-orcamentos-local` → push para `origin/lasec-orcamentos`
+## Repositorios GitHub (SINCRONIZAR TODOS)
+1. **xando-IA** — memorias, regras, agentes, banco dados
+   - Local: `C:\Users\lasec\OneDrive\Documentos\GitHub\xando-IA`
+   - Branch: `lasec-orcamentos-local` → push `origin/lasec-orcamentos`
+2. **orcamento-lasec-hmtl** — HTMLs propostas, templates, script PDF
+   - Local: `C:\Users\lasec\Documents\orcamento-lasec-hmtl`
+   - Branch: `main` → push `origin/main`
+3. **pos-processadores-lasec** — pos-processadores SolidCAM, vmid, docs, aprendizados
+   - Local: `C:\Users\lasec\Documents\pos-processadores-lasec`
+   - Branch: `main` → push `origin/main`
 - Git user: "Alexandre Souza - LASEC" <lasec@malelo.com.br>
 
 ## Taxas de Maquina LASEC 2026 (planilha corrigida IPCA+Dissidio)
@@ -88,6 +101,18 @@
 3. **VM Oracle:** `ubuntu@137.131.140.7:/home/ubuntu/backup_lasec/` (via SCP)
 - Sincronizar apos: novo orcamento, correcoes grandes, novos aprendizados
 - Chave SSH: `D:\IA MALELO\ssh-key-2026-02-04.key`
+
+## REGRA: Sync Pos-Processadores — AUTOMATICO (OBRIGATORIO)
+- **6 destinos** — TODOS sincronizados AUTOMATICAMENTE ao criar/atualizar:
+  1. `E:\pos processador\PÓS FANUC\[MAQUINA]\` (teste SolidCAM)
+  2. `E:\Users\Public\Documents\SolidCAM\SolidCAM2020\Gpptool\` (SolidCAM le daqui)
+  3. `D:\Material SolidCAM\pos processador\` (fonte local)
+  4. `C:\Users\lasec\Documents\pos-processadores-lasec\` (repo local)
+  5. **GitHub:** `asouza3044-hash/pos-processadores-lasec` (commit + push)
+  6. **VM Oracle:** `/home/ubuntu/backup_lasec/pos-processadores-lasec/` (git pull via SSH)
+- **FAZER TUDO ANTES de avisar "pronto, pode testar"** — NAO esperar pedido
+- Inclui: CHECKPOINT.md + memoria + docs/regras-vmid.md
+- Detalhes: `feedback_sync_automatico_pos.md`
 
 ## Projeto: Organizador Financeiro — `/financeiro`
 - **Criado:** 03-04/03/2026 | **Evoluido:** 09/03/2026

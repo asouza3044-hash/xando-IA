@@ -148,6 +148,7 @@
 | 03/2026 | Centro improd 1,5 min (12 trocas) | Recalcular: 1,8 min (14 trocas ATC) | Improdutivo Centro |
 | 03/2026 | Centro sem manipulacao | Adicionar 3,0 min manipulacao operador | Manipulacao Centro |
 | 10/03/2026 | Perguntar maquina ao Alexandre | Agente DECIDE a maquina autonomamente, Alexandre so corrige se necessario | Regra 14 |
+| 25/03/2026 | Prog+Inspecao cobrados a taxa producao | **TODAS atividades fixas a taxa SETUP (1,5×)** — PREJUIZO REAL no 022 | Regra 15 CRITICA |
 
 ### 14. Autonomia na Escolha de Maquina
 - **O agente DECIDE qual maquina usar com base no desenho/peca**
@@ -156,14 +157,19 @@
 - NAO perguntar "qual maquina?" — DEFINIR e apresentar
 - Data: 10/03/2026
 
-### 15. Custos Fixos em Lotes Pequenos (OBRIGATORIO)
+### 15. Custos Fixos em Lotes Pequenos — REGRA CRITICA (PREJUIZO REAL 022/2026)
 - **Lote <10 pecas: SEMPRE incluir custos fixos separados**
-- Programacao CNC: ~1,0h por modelo novo (CAM, simulacao, try-out)
-- Setup entre modelos: ~0,5h por troca (ajustar ferramenta, re-zero)
-- Inspecao 1a peca: ~0,5h por modelo (tridimensional, validar tolerancia)
-- **Custos fixos = 30-50% do preco total em lotes pequenos** (referencia mercado)
+- **TODAS atividades fixas cobradas na TAXA SETUP (1,5× producao), NUNCA taxa producao:**
+  - Programacao CNC/CAM: minimo 4,0h peca nova complexa (meio dia) — **taxa 1,5×**
+  - Setup maquina: minimo 1,0h torno, 2,0h centro 4o eixo — **taxa 1,5×**
+  - Inspecao 1a peca: ~0,5h por modelo (tolerancias K6/h6) — **taxa 1,5×**
+  - Validacao qualidade: incluir no tempo de inspecao — **taxa 1,5×**
+- **SOMENTE MOD (maquina rodando pecas) usa taxa producao**
+- **Custos fixos = 60-70% do custo unitario em lotes pequenos** (confirmado 023/2026)
 - NUNCA orcar lote <10 apenas com setup de maquina — incluir TODOS custos de engenharia
-- Data: 17/03/2026
+- **ERRO GRAVE 022/2026:** Programacao cobrada a taxa producao (R$ 96,35/h) em vez de setup (R$ 144,53/h) — causou prejuizo real ao Alexandre
+- **VERIFICACAO:** Se custos fixos < 60% do custo unitario em lote <10 → PARAR e conferir taxas
+- Data: 17/03/2026, CORRIGIDO CRITICAMENTE 25/03/2026
 
 ### 16. Leitura de Secao A-A em Flanges
 - **Ø5 no corte A-A NAO e furo** — e a cota do REBAIXO de face (5mm de profundidade x Ø162)
