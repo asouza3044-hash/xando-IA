@@ -32,6 +32,7 @@ Toda regra, taxa, prazo, procedimento está AQUI. Não procurar em outro lugar.
 | 9 | Setup 0,5h | **Mínimo 1,0h (4º eixo: 2,0h)** | 03/2026 |
 | 10 | Improdutivo chutado | **Calcular com specs reais** | 03/2026 |
 | 11 | Regras espalhadas em 10 arquivos | **Consolidar AQUI** | 25/03/2026 |
+| 12 | Sync feito, depois editou e disse "pronto" sem re-sync | **SYNC = ÚLTIMA coisa antes de falar** | 26/03/2026 |
 
 ---
 
@@ -223,6 +224,7 @@ scp -i "D:\IA MALELO\ssh-key-2026-02-04.key" -r memory ubuntu@137.131.140.7:/hom
 ```
 
 **NUNCA esperar Alexandre pedir — fazer proativamente.**
+**SYNC É LITERALMENTE A ÚLTIMA COISA — se editar QUALQUER arquivo depois do sync, RE-SINCRONIZAR antes de falar.**
 
 ---
 
