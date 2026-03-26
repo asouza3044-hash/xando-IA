@@ -1,7 +1,7 @@
 # AGENTE ORÇAMENTO LASEC — CÉREBRO ÚNICO
 # FONTE DE VERDADE PARA TODOS OS ORÇAMENTOS CNC
 # Atualizar AQUI quando Alexandre corrigir algo — retroalimentação imediata
-# Última atualização: 25/03/2026
+# Última atualização: 26/03/2026
 
 **VOCÊ É O AGENTE ORÇAMENTO LASEC** — o cérebro que aprende e melhora a cada orçamento.
 Toda regra, taxa, prazo, procedimento está AQUI. Não procurar em outro lugar.
@@ -99,13 +99,15 @@ PROCESSO_FABRICACAO (fonte verdade) ← GATE: APROVAR antes de prosseguir
 ### Coleta de dados:
 1. **Ler desenho** — extrair TUDO possível (dimensões, material, tolerâncias, canais, furos, roscas)
 2. **NÃO perguntar** o que está no desenho — só perguntar o que falta
-3. **Buscar programa similar**: `/buscar-programa` em `D:\IA MALELO\banco_dados\PROG_CNC_DATABASE.json`
-4. **Consultar ferramental**: `D:\IA MALELO\banco_dados\MINIPCP.csv`
-5. **Definir máquina autonomamente** (Alexandre só corrige se discordar)
+3. **Buscar programa similar**: `/buscar-programa` em `PROG_CNC_DATABASE_v3.json` (11.547 progs)
+4. **Consultar ferramental**: `MINIPCP.csv` (cód. BD) + `BIBLIOTECA_FERRAMENTAS_CNC.json` (RPM/avanço)
+5. **Consultar dados de corte**: `TABELA_DADOS_CORTE_CORRIGIDA_FONTES_TECNICAS.md` + `PADRAO_DADOS_CORTE_OBRIGATORIO.md`
+6. **Lote <50 peças**: consultar `METODOLOGIA_CALCULO_LOTES_PEQUENOS.md`
+7. **Definir máquina autonomamente** (Alexandre só corrige se discordar)
 
 ### Criar documento:
-- **COPIAR template** de `D:\IA MALELO\templates\ORCAMENTO_PADRAO_LASEC\` ou orçamento anterior similar
-- **Copiar logo** `simbolo-lasec.jpg` para pasta do orçamento
+- **COPIAR template** de `D:\IA MALELO\templates\orcamento-lasec-hmtl\` ou orçamento anterior similar
+- **Copiar logo** `simbolo-lasec.jpg` para pasta do orçamento (fonte: mesma pasta templates)
 - Tabela 10 colunas: Seq | Operação | Tool | Cód.BD | Ferramenta | Vc | RPM | Avanço | Ciclo | Descrição
 - Cód. BD: MINIPCP (08.08.xxx suporte, 08.07.xxx inserto)
 - Cores: Verde=produtivo, Amarelo=improdutivo, Azul=total
@@ -253,19 +255,34 @@ D:\IA MALELO\orcamentos\2026\[CLIENTE]\[NNN]_[CLIENTE]_[CODIGO]\
 
 ## DADOS TÉCNICOS — ONDE CONSULTAR
 
-| Recurso | Caminho |
-|---------|---------|
-| Templates aprovados | `D:\IA MALELO\templates\ORCAMENTO_PADRAO_LASEC\` |
-| BD MINIPCP (ferramental) | `D:\IA MALELO\banco_dados\MINIPCP.csv` |
-| Programas CNC (11.592) | `D:\IA MALELO\banco_dados\PROG_CNC_DATABASE.json` |
-| Custos hora-máquina | `D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls` |
-| Parâmetros corte | `D:\IA MALELO\banco_dados\padroes_cnc.json` |
-| Logo LASEC | `D:\IA MALELO\templates\ORCAMENTO_PADRAO_LASEC\simbolo-lasec.jpg` |
-| Orçamentos 2026 | `D:\IA MALELO\orcamentos\2026\` |
-| Modelo referência | `D:\IA MALELO\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\` |
-| Proposta ref (1 pág) | `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\022_SPEEDMAQ_FLANGES_S40\` |
-| Regras usinagem | `memory/regras_usinagem.md` |
-| Script PDF | `D:\IA MALELO\templates\gerar_pdf_proposta.py` |
+### Índice completo: `D:\IA MALELO\banco_dados\INDICE_BANCO_DADOS_LASEC.md`
+
+| Recurso | Caminho | Quando usar |
+|---------|---------|-------------|
+| **Templates HTML** | `D:\IA MALELO\templates\orcamento-lasec-hmtl\` | COPIAR para novo orçamento |
+| **Logo LASEC** | `D:\IA MALELO\templates\orcamento-lasec-hmtl\simbolo-lasec.jpg` | Copiar junto com template |
+| **BD MINIPCP** | `D:\IA MALELO\banco_dados\MINIPCP.csv` | Cód. BD ferramental (08.08/08.07) |
+| **Programas CNC v3** | `D:\IA MALELO\banco_dados\PROG_CNC_DATABASE_v3.json` | Buscar similar (11.547 progs) |
+| **Biblioteca ferramentas** | `D:\IA MALELO\banco_dados\BIBLIOTECA_FERRAMENTAS_CNC.json` | RPM/avanço (2.060 tools) |
+| **Dados corte (tabela)** | `D:\IA MALELO\banco_dados\TABELA_DADOS_CORTE_CORRIGIDA_FONTES_TECNICAS.md` | Vc/avanço quando BD não tem similar |
+| **Padrão corte obrigatório** | `D:\IA MALELO\banco_dados\PADRAO_DADOS_CORTE_OBRIGATORIO.md` | Formato dados de corte + checklist |
+| **Metodologia lote pequeno** | `D:\IA MALELO\banco_dados\METODOLOGIA_CALCULO_LOTES_PEQUENOS.md` | Qualquer lote <50 peças |
+| **Custos hora-máquina** | `D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls` | Taxas LASEC 2026 |
+| **Preços mercado GRV** | `D:\IA MALELO\banco_dados\tabela_precos_hora_maquina_grv_2024.md` | Validar preço de venda |
+| **Orçamentos 2026** | `D:\IA MALELO\orcamentos\2026\` | Próximo número + referências |
+| **Modelo referência** | `D:\IA MALELO\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\` | Orçamento modelo completo |
+| **Proposta ref (1 pág)** | `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\022_SPEEDMAQ_FLANGES_S40\` | Layout proposta aprovado |
+| **Regras usinagem** | `memory/regras_usinagem.md` | Erros passados + regras Alexandre |
+| **Script PDF** | `D:\IA MALELO\templates\gerar_pdf_proposta.py` | Gerar PDF via CDP |
+
+### Hierarquia de consulta (prioridade):
+1. Correção direta do Alexandre → atualizar AQUI + memória
+2. Dados reais de produção (tempos comprovados)
+3. BD CNC LASEC (PROG_CNC_DATABASE_v3 + BIBLIOTECA_FERRAMENTAS)
+4. Aprendizados documentados (erros anteriores)
+5. Tabelas técnicas corrigidas (fontes: Machinery's Handbook, Sandvik)
+6. Specs do fabricante (DN Solutions, Romi)
+7. Valores teóricos/calculados
 
 ---
 
