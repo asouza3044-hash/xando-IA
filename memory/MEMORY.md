@@ -59,13 +59,8 @@
 12. Custo interno (planilha) ≠ preco venda (GRV) — NUNCA confundir
 13. CIF: 25% sobre (Setup+MOD) — era 58%, corrigido 08/03/2026 (dupla contagem)
 14. Lote <10: SEMPRE incluir custos fixos (programacao, setup entre modelos, inspecao 1a peca)
-- `template_multipecas.md` — Layout aprovado para orcamentos com multiplos modelos similares
-- `template_proposta_1pagina.md` — Proposta 022/SPEEDMAQ: layout aprovado, referencia para futuras propostas
 - `feedback_versionamento_pos.md` — OBRIGATORIO: atualizar CHECKPOINT.md a cada Write/Edit em GPP/vmid/MAC
-- `feedback_nunca_criar_html.md` — **CRITICO**: NUNCA criar HTML do zero, SEMPRE copiar template aprovado e editar dados
-- `template_processo_lote_pequeno.md` — PROCESSO para lotes pequenos: SEMPRE incluir prog CNC + setup diferenciado + inspeção nos dados gerais
-- `feedback_custos_fixos_lote_pequeno.md` — **CRITICO**: Prog+Setup+Inspeção SEMPRE a taxa 1,5× (NUNCA taxa produção) — prejuízo real 022/2026
-- `feedback_leadtime_28ddl.md` — Leadtime LASEC = **28 DDL** (NUNCA 15)
+- **Regras de orçamento: FONTE ÚNICA em `.claude/rules/lasec-orcamentos.md`** (NÃO duplicar)
 
 ## AVISO PowerShell
 - NUNCA usar `-replace` inline em bash com `$_`
