@@ -33,6 +33,13 @@
 5. Se mudou estado do orcamento → atualizar `memory/orcamentos_estado.md`
 6. Incluir link file:// clicavel para o usuario verificar
 
+## REGRA DE OURO — CHECKPOINT AUTOMATICO (~95% tokens)
+- **A ~95% dos tokens: PARAR TUDO e fazer checkpoint IMEDIATAMENTE**
+- Incluir TODAS as correcoes do Alexandre feitas na sessao
+- Incluir decisoes tomadas (ex: tempo custo 13 min, nao 17,33)
+- Isso ja foi esquecido MULTIPLAS VEZES — Alexandre extremamente frustrado
+- **TAMBEM: a cada correcao do Alexandre → atualizar CHECKPOINT.md NO ATO**
+
 ## Ao Finalizar Sessao (ou antes de perder contexto)
 1. Atualizar CHECKPOINT.md com TUDO que foi feito
 2. Atualizar orcamentos_estado.md se estado mudou

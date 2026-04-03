@@ -134,6 +134,15 @@
 - Valores R$ 121/R$ 260 do OneDrive eram PRECOS DE VENDA ao cliente (NAO custo)
 - Data: 08/03/2026
 
+### 15. Cruzamento Custo Interno × GRV no ESTUDO_CUSTO (OBRIGATORIO)
+- **O ESTUDO_CUSTO DEVE incluir seção de cruzamento custo interno vs GRV mercado**
+- A diferença entre custo interno LASEC e GRV = BASE DO LUCRO
+- Mostrar: taxa/h interna vs taxa/h GRV, custo total interno vs custo total GRV, diferença = margem
+- É no CUSTO que começa o cruzamento, não no PREÇO_NFE
+- Fonte custo interno: `custos_ferramentaria lasec.xls` aba "Custos 2026"
+- Fonte GRV: tabela GRV 2024 (Torno CNC R$ 156,28 | Centro 3-eixos R$ 189,78)
+- Data: 31/03/2026 (regra perdida, recuperada 01/04/2026)
+
 ## Historico de Correcoes (para NAO repetir)
 
 | Data | Erro | Correcao | Regra Gerada |
@@ -146,6 +155,15 @@
 | 03/2026 | Furo O3 face frontal | Mover para face lateral (4o eixo) | Especifico peca |
 | 03/2026 | HSS Vc alto em Al | Vc 29-30 broca, Vc 9-10 macho | Regra 9 |
 | 03/2026 | Centro improd 1,5 min (12 trocas) | Recalcular: 1,8 min (14 trocas ATC) | Improdutivo Centro |
+| 31/03/2026 | Usar as-built bruto (17,33) como custo | Alexandre corrigiu para 13 min — "cliente não paga ineficiência" | Regra 14 |
+
+### 14. Tempo para Custo vs As-Built Bruto
+- **As-built bruto** (apontamento) pode incluir ineficiência operacional (operador lento, paradas não descontadas, curva de aprendizado)
+- **Tempo para custo** é definido pelo Alexandre — pode ser MENOR que o as-built bruto
+- Motivo: "o cliente não vai pagar pela minha ineficiência"
+- Exemplo: 024/2026 MICROGEAR — as-built 17,33 min → custo 13,00 min
+- **SEMPRE perguntar ao Alexandre qual tempo usar para custo quando houver grande diferença entre ciclo e as-built**
+- Data: 31/03/2026
 | 03/2026 | Centro sem manipulacao | Adicionar 3,0 min manipulacao operador | Manipulacao Centro |
 | 10/03/2026 | Perguntar maquina ao Alexandre | Agente DECIDE a maquina autonomamente, Alexandre so corrige se necessario | Regra 14 |
 | 25/03/2026 | Prog+Inspecao cobrados a taxa producao | **TODAS atividades fixas a taxa SETUP (1,5×)** — PREJUIZO REAL no 022 | Regra 15 CRITICA |

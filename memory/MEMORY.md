@@ -1,6 +1,9 @@
 # Memoria LASEC — INDICE PRINCIPAL
 # Este arquivo e carregado automaticamente em TODA sessao
 # Manter enxuto (<150 linhas) — detalhes nos arquivos tematicos
+# Feedbacks
+- [Categorizacao](feedback_categorizacao.md) — duvida quando nao souber, aprender ao resolver, dedup maximo
+- [Checkpoint 95%](feedback_checkpoint_95.md) — apos salvar HTML, IMEDIATAMENTE atualizar STATE+checkpoint, nao gastar tokens em excesso
 
 ## Usuario
 - Nome: Alexandre | Idioma: **SEMPRE Portugues Brasil** (regra explicita)
@@ -10,7 +13,7 @@
 ## Arquivos de Memoria (LER conforme necessidade)
 | Arquivo | Conteudo | Quando Ler |
 |---------|----------|------------|
-| `financeiro.md` | Contas, saldos, cartoes, metas financeiras | Em qualquer assunto financeiro |
+| `financeiro.md` | CEREBRO UNICO financeiro: 325 txs, 28 categorias, parser PicPay, regras categorizacao, pessoas conhecidas | Em qualquer assunto financeiro |
 | `regras_usinagem.md` | Regras do Alexandre, sequencias, specs maquinas improdutivo | SEMPRE em orcamento |
 | `maquinas_specs.md` | Specs completas LYNX, D760, GL280, Centur | Ao definir maquina/tempos |
 | `pos_processador_regras.md` | Regras construcao pos SolidCAM, erros passados, estrutura vmid | Ao construir/editar pos-processador |
@@ -18,6 +21,9 @@
 | `fluxo_trabalho.md` | Como trabalhar, retroalimentar, evitar perda | SEMPRE no inicio |
 | `orcamentos_estado.md` | Orcamentos ativos, proximo numero | SEMPRE no inicio |
 | `onedrive_dados.md` | Taxas maquina reais do OneDrive | Ao calcular custos |
+| `roteiro_as_built.md` | Roteiro completo para orcar com tempos reais de producao | Ao receber apontamento de producao |
+| `feedback_metodologia_orcamento_completa.md` | **CRITICO:** A pegada completa — BD progs + BD codigos + custo interno + GRV + limite desconto | **SEMPRE em QUALQUER orcamento** |
+| `feedback_checkpoint_retomada.md` | Correcoes do Alexandre DEVEM sobreviver perda de contexto | Ao retomar sessao |
 
 ## PROTOCOLO INICIO DE SESSAO (OBRIGATORIO)
 1. Ler `fluxo_trabalho.md` — saber como proceder
@@ -42,7 +48,8 @@
 - Regras: `C:\Users\lasec\.claude\rules\lasec-orcamentos.md`
 - Templates: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
 - Dados: `D:\IA MALELO\banco_dados\` (23 arquivos, indice em INDICE_BANCO_DADOS_LASEC.md)
-- ANO ATUAL: 2026 | Proximo orcamento: 024/2026
+- ANO ATUAL: 2026 | Proximo orcamento: 025/2026
+- **CEREBRO UNICO:** `C:\Users\lasec\.claude\commands\orcamento-lasec.md` (NAO usar agents/)
 
 ## REGRAS RAPIDAS (detalhes em regras_usinagem.md)
 1. Sem broca de centro — MD alto centrante direto
@@ -110,14 +117,13 @@
 - Detalhes: `feedback_sync_automatico_pos.md`
 
 ## Projeto: Organizador Financeiro — `/financeiro`
-- **Criado:** 03-04/03/2026 | **Evoluido:** 09/03/2026
-- **Local:** `D:\IA MALELO\contas-pagar\`
+- **Producao:** http://137.131.140.7:8000 (VM Oracle — FONTE DE VERDADE)
+- **Local:** `D:\IA MALELO\contas-pagar\` (dev, sync pra VM)
 - **Stack:** Python FastAPI + SQLite + HTML/JS Bootstrap + Chart.js
-- **Iniciar tudo:** `D:\IA MALELO\contas-pagar\iniciar_tudo.bat` (servidor + telegram)
-- **Perifericos:** Servidor web :8000 | Bot Telegram (OCR recibos) | WhatsApp (alertas 8h)
-- **Memoria:** `memory/financeiro.md` (contas, lembretes, categorias, pessoas, regras)
-- **Backups:** Documents, Desktop, OneDrive, GitHub (repo xando-IA), VM Oracle
-- **305 transacoes** importadas (Set/2025-Mar/2026), 20+ categorias, 7 lembretes
+- **Memoria:** `memory/financeiro.md` — CEREBRO UNICO (ler SEMPRE em sessao financeira)
+- **325 transacoes** (Set/2025-Mar/2026) | 28 categorias | Descricoes+categorias reprocessadas 28/03
+- **Marcar como pago:** endpoint criado | Backup DB: cron diario VM | Parser v2 validado
+- **REGRA:** TODA alteracao de codigo/BD → sync VM → restart service → so entao "pronto"
 
 ## Contato LASEC (atualizado 17/03/2026)
 - Tel: **(11) 3936-5041 (WhatsApp)** — UNICO numero ativo

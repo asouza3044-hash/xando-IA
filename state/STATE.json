@@ -1,0 +1,203 @@
+{
+  "orcamento": {
+    "numero": "025",
+    "ano": "2026",
+    "cliente": "MICROGEAR",
+    "codigo_peca": "1.14.01.653",
+    "descricao_peca": "Eixo Acionamento Z-23",
+    "desenho_caminho": "C:\\Users\\lasec\\Downloads\\1.14.01.653-010 - Tornear Completo.pdf",
+    "pasta_orcamento": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\025_MICROGEAR_1.14.01.653\\",
+    "origem_demanda": "Peca nova, base para pedidos futuros",
+    "cliente_tipo": "parceiro_recorrente"
+  },
+  "status": {
+    "fase_atual": "PDF_E_SYNC",
+    "documento_atual": "PROPOSTA_COMERCIAL",
+    "processo_fabricacao_aprovado": true,
+    "orcamento_concluido": false,
+    "sync_pendente": false,
+    "ultima_etapa_concluida": "PROPOSTA_COMERCIAL",
+    "checkpoint_necessario": false
+  },
+  "memoria_execucao": {
+    "resumo_atual": "PROCESSO + CUSTO + PRECO_NFE + PROPOSTA gerados. Proximo: PDF + SYNC",
+    "proximo_passo": "Gerar PDF via script CDP (scale 0.78) + SYNC",
+    "pendencias_criticas": [],
+    "duvidas_em_aberto": [],
+    "decisoes_do_alexandre": [
+      "Tempo apontamento: 9min10s (NAO 9min30s - corrigido)",
+      "Tempo custo: 13,00 min (dia 2 estabilizado)",
+      "Lote: 30 pecas",
+      "Peca nova, base para pedidos futuros"
+    ]
+  },
+  "dados_tecnicos": {
+    "material": "DIN 20MnCr5 (aco cementacao, ~SAE 5120)",
+    "materia_prima": "Barra redonda O 2 3/4 pol (69,85 mm)",
+    "dimensoes_brutas": "O69,85 x ~85mm",
+    "dimensoes_finais": "O67,9 x 81,3mm (eixo escalonado)",
+    "tolerancias": ["O67,9 -0,1", "42,7 +0,05", "31,10 -0,05"],
+    "roscas": [],
+    "furos": ["Centro A 4x10 (2 lados, apoio retifica)"],
+    "canais": ["Saida retifica R0.4 (2 lados)"],
+    "chanfros": ["0,5x45 (2 lados)", "1x45 (2 lados)", "0,3x45 (3x)", "0,15"],
+    "raios": ["R4,3", "R4", "R0,8"],
+    "acabamento_superficial": null,
+    "tratamento_termico": "Cementacao (implicito pelo material 20MnCr5)",
+    "referencias_desenho": ["Detalhe A (R0.8)", "Detalhe B (O7+0,5 2 lados 60 graus)"],
+    "observacoes_desenho": ["Peca similar: 1.04.01.130", "Cod material: 2.31.00.234", "Operacao 010 - Tornear Completo", "Servico externo"]
+  },
+  "engenharia_processo": {
+    "tipo_maquina_definido": "torno_cnc",
+    "maquina_definida": "LYNX 220LM",
+    "fixacao": "Castanha mole G240 55,5/64",
+    "faces_operadas": ["G55 (1o lado)", "G56 (2o lado)"],
+    "origens": ["G55", "G56"],
+    "programa_cnc_encontrado": true,
+    "programa_cnc_referencia": "O0414",
+    "programas_similares": [],
+    "ferramentas_definidas": [
+      "T0606: WNMG060408 + DWLNR2525M06 (desbaste ext)",
+      "T0404/T0454: VNMG160404-MP + MVJNR2525M-16 (acabamento ext, 2 corretores)",
+      "T0505: Bedame R0.4 (saida retifica)",
+      "T1010: Broca centro A 4x10 (apoio retifica)"
+    ],
+    "codigos_bd_minipcp": ["08.07.096", "08.08.040", "08.07.173", "08.08.035", "08.07.060", "08.08.029", "08.12.015"],
+    "dados_corte_validados": true,
+    "sequencia_operacoes_definida": true,
+    "observacoes_processo": [
+      "Broca centro e para apoio retifica (legit, nao viola regra 1)",
+      "4 passes spring no acabamento R4.3 do 2o lado",
+      "T0454 usa outro corretor - CUIDADO conforme nota programa"
+    ]
+  },
+  "tempos": {
+    "setup_horas": 1.0,
+    "programacao_horas": 2.0,
+    "inspecao_primeira_peca_horas": 0.5,
+    "tempo_ciclo_min": 9.17,
+    "tempo_as_built_min": 16.17,
+    "tempo_custo_min": 13.0,
+    "tempo_improdutivo_min": 3.83,
+    "tempo_total_min": 13.0,
+    "tempo_custo_definido_por_alexandre": true,
+    "justificativa_tempo_custo": "Dia 2 estabilizado (13,06 arredondado para 13,00). Cliente nao paga ineficiencia."
+  },
+  "custos": {
+    "maquina_usada": "LYNX 220LM",
+    "taxa_producao_hora": 96.35,
+    "taxa_setup_prog_inspecao_hora": 144.53,
+    "cif_percentual": 0.25,
+    "markup_percentual": 1.35,
+    "impostos_percentual": 0.10,
+    "perdas_percentual": 0.02,
+    "custos_fixos_total": 505.86,
+    "criterio_markup": "Parceiro recorrente (MICROGEAR) = 35%"
+  },
+  "bases_consultadas": {
+    "prog_cnc_database_v3": {
+      "consultado": false,
+      "referencias": ["Programa O0414 fornecido diretamente por Alexandre"]
+    },
+    "minipcp": {
+      "consultado": true,
+      "referencias": ["08.07.096 WNMG060408", "08.08.040 DWLNR2525M06", "08.07.173 VNMG160404", "08.08.035 MVJNR2525M-16", "08.07.060 bedame", "08.08.029 DGTR", "08.12.015 broca centro 4x10"]
+    },
+    "custos_ferramentaria_lasec": {
+      "consultado": true,
+      "referencias": ["LYNX R$96,35/h producao", "LYNX R$144,53/h setup"]
+    },
+    "grv_mercado": {
+      "consultado": false,
+      "referencias": ["Sera consultado no ESTUDO_CUSTO"]
+    },
+    "biblioteca_ferramentas_cnc": {
+      "consultado": false,
+      "referencias": []
+    },
+    "dados_corte_corrigidos": {
+      "consultado": false,
+      "referencias": ["Dados de corte validados em producao real (O0414)"]
+    },
+    "metodologia_lotes_pequenos": {
+      "consultado": false,
+      "referencias": ["Lote 30 - consultar na etapa CUSTO"]
+    }
+  },
+  "lotes": {
+    "principal": 30,
+    "alternativos": [],
+    "custos_por_lote": {"10": 89.33, "30": 47.17, "50": 38.74, "100": 32.42, "200": 29.26, "500": 27.36},
+    "precos_por_lote": {"10": 110.06, "30": 58.11, "50": 47.73, "100": 39.94, "200": 36.05, "500": 33.70},
+    "economia_percentual": {}
+  },
+  "documentos": {
+    "processo_fabricacao": {
+      "gerado": true,
+      "aprovado": false,
+      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\025_MICROGEAR_1.14.01.653\\025_MICROGEAR_PROCESSO_FABRICACAO.html",
+      "ultima_versao": "2026-04-02"
+    },
+    "estudo_custo_fabricacao": {
+      "gerado": true,
+      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\025_MICROGEAR_1.14.01.653\\025_MICROGEAR_ESTUDO_CUSTO_FABRICACAO.html",
+      "ultima_versao": "2026-04-02"
+    },
+    "estudo_preco_venda_nfe": {
+      "gerado": true,
+      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\025_MICROGEAR_1.14.01.653\\025_MICROGEAR_ESTUDO_PRECO_VENDA_NFE.html",
+      "ultima_versao": "2026-04-02"
+    },
+    "analise_viabilidade_lotes": {
+      "gerado": false,
+      "caminho_html": null,
+      "ultima_versao": null
+    },
+    "analise_break_even": {
+      "gerado": false,
+      "caminho_html": null,
+      "ultima_versao": null
+    },
+    "proposta_comercial": {
+      "gerado": true,
+      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\025_MICROGEAR_1.14.01.653\\025_MICROGEAR_PROPOSTA_COMERCIAL.html",
+      "caminho_pdf": null,
+      "ultima_versao": "2026-04-02",
+      "pdf_uma_pagina": false
+    }
+  },
+  "comercial": {
+    "lead_time_ddl": 28,
+    "pagamento": "28 dias boleto ou a vista 3% desconto",
+    "frete": "FOB Sao Paulo/SP (Bairro do Limao)",
+    "validade_dias": 30,
+    "impostos_inclusos": true,
+    "controle_dimensional_100": true
+  },
+  "validacoes": {
+    "desenho_lido": true,
+    "dados_extraidos_do_desenho": true,
+    "maquina_definida": true,
+    "ferramental_consultado": true,
+    "quatro_bases_cruzadas": false,
+    "template_copiado": true,
+    "logo_copiado": true,
+    "processo_salvo": true,
+    "processo_aprovado_para_avancar": true,
+    "custo_interno_x_grv_realizado": true,
+    "proposta_sem_dados_confidenciais": false,
+    "pdf_gerado": false,
+    "sync_executado": false,
+    "re_sync_necessario": false
+  },
+  "checkpoint": {
+    "arquivo_checkpoint": "state/LAST_CHECKPOINT.md",
+    "ultima_atualizacao": "2026-04-02",
+    "motivo_ultima_atualizacao": "PROCESSO_FABRICACAO gerado, aguardando aprovacao"
+  },
+  "auditoria": {
+    "criado_em": "2026-04-02",
+    "atualizado_em": "2026-04-02",
+    "atualizado_por": "Alexandre + agente"
+  }
+}

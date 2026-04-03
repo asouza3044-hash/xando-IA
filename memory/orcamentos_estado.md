@@ -5,7 +5,14 @@
 ## REGRA: Toda sessao nova DEVE ler este arquivo + CHECKPOINT.md + regras_usinagem.md ANTES de qualquer acao.
 
 ## Orcamentos em Andamento
-(nenhum no momento)
+
+### 024/2026 — MICROGEAR Sincronizador 19 Dentes
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\024_MICROGEAR_1.34.20.016\`
+- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA)
+- **Dados:** 60pç, LYNX, ciclo 9,27min, tempo custo 13,00min, MOD R$1.252,55
+- **Custos fixos:** R$722,65 | NFe R$62,33/pç → R$3.739,80 total
+- **Próximo:** Gerar PDF + enviar ao cliente
+- **Ultima sessão:** 2026-04-01
 
 ## Orcamentos Concluidos (2026)
 - 001 a 013: concluidos (ver pastas em `D:\IA MALELO\orcamentos\2026\`)
@@ -30,7 +37,7 @@
 - **Próximo passo:** Enviar PDF ao cliente SPEEDMAQ
 - **Ultima sessao:** 2026-03-25
 
-## Proximo numero disponivel: 024/2026
+## Proximo numero disponivel: 025/2026
 
 ## Banco de Dados CNC (atualizado 2026-03-06)
 - `PROG_CNC_DATABASE_v3.json` — 11.547 programas com dados de corte
