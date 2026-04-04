@@ -48,7 +48,7 @@
 - Regras: `C:\Users\lasec\.claude\rules\lasec-orcamentos.md`
 - Templates: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
 - Dados: `D:\IA MALELO\banco_dados\` (23 arquivos, indice em INDICE_BANCO_DADOS_LASEC.md)
-- ANO ATUAL: 2026 | Proximo orcamento: 025/2026
+- ANO ATUAL: 2026 | Proximo orcamento: 027/2026
 - **CEREBRO UNICO:** `C:\Users\lasec\.claude\commands\orcamento-lasec.md` (NAO usar agents/)
 
 ## REGRAS RAPIDAS (detalhes em regras_usinagem.md)
