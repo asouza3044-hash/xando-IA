@@ -2,9 +2,10 @@
 # Versao compacta para carregamento rapido por fase
 
 ## Orcamentos Ativos
-- 026/2026 MICROGEAR Pinhão 16 Dentes — COMPLETO (4/4 docs, PDF+SYNC pendente)
-- 025/2026 MICROGEAR Eixo Z-23 — COMPLETO (4/4 docs, sync ok, PDF adiado)
-- Proximo: 027/2026
+- 027/2026 SPEEDMAQ Flange Bomba CAV SSX-461 — COMPLETO (4/4+PDF, R$218,92/pç lote 5)
+- 026/2026 MICROGEAR Pinhão 16 Dentes — COMPLETO
+- 025/2026 MICROGEAR Eixo Z-23 — COMPLETO
+- Proximo: 028/2026
 
 ## Regras Criticas (top 10)
 1. SEM broca de centro — MD alto centrante direto

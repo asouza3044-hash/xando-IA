@@ -71,7 +71,15 @@
 - Referencia: BD Lubrisystem (M5 S400, BSP S300)
 - Data: 05/03/2026
 
-### 10. Carbide vs HSS
+### 10. Furo em Peça Maciça — PRÉ-FURO OBRIGATÓRIO
+- Material vem MACIÇO (sem furo) → OBRIGATÓRIO furar com broca Tmax primeiro
+- Sequência: FURAR com broca Tmax (pré-furo) → DESBASTAR interno → ACABAR interno
+- Broca Tmax: usar maior diâmetro disponível que caiba no furo final (ex: Ø29 Tmax para furo Ø52)
+- NUNCA tentar desbastar furo a partir de material maciço só com inserto — impossível
+- Motivo: barra de mandrilar não entra em material sólido
+- Data: 04/04/2026 — correção Alexandre no orçamento 027
+
+### 11. Carbide vs HSS
 - Carbide (metal duro) e 3-5x mais rapido que HSS
 - Fonte: CNC Cookbook + dados reais LASEC
 - SEMPRE preferir carbide quando disponivel

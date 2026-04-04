@@ -56,7 +56,15 @@
 - **Próximo:** Gerar PDF + SYNC
 - **Última sessão:** 2026-04-03
 
-## Proximo numero disponivel: 027/2026
+### 027/2026 — SPEEDMAQ Flange Bomba CAV (SSX-461)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\027_SPEEDMAQ_SSX-461\`
+- **Estado:** COMPLETO — 4/4 documentos + PDF
+- **Dados:** 5pç, LYNX 220LM, 9,0 min/pç, markup padrão 35%
+- **Custos fixos:** R$505,86 (3,5h × R$144,53) | Custo: R$144,53/pç
+- **Preço:** R$218,92/pç | Total R$1.094,60 | Margem 34%
+- **Última sessão:** 2026-04-04
+
+## Proximo numero disponivel: 028/2026
 
 ## Banco de Dados CNC (atualizado 2026-03-06)
 - `PROG_CNC_DATABASE_v3.json` — 11.547 programas com dados de corte
