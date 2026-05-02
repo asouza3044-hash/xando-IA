@@ -1,145 +1,142 @@
 {
   "orcamento": {
-    "numero": "026",
+    "numero": "036",
     "ano": "2026",
     "cliente": "MICROGEAR",
-    "codigo_peca": "1.98.03.104",
-    "descricao_peca": "Pinhão 16 Dentes",
-    "desenho_caminho": "C:\\Users\\lasec\\Downloads\\1.98.03.104-010 - Tornear completo e usinar chaveta.pdf",
-    "tempo_caminho": "C:\\Users\\lasec\\Downloads\\1.98.03.104 - tempo.pdf",
-    "pasta_orcamento": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\026_MICROGEAR_1.98.03.104\\",
-    "origem_demanda": "Orçamento de teste — validação sistema modular",
-    "cliente_tipo": "parceiro_recorrente"
+    "codigo_peca": "1.34.03.643",
+    "descricao_peca": "Pinhão Cônico",
+    "desenho_caminho": "D:\\lasec\\microgear\\1.34.03.643.pdf",
+    "pasta_orcamento": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\036_MICROGEAR_1.34.03.643\\",
+    "origem_demanda": "Cliente MICROGEAR — pedido 54 peças",
+    "cliente_tipo": "parceiro_estrategico"
   },
   "status": {
-    "fase_atual": "PDF_E_SYNC",
-    "documento_atual": "PROPOSTA_COMERCIAL",
-    "processo_fabricacao_aprovado": true,
+    "fase_atual": "ESTIMATIVA_VALIDADA",
+    "documento_atual": "PROCESSO_FABRICACAO",
+    "processo_fabricacao_aprovado": false,
     "orcamento_concluido": false,
     "sync_pendente": true,
-    "ultima_etapa_concluida": "PROPOSTA_COMERCIAL",
-    "checkpoint_necessario": false
+    "ultima_etapa_concluida": "validacao_tempo_pelo_alexandre",
+    "checkpoint_necessario": false,
+    "aguardando": "Autorização Alexandre para gerar PROCESSO_FABRICACAO"
   },
   "memoria_execucao": {
-    "resumo_atual": "4/4 documentos gerados. Próximo: PDF + SYNC",
-    "proximo_passo": "Gerar PDF via CDP (scale 0.78) + SYNC GitHub + VM Oracle",
-    "pendencias_criticas": [],
+    "resumo_atual": "Desenho lido. Tempo de ciclo PENDENTE — Alexandre informou que tempo proposto (8 min copiado da 035) está errado. Histórico desde 2010 dessa peça precisa ser localizado no dump SQL.",
+    "proximo_passo": "Aguardar autorização para cavar histórico no minipcp_12_18_2025.dump (PostgreSQL puro, 626 MB) ou Alexandre informar tempo real.",
+    "pendencias_criticas": [
+      "Tempo de ciclo real da 1.34.03.643 — histórico 2010+",
+      "PROCESSO_FABRICACAO ainda não gerado (aguardando tempo)",
+      "Aprovação dos parâmetros pelo Alexandre"
+    ],
     "duvidas_em_aberto": [],
     "decisoes_do_alexandre": [
-      "Tempo custo: as-built 9,50 min (NÃO ciclo)",
-      "Lote: 20 peças",
-      "PROCESSO aprovado"
+      "Markup MICROGEAR = 20% (×1,3464) — parceiro estratégico",
+      "Material fornecido pelo cliente (DIN 16MnCr5) — custo MP = R$0",
+      "Lote 54 peças confirmado",
+      "Tempo de 8 min é INCORRETO — peça tem histórico desde 2010",
+      "Erro detectado: copiei tempo da 035 (peça diferente) para 036 — alucinação"
     ]
   },
   "dados_tecnicos": {
-    "material": "SAE 4140 Ø 1-1/2 pol (38,1mm)",
-    "materia_prima": "Barra redonda Ø 1-1/2 pol (38,1mm)",
-    "dimensoes_brutas": "Ø38,1 x ~165mm",
-    "dimensoes_finais": "Ø38 x 162mm (eixo escalonado 8+ diâmetros)",
-    "tolerancias": ["Ø17 h11 (0/-0,11)", "6 N9 (0/-0,03)", "Chaveta 3,6 ±0,05"],
-    "roscas": [],
-    "furos": [],
-    "canais": ["R5 (2x, Detalhe D)", "R1 (2 lados)"],
-    "chanfros": ["0,5x45° (2 lados)", "0,6x45° (múltiplos)"],
-    "raios": ["R1", "R5"],
-    "acabamento_superficial": null,
-    "tratamento_termico": "Implícito pelo SAE 4140 (temperável)",
-    "chaveta": "Largura 3,6 ±0,05 (CORTE A-A)",
-    "observacoes_desenho": ["Detalhe B: 60° com Ø25,25/25,20", "Detalhe C: R1, 0,1", "Detalhe D: R5 (2x), 1,3 ±0,05", "Ø8 +0,5 (2 lados)", "Peso 0,692 kg", "Cód material 2.12.00.112"]
+    "material": "DIN 16MnCr5 2-1/2\" (63,50mm) — opcional DIN 20MnCr5",
+    "materia_prima": "Blank pré-cortado fornecido pelo cliente",
+    "dimensoes_finais": "L=26,5±0,15 | Ø61,6±0,5 | Ø34±0,5 | Ø31±0,5 | Ø51,2 ref | (Ø47,066) ref",
+    "tolerancias": ["Ø20,021/20,000 N7 (bore)", "L=26,5 ±0,15"],
+    "cone": "51°16'",
+    "bore": "Ø20,021/20,000 N7 passante (T.CNC)",
+    "canais": ["3 ±0,3 × Ø3,5 (interno)"],
+    "chanfros": ["45° externo (2x)", "45° interno (2x)"],
+    "raios": ["R2,5", "R1,6 (2x)"],
+    "peso": "0,331 kg",
+    "desenho_rev": "B (SAD 117/25, 26/06/2025)",
+    "item_identico": "1.04.03.643",
+    "observacoes_desenho": ["Item idêntico ao 1.04.03.643", "Máquina principal informada no desenho: SERVIÇO EXTERNO"]
   },
   "engenharia_processo": {
     "tipo_maquina_definido": "torno_cnc",
     "maquina_definida": "LYNX 220LM",
-    "fixacao": "Castanha mole Ø38 (1º lado) / seção torneada (2º lado)",
-    "faces_operadas": ["G55 (1º lado)", "G56 (2º lado)"],
-    "origens": ["G55", "G56"],
-    "programa_cnc_encontrado": true,
-    "programa_cnc_referencia": "P415",
-    "programas_similares": ["O0010 Adap/Eixo Propulsor (fresa 9mm live)", "O0400 Anel 1.60.22.959 (fresa 10mm live)", "O0192/O0193 Pinhão Cônico", "O0067 Eixo 1.24.01.032"],
-    "ferramentas_definidas": [
-      "T0606: WNMG060408 + DWLNR2525M06 (desbaste ext)",
-      "T0404: VNMG160404-MP + MVJNR2525M-16 (acabamento ext)",
-      "T0505: DGR 1402J + DGTR20B (bedame canal)",
-      "T0808: Fresa Ø3,5mm MD (chaveta, live tool + eixo C)"
+    "fixacao": "2 fixações (G56 + G57)",
+    "programa_cnc_referencia": null,
+    "programas_similares": [
+      "O0192 (1.34.08.808) PINHAO CONICO MICROGEAR LYNX220 — 6 tools, 2 lados",
+      "O0193 (1.34.03.645) PINHAO CONICO MICROGEAR LYNX220 — 7 tools, 2 lados — peça irmã direta"
     ],
-    "codigos_bd_minipcp": ["08.07.096", "08.08.040", "08.07.173", "08.08.035", "08.07.060", "08.08.029"],
-    "dados_corte_validados": true,
-    "sequencia_operacoes_definida": true,
-    "observacoes_processo": [
-      "Chaveta feita com fresa acionada + eixo C (ref O0010/O0400)",
-      "10 operações: 4 no 1º lado + 6 no 2º lado",
-      "267 programas MICROGEAR no BD — ampla base de referência"
+    "operacoes_lista_do_desenho": [
+      "Torneamento externo: cone 51°16' + Ø61,6 + Ø34/Ø31 + chanfros + R2,5 + R1,6",
+      "TMAX (broca) para abrir furo",
+      "Torneamento interno: bore Ø20 N7 passante (Z-26,5)",
+      "Canal interno 3 ±0,3 × Ø3,5",
+      "Chanfros internos 45° (2x)",
+      "Acabamento Ø34 e Ø31 lado 2"
+    ],
+    "fontes_consultadas": [
+      "PROG_CNC_DATABASE_v2.json (LYNX220 4006 progs) — sem 1.34.03.643/645",
+      "bd_cnc/MICROGEAR/pinhao/cache.json — só O0192 e O0193 indexados",
+      "MICROGEAR_classificado.json (dump dez/2025, 2014→2025) — sem hits para 643/645",
+      "minipcp_12_18_2025.dump — NÃO consultado ainda (626 MB PostgreSQL)"
     ]
   },
   "tempos": {
+    "tempo_ciclo_min": 6.0,
+    "tempo_custo_min": 6.0,
+    "tempo_validado": true,
+    "metodo_validacao": "Cálculo virtual G-code O0193 (peça irmã 1.34.03.645) com limite S4500 + benchmark Alexandre (10-12 pç/h)",
+    "calculo_virtual_o0193": {
+      "op1_corte_maquina_min": 1.76,
+      "op1_manipulacao_min": 1.90,
+      "op2_corte_maquina_min": 0.42,
+      "op2_manipulacao_min": 0.50,
+      "total_645_min": 4.58,
+      "ajuste_para_643_min": -0.01,
+      "tempo_programa_643_min": 4.57,
+      "margem_real_producao_min": 1.43,
+      "tempo_as_built_total_min": 6.00
+    },
+    "rpm_limite_lynx": 4500,
     "setup_horas": 1.0,
-    "programacao_horas": 2.0,
+    "programacao_horas": 1.0,
     "inspecao_primeira_peca_horas": 0.5,
-    "tempo_ciclo_1_lado_min": 2.08,
-    "tempo_ciclo_2_lado_min": 4.05,
-    "tempo_ciclo_total_min": 6.13,
-    "tempo_as_built_1_lado_min": 5.0,
-    "tempo_as_built_2_lado_min": 4.5,
-    "tempo_as_built_total_min": 9.5,
-    "tempo_improdutivo_min": 3.37,
-    "tempo_custo_min": 9.50,
-    "tempo_custo_definido_por_alexandre": true,
-    "justificativa_tempo_custo": "As-built total (9,50 min) — definido por Alexandre 03/04/2026"
+    "historico_correcoes_sessao": [
+      "8 min copiado de 035 - errado (peças diferentes)",
+      "14.5 min chute com ×1,4 mecânico - errado (sobre-correção)",
+      "6 min validado por cálculo virtual + benchmark Alexandre"
+    ]
   },
   "custos": {
     "maquina_usada": "LYNX 220LM",
     "taxa_producao_hora": 96.35,
     "taxa_setup_prog_inspecao_hora": 144.53,
-    "custos_fixos_total": 505.86,
-    "criterio_markup": "Parceiro recorrente (MICROGEAR) = 35%"
-  },
-  "bases_consultadas": {
-    "prog_cnc_database_v3": {
-      "consultado": true,
-      "referencias": ["267 programas MICROGEAR", "O0010 fresa 9mm", "O0400 fresa 10mm", "O0192/O0193 pinhão cônico"]
-    },
-    "minipcp": {
-      "consultado": true,
-      "referencias": ["08.07.096 WNMG060408", "08.08.040 DWLNR2525M06", "08.07.173 VNMG160404", "08.08.035 MVJNR2525M-16", "08.07.060 DGR bedame", "08.08.029 DGTR suporte"]
-    }
+    "criterio_markup": "MICROGEAR parceiro estratégico = 20% (×1,3464)",
+    "custo_material": 0.0,
+    "custos_fixos_total": 361.33,
+    "mod_lote_total": 520.29,
+    "cif_total": 220.41,
+    "custo_total_lote": 1102.03,
+    "custo_unitario_pc": 20.41,
+    "preco_nfe_unitario": 27.48,
+    "total_nfe_lote": 1483.92
   },
   "lotes": {
-    "principal": 20,
-    "alternativos": [10, 50, 100, 200, 500],
-    "custos_por_lote": {"10": 82.30, "20": 50.69, "50": 31.72, "100": 25.39, "200": 22.23, "500": 20.33}
+    "principal": 54
   },
   "documentos": {
-    "processo_fabricacao": {
-      "gerado": true,
-      "aprovado": true,
-      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\026_MICROGEAR_1.98.03.104\\026_MICROGEAR_PROCESSO_FABRICACAO.html",
-      "ultima_versao": "2026-04-03"
-    },
-    "estudo_custo_fabricacao": {
-      "gerado": true,
-      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\026_MICROGEAR_1.98.03.104\\026_MICROGEAR_ESTUDO_CUSTO_FABRICACAO.html",
-      "ultima_versao": "2026-04-03"
-    },
-    "estudo_preco_venda_nfe": {
-      "gerado": true,
-      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\026_MICROGEAR_1.98.03.104\\026_MICROGEAR_ESTUDO_PRECO_VENDA_NFE.html",
-      "ultima_versao": "2026-04-03"
-    },
-    "proposta_comercial": {
-      "gerado": true,
-      "caminho_html": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\026_MICROGEAR_1.98.03.104\\026_MICROGEAR_PROPOSTA_COMERCIAL.html",
-      "caminho_pdf": null,
-      "ultima_versao": "2026-04-03"
-    }
+    "processo_fabricacao": {"gerado": false, "aprovado": false},
+    "estudo_custo_fabricacao": {"gerado": false},
+    "estudo_preco_venda_nfe": {"gerado": false},
+    "proposta_comercial": {"gerado": false, "caminho_pdf": null}
   },
+  "orcamentos_anteriores_concluidos_2026": [
+    "035/2026 MICROGEAR 1.34.03.642 — concluído 01/05/2026 — R$32,88/pç × 54 = R$1.775,52",
+    "034/2026 MICROGEAR CUBO 1.60.20.958 — concluído 01/05/2026 — R$31,86/pç × 200 = R$6.371,90"
+  ],
   "checkpoint": {
     "arquivo_checkpoint": "state/LAST_CHECKPOINT.md",
-    "ultima_atualizacao": "2026-04-03",
-    "motivo_ultima_atualizacao": "PROCESSO_FABRICACAO gerado, aguardando aprovação"
+    "ultima_atualizacao": "2026-05-02",
+    "motivo_ultima_atualizacao": "Auditoria completa do cérebro modular — STATE estava 8 orçamentos atrasado"
   },
   "auditoria": {
     "criado_em": "2026-04-03",
-    "atualizado_em": "2026-04-03",
-    "atualizado_por": "Alexandre + agente"
+    "atualizado_em": "2026-05-02",
+    "atualizado_por": "Alexandre + agente (auditoria autorizada)"
   }
 }

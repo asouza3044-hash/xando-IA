@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Platform:** Windows 11, shell: bash (Git Bash). Always use Unix paths and syntax.
 - **Primary data drive:** `D:\IA MALELO\` (templates, BD MINIPCP, orçamentos, base_dados)
-- **This is not a git repository.** The source repo is at `C:\Users\lasec\OneDrive\Documentos\GitHub\xando-IA` (branch `lasec-orcamentos`).
+- **Repo location:** `C:\Users\lasec\Documents\GitHub\xando-IA` (branch `lasec-orcamentos-local` → push `origin/lasec-orcamentos`).
 
 ## Main Project: ORCAMENTISTA.html
 
