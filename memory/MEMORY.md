@@ -2,8 +2,19 @@
 # Este arquivo e carregado automaticamente em TODA sessao
 # Manter enxuto (<150 linhas) — detalhes nos arquivos tematicos
 # Feedbacks
+- [**CRÍTICO $$$** Preço apresentado = preço gerado](feedback_preco_apresentado_vs_gerado.md) — Se apresentei markup X no chat, HTMLs DEVEM ter markup X. Incidente 033/2026: gerei ×1,12 em vez de ×1,5147 (R$654 menor). DINHEIRO — nunca mais
 - [Categorizacao](feedback_categorizacao.md) — duvida quando nao souber, aprender ao resolver, dedup maximo
-- [Checkpoint 95%](feedback_checkpoint_95.md) — apos salvar HTML, IMEDIATAMENTE atualizar STATE+checkpoint, nao gastar tokens em excesso
+- [Checkpoint por evento](feedback_checkpoint_95.md) — checkpoint OBRIGATORIO apos cada HTML/aprovacao/correcao/sync, NAO por % tokens (impossivel medir)
+- [Output conciso](feedback_output_conciso.md) — max 3 bullets, só tabela/lista, sem texto, max 800 tokens
+- [Proposta consolidada](feedback_proposta_consolidada.md) — múltiplas peças (qualquer cliente) → PERGUNTAR: proposta única ou individuais?
+- [RECORRENTE: não pular ordens](feedback_processo_gate_batch.md) — **CRÍTICO**: agente tem padrão de ignorar gates/sequências. NUNCA otimizar pulando etapas do Alexandre
+- [Precificação MICROGEAR](feedback_precificacao_microgear.md) — benchmarks reais do dump (eixo R$22-562, flange R$28-73, pinhão/coroa R$25-65). Subir +15% qdo fórmula sair conservadora
+- [RFS Telecom — falida](projeto_rfs_telecom.md) — IGNORAR em repasse de custo (faliu). Mas USAR programas CNC dela como referência (joias técnicas). Top ativos: HASTE, MICROGEAR, SOHIPREN, INOVA, LUBRISYSTEM
+- [Máquinas LASEC — ativas vs legado](projeto_maquinas_legado.md) — SÓ 4 ativas (GL280, LYNX, D760 3/4-eixos). Demais vendidas mas programas CNC = legado/referência
+- [Reusinagem em peça pré-usinada](feedback_orcamento_acabamento_peca_fornecida.md) — modalidade: cliente fornece peça. Estratégia 3-etapas (torno barato+Doosan furos) -21%. ❌ NUNCA cláusula refugo na proposta. Markup default ×1,20. 034/2026 MICROGEAR CUBO
+- [**Tempos fixos GL280 MICROGEAR calibrados**](feedback_tempos_fixos_gl280_microgear.md) — Prog GL280: **3,0h** (NÃO 5,5h). Setup GL280: **1,0h** (NÃO 1,5h). Lição 034/2026: estimativa antiga gerou preço recusado pelo cliente
+- [**MICROGEAR MP sempre fornecida**](feedback_microgear_mp_fornecida.md) — Cliente envia blank pré-cortado. Custo material = ZERO em TODOS orçamentos MICROGEAR. Confirmado 01/05/2026
+- [Não inferir bore de programas similares](feedback_nao_inferir_bore_de_programas.md) — Programas similares = referência de dados de corte APENAS. Geometria vem SÓ do desenho. Incidente 035/2026 pinhão cônico
 
 ## Usuario
 - Nome: Alexandre | Idioma: **SEMPRE Portugues Brasil** (regra explicita)
@@ -86,7 +97,8 @@
    - Local: `C:\Users\lasec\Documents\orcamento-lasec-hmtl`
    - Branch: `main` → push `origin/main`
 3. **pos-processadores-lasec** — pos-processadores SolidCAM, vmid, docs, aprendizados
-   - Local: `C:\Users\lasec\Documents\pos-processadores-lasec`
+   - Notebook (lasec): `C:\Users\lasec\Documents\pos-processadores-lasec`
+   - Desktop Engenharia (alexandresouza): `C:\Users\alexandresouza\pos-processadores-lasec`
    - Branch: `main` → push `origin/main`
 - Git user: "Alexandre Souza - LASEC" <lasec@malelo.com.br>
 
