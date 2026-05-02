@@ -11,14 +11,14 @@
     "cliente_tipo": "parceiro_estrategico"
   },
   "status": {
-    "fase_atual": "ESTIMATIVA_VALIDADA",
-    "documento_atual": "PROCESSO_FABRICACAO",
-    "processo_fabricacao_aprovado": false,
-    "orcamento_concluido": false,
-    "sync_pendente": true,
-    "ultima_etapa_concluida": "validacao_tempo_pelo_alexandre",
+    "fase_atual": "CONCLUIDO_AGUARDANDO_CLIENTE",
+    "documento_atual": "PROPOSTA_COMERCIAL",
+    "processo_fabricacao_aprovado": true,
+    "orcamento_concluido": true,
+    "sync_pendente": false,
+    "ultima_etapa_concluida": "geracao_completa_4_HTMLs_PDF_sync_GitHub",
     "checkpoint_necessario": false,
-    "aguardando": "Autorização Alexandre para gerar PROCESSO_FABRICACAO"
+    "aguardando": "Aprovação MICROGEAR (responder APROVADO)"
   },
   "memoria_execucao": {
     "resumo_atual": "Desenho lido. Tempo de ciclo PENDENTE — Alexandre informou que tempo proposto (8 min copiado da 035) está errado. Histórico desde 2010 dessa peça precisa ser localizado no dump SQL.",
@@ -120,10 +120,10 @@
     "principal": 54
   },
   "documentos": {
-    "processo_fabricacao": {"gerado": false, "aprovado": false},
-    "estudo_custo_fabricacao": {"gerado": false},
-    "estudo_preco_venda_nfe": {"gerado": false},
-    "proposta_comercial": {"gerado": false, "caminho_pdf": null}
+    "processo_fabricacao": {"gerado": true, "aprovado": true, "caminho": "036_MICROGEAR_PROCESSO_FABRICACAO.html"},
+    "estudo_custo_fabricacao": {"gerado": true, "caminho": "036_MICROGEAR_ESTUDO_CUSTO_FABRICACAO.html"},
+    "estudo_preco_venda_nfe": {"gerado": true, "caminho": "036_MICROGEAR_ESTUDO_PRECO_VENDA_NFE.html"},
+    "proposta_comercial": {"gerado": true, "caminho_html": "036_MICROGEAR_PROPOSTA_COMERCIAL.html", "caminho_pdf": "036_MICROGEAR_PROPOSTA_COMERCIAL.pdf"}
   },
   "orcamentos_anteriores_concluidos_2026": [
     "035/2026 MICROGEAR 1.34.03.642 — concluído 01/05/2026 — R$32,88/pç × 54 = R$1.775,52",
