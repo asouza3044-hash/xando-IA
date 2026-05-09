@@ -1,143 +1,63 @@
 {
-  "orcamento": {
-    "numero": "038",
+  "orcamento_atual": {
+    "num": "039",
     "ano": "2026",
-    "cliente": "MICROGEAR",
-    "codigo_peca": "1.60.13.142",
-    "descricao_peca": "Anel Espaçador",
-    "desenho_caminho": "D:\\lasec\\microgear\\1.60.13.142.pdf",
-    "pasta_orcamento": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\038_MICROGEAR_1.60.13.142\\",
-    "origem_demanda": "Cliente MICROGEAR — pedido 30 peças (REPOSIÇÃO)",
-    "cliente_tipo": "parceiro_estrategico",
-    "modalidade": "reposicao"
+    "cliente": "INOVA PRODENTAL",
+    "peca": "RISE M24X1 CONJUNTO (eixo + porca)",
+    "modalidade": "desenvolvimento",
+    "lote": 5,
+    "mp": "cliente_fornece (CAST 77, custo R$ 0)",
+    "maquina": "Doosan LYNX 220LM",
+    "programas_cnc": ["O0116 (eixo)", "O0117 (porca)"],
+    "ciclos_cnc_min": {"eixo": 4.50, "porca": 3.20, "conjunto": 7.70},
+    "tempos_as_built_min": {"eixo": 8.42, "porca": 5.98, "conjunto": 14.40, "fator": 1.87},
+    "custos_fixos_h": {
+      "prog_tryout": 5.0,
+      "setup_eixo": 1.0,
+      "setup_porca": 1.0,
+      "inspecao": 1.0,
+      "total": 8.0
+    },
+    "taxas": {"producao": 96.35, "fixo_15x": 144.53},
+    "markup": 1.35,
+    "preco_estimado_conjunto": 481.63,
+    "pasta": "D:/IA MALELO/orcamentos/2026/INOVA_PRODENTAL/039_INOVAPRO_RISE_M24X1_CONJUNTO/"
   },
   "status": {
-    "fase_atual": "CONCLUIDO_AGUARDANDO_CLIENTE",
-    "documento_atual": "PROPOSTA_COMERCIAL",
+    "fase_atual": "PROCESSO_FABRICACAO",
+    "documento_atual": "PROCESSO_FABRICACAO.html",
     "processo_fabricacao_aprovado": true,
     "orcamento_concluido": true,
-    "sync_pendente": false,
-    "ultima_etapa_concluida": "geracao_completa_4_HTMLs_PDF_sync_GitHub",
-    "checkpoint_necessario": false,
-    "aguardando": "Aprovação MICROGEAR (responder APROVADO)"
+    "sync_pendente": true,
+    "ultima_etapa_concluida": "4 HTMLs + PDF gerados (PROCESSO+CUSTO+PRECO+PROPOSTA)",
+    "checkpoint_necessario": false
   },
   "memoria_execucao": {
-    "resumo_atual": "Desenho lido. Tempo de ciclo PENDENTE — Alexandre informou que tempo proposto (8 min copiado da 035) está errado. Histórico desde 2010 dessa peça precisa ser localizado no dump SQL.",
-    "proximo_passo": "Aguardar autorização para cavar histórico no minipcp_12_18_2025.dump (PostgreSQL puro, 626 MB) ou Alexandre informar tempo real.",
-    "pendencias_criticas": [
-      "Tempo de ciclo real da 1.34.03.643 — histórico 2010+",
-      "PROCESSO_FABRICACAO ainda não gerado (aguardando tempo)",
-      "Aprovação dos parâmetros pelo Alexandre"
-    ],
-    "duvidas_em_aberto": [],
+    "resumo_atual": "039 INOVA PRODENTAL RISE M24X1 conjunto — PROCESSO gerado com base em programas reais O0116/O0117 + apontamento Doosan 27-28/04. Aguardando aprovação Alexandre para seguir CUSTO/PRECO/PROPOSTA.",
+    "proximo_passo": "Aprovação Alexandre do PROCESSO_FABRICACAO -> gerar ESTUDO_CUSTO + PRECO_NFE + PROPOSTA",
+    "pendencias_criticas": ["Aprovação PROCESSO 039 pelo Alexandre", "Confirmar markup 1,35 (35%) ou ajustar para desenvolvimento"],
     "decisoes_do_alexandre": [
-      "Markup MICROGEAR = 20% (×1,3464) — parceiro estratégico",
-      "Material fornecido pelo cliente (DIN 16MnCr5) — custo MP = R$0",
-      "Lote 54 peças confirmado",
-      "Tempo de 8 min é INCORRETO — peça tem histórico desde 2010",
-      "Erro detectado: copiei tempo da 035 (peça diferente) para 036 — alucinação"
+      "Lote: 5 conjuntos (desenvolvimento)",
+      "MP: cliente fornece CAST 77",
+      "Tempo as-built = ciclo × 1,87 (opção c)",
+      "Programação + try-out: 1h por cada conjunto",
+      "Estrutura: 1 PROCESSO consolidado (eixo+porca)",
+      "Markup default 35% (a confirmar)"
     ]
   },
-  "dados_tecnicos": {
-    "material": "DIN 16MnCr5 2-1/2\" (63,50mm) — opcional DIN 20MnCr5",
-    "materia_prima": "Blank pré-cortado fornecido pelo cliente",
-    "dimensoes_finais": "L=26,5±0,15 | Ø61,6±0,5 | Ø34±0,5 | Ø31±0,5 | Ø51,2 ref | (Ø47,066) ref",
-    "tolerancias": ["Ø20,021/20,000 N7 (bore)", "L=26,5 ±0,15"],
-    "cone": "51°16'",
-    "bore": "Ø20,021/20,000 N7 passante (T.CNC)",
-    "canais": ["3 ±0,3 × Ø3,5 (interno)"],
-    "chanfros": ["45° externo (2x)", "45° interno (2x)"],
-    "raios": ["R2,5", "R1,6 (2x)"],
-    "peso": "0,331 kg",
-    "desenho_rev": "B (SAD 117/25, 26/06/2025)",
-    "item_identico": "1.04.03.643",
-    "observacoes_desenho": ["Item idêntico ao 1.04.03.643", "Máquina principal informada no desenho: SERVIÇO EXTERNO"]
-  },
-  "engenharia_processo": {
-    "tipo_maquina_definido": "torno_cnc",
-    "maquina_definida": "LYNX 220LM",
-    "fixacao": "2 fixações (G56 + G57)",
-    "programa_cnc_referencia": null,
-    "programas_similares": [
-      "O0192 (1.34.08.808) PINHAO CONICO MICROGEAR LYNX220 — 6 tools, 2 lados",
-      "O0193 (1.34.03.645) PINHAO CONICO MICROGEAR LYNX220 — 7 tools, 2 lados — peça irmã direta"
-    ],
-    "operacoes_lista_do_desenho": [
-      "Torneamento externo: cone 51°16' + Ø61,6 + Ø34/Ø31 + chanfros + R2,5 + R1,6",
-      "TMAX (broca) para abrir furo",
-      "Torneamento interno: bore Ø20 N7 passante (Z-26,5)",
-      "Canal interno 3 ±0,3 × Ø3,5",
-      "Chanfros internos 45° (2x)",
-      "Acabamento Ø34 e Ø31 lado 2"
-    ],
-    "fontes_consultadas": [
-      "PROG_CNC_DATABASE_v2.json (LYNX220 4006 progs) — sem 1.34.03.643/645",
-      "bd_cnc/MICROGEAR/pinhao/cache.json — só O0192 e O0193 indexados",
-      "MICROGEAR_classificado.json (dump dez/2025, 2014→2025) — sem hits para 643/645",
-      "minipcp_12_18_2025.dump — NÃO consultado ainda (626 MB PostgreSQL)"
-    ]
-  },
-  "tempos": {
-    "tempo_ciclo_min": 6.0,
-    "tempo_custo_min": 6.0,
-    "tempo_validado": true,
-    "metodo_validacao": "Cálculo virtual G-code O0193 (peça irmã 1.34.03.645) com limite S4500 + benchmark Alexandre (10-12 pç/h)",
-    "calculo_virtual_o0193": {
-      "op1_corte_maquina_min": 1.76,
-      "op1_manipulacao_min": 1.90,
-      "op2_corte_maquina_min": 0.42,
-      "op2_manipulacao_min": 0.50,
-      "total_645_min": 4.58,
-      "ajuste_para_643_min": -0.01,
-      "tempo_programa_643_min": 4.57,
-      "margem_real_producao_min": 1.43,
-      "tempo_as_built_total_min": 6.00
-    },
-    "rpm_limite_lynx": 4500,
-    "setup_horas": 1.0,
-    "programacao_horas": 1.0,
-    "inspecao_primeira_peca_horas": 0.5,
-    "historico_correcoes_sessao": [
-      "8 min copiado de 035 - errado (peças diferentes)",
-      "14.5 min chute com ×1,4 mecânico - errado (sobre-correção)",
-      "6 min validado por cálculo virtual + benchmark Alexandre"
-    ]
-  },
-  "custos": {
-    "maquina_usada": "LYNX 220LM",
-    "taxa_producao_hora": 96.35,
-    "taxa_setup_prog_inspecao_hora": 144.53,
-    "criterio_markup": "MICROGEAR parceiro estratégico = 20% (×1,3464)",
-    "custo_material": 0.0,
-    "custos_fixos_total": 361.33,
-    "mod_lote_total": 520.29,
-    "cif_total": 220.41,
-    "custo_total_lote": 1102.03,
-    "custo_unitario_pc": 20.41,
-    "preco_nfe_unitario": 27.48,
-    "total_nfe_lote": 1483.92
-  },
-  "lotes": {
-    "principal": 54
-  },
-  "documentos": {
-    "processo_fabricacao": {"gerado": true, "aprovado": true, "caminho": "036_MICROGEAR_PROCESSO_FABRICACAO.html"},
-    "estudo_custo_fabricacao": {"gerado": true, "caminho": "036_MICROGEAR_ESTUDO_CUSTO_FABRICACAO.html"},
-    "estudo_preco_venda_nfe": {"gerado": true, "caminho": "036_MICROGEAR_ESTUDO_PRECO_VENDA_NFE.html"},
-    "proposta_comercial": {"gerado": true, "caminho_html": "036_MICROGEAR_PROPOSTA_COMERCIAL.html", "caminho_pdf": "036_MICROGEAR_PROPOSTA_COMERCIAL.pdf"}
-  },
-  "orcamentos_anteriores_concluidos_2026": [
-    "035/2026 MICROGEAR 1.34.03.642 — concluído 01/05/2026 — R$32,88/pç × 54 = R$1.775,52",
-    "034/2026 MICROGEAR CUBO 1.60.20.958 — concluído 01/05/2026 — R$31,86/pç × 200 = R$6.371,90"
+  "orcamentos_anteriores_concluidos": [
+    "023/2026 SPEEDMAQ SSX-460",
+    "027/2026 SPEEDMAQ SSX-461",
+    "028-032/2026 SPEEDMAQ batch (5 peças)"
   ],
   "checkpoint": {
     "arquivo_checkpoint": "state/LAST_CHECKPOINT.md",
-    "ultima_atualizacao": "2026-05-02",
-    "motivo_ultima_atualizacao": "Auditoria completa do cérebro modular — STATE estava 8 orçamentos atrasado"
+    "ultima_atualizacao": "2026-05-09",
+    "motivo_ultima_atualizacao": "PROCESSO_FABRICACAO 039 gerado"
   },
   "auditoria": {
-    "criado_em": "2026-04-03",
-    "atualizado_em": "2026-05-02",
-    "atualizado_por": "Alexandre + agente (auditoria autorizada)"
+    "criado_em": "2026-04-05",
+    "atualizado_em": "2026-05-09",
+    "atualizado_por": "Alexandre + agente"
   }
 }
