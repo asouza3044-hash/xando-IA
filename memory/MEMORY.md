@@ -15,6 +15,11 @@
 - [**Tempos fixos GL280 MICROGEAR calibrados**](feedback_tempos_fixos_gl280_microgear.md) — Prog GL280: **3,0h** (NÃO 5,5h). Setup GL280: **1,0h** (NÃO 1,5h). Lição 034/2026: estimativa antiga gerou preço recusado pelo cliente
 - [**MICROGEAR MP sempre fornecida**](feedback_microgear_mp_fornecida.md) — Cliente envia blank pré-cortado. Custo material = ZERO em TODOS orçamentos MICROGEAR. Confirmado 01/05/2026
 - [Não inferir bore de programas similares](feedback_nao_inferir_bore_de_programas.md) — Programas similares = referência de dados de corte APENAS. Geometria vem SÓ do desenho. Incidente 035/2026 pinhão cônico
+- [**ANTI-ALUCINAÇÃO** Família ≠ tempo igual](feedback_familia_nao_e_tempo.md) — NUNCA copiar tempo de uma peça para outra mesmo família/cliente. Geometria define ciclo. Incidente 035→036 (peças "irmãs" totalmente diferentes geometricamente)
+- [SEMPRE usar agente modular](feedback_agente_modular.md) — `/orcamento-lasec` → carregar `orcamento-lasec-modular.md` (7KB), NÃO o cheio (17KB). Economiza tokens.
+- [Repo oficial xando-IA](feedback_caminho_repo_oficial.md) — `C:\Users\lasec\Documents\GitHub\xando-IA\` (NÃO OneDrive). GitHub = nuvem oficial. Branch local `lasec-orcamentos-local` → push `lasec-orcamentos`
+- [Pinhão cônico compacto MICROGEAR — tempo](feedback_pinhao_conico_microgear_tempo.md) — Família 1.34.03.6xx faz em ~6 min/pç (10-12 pç/h). NÃO inflar com ×1,4. Benchmark Alexandre 02/05/2026.
+- [LYNX 220LM RPM limite S4500](feedback_lynx_rpm_limite_4500.md) — NÃO S3000 (conservador). Confirma tempo real principalmente em bore Ø pequeno. Posso usinar peça virtualmente pelo G-code.
 
 ## Usuario
 - Nome: Alexandre | Idioma: **SEMPRE Portugues Brasil** (regra explicita)
@@ -55,12 +60,20 @@
 - Fluxo: 6 documentos (PROCESSO → CUSTO → PRECO_NFE → VIABILIDADE → BREAK_EVEN → PROPOSTA)
 
 ## Agente Claude Code
-- Comandos: `/orcamento-lasec`, `/buscar-programa`, `/calcular-orcamento`
+- Comandos: `/orcamento-lasec`, `/buscar-programa`, `/calcular-orcamento`, `/consultoria-impaktto`
 - Regras: `C:\Users\lasec\.claude\rules\lasec-orcamentos.md`
 - Templates: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
 - Dados: `D:\IA MALELO\banco_dados\` (23 arquivos, indice em INDICE_BANCO_DADOS_LASEC.md)
 - ANO ATUAL: 2026 | Proximo orcamento: 027/2026
 - **CEREBRO UNICO:** `C:\Users\lasec\.claude\commands\orcamento-lasec.md` (NAO usar agents/)
+
+## Projeto: Cronoanálise IMPAKTTO — `/consultoria-impaktto`
+- **Raiz:** `D:\IA MALELO\consultoria\IMPAKTTO\`
+- **Entregável:** `entregaveis/CRONOANALISE_IMPAKTTO_v2.html` (dashboard interativo diretoria)
+- **Stack:** Python (openpyxl, csv) → CRONOANALISE.xlsx → HTML+Chart.js single-file
+- **Estado:** 40 OPs | 2.340 pç | 81,1% atendimento | 21 paradas | 01/04–13/05/2026
+- **Slash:** `/consultoria-impaktto` — agente modular (docs/ + state/ + tasks/)
+- **Regra crítica:** "cj" = conjunto, multiplicar QTD ×2 | "matro" → "MATÃO"
 
 ## REGRAS RAPIDAS (detalhes em regras_usinagem.md)
 1. Sem broca de centro — MD alto centrante direto
