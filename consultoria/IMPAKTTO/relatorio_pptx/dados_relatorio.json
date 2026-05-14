@@ -1,0 +1,401 @@
+{
+  "geracao": "13/05/2026 12:47",
+  "kpis": {
+    "ops": 18,
+    "produzido": 497,
+    "pedido": 2495,
+    "pct_atendido": 19.9,
+    "paradas": 14
+  },
+  "periodo": "06/04/2026 a 15/04/2026",
+  "periodo_curto": "06–15/04/2026",
+  "cliente_principal": "MATRO",
+  "operadores": [
+    {
+      "nome": "Cleiton",
+      "qtd": 183,
+      "pct": 36.8
+    },
+    {
+      "nome": "Operador ilegível",
+      "qtd": 148,
+      "pct": 29.8
+    },
+    {
+      "nome": "Wendell",
+      "qtd": 65,
+      "pct": 13.1
+    },
+    {
+      "nome": "Vanildo",
+      "qtd": 61,
+      "pct": 12.3
+    },
+    {
+      "nome": "Danilo",
+      "qtd": 24,
+      "pct": 4.8
+    },
+    {
+      "nome": "Vita",
+      "qtd": 16,
+      "pct": 3.2
+    }
+  ],
+  "pecas": [
+    {
+      "id": "31552",
+      "qtd": 216,
+      "pct": 43.5
+    },
+    {
+      "id": "30809",
+      "qtd": 184,
+      "pct": 37.0
+    },
+    {
+      "id": "31553",
+      "qtd": 55,
+      "pct": 11.1
+    },
+    {
+      "id": "teste",
+      "qtd": 37,
+      "pct": 7.4
+    },
+    {
+      "id": "31652",
+      "qtd": 5,
+      "pct": 1.0
+    }
+  ],
+  "pareto_paradas": [
+    {
+      "cod": "P07",
+      "descricao": "Almoço",
+      "ocorr": 9,
+      "pct": 50,
+      "acum": 50
+    },
+    {
+      "cod": "???",
+      "descricao": "Sem descrição",
+      "ocorr": 4,
+      "pct": 22,
+      "acum": 72
+    },
+    {
+      "cod": "P01",
+      "descricao": "Falta de Energia Elétrica",
+      "ocorr": 2,
+      "pct": 11,
+      "acum": 83
+    },
+    {
+      "cod": "P11",
+      "descricao": "Alarme",
+      "ocorr": 1,
+      "pct": 6,
+      "acum": 89
+    },
+    {
+      "cod": "P16",
+      "descricao": "Outras Horas",
+      "ocorr": 1,
+      "pct": 6,
+      "acum": 94
+    },
+    {
+      "cod": "87",
+      "descricao": "Sem descrição",
+      "ocorr": 1,
+      "pct": 6,
+      "acum": 100
+    }
+  ],
+  "atendimento_peca": [
+    {
+      "id": "31552",
+      "pedido": 1420,
+      "produzido": 216,
+      "gap": 1204,
+      "pct": 15.2,
+      "ops": 10
+    },
+    {
+      "id": "30809",
+      "pedido": 660,
+      "produzido": 184,
+      "gap": 476,
+      "pct": 27.9,
+      "ops": 3
+    },
+    {
+      "id": "31553",
+      "pedido": 165,
+      "produzido": 55,
+      "gap": 110,
+      "pct": 33.3,
+      "ops": 3
+    },
+    {
+      "id": "31652",
+      "pedido": 150,
+      "produzido": 5,
+      "gap": 145,
+      "pct": 3.3,
+      "ops": 1
+    },
+    {
+      "id": "teste",
+      "pedido": 100,
+      "produzido": 37,
+      "gap": 63,
+      "pct": 37.0,
+      "ops": 1
+    }
+  ],
+  "matriz_op_peca": {
+    "operadores": [
+      "Cleiton",
+      "Ilegível",
+      "Wendell",
+      "Vanildo",
+      "Danilo",
+      "Vita"
+    ],
+    "pecas": [
+      "31552",
+      "30809",
+      "31553",
+      "teste",
+      "31652"
+    ],
+    "celulas": {
+      "Wendell": {
+        "30809": 37,
+        "31552": 23,
+        "31553": 5
+      },
+      "Ilegível": {
+        "30809": 97,
+        "31552": 46,
+        "31652": 5
+      },
+      "Cleiton": {
+        "30809": 50,
+        "31552": 77,
+        "teste": 37,
+        "31553": 19
+      },
+      "Vanildo": {
+        "31552": 30,
+        "31553": 31
+      },
+      "Danilo": {
+        "31552": 24
+      },
+      "Vita": {
+        "31552": 16
+      }
+    }
+  },
+  "tendencia_diaria": [
+    {
+      "data": "06/04",
+      "qtd": 134
+    },
+    {
+      "data": "07/04",
+      "qtd": 73
+    },
+    {
+      "data": "08/04",
+      "qtd": 47
+    },
+    {
+      "data": "09/04",
+      "qtd": 58
+    },
+    {
+      "data": "10/04",
+      "qtd": 54
+    },
+    {
+      "data": "11/04",
+      "qtd": 16
+    },
+    {
+      "data": "13/04",
+      "qtd": 23
+    },
+    {
+      "data": "15/04",
+      "qtd": 92
+    }
+  ],
+  "detalhe": [
+    [
+      "06/04",
+      "MATRO",
+      "30809",
+      "37",
+      "220",
+      "Wendell",
+      "P07"
+    ],
+    [
+      "06/04",
+      "MATRO",
+      "30809",
+      "97",
+      "220",
+      "—",
+      "P07"
+    ],
+    [
+      "07/04",
+      "MATRO",
+      "30809",
+      "50",
+      "220",
+      "Cleiton",
+      "P07"
+    ],
+    [
+      "07/04",
+      "MATRO",
+      "31552",
+      "23",
+      "220",
+      "—",
+      "P11"
+    ],
+    [
+      "08/04",
+      "MATRO",
+      "31552",
+      "23",
+      "150",
+      "—",
+      "—"
+    ],
+    [
+      "08/04",
+      "MATRO",
+      "31552",
+      "14",
+      "150",
+      "Wendell",
+      "P01"
+    ],
+    [
+      "08/04",
+      "MATRO",
+      "31552",
+      "10",
+      "150",
+      "Cleiton",
+      "P01"
+    ],
+    [
+      "09/04",
+      "MATRO",
+      "31552",
+      "9",
+      "150",
+      "Wendell",
+      "—"
+    ],
+    [
+      "09/04",
+      "MATRO",
+      "31552",
+      "44",
+      "150",
+      "Cleiton",
+      "P07"
+    ],
+    [
+      "09/04",
+      "MATRO",
+      "31652",
+      "5",
+      "150",
+      "—",
+      "P16"
+    ],
+    [
+      "10/04",
+      "MATRO",
+      "31552",
+      "30",
+      "150",
+      "Vanildo",
+      "P07"
+    ],
+    [
+      "10/04",
+      "MATRO",
+      "31552",
+      "24",
+      "100",
+      "Danilo",
+      "87 [?]"
+    ],
+    [
+      "11/04",
+      "MATRO",
+      "31552",
+      "16",
+      "100",
+      "Vita",
+      "P07"
+    ],
+    [
+      "13/04",
+      "MATRO",
+      "31552",
+      "23",
+      "100",
+      "Cleiton",
+      "—"
+    ],
+    [
+      "15/04",
+      "rod",
+      "teste",
+      "37",
+      "100",
+      "Cleiton",
+      "P07"
+    ],
+    [
+      "15/04",
+      "MATRO",
+      "31553",
+      "5",
+      "5",
+      "Wendell",
+      "—"
+    ],
+    [
+      "15/04",
+      "MATRO",
+      "31553",
+      "19",
+      "80",
+      "Cleiton",
+      "P07"
+    ],
+    [
+      "15/04",
+      "MATRO",
+      "31553",
+      "31",
+      "80",
+      "Vanildo",
+      "P07"
+    ]
+  ]
+}

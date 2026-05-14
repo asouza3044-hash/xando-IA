@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRONOANÁLISE IMPAKTTO</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#0a0f1e;color:#e8eaf0}
+.header{background:linear-gradient(135deg,#0f1628,#1a2640);border-bottom:1px solid rgba(255,255,255,0.1);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{width:44px;height:44px;background:linear-gradient(135deg,#1F3A5F,#E87722);border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:14px}
+.main{padding:20px 28px;max-width:1300px;margin:0 auto}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi.k1::before{background:linear-gradient(90deg,#1F3A5F,#3d6fa8)}
+.kpi.k2::before{background:linear-gradient(90deg,#2E933C,#4caf50)}
+.kpi.k3::before{background:linear-gradient(90deg,#E87722,#ffb347)}
+.kpi.k4::before{background:linear-gradient(90deg,#C0392B,#e74c3c)}
+.kpi-v{font-size:34px;font-weight:900;line-height:1;margin:6px 0 4px}
+.kpi.k1 .kpi-v{color:#7eb3ff}.kpi.k2 .kpi-v{color:#4caf50}.kpi.k3 .kpi-v{color:#ffb347}.kpi.k4 .kpi-v{color:#e74c3c}
+.kpi-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#8892a4}
+.kpi-s{font-size:10px;color:#8892a4;margin-top:2px}
+.grid2{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:20px}
+.grid22{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px}
+.ct{font-size:13px;font-weight:700;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:7px 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#8892a4;border-bottom:1px solid rgba(255,255,255,0.1)}
+td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+tr:hover td{background:rgba(255,255,255,0.04)}
+tr:last-child td{border-bottom:none}
+.badge{padding:5px 12px;border-radius:16px;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06)}
+@media(max-width:800px){.kpis{grid-template-columns:1fr 1fr}.grid2,.grid22{grid-template-columns:1fr}.main{padding:12px}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="logo">IM</div>
+    <div>
+      <div style="font-size:20px;font-weight:800;color:#fff">IMPAKTTO &middot; Cronoan&aacute;lise</div>
+      <div style="font-size:11px;color:#8892a4">Diagn&oacute;stico de Produtividade &middot; LASEC Consultoria</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <span class="badge" style="color:#7eb3ff">&#128197; 01/05/2026 a 30/04/2026</span>
+    <span class="badge" style="color:#E87722">&#127981; MATRO, rod, MATAO, VMIN</span>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="kpis">
+  <div class="kpi k1"><div style="font-size:20px">&#128203;</div><div class="kpi-v">48</div><div class="kpi-l">OPs Registradas</div><div class="kpi-s">no per&iacute;odo</div></div>
+  <div class="kpi k2"><div style="font-size:20px">&#9881;</div><div class="kpi-v">1162</div><div class="kpi-l">Pe&ccedil;as Produzidas</div><div class="kpi-s">total do lote</div></div>
+  <div class="kpi k3"><div style="font-size:20px">&#9989;</div><div class="kpi-v">27.3%</div><div class="kpi-l">% Atendido</div><div class="kpi-s">produzido &divide; pedido</div></div>
+  <div class="kpi k4"><div style="font-size:20px">&#9888;</div><div class="kpi-v">17</div><div class="kpi-l">Paradas</div><div class="kpi-s">ocorr&ecirc;ncias</div></div>
+</div>
+
+<div class="grid2">
+  <div class="card"><div class="ct">&#128202; Produ&ccedil;&atilde;o por Operador</div>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+        <span style="font-weight:600;color:#e8eaf0">Cleiton</span>
+        <span style="font-weight:700;color:#E87722">723 pç &nbsp;·&nbsp; <span style="color:#7eb3ff">62.2%</span></span>
+      </div>
+      <div style="height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden">
+        <div style="width:100%;height:100%;background:linear-gradient(90deg,#1F3A5F,#E87722);border-radius:5px"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+        <span style="font-weight:600;color:#e8eaf0">Wendell</span>
+        <span style="font-weight:700;color:#E87722">65 pç &nbsp;·&nbsp; <span style="color:#7eb3ff">5.6%</span></span>
+      </div>
+      <div style="height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden">
+        <div style="width:9%;height:100%;background:linear-gradient(90deg,#1F3A5F,#E87722);border-radius:5px"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+        <span style="font-weight:600;color:#e8eaf0">Vanildo</span>
+        <span style="font-weight:700;color:#E87722">61 pç &nbsp;·&nbsp; <span style="color:#7eb3ff">5.2%</span></span>
+      </div>
+      <div style="height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden">
+        <div style="width:8%;height:100%;background:linear-gradient(90deg,#1F3A5F,#E87722);border-radius:5px"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+        <span style="font-weight:600;color:#e8eaf0">Danilo</span>
+        <span style="font-weight:700;color:#E87722">24 pç &nbsp;·&nbsp; <span style="color:#7eb3ff">2.1%</span></span>
+      </div>
+      <div style="height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden">
+        <div style="width:3%;height:100%;background:linear-gradient(90deg,#1F3A5F,#E87722);border-radius:5px"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+        <span style="font-weight:600;color:#e8eaf0">Vita</span>
+        <span style="font-weight:700;color:#E87722">16 pç &nbsp;·&nbsp; <span style="color:#7eb3ff">1.4%</span></span>
+      </div>
+      <div style="height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden">
+        <div style="width:2%;height:100%;background:linear-gradient(90deg,#1F3A5F,#E87722);border-radius:5px"></div>
+      </div>
+    </div></div>
+  <div class="card"><div class="ct">&#127849; Mix de Pe&ccedil;as</div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#3d6fa8;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31553</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">295 pç · 25.4%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:25.4%;height:100%;background:#3d6fa8;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#E87722;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31552</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">216 pç · 18.6%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:18.6%;height:100%;background:#E87722;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">30809</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">184 pç · 15.8%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:15.8%;height:100%;background:#4caf50;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#e74c3c;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31886</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">173 pç · 14.9%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:14.9%;height:100%;background:#e74c3c;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#a64db8;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31653</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">100 pç · 8.6%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:8.6%;height:100%;background:#a64db8;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#3d6fa8;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31698</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">88 pç · 7.6%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:7.6%;height:100%;background:#3d6fa8;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#E87722;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">32360</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">34 pç · 2.9%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:2.9%;height:100%;background:#E87722;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31949</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">15 pç · 1.3%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:1.3%;height:100%;background:#4caf50;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#e74c3c;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31554</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">15 pç · 1.3%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:1.3%;height:100%;background:#e74c3c;border-radius:3px"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#a64db8;flex-shrink:0"></div>
+      <span style="font-weight:600;font-size:13px">31652</span>
+      <span style="color:#8892a4;font-size:12px;margin-left:auto">5 pç · 0.4%</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
+      <div style="width:0.4%;height:100%;background:#a64db8;border-radius:3px"></div>
+    </div></div>
+</div>
+
+<div class="grid22">
+  <div class="card"><div class="ct">&#128200; Tend&ecirc;ncia Di&aacute;ria</div><div style="display:flex;align-items:flex-end;gap:8px;height:140px;padding-top:10px">
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">134</span>
+      <div style="width:100%;height:119px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">06/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">73</span>
+      <div style="width:100%;height:65px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">07/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">47</span>
+      <div style="width:100%;height:42px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">08/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">58</span>
+      <div style="width:100%;height:52px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">09/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">54</span>
+      <div style="width:100%;height:48px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">10/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">16</span>
+      <div style="width:100%;height:14px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">11/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">23</span>
+      <div style="width:100%;height:20px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">13/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">92</span>
+      <div style="width:100%;height:82px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">15/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">45</span>
+      <div style="width:100%;height:40px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">16/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">17/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">44</span>
+      <div style="width:100%;height:39px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">22/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">119</span>
+      <div style="width:100%;height:106px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">23/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">13</span>
+      <div style="width:100%;height:12px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">24/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">135</span>
+      <div style="width:100%;height:120px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">25/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">28/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">14</span>
+      <div style="width:100%;height:12px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">29/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">88</span>
+      <div style="width:100%;height:78px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">30/04</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">94</span>
+      <div style="width:100%;height:84px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">01/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">79</span>
+      <div style="width:100%;height:70px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">02/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">05/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">06/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">07/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">08/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">0</span>
+      <div style="width:100%;height:0px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">09/05</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <span style="font-size:10px;color:#e8eaf0;font-weight:700;margin-bottom:3px">34</span>
+      <div style="width:100%;height:30px;background:linear-gradient(180deg,#3d6fa8,#1F3A5F);border-radius:4px 4px 0 0"></div>
+      <span style="font-size:9px;color:#8892a4;margin-top:4px;white-space:nowrap">13/05</span>
+    </div></div></div>
+  <div class="card"><div class="ct">&#128308; Pareto de Paradas</div>
+    <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+      <span style="font-weight:700;color:#e74c3c;min-width:36px">P07</span>
+      <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden">
+        <div style="width:100%;height:100%;background:#C0392B;border-radius:3px"></div>
+      </div>
+      <span style="font-size:12px;color:#8892a4">13x</span>
+      <span style="font-size:12px;font-weight:700;color:#e74c3c;min-width:40px;text-align:right">76.5%</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+      <span style="font-weight:700;color:#e74c3c;min-width:36px">P01</span>
+      <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden">
+        <div style="width:15%;height:100%;background:#C0392B;border-radius:3px"></div>
+      </div>
+      <span style="font-size:12px;color:#8892a4">2x</span>
+      <span style="font-size:12px;font-weight:700;color:#e74c3c;min-width:40px;text-align:right">88.2%</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+      <span style="font-weight:700;color:#8892a4;min-width:36px">P11</span>
+      <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden">
+        <div style="width:8%;height:100%;background:#C0392B;border-radius:3px"></div>
+      </div>
+      <span style="font-size:12px;color:#8892a4">1x</span>
+      <span style="font-size:12px;font-weight:700;color:#e74c3c;min-width:40px;text-align:right">94.1%</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+      <span style="font-weight:700;color:#8892a4;min-width:36px">P16</span>
+      <div style="flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden">
+        <div style="width:8%;height:100%;background:#C0392B;border-radius:3px"></div>
+      </div>
+      <span style="font-size:12px;color:#8892a4">1x</span>
+      <span style="font-size:12px;font-weight:700;color:#e74c3c;min-width:40px;text-align:right">100.0%</span>
+    </div></div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128203; Todas as OPs</div>
+  <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Data</th><th>Operador</th><th>Pe&ccedil;a</th><th>Produzido</th><th>Pedido</th><th>Parada</th></tr></thead>
+      <tbody><tr>
+      <td style="color:#8892a4">06/04/2026</td>
+      <td style="font-weight:600">Wendell</td>
+      <td style="color:#7eb3ff;font-weight:700">30809</td>
+      <td style="font-weight:700;color:#ffb347">37</td>
+      <td style="color:#8892a4">220</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">06/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">30809</td>
+      <td style="font-weight:700;color:#ffb347">97</td>
+      <td style="color:#8892a4">220</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">07/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">30809</td>
+      <td style="font-weight:700;color:#ffb347">50</td>
+      <td style="color:#8892a4">220</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">07/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">23</td>
+      <td style="color:#8892a4">220</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P11</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">08/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">23</td>
+      <td style="color:#8892a4">150</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">08/04/2026</td>
+      <td style="font-weight:600">Wendell</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">14</td>
+      <td style="color:#8892a4">150</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P01</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">08/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">10</td>
+      <td style="color:#8892a4">150</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P01</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">09/04/2026</td>
+      <td style="font-weight:600">Wendell</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">9</td>
+      <td style="color:#8892a4">150</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">09/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">44</td>
+      <td style="color:#8892a4">150</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">09/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31652</td>
+      <td style="font-weight:700;color:#ffb347">5</td>
+      <td style="color:#8892a4">150</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P16</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">10/04/2026</td>
+      <td style="font-weight:600">Vanildo</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">30</td>
+      <td style="color:#8892a4">150</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">10/04/2026</td>
+      <td style="font-weight:600">Danilo</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">24</td>
+      <td style="color:#8892a4">100</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">87</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">11/04/2026</td>
+      <td style="font-weight:600">Vita</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">16</td>
+      <td style="color:#8892a4">100</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">13/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31552</td>
+      <td style="font-weight:700;color:#ffb347">23</td>
+      <td style="color:#8892a4">100</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">15/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">teste</td>
+      <td style="font-weight:700;color:#ffb347">37</td>
+      <td style="color:#8892a4">100</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">15/04/2026</td>
+      <td style="font-weight:600">Wendell</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">5</td>
+      <td style="color:#8892a4">5</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">15/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">19</td>
+      <td style="color:#8892a4">80</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">15/04/2026</td>
+      <td style="font-weight:600">Vanildo</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">31</td>
+      <td style="color:#8892a4">80</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">16/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">30</td>
+      <td style="color:#8892a4">180</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">16/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31949</td>
+      <td style="font-weight:700;color:#ffb347">15</td>
+      <td style="color:#8892a4">15</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">17/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">180</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">22/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">29</td>
+      <td style="color:#8892a4">180</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">22/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31554</td>
+      <td style="font-weight:700;color:#ffb347">15</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">23/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">19</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">23/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31653</td>
+      <td style="font-weight:700;color:#ffb347">100</td>
+      <td style="color:#8892a4">160</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">24/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">180</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">24/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">13</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">25/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">100</td>
+      <td style="color:#8892a4">100</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">25/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">35</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">28/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">180</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">29/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">180</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">29/04/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">31553</td>
+      <td style="font-weight:700;color:#ffb347">14</td>
+      <td style="color:#8892a4">16</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">30/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31698</td>
+      <td style="font-weight:700;color:#ffb347">19</td>
+      <td style="color:#8892a4">54</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">30/04/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31698</td>
+      <td style="font-weight:700;color:#ffb347">69</td>
+      <td style="color:#8892a4">69</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">01/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31886</td>
+      <td style="font-weight:700;color:#ffb347">54</td>
+      <td style="color:#8892a4">100</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">01/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31886</td>
+      <td style="font-weight:700;color:#ffb347">40</td>
+      <td style="color:#8892a4">40</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">02/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31886</td>
+      <td style="font-weight:700;color:#ffb347">63</td>
+      <td style="color:#8892a4">100</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">02/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">31886</td>
+      <td style="font-weight:700;color:#ffb347">16</td>
+      <td style="color:#8892a4">32</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">05/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">05/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">06/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">06/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">07/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">07/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">08/05/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td><span style="background:rgba(192,57,43,0.2);color:#e74c3c;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700">P07</span></td>
+    </tr><tr>
+      <td style="color:#8892a4">09/05/2026</td>
+      <td style="font-weight:600">?</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">13/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">34</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr><tr>
+      <td style="color:#8892a4">13/05/2026</td>
+      <td style="font-weight:600">Cleiton</td>
+      <td style="color:#7eb3ff;font-weight:700">32360</td>
+      <td style="font-weight:700;color:#ffb347">0</td>
+      <td style="color:#8892a4">0</td>
+      <td>—</td>
+    </tr></tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+<div style="text-align:center;padding:16px;font-size:11px;color:#8892a4;border-top:1px solid rgba(255,255,255,0.08)">
+  CRONOAN&Aacute;LISE IMPAKTTO &middot; LASEC Consultoria
+</div>
+</body>
+</html>

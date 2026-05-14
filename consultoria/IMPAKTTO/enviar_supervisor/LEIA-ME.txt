@@ -1,0 +1,70 @@
+============================================================
+ CRONOANÁLISE IMPAKTTO — Diagnóstico de Produtividade
+ Versão 1 · 1ª foto-teste · Período: 06–15/04/2026
+ Apresentação preparada por Alexandre Souza
+============================================================
+
+
+O QUE TEM NESTA PASTA
+---------------------
+
+ 01_Apresentacao_CRONOANALISE_IMPAKTTO.pptx
+    Apresentação executiva em PowerPoint (11 slides).
+    Use este arquivo para discutir e ajustar com a equipe.
+
+ 02_Apresentacao_CRONOANALISE_IMPAKTTO.pdf
+    Versão para impressão e compartilhamento direto.
+
+ 03_Planilha_de_apoio.xlsx
+    Planilha com os 18 apontamentos observados,
+    indicadores calculados e estrutura para evoluir
+    o diagnóstico nas próximas coletas.
+
+
+ROTEIRO DA APRESENTAÇÃO
+-----------------------
+
+ Slide 1   Capa
+ Slide 2   Indicadores-chave (18 OPs · 497 peças · 19,9%
+           atendido · 14 paradas)
+ Slide 3   Ranking dos operadores
+ Slide 4   Mix por número da peça
+ Slide 5   Atendimento por peça (produzido x pedido)
+ Slide 6   Matriz Operador x Peça (heatmap)
+ Slide 7   Tendência diária de produção
+ Slide 8   Pareto de paradas (com descrições oficiais)
+ Slide 9   Detalhe das 18 ordens de produção
+ Slide 10  Limitações + Próximos passos
+ Slide 11  Créditos e contato
+
+
+PENDÊNCIAS CRÍTICAS NESTA 1ª COLETA
+-----------------------------------
+
+A análise revela quatro bloqueios para o diagnóstico completo
+(detalhes no Slide 10):
+
+ 1. Coluna MÁQUINA está em branco em 100% dos formulários.
+    Impede análises Máquina x Operador, Máquina x Peça e
+    produtividade por equipamento.
+
+ 2. Tempo real de parada não anotado (só os códigos).
+    Impede medir tempo perdido por categoria.
+
+ 3. Tempo-padrão por peça ainda não definido.
+    Requer cronometragem de campo das peças do top do mix
+    (31552 e 30809 respondem por 80,5% da produção).
+
+ 4. 4 apontamentos com operador ilegível (148 peças, 29,8%
+    da produção).
+
+Detalhes e plano de ação no Slide 10 ("Limitações + Próximos
+passos").
+
+
+
+Qualquer dúvida ou ajuste, estou à disposição.
+
+============================================================
+ Documento gerado em 11/05/2026
+============================================================

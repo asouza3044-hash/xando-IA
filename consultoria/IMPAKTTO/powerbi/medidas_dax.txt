@@ -1,0 +1,109 @@
+// ====================================================================
+// MEDIDAS DAX — CRONOANÁLISE IMPAKTTO
+// Cole cada medida (uma por vez) em: Modelagem > Nova medida
+// Tabela base: 'Apontamento' (importada de 4_APONTAMENTO_HIST)
+// ====================================================================
+
+// ---- KPIs PRINCIPAIS ----
+
+OPs Registradas =
+COUNTROWS('Apontamento')
+
+Qtd Produzida Total =
+SUM('Apontamento'[QTD_PROD])
+
+Qtd Pedida Total =
+SUM('Apontamento'[QTD_PED])
+
+Pct Atendido =
+DIVIDE([Qtd Produzida Total], [Qtd Pedida Total], 0)
+
+Paradas Registradas =
+COUNTROWS(
+    FILTER('Apontamento', NOT(ISBLANK('Apontamento'[COD_PARADA])))
+)
+
+Operadores Únicos =
+DISTINCTCOUNT('Apontamento'[OPERADOR])
+
+Peças Diferentes =
+DISTINCTCOUNT('Apontamento'[ID_OP])
+
+// ---- POR OPERADOR ----
+
+Qtd por Operador =
+CALCULATE([Qtd Produzida Total])
+
+OPs por Operador =
+CALCULATE([OPs Registradas])
+
+Pct Mix Operador =
+DIVIDE(
+    [Qtd por Operador],
+    CALCULATE([Qtd Produzida Total], ALL('Apontamento'[OPERADOR])),
+    0
+)
+
+Ranking Operador =
+RANKX(
+    ALL('Apontamento'[OPERADOR]),
+    [Qtd por Operador],
+    ,
+    DESC,
+    DENSE
+)
+
+// ---- POR PEÇA ----
+
+Qtd por Peça =
+CALCULATE([Qtd Produzida Total])
+
+Pct Mix Peça =
+DIVIDE(
+    [Qtd por Peça],
+    CALCULATE([Qtd Produzida Total], ALL('Apontamento'[ID_OP])),
+    0
+)
+
+// ---- PARADAS ----
+
+Frequência por Código =
+CALCULATE(COUNTROWS('Apontamento'))
+
+Pct Acumulado Paradas =
+VAR vTotal =
+    CALCULATE([Frequência por Código], ALL('Apontamento'[COD_PARADA]))
+VAR vRanking =
+    RANKX(ALL('Apontamento'[COD_PARADA]), [Frequência por Código],, DESC)
+VAR vAcum =
+    SUMX(
+        FILTER(
+            ALL('Apontamento'[COD_PARADA]),
+            RANKX(ALL('Apontamento'[COD_PARADA]), [Frequência por Código],, DESC) <= vRanking
+        ),
+        [Frequência por Código]
+    )
+RETURN
+    DIVIDE(vAcum, vTotal, 0)
+
+// ---- TENDÊNCIA TEMPORAL ----
+
+Qtd Diária =
+CALCULATE([Qtd Produzida Total])
+
+Qtd Acumulada Mês =
+CALCULATE(
+    [Qtd Produzida Total],
+    DATESMTD('Apontamento'[DATA])
+)
+
+// ---- COMPARATIVOS ----
+
+Eficiência (placeholder — precisa TP) =
+// quando 7_TEMPOS_PADRAO estiver populado, ajustar:
+// = DIVIDE([Qtd Produzida Total] * [TP Médio], [Tempo Real])
+BLANK()
+
+// ====================================================================
+// FIM
+// ====================================================================

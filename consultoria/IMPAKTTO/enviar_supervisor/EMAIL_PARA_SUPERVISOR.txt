@@ -1,0 +1,91 @@
+============================================================
+  EMAIL MODELO — copie e cole no seu Gmail/Outlook
+  Substitua [NOME DO SUPERVISOR] pelo nome real
+============================================================
+
+
+PARA:    [email do supervisor]
+CÓPIA:   (opcional: gestor do projeto)
+ASSUNTO: Cronoanálise IMPAKTTO — Diagnóstico de Produtividade (1ª coleta)
+
+
+----------------------------------------------------------------
+
+Olá [NOME DO SUPERVISOR], tudo bem?
+
+Segue em anexo o pacote da 1ª etapa do projeto de cronoanálise
+da IMPAKTTO, com base nos 18 apontamentos observados entre 06 e
+15 de abril.
+
+ANEXOS
+
+ • Apresentação executiva (PPTX + PDF) — 7 slides com KPIs,
+   ranking de operadores, mix de peças, Pareto de paradas e
+   plano de próximos passos.
+ • Planilha de apoio — dados consolidados que alimentam a
+   apresentação.
+
+PRINCIPAIS NÚMEROS
+
+ • 18 ordens de produção registradas
+ • 497 peças produzidas no período
+ • 19,9% de atendimento (497 produzidas / 2.495 pedidas)
+ • 14 paradas legíveis registradas
+ • 64% das paradas concentradas no código P07
+ • Apenas 2 peças (31552 e 30809) respondem por 80,5% do mix
+
+OBSERVAÇÃO IMPORTANTE
+
+A 1ª foto do formulário teve baixa nitidez, o que deixou
+alguns dados ilegíveis (sinalizados como "—" ou "[?]" no
+relatório). Para a próxima coleta, gostaria de combinar com
+vocês:
+
+ 1. Capturar nova foto do formulário em melhor resolução
+ 2. Compartilhar a lista oficial de máquinas e operadores
+    ativos
+ 3. Confirmar as descrições dos códigos P11, P16 e 87
+ 4. Esclarecer o significado do "153,00" em DADOS DO
+    PROCESSO > HORAS NORMAIS
+
+Detalhes em "Próximos passos" (slide 7).
+
+Combina uma conversa de 30 minutos esta semana para
+revisarmos juntos? Pode me sugerir 2–3 horários que fiquem
+bons para a equipe?
+
+Fico à disposição para qualquer dúvida.
+
+Abraço,
+
+Alexandre Souza
+LASEC Consultoria Industrial
+a.souza3044@gmail.com
+
+----------------------------------------------------------------
+
+
+============================================================
+  DICAS RÁPIDAS PARA O ENVIO
+============================================================
+
+ 1. Confira que o ZIP "CRONOANALISE_IMPAKTTO_LASEC_v1.zip"
+    está anexado (~700 KB, OK para qualquer caixa de e-mail).
+
+ 2. Antes de enviar, abra o PDF e dê uma última olhada nos
+    slides — assim você antecipa qualquer pergunta que o
+    supervisor possa fazer.
+
+ 3. Se preferir enviar pelo WhatsApp, mande apenas o PDF
+    (mais leve) e diga que o PPTX e a planilha estão por e-mail.
+
+ 4. Sugiro enviar pela manhã (entre 8h e 10h) para aumentar
+    a chance de leitura no mesmo dia.
+
+ 5. Acompanhamento: se em 2 dias úteis não houver retorno,
+    pode mandar uma mensagem curta no WhatsApp: "Oi [nome],
+    enviei o relatório por e-mail. Quando puder dar uma
+    olhada, me avisa qual a melhor data para conversarmos.
+    Abraço!"
+
+============================================================

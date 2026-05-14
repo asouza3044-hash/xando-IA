@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IMPAKTTO — Cronoanálise de Produtividade</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070c1a;--surface:#0d1427;--card:#111826;--border:rgba(255,255,255,0.07);
+  --navy:#1F3A5F;--orange:#E87722;--green:#2E933C;--red:#C0392B;
+  --blue:#3d7bd4;--purple:#7c3aed;--teal:#0891b2;
+  --text:#e8eaf0;--muted:#6b7a96;--accent:#ffb347;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#0a1020,#111e38);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo-box{display:flex;align-items:center;gap:14px}
+.logo{width:42px;height:42px;background:linear-gradient(135deg,var(--navy),var(--orange));border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:13px;flex-shrink:0}
+.title{font-size:18px;font-weight:800;color:#fff}
+.subtitle{font-size:11px;color:var(--muted);margin-top:1px}
+.badge{padding:4px 11px;border-radius:14px;font-size:10px;font-weight:700;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--muted)}
+.badge.period{color:#7eb3ff}
+
+/* FILTROS */
+.filtros{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filtros label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.filtros select,.filtros input[type=date]{background:#0a1020;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:6px 10px;font-size:12px;outline:none;min-width:130px}
+.filtros select:focus,.filtros input:focus{border-color:var(--blue)}
+.btn-reset{background:rgba(255,87,34,0.15);border:1px solid rgba(255,87,34,0.3);color:#ff7043;padding:6px 14px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;transition:.2s}
+.btn-reset:hover{background:rgba(255,87,34,0.25)}
+.filtros-info{margin-left:auto;font-size:11px;color:var(--muted)}
+#filtro-ativo{color:var(--orange);font-weight:700}
+
+/* MAIN */
+.main{padding:20px 28px;max-width:1400px;margin:0 auto}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;position:relative;overflow:hidden;transition:.2s}
+.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0}
+.kpi.k1::after{background:linear-gradient(90deg,var(--blue),#60a5fa)}
+.kpi.k2::after{background:linear-gradient(90deg,var(--green),#4ade80)}
+.kpi.k3::after{background:linear-gradient(90deg,var(--orange),#fbbf24)}
+.kpi.k4::after{background:linear-gradient(90deg,var(--red),#f87171)}
+.kpi.k5::after{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.kpi-icon{font-size:18px;margin-bottom:6px}
+.kpi-v{font-size:28px;font-weight:900;line-height:1;margin-bottom:4px}
+.kpi.k1 .kpi-v{color:#60a5fa}.kpi.k2 .kpi-v{color:#4ade80}.kpi.k3 .kpi-v{color:var(--accent)}.kpi.k4 .kpi-v{color:#f87171}.kpi.k5 .kpi-v{color:#a78bfa}
+.kpi-l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted)}
+.kpi-s{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.ct{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.ct span{color:var(--text)}
+
+/* GRIDS */
+.grid-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-bottom:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.grid-22{display:grid;grid-template-columns:3fr 2fr;gap:14px;margin-bottom:16px}
+
+/* GRÁFICOS */
+.chart-wrap{position:relative;height:220px}
+.chart-wrap-sm{position:relative;height:180px}
+
+/* BARRAS OPERADORES */
+.op-row{margin-bottom:10px}
+.op-header{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:4px}
+.op-name{font-weight:700;color:var(--text)}
+.op-vals{display:flex;gap:10px;font-size:11px}
+.op-qtd{color:var(--accent);font-weight:700}
+.op-pch{color:#a78bfa;font-size:10px}
+.bar-bg{height:8px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:.4s}
+
+/* PARETO */
+.pareto-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.pareto-row:last-child{border:none}
+.p-cod{font-weight:700;color:#f87171;min-width:34px;font-size:12px}
+.p-bar-wrap{flex:1;height:5px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
+.p-bar{height:100%;background:var(--red);border-radius:3px}
+.p-n{font-size:11px;color:var(--muted);min-width:24px;text-align:right}
+.p-acum{font-size:11px;font-weight:700;color:#f87171;min-width:40px;text-align:right}
+
+/* MÁQUINAS */
+.maq-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.maq-row:last-child{border:none}
+.maq-nome{flex:1;font-size:12px;font-weight:600}
+.maq-qtd{font-size:12px;font-weight:700;color:var(--accent)}
+.maq-ops{font-size:10px;color:var(--muted);margin-left:6px}
+
+/* TABELA */
+.table-wrap{overflow-x:auto}
+.search-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.search-bar input{background:#0a1020;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 12px;font-size:12px;flex:1;min-width:180px;outline:none}
+.search-bar input:focus{border-color:var(--blue)}
+.search-bar select{background:#0a1020;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 10px;font-size:12px;outline:none}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{text-align:left;padding:8px 10px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap}
+th:hover{color:var(--text)}
+th.sort-asc::after{content:' ▲';color:var(--blue)}
+th.sort-desc::after{content:' ▼';color:var(--blue)}
+td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.03);white-space:nowrap}
+tr:hover td{background:rgba(255,255,255,0.02)}
+tr:last-child td{border:none}
+.tag{padding:2px 7px;border-radius:5px;font-size:9px;font-weight:700}
+.tag-red{background:rgba(192,57,43,.2);color:#f87171}
+.tag-ok{background:rgba(46,147,60,.15);color:#4ade80}
+.tag-muted{background:rgba(255,255,255,.06);color:var(--muted)}
+.td-op{color:#60a5fa;font-weight:600}
+.td-peca{color:var(--accent);font-weight:700}
+.td-qtd{color:#e8eaf0;font-weight:700}
+.td-ped{color:var(--muted)}
+
+/* FOOTER */
+footer{text-align:center;padding:14px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);margin-top:8px}
+#ts{color:#3d7bd4}
+
+@media(max-width:900px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .grid-3,.grid-2,.grid-22{grid-template-columns:1fr}
+  .main{padding:12px}
+  .filtros{padding:8px 14px}
+}
+@media(max-width:560px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-box">
+    <div class="logo">IM</div>
+    <div>
+      <div class="title">IMPAKTTO &middot; Cronoanálise de Produtividade</div>
+      <div class="subtitle">Diagnóstico Operacional</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <span class="badge period" id="badge-periodo">—</span>
+    <span class="badge" id="badge-maquinas">— máquinas</span>
+    <span class="badge" id="badge-ts">—</span>
+  </div>
+</div>
+
+<div class="filtros">
+  <label>De</label>
+  <input type="date" id="f-inicio">
+  <label>Até</label>
+  <input type="date" id="f-fim">
+  <label>Operador</label>
+  <select id="f-operador"><option value="">Todos</option></select>
+  <label>Máquina</label>
+  <select id="f-maquina"><option value="">Todas</option></select>
+  <label>Cliente</label>
+  <select id="f-cliente"><option value="">Todos</option></select>
+  <button class="btn-reset" onclick="resetFiltros()">↺ Limpar</button>
+  <span class="filtros-info"><span id="filtro-ativo">—</span> OPs selecionadas</span>
+</div>
+
+<div class="main">
+
+<div class="kpis">
+  <div class="kpi k1"><div class="kpi-icon">📋</div><div class="kpi-v" id="k-ops">—</div><div class="kpi-l">OPs Registradas</div><div class="kpi-s" id="k-ops-s">no período</div></div>
+  <div class="kpi k2"><div class="kpi-icon">⚙️</div><div class="kpi-v" id="k-prod">—</div><div class="kpi-l">Peças Produzidas</div><div class="kpi-s">total do lote</div></div>
+  <div class="kpi k3"><div class="kpi-icon">✅</div><div class="kpi-v" id="k-pct">—</div><div class="kpi-l">% Atendimento</div><div class="kpi-s" id="k-ped-s">produzido ÷ pedido</div></div>
+  <div class="kpi k4"><div class="kpi-icon">⚠️</div><div class="kpi-v" id="k-par">—</div><div class="kpi-l">Paradas</div><div class="kpi-s">ocorrências</div></div>
+  <div class="kpi k5"><div class="kpi-icon">⚡</div><div class="kpi-v" id="k-pch">—</div><div class="kpi-l">Pç/h Médio</div><div class="kpi-s" id="k-pch-s">ops com horário</div></div>
+</div>
+
+<div class="grid-3">
+  <div class="card">
+    <div class="ct">📈 <span>Tendência Diária de Produção</span></div>
+    <div class="chart-wrap"><canvas id="chart-tendencia"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="ct">🏭 <span>Por Máquina</span></div>
+    <div id="maquinas-list"></div>
+  </div>
+  <div class="card">
+    <div class="ct">🔴 <span>Pareto de Paradas</span></div>
+    <div id="pareto-list"></div>
+  </div>
+</div>
+
+<div class="grid-22">
+  <div class="card">
+    <div class="ct">👷 <span>Ranking de Operadores</span></div>
+    <div id="operadores-list"></div>
+  </div>
+  <div class="card">
+    <div class="ct">📊 <span>Mix de Peças</span></div>
+    <div class="chart-wrap-sm"><canvas id="chart-pecas"></canvas></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">📋 <span>Detalhe das OPs</span></div>
+  <div class="search-bar">
+    <input type="text" id="busca" placeholder="🔍 Buscar por operador, peça, cliente..." oninput="renderTabela()">
+    <select id="t-maquina" onchange="renderTabela()"><option value="">Todas as máquinas</option></select>
+    <select id="t-parada" onchange="renderTabela()"><option value="">Todas as paradas</option></select>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTabela('data')" id="th-data">Data</th>
+          <th onclick="sortTabela('operador')" id="th-operador">Operador</th>
+          <th onclick="sortTabela('maquina')" id="th-maquina">Máquina</th>
+          <th onclick="sortTabela('cliente')" id="th-cliente">Cliente</th>
+          <th onclick="sortTabela('id_op')" id="th-id_op">ID</th>
+          <th onclick="sortTabela('qtd_prod')" id="th-qtd_prod">Produzido</th>
+          <th onclick="sortTabela('qtd_ped')" id="th-qtd_ped">Pedido</th>
+          <th>Início</th>
+          <th>Fim</th>
+          <th onclick="sortTabela('parada')" id="th-parada">Parada</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div id="tabela-info" style="text-align:center;padding:10px;font-size:11px;color:var(--muted)"></div>
+  </div>
+</div>
+
+</div>
+<footer>CRONOANÁLISE IMPAKTTO &middot; Gerado em <span id="ts">—</span></footer>
+
+<script>
+// @@DADOS_START@@
+// AUTO-GERADO em 14/05/2026 17:36 — 40 registros
+const DADOS = {
+  "ops": 40,
+  "total_prod": 2340,
+  "total_ped": 2887,
+  "pct_atendido": 81.1,
+  "paradas": 21,
+  "clientes": [
+    "MATÃO",
+    "rod",
+    "vimin"
+  ],
+  "maquinas": [
+    "Centro Usinagem",
+    "LO-40",
+    "Torno com acionada"
+  ],
+  "periodo": "01/04/2026 a 13/05/2026",
+  "operadores": [
+    {
+      "nome": "Wendell",
+      "qtd": 1133,
+      "ops": 15,
+      "pct": 48.4,
+      "pch": 21.4
+    },
+    {
+      "nome": "Clayton",
+      "qtd": 653,
+      "ops": 14,
+      "pct": 27.9,
+      "pch": 4.9
+    },
+    {
+      "nome": "Andrei",
+      "qtd": 305,
+      "ops": 1,
+      "pct": 13.0,
+      "pch": null
+    },
+    {
+      "nome": "Vanildo",
+      "qtd": 61,
+      "ops": 2,
+      "pct": 2.6,
+      "pch": null
+    },
+    {
+      "nome": "Danilo",
+      "qtd": 24,
+      "ops": 1,
+      "pct": 1.0,
+      "pch": 3.5
+    },
+    {
+      "nome": "Vita",
+      "qtd": 16,
+      "ops": 1,
+      "pct": 0.7,
+      "pch": null
+    }
+  ],
+  "pecas": [
+    {
+      "id": "30838",
+      "qtd": 970,
+      "ped": 0,
+      "pct": 41.5
+    },
+    {
+      "id": "31553",
+      "qtd": 695,
+      "ped": 493,
+      "pct": 29.7
+    },
+    {
+      "id": "31552",
+      "qtd": 216,
+      "ped": 1420,
+      "pct": 9.2
+    },
+    {
+      "id": "30809",
+      "qtd": 184,
+      "ped": 660,
+      "pct": 7.9
+    },
+    {
+      "id": "31486",
+      "qtd": 84,
+      "ped": 0,
+      "pct": 3.6
+    },
+    {
+      "id": "31468",
+      "qtd": 63,
+      "ped": 0,
+      "pct": 2.7
+    },
+    {
+      "id": "31699",
+      "qtd": 57,
+      "ped": 0,
+      "pct": 2.4
+    },
+    {
+      "id": "31698",
+      "qtd": 19,
+      "ped": 54,
+      "pct": 0.8
+    },
+    {
+      "id": "32414",
+      "qtd": 10,
+      "ped": 10,
+      "pct": 0.4
+    },
+    {
+      "id": "31652",
+      "qtd": 5,
+      "ped": 150,
+      "pct": 0.2
+    }
+  ],
+  "parada_lista": [
+    {
+      "cod": "P07",
+      "ocorr": 13,
+      "pct_acum": 61.9
+    },
+    {
+      "cod": "P01",
+      "ocorr": 3,
+      "pct_acum": 76.2
+    },
+    {
+      "cod": "P11",
+      "ocorr": 1,
+      "pct_acum": 81.0
+    },
+    {
+      "cod": "P16",
+      "ocorr": 1,
+      "pct_acum": 85.7
+    },
+    {
+      "cod": "P03",
+      "ocorr": 1,
+      "pct_acum": 90.5
+    },
+    {
+      "cod": "P12",
+      "ocorr": 1,
+      "pct_acum": 95.2
+    },
+    {
+      "cod": "P15",
+      "ocorr": 1,
+      "pct_acum": 100.0
+    }
+  ],
+  "tendencia": [
+    {
+      "dia": "01/04",
+      "qtd": 182
+    },
+    {
+      "dia": "06/04",
+      "qtd": 134
+    },
+    {
+      "dia": "07/04",
+      "qtd": 73
+    },
+    {
+      "dia": "08/04",
+      "qtd": 712
+    },
+    {
+      "dia": "09/04",
+      "qtd": 363
+    },
+    {
+      "dia": "10/04",
+      "qtd": 54
+    },
+    {
+      "dia": "11/04",
+      "qtd": 16
+    },
+    {
+      "dia": "13/04",
+      "qtd": 23
+    },
+    {
+      "dia": "15/04",
+      "qtd": 92
+    },
+    {
+      "dia": "18/04",
+      "qtd": 468
+    },
+    {
+      "dia": "23/04",
+      "qtd": 0
+    },
+    {
+      "dia": "30/04",
+      "qtd": 76
+    },
+    {
+      "dia": "06/05",
+      "qtd": 0
+    },
+    {
+      "dia": "12/05",
+      "qtd": 63
+    },
+    {
+      "dia": "13/05",
+      "qtd": 84
+    }
+  ],
+  "maquinas_list": [
+    {
+      "nome": "Centro Usinagem",
+      "qtd": 1466,
+      "ops": 19
+    },
+    {
+      "nome": "LO-40",
+      "qtd": 470,
+      "ops": 8
+    },
+    {
+      "nome": "Torno com acionada",
+      "qtd": 183,
+      "ops": 6
+    }
+  ],
+  "ops_lista": [
+    {
+      "data": "06/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "30809",
+      "item": "2,2",
+      "desc": "Avanco e face",
+      "n_prog": "249",
+      "qtd_prod": 37,
+      "qtd_ped": 220,
+      "h_inicio": "08:00",
+      "h_fim": "17:30",
+      "operador": "Wendell",
+      "maquina": "",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "06/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "30809",
+      "item": "2,2",
+      "desc": "[em branco]",
+      "n_prog": "249",
+      "qtd_prod": 97,
+      "qtd_ped": 220,
+      "h_inicio": "20:00",
+      "h_fim": "02:30",
+      "operador": "",
+      "maquina": "",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "07/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "30809",
+      "item": "2,2",
+      "desc": "[em branco]",
+      "n_prog": "249",
+      "qtd_prod": 50,
+      "qtd_ped": 220,
+      "h_inicio": "07:30",
+      "h_fim": "20:00",
+      "operador": "Clayton",
+      "maquina": "Torno com acionada",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "07/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "2,2",
+      "desc": "Furacao e chaveta",
+      "n_prog": "249",
+      "qtd_prod": 23,
+      "qtd_ped": 220,
+      "h_inicio": "20:00",
+      "h_fim": "02:30",
+      "operador": "",
+      "maquina": "",
+      "parada": "P11",
+      "audit": ""
+    },
+    {
+      "data": "08/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "2,2",
+      "desc": "[em branco]",
+      "n_prog": "249",
+      "qtd_prod": 23,
+      "qtd_ped": 150,
+      "h_inicio": "02:30",
+      "h_fim": "07:50",
+      "operador": "",
+      "maquina": "",
+      "parada": "",
+      "audit": ""
+    },
+    {
+      "data": "08/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "2,2",
+      "desc": "Furacao e chaveta",
+      "n_prog": "249",
+      "qtd_prod": 14,
+      "qtd_ped": 150,
+      "h_inicio": "07:50",
+      "h_fim": "11:40",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "P01",
+      "audit": ""
+    },
+    {
+      "data": "08/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "2,2",
+      "desc": "Furacao e chaveta",
+      "n_prog": "249",
+      "qtd_prod": 10,
+      "qtd_ped": 150,
+      "h_inicio": "17:40",
+      "h_fim": "16:20",
+      "operador": "Clayton",
+      "maquina": "Torno com acionada",
+      "parada": "P01",
+      "audit": ""
+    },
+    {
+      "data": "09/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "2,2",
+      "desc": "Furacao e chaveta",
+      "n_prog": "249",
+      "qtd_prod": 9,
+      "qtd_ped": 150,
+      "h_inicio": "17:15",
+      "h_fim": "19:30",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": ""
+    },
+    {
+      "data": "09/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "2,2",
+      "desc": "Furacao e chaveta",
+      "n_prog": "249",
+      "qtd_prod": 44,
+      "qtd_ped": 150,
+      "h_inicio": "08:00",
+      "h_fim": "19:30",
+      "operador": "Clayton",
+      "maquina": "Torno com acionada",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "09/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31652",
+      "item": "2,3",
+      "desc": "Furacao e Chaveta",
+      "n_prog": "249",
+      "qtd_prod": 5,
+      "qtd_ped": 150,
+      "h_inicio": "08:00",
+      "h_fim": "19:30",
+      "operador": "",
+      "maquina": "",
+      "parada": "P16",
+      "audit": ""
+    },
+    {
+      "data": "10/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "1,2",
+      "desc": "Furacao e Chaveta",
+      "n_prog": "249",
+      "qtd_prod": 30,
+      "qtd_ped": 150,
+      "h_inicio": "23:00",
+      "h_fim": "07:00",
+      "operador": "Vanildo",
+      "maquina": "Centro Usinagem",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "10/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "1,2",
+      "desc": "Furacao e chaveta",
+      "n_prog": "175",
+      "qtd_prod": 24,
+      "qtd_ped": 100,
+      "h_inicio": "09:30",
+      "h_fim": "16:20",
+      "operador": "Danilo",
+      "maquina": "Centro Usinagem",
+      "parada": "87",
+      "audit": ""
+    },
+    {
+      "data": "11/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "1,2",
+      "desc": "Furacao e Chaveta",
+      "n_prog": "175",
+      "qtd_prod": 16,
+      "qtd_ped": 100,
+      "h_inicio": "20:30",
+      "h_fim": "04:40",
+      "operador": "Vita",
+      "maquina": "Centro Usinagem",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "13/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31552",
+      "item": "1,4",
+      "desc": "Furacao e chaveta",
+      "n_prog": "175",
+      "qtd_prod": 23,
+      "qtd_ped": 100,
+      "h_inicio": "07:30",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "Torno com acionada",
+      "parada": "",
+      "audit": ""
+    },
+    {
+      "data": "15/04/2026",
+      "cliente": "rod",
+      "id_op": "teste",
+      "item": "",
+      "desc": "Furacao e chaveta",
+      "n_prog": "175",
+      "qtd_prod": 37,
+      "qtd_ped": 100,
+      "h_inicio": "07:40",
+      "h_fim": "19:00",
+      "operador": "Clayton",
+      "maquina": "Torno com acionada",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "15/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,1",
+      "desc": "Furacao e chaveta",
+      "n_prog": "525",
+      "qtd_prod": 5,
+      "qtd_ped": 5,
+      "h_inicio": "08:30",
+      "h_fim": "11:40",
+      "operador": "Wendell",
+      "maquina": "",
+      "parada": "",
+      "audit": ""
+    },
+    {
+      "data": "15/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,2",
+      "desc": "Furacao e Chaveta",
+      "n_prog": "175",
+      "qtd_prod": 19,
+      "qtd_ped": 80,
+      "h_inicio": "11:45",
+      "h_fim": "17:30",
+      "operador": "Clayton",
+      "maquina": "Torno com acionada",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "15/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,2",
+      "desc": "Furacao e Chaveta",
+      "n_prog": "175",
+      "qtd_prod": 31,
+      "qtd_ped": 80,
+      "h_inicio": "20:15",
+      "h_fim": "06:00",
+      "operador": "Vanildo",
+      "maquina": "",
+      "parada": "P07",
+      "audit": ""
+    },
+    {
+      "data": "18/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,4",
+      "desc": "",
+      "n_prog": "125",
+      "qtd_prod": 80,
+      "qtd_ped": 30,
+      "h_inicio": "07:30",
+      "h_fim": "15:35",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "P07",
+      "audit": "CCF13052026_p1"
+    },
+    {
+      "data": "18/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,4",
+      "desc": "",
+      "n_prog": "494",
+      "qtd_prod": 141,
+      "qtd_ped": 141,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p1"
+    },
+    {
+      "data": "18/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,4",
+      "desc": "",
+      "n_prog": "94",
+      "qtd_prod": 16,
+      "qtd_ped": 16,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p1"
+    },
+    {
+      "data": "18/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "32414",
+      "item": "1",
+      "desc": "",
+      "n_prog": "110",
+      "qtd_prod": 10,
+      "qtd_ped": 10,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p1"
+    },
+    {
+      "data": "30/04/2026",
+      "cliente": "vimin",
+      "id_op": "31698",
+      "item": "1",
+      "desc": "",
+      "n_prog": "276",
+      "qtd_prod": 19,
+      "qtd_ped": 54,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p2"
+    },
+    {
+      "data": "30/04/2026",
+      "cliente": "vimin",
+      "id_op": "31699",
+      "item": "1",
+      "desc": "",
+      "n_prog": "437",
+      "qtd_prod": 57,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p2"
+    },
+    {
+      "data": "12/05/2026",
+      "cliente": "vimin",
+      "id_op": "31468",
+      "item": "2",
+      "desc": "",
+      "n_prog": "947",
+      "qtd_prod": 63,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p2"
+    },
+    {
+      "data": "13/05/2026",
+      "cliente": "vimin",
+      "id_op": "31486",
+      "item": "2",
+      "desc": "",
+      "n_prog": "947",
+      "qtd_prod": 84,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Clayton",
+      "maquina": "LO-40",
+      "parada": "",
+      "audit": "CCF13052026_p2"
+    },
+    {
+      "data": "08/04/2026",
+      "cliente": "",
+      "id_op": "30838",
+      "item": "",
+      "desc": "Furo loblonga",
+      "n_prog": "",
+      "qtd_prod": 665,
+      "qtd_ped": 0,
+      "h_inicio": "08:30",
+      "h_fim": "15:35",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "P03",
+      "audit": "WA14052026_p1"
+    },
+    {
+      "data": "09/04/2026",
+      "cliente": "",
+      "id_op": "30838",
+      "item": "",
+      "desc": "Furo loblonga",
+      "n_prog": "",
+      "qtd_prod": 305,
+      "qtd_ped": 0,
+      "h_inicio": "10:00",
+      "h_fim": "",
+      "operador": "Andrei",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p1"
+    },
+    {
+      "data": "06/04/2026",
+      "cliente": "",
+      "id_op": "30838",
+      "item": "",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "09:35",
+      "h_fim": "12:40",
+      "operador": "",
+      "maquina": "Centro Usinagem",
+      "parada": "P12",
+      "audit": "WA14052026_p1"
+    },
+    {
+      "data": "07/04/2026",
+      "cliente": "",
+      "id_op": "30838",
+      "item": "",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "08:30",
+      "h_fim": "09:00",
+      "operador": "",
+      "maquina": "Centro Usinagem",
+      "parada": "P15",
+      "audit": "WA14052026_p1"
+    },
+    {
+      "data": "01/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,4",
+      "desc": "",
+      "n_prog": "1",
+      "qtd_prod": 182,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p2"
+    },
+    {
+      "data": "08/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "",
+      "item": "1",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "P07",
+      "audit": "WA14052026_p2"
+    },
+    {
+      "data": "15/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "1,4",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p2"
+    },
+    {
+      "data": "18/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "4",
+      "desc": "2a CNC c/Furo",
+      "n_prog": "1",
+      "qtd_prod": 80,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "P01",
+      "audit": "WA14052026_p3"
+    },
+    {
+      "data": "18/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "4",
+      "desc": "",
+      "n_prog": "494",
+      "qtd_prod": 141,
+      "qtd_ped": 141,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p3"
+    },
+    {
+      "data": "23/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "4",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "P07",
+      "audit": "WA14052026_p3"
+    },
+    {
+      "data": "23/04/2026",
+      "cliente": "MATÃO",
+      "id_op": "31553",
+      "item": "4",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p3"
+    },
+    {
+      "data": "06/05/2026",
+      "cliente": "MATÃO",
+      "id_op": "",
+      "item": "4",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p3"
+    },
+    {
+      "data": "12/05/2026",
+      "cliente": "MATÃO",
+      "id_op": "",
+      "item": "4",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "P07",
+      "audit": "WA14052026_p3"
+    },
+    {
+      "data": "13/05/2026",
+      "cliente": "MATÃO",
+      "id_op": "",
+      "item": "4",
+      "desc": "",
+      "n_prog": "",
+      "qtd_prod": 0,
+      "qtd_ped": 0,
+      "h_inicio": "",
+      "h_fim": "",
+      "operador": "Wendell",
+      "maquina": "Centro Usinagem",
+      "parada": "",
+      "audit": "WA14052026_p3"
+    }
+  ]
+};
+// @@DADOS_END@@
+
+// =========================================================
+// ESTADO
+// =========================================================
+let filtros = { inicio: "", fim: "", operador: "", maquina: "", cliente: "" };
+let tabelaSort = { col: "data", dir: "asc" };
+let chartTend = null, chartPecas = null;
+
+// =========================================================
+// INIT
+// =========================================================
+document.addEventListener("DOMContentLoaded", () => {
+  popularSelects();
+  resetFiltros();
+  document.getElementById("ts").textContent = DADOS._gerado || new Date().toLocaleString("pt-BR");
+});
+
+function popularSelects() {
+  const ops = DADOS.ops_lista || [];
+  const addOpt = (sel, val) => {
+    if (!val) return;
+    const s = document.getElementById(sel);
+    if (!Array.from(s.options).some(o => o.value === val)) {
+      const o = document.createElement("option");
+      o.value = o.textContent = val;
+      s.appendChild(o);
+    }
+  };
+  (DADOS.operadores || []).forEach(o => addOpt("f-operador", o.nome));
+  (DADOS.maquinas || []).forEach(m => addOpt("f-maquina", m));
+  (DADOS.clientes || []).forEach(c => addOpt("f-cliente", c));
+
+  // selects da tabela
+  const tmaq = document.getElementById("t-maquina");
+  const tpar = document.getElementById("t-parada");
+  const maqSet = new Set(), parSet = new Set();
+  ops.forEach(r => { if (r.maquina) maqSet.add(r.maquina); if (r.parada) parSet.add(r.parada); });
+  maqSet.forEach(m => { const o = document.createElement("option"); o.value = o.textContent = m; tmaq.appendChild(o); });
+  parSet.forEach(p => { const o = document.createElement("option"); o.value = o.textContent = p; tpar.appendChild(o); });
+
+  // datas min/max
+  const datas = ops.map(r => dateParse(r.data)).filter(Boolean);
+  if (datas.length) {
+    const min = datas.reduce((a,b) => a < b ? a : b);
+    const max = datas.reduce((a,b) => a > b ? a : b);
+    document.getElementById("f-inicio").min = min;
+    document.getElementById("f-inicio").max = max;
+    document.getElementById("f-fim").min = min;
+    document.getElementById("f-fim").max = max;
+  }
+}
+
+// =========================================================
+// FILTROS
+// =========================================================
+["f-inicio","f-fim","f-operador","f-maquina","f-cliente"].forEach(id => {
+  document.getElementById(id).addEventListener("change", aplicarFiltros);
+});
+
+function aplicarFiltros() {
+  filtros.inicio   = document.getElementById("f-inicio").value;
+  filtros.fim      = document.getElementById("f-fim").value;
+  filtros.operador = document.getElementById("f-operador").value;
+  filtros.maquina  = document.getElementById("f-maquina").value;
+  filtros.cliente  = document.getElementById("f-cliente").value;
+  renderizar();
+}
+
+function resetFiltros() {
+  ["f-inicio","f-fim","f-operador","f-maquina","f-cliente"].forEach(id => {
+    document.getElementById(id).value = "";
+  });
+  filtros = { inicio:"", fim:"", operador:"", maquina:"", cliente:"" };
+  renderizar();
+}
+
+function filtrarOps() {
+  const ops = DADOS.ops_lista || [];
+  return ops.filter(r => {
+    if (filtros.operador && r.operador !== filtros.operador) return false;
+    if (filtros.maquina  && r.maquina  !== filtros.maquina)  return false;
+    if (filtros.cliente  && r.cliente  !== filtros.cliente)  return false;
+    if (filtros.inicio || filtros.fim) {
+      const d = dateParse(r.data);
+      if (!d) return false;
+      if (filtros.inicio && d < filtros.inicio) return false;
+      if (filtros.fim    && d > filtros.fim)    return false;
+    }
+    return true;
+  });
+}
+
+// =========================================================
+// RENDERIZAR
+// =========================================================
+function renderizar() {
+  const ops = filtrarOps();
+  renderKPIs(ops);
+  renderOperadores(ops);
+  renderMaquinas(ops);
+  renderPareto(ops);
+  renderTendencia(ops);
+  renderPecas(ops);
+  renderTabela();
+  document.getElementById("filtro-ativo").textContent = ops.length;
+}
+
+// =========================================================
+// KPIs
+// =========================================================
+function renderKPIs(ops) {
+  const total_prod = ops.reduce((s,r) => s + r.qtd_prod, 0);
+  const total_ped  = ops.reduce((s,r) => s + r.qtd_ped, 0);
+  const paradas    = ops.filter(r => r.parada).length;
+  const pct = total_ped ? (total_prod / total_ped * 100).toFixed(1) : "—";
+
+  // pç/h
+  let pchSum = 0, pchN = 0;
+  ops.forEach(r => {
+    const hi = parseHora(r.h_inicio), hf = parseHora(r.h_fim);
+    if (hi != null && hf != null && hf > hi && r.qtd_prod > 0) {
+      pchSum += r.qtd_prod / (hf - hi);
+      pchN++;
+    }
+  });
+  const pchMedio = pchN ? (pchSum / pchN).toFixed(1) : "—";
+
+  document.getElementById("k-ops").textContent   = ops.length;
+  document.getElementById("k-prod").textContent  = total_prod.toLocaleString("pt-BR");
+  document.getElementById("k-pct").textContent   = pct !== "—" ? pct + "%" : "—";
+  document.getElementById("k-par").textContent   = paradas;
+  document.getElementById("k-pch").textContent   = pchMedio;
+  document.getElementById("k-ped-s").textContent = total_ped ? total_ped.toLocaleString("pt-BR") + " solicitados" : "produzido ÷ pedido";
+  document.getElementById("k-pch-s").textContent = pchN ? pchN + " OPs com horário" : "sem dados de hora";
+
+  // badges
+  const datas = ops.map(r => dateParse(r.data)).filter(Boolean).sort();
+  if (datas.length) {
+    const d0 = datas[0], d1 = datas[datas.length-1];
+    document.getElementById("badge-periodo").textContent = "📅 " + fmtDate(d0) + " → " + fmtDate(d1);
+  }
+  const maqSet = new Set(ops.map(r => r.maquina).filter(Boolean));
+  document.getElementById("badge-maquinas").textContent = maqSet.size + " máquina(s)";
+}
+
+// =========================================================
+// OPERADORES
+// =========================================================
+function renderOperadores(ops) {
+  const agg = {};
+  ops.forEach(r => {
+    const k = r.operador || "?";
+    if (!agg[k]) agg[k] = { qtd:0, n:0, pchSum:0, pchN:0 };
+    agg[k].qtd += r.qtd_prod;
+    agg[k].n++;
+    const hi = parseHora(r.h_inicio), hf = parseHora(r.h_fim);
+    if (hi != null && hf != null && hf > hi && r.qtd_prod > 0) {
+      agg[k].pchSum += r.qtd_prod / (hf - hi);
+      agg[k].pchN++;
+    }
+  });
+  const sorted = Object.entries(agg).sort((a,b) => b[1].qtd - a[1].qtd);
+  const maxQtd = sorted[0] ? sorted[0][1].qtd : 1;
+  const CORES = ["#3d7bd4","#E87722","#2E933C","#7c3aed","#0891b2","#d4973d","#c0392b"];
+
+  const el = document.getElementById("operadores-list");
+  el.innerHTML = sorted.map(([nome,d], i) => {
+    const pch = d.pchN ? (d.pchSum / d.pchN).toFixed(1) : null;
+    const pct = maxQtd > 0 ? (d.qtd / maxQtd * 100).toFixed(0) : 0;
+    const cor = CORES[i % CORES.length];
+    return `
+    <div class="op-row">
+      <div class="op-header">
+        <span class="op-name">${nome}</span>
+        <div class="op-vals">
+          <span class="op-qtd">${d.qtd.toLocaleString("pt-BR")} pç</span>
+          ${pch ? `<span class="op-pch">⚡ ${pch} pç/h</span>` : ""}
+          <span style="font-size:10px;color:var(--muted)">${d.n} OPs</span>
+        </div>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:linear-gradient(90deg,${cor},${cor}99)"></div></div>
+    </div>`;
+  }).join("");
+}
+
+// =========================================================
+// MÁQUINAS
+// =========================================================
+function renderMaquinas(ops) {
+  const agg = {};
+  ops.forEach(r => {
+    const k = r.maquina || "(sem cadastro)";
+    if (!agg[k]) agg[k] = { qtd:0, n:0 };
+    agg[k].qtd += r.qtd_prod;
+    agg[k].n++;
+  });
+  const sorted = Object.entries(agg).sort((a,b) => b[1].qtd - a[1].qtd);
+  document.getElementById("maquinas-list").innerHTML = sorted.map(([nome,d]) => `
+    <div class="maq-row">
+      <span class="maq-nome">${nome}</span>
+      <span class="maq-qtd">${d.qtd.toLocaleString("pt-BR")} pç</span>
+      <span class="maq-ops">${d.n} OPs</span>
+    </div>`).join("") || '<p style="color:var(--muted);font-size:12px">Sem dados</p>';
+}
+
+// =========================================================
+// PARETO
+// =========================================================
+function renderPareto(ops) {
+  const agg = {};
+  ops.forEach(r => { if (r.parada) agg[r.parada] = (agg[r.parada] || 0) + 1; });
+  const sorted = Object.entries(agg).sort((a,b) => b[1] - a[1]);
+  const total = sorted.reduce((s,[,n]) => s+n, 0);
+  let acum = 0;
+  document.getElementById("pareto-list").innerHTML = sorted.map(([cod,n]) => {
+    acum += n;
+    const pctAcum = total ? (acum/total*100).toFixed(0) : 0;
+    const pctBar  = total ? (n/total*100).toFixed(0) : 0;
+    return `
+    <div class="pareto-row">
+      <span class="p-cod">${cod}</span>
+      <div class="p-bar-wrap"><div class="p-bar" style="width:${pctBar}%"></div></div>
+      <span class="p-n">${n}×</span>
+      <span class="p-acum">${pctAcum}%</span>
+    </div>`;
+  }).join("") || '<p style="color:var(--muted);font-size:12px">Sem paradas</p>';
+}
+
+// =========================================================
+// TENDÊNCIA — Chart.js Line
+// =========================================================
+function renderTendencia(ops) {
+  const aggMap = {};
+  ops.forEach(r => {
+    const d = dateParse(r.data);
+    if (!d) return;
+    aggMap[d] = (aggMap[d] || 0) + r.qtd_prod;
+  });
+  const labels = Object.keys(aggMap).sort();
+  const data   = labels.map(k => aggMap[k]);
+  const labelsShow = labels.map(l => fmtDate(l));
+
+  const ctx = document.getElementById("chart-tendencia").getContext("2d");
+  if (chartTend) chartTend.destroy();
+  chartTend = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labelsShow,
+      datasets: [{
+        label: "Peças / dia",
+        data,
+        borderColor: "#3d7bd4",
+        backgroundColor: "rgba(61,123,212,0.12)",
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: "#3d7bd4",
+        pointRadius: labels.length > 20 ? 2 : 4,
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { title: (t) => t[0].label } } },
+      scales: {
+        x: { ticks: { color: "#6b7a96", font: {size:9}, maxRotation:45, maxTicksLimit:12 }, grid: { color:"rgba(255,255,255,0.04)" } },
+        y: { ticks: { color: "#6b7a96", font: {size:9} }, grid: { color:"rgba(255,255,255,0.04)" }, beginAtZero:true }
+      }
+    }
+  });
+}
+
+// =========================================================
+// MIX PEÇAS — Chart.js Doughnut
+// =========================================================
+function renderPecas(ops) {
+  const agg = {};
+  ops.forEach(r => { if (r.id_op) agg[r.id_op] = (agg[r.id_op] || 0) + r.qtd_prod; });
+  const sorted = Object.entries(agg).sort((a,b) => b[1]-a[1]).slice(0, 8);
+  const labels = sorted.map(([id]) => id);
+  const data   = sorted.map(([,q]) => q);
+  const COLORS = ["#3d7bd4","#E87722","#2E933C","#7c3aed","#0891b2","#d4973d","#c0392b","#64748b"];
+
+  const ctx = document.getElementById("chart-pecas").getContext("2d");
+  if (chartPecas) chartPecas.destroy();
+  chartPecas = new Chart(ctx, {
+    type: "doughnut",
+    data: { labels, datasets: [{ data, backgroundColor: COLORS, borderWidth: 0, hoverOffset: 6 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: "62%",
+      plugins: {
+        legend: { position:"right", labels:{ color:"#8892a4", font:{size:10}, boxWidth:10, padding:8 } },
+        tooltip: { callbacks: { label: (t) => ` ${t.label}: ${t.parsed.toLocaleString("pt-BR")} pç (${((t.parsed/data.reduce((a,b)=>a+b,0))*100).toFixed(1)}%)` } }
+      }
+    }
+  });
+}
+
+// =========================================================
+// TABELA
+// =========================================================
+function renderTabela() {
+  const busca  = document.getElementById("busca").value.toLowerCase();
+  const tmaq   = document.getElementById("t-maquina").value;
+  const tpar   = document.getElementById("t-parada").value;
+  let ops = filtrarOps();
+
+  if (busca) ops = ops.filter(r =>
+    (r.operador||"").toLowerCase().includes(busca) ||
+    (r.id_op||"").toLowerCase().includes(busca) ||
+    (r.cliente||"").toLowerCase().includes(busca) ||
+    (r.desc||"").toLowerCase().includes(busca)
+  );
+  if (tmaq) ops = ops.filter(r => r.maquina === tmaq);
+  if (tpar) ops = ops.filter(r => r.parada === tpar);
+
+  // sort
+  const { col, dir } = tabelaSort;
+  ops.sort((a,b) => {
+    let va = a[col] ?? "", vb = b[col] ?? "";
+    if (col === "data") { va = dateParse(String(va))||""; vb = dateParse(String(vb))||""; }
+    if (col === "qtd_prod" || col === "qtd_ped") { va = Number(va)||0; vb = Number(vb)||0; }
+    if (va < vb) return dir === "asc" ? -1 : 1;
+    if (va > vb) return dir === "asc" ? 1 : -1;
+    return 0;
+  });
+
+  const MAX = 200;
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = ops.slice(0, MAX).map(r => {
+    const parada = r.parada ? `<span class="tag tag-red">${r.parada}</span>` : `<span style="color:var(--muted)">—</span>`;
+    const pctAtend = r.qtd_ped > 0 ? Math.round(r.qtd_prod/r.qtd_ped*100) : null;
+    const qtdColor = pctAtend != null ? (pctAtend >= 90 ? "#4ade80" : pctAtend >= 50 ? "var(--accent)" : "#f87171") : "var(--text)";
+    return `<tr>
+      <td style="color:var(--muted)">${r.data}</td>
+      <td class="td-op">${r.operador || "<span style='color:var(--muted)'>?</span>"}</td>
+      <td style="font-size:10px;color:#8892a4">${r.maquina || "—"}</td>
+      <td style="color:#8892a4">${r.cliente || "—"}</td>
+      <td class="td-peca">${r.id_op || "—"}</td>
+      <td class="td-qtd" style="color:${qtdColor}">${r.qtd_prod.toLocaleString("pt-BR")}</td>
+      <td class="td-ped">${r.qtd_ped > 0 ? r.qtd_ped.toLocaleString("pt-BR") : "—"}</td>
+      <td style="color:var(--muted);font-size:10px">${r.h_inicio || "—"}</td>
+      <td style="color:var(--muted);font-size:10px">${r.h_fim || "—"}</td>
+      <td>${parada}</td>
+    </tr>`;
+  }).join("");
+
+  const info = ops.length > MAX
+    ? `Mostrando ${MAX} de ${ops.length} OPs — use os filtros para refinar`
+    : `${ops.length} OP(s) encontrada(s)`;
+  document.getElementById("tabela-info").textContent = info;
+}
+
+function sortTabela(col) {
+  if (tabelaSort.col === col) tabelaSort.dir = tabelaSort.dir === "asc" ? "desc" : "asc";
+  else { tabelaSort.col = col; tabelaSort.dir = "asc"; }
+  document.querySelectorAll("th[id^='th-']").forEach(th => {
+    th.classList.remove("sort-asc","sort-desc");
+    if (th.id === "th-" + col) th.classList.add(tabelaSort.dir === "asc" ? "sort-asc" : "sort-desc");
+  });
+  renderTabela();
+}
+
+// =========================================================
+// UTILS
+// =========================================================
+function dateParse(s) {
+  if (!s) return null;
+  const p = String(s).split("/");
+  if (p.length === 3) return `${p[2]}-${p[1].padStart(2,"0")}-${p[0].padStart(2,"0")}`;
+  return null;
+}
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  const p = iso.split("-");
+  return p[2] + "/" + p[1];
+}
+
+function parseHora(v) {
+  if (!v) return null;
+  const s = String(v).trim();
+  const m = s.match(/^(\d{1,2})[:\.](\d{2})/);
+  if (!m) return null;
+  return parseInt(m[1]) + parseInt(m[2]) / 60;
+}
+</script>
+</body>
+</html>

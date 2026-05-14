@@ -1,0 +1,15 @@
+﻿DATA;CLIENTE;ID_OP;ITEM;DESCRICAO_OP;N_PROG;QTD_PROD;QTD_PED;H_INICIO;H_FIM;TOTAL_MIN;NC;COD_PARADA;T_PARADA_MIN;OPERADOR;MAQUINA;AUDIT
+08/04/2026;;30838;;Furo loblonga;;665;;08:30;15:35;;;P03;;Wendell;Centro Usinagem;WA14052026_p1
+09/04/2026;;30838;;Furo loblonga;;305;;10:00;;;;;;Andrei;Centro Usinagem;WA14052026_p1
+06/04/2026;;30838;;;;;;09:35;12:40;;;P12;;;Centro Usinagem;WA14052026_p1
+07/04/2026;;30838;;;;;;08:30;09:00;;;P15;;;Centro Usinagem;WA14052026_p1
+01/04/2026;matro;31553;1,4;;1;182;;;;;;;;Wendell;Centro Usinagem;WA14052026_p2
+08/04/2026;matro;;1;;;;;;;;;P07;;Wendell;Centro Usinagem;WA14052026_p2
+15/04/2026;matro;31553;1,4;;;;;;;;;;;Wendell;Centro Usinagem;WA14052026_p2
+18/04/2026;matro;31553;4;2a CNC c/Furo;1;80;;;;;;P01;;Wendell;Centro Usinagem;WA14052026_p3
+18/04/2026;matro;31553;4;;494;141;141;;;;;;;Wendell;Centro Usinagem;WA14052026_p3
+23/04/2026;matro;31553;4;;;;;;;;;P07;;Wendell;Centro Usinagem;WA14052026_p3
+23/04/2026;matro;31553;4;;;;;;;;;;;Wendell;Centro Usinagem;WA14052026_p3
+06/05/2026;matro;;4;;;;;;;;;;;Wendell;Centro Usinagem;WA14052026_p3
+12/05/2026;matro;;4;;;;;;;;;P07;;Wendell;Centro Usinagem;WA14052026_p3
+13/05/2026;matro;;4;;;;;;;;;;;Wendell;Centro Usinagem;WA14052026_p3

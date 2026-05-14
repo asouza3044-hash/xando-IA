@@ -1,0 +1,63 @@
+============================================================
+ CRONOANÁLISE IMPAKTTO — Diagnóstico de Produtividade
+ LASEC Consultoria Industrial · Alexandre Souza
+ Versão 1 · 1ª foto-teste · Período: 06–15/04/2026
+============================================================
+
+
+O QUE TEM NESTA PASTA
+---------------------
+
+ 01_Apresentacao_CRONOANALISE_IMPAKTTO.pptx
+    Apresentação executiva em PowerPoint (7 slides).
+    Use este arquivo para discutir e ajustar com a equipe.
+
+ 02_Apresentacao_CRONOANALISE_IMPAKTTO.pdf
+    Versão para impressão e compartilhamento direto.
+
+ 03_Planilha_de_apoio.xlsx
+    Planilha com os 18 apontamentos da 1ª foto-teste,
+    KPIs, paleta corporativa e estrutura para evoluir o
+    diagnóstico nas próximas coletas.
+
+
+COMO LER A APRESENTAÇÃO
+-----------------------
+
+ Slide 1  Capa institucional LASEC × IMPAKTTO
+ Slide 2  Indicadores-chave (18 OPs · 497 peças · 19,9%
+          atendido · 14 paradas legíveis)
+ Slide 3  Ranking dos operadores pela quantidade produzida
+ Slide 4  Mix por número da peça (donut + tabela)
+ Slide 5  Pareto das paradas — onde o tempo está parado
+ Slide 6  Detalhe das 18 ordens de produção observadas
+ Slide 7  Próximos passos — curto, médio e longo prazo
+
+
+PENDÊNCIAS NESTA 1ª COLETA
+--------------------------
+
+A 1ª foto do formulário teve baixa nitidez. Para a próxima
+coleta, contamos com vocês para:
+
+ 1. Foto melhor do formulário (com boa iluminação)
+ 2. Lista oficial de máquinas e operadores ativos
+ 3. Descrições reais dos códigos P11, P16 e 87
+ 4. Confirmação do significado de "153,00" em DADOS DO
+    PROCESSO > HORAS NORMAIS
+
+Detalhes em "Próximos passos" (slide 7).
+
+
+CONTATO
+-------
+
+Alexandre Souza
+LASEC Consultoria Industrial
+E-mail: a.souza3044@gmail.com
+
+Qualquer dúvida ou ajuste, estou à disposição.
+
+============================================================
+ Documento gerado em 11/05/2026
+============================================================

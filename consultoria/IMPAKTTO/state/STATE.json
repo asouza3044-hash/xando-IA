@@ -1,0 +1,49 @@
+{
+  "projeto": "Cronoanálise IMPAKTTO",
+  "consultor": "Alexandre Souza (LASEC)",
+  "cliente": "IMPAKTTO",
+  "status": "EM ANDAMENTO",
+  "ultima_atualizacao": "14/05/2026",
+
+  "dados": {
+    "total_ops": 40,
+    "total_pecas": 2340,
+    "pct_atendimento": 81.1,
+    "total_paradas": 21,
+    "periodo_inicio": "01/04/2026",
+    "periodo_fim": "13/05/2026",
+    "operadores": ["Clayton", "Wendell", "Vanildo", "Danilo", "Vita", "Andrei"],
+    "maquinas": ["LO-40", "Centro Usinagem", "CE-440"]
+  },
+
+  "fontes_importadas": [
+    {"arquivo": "20260509_teste_foto1.csv",    "linhas": 18, "data": "09/05/2026"},
+    {"arquivo": "20260514_ccf13_LO40.csv",     "linhas": 8,  "data": "14/05/2026"},
+    {"arquivo": "20260514_whatsapp_centro.csv","linhas": 14, "data": "14/05/2026"}
+  ],
+
+  "normalizacoes": {
+    "clientes": {"matro": "MATÃO", "matao": "MATÃO"},
+    "maquinas": {"Cepha Usinagem": "Centro Usinagem", "cepha": "Centro Usinagem", "centro": "Centro Usinagem"},
+    "operadores": {"Cleiton": "Clayton"},
+    "quantidades": "cj = conjunto, multiplicar por 2"
+  },
+
+  "formularios_pendentes": [
+    "WhatsApp Scan 2026-05-14 p4 e p5 — ainda não processados (ilegíveis)"
+  ],
+
+  "entregavel": {
+    "arquivo": "entregaveis/CRONOANALISE_IMPAKTTO_v2.html",
+    "versao": "v2",
+    "status": "PRONTO — aguardando mais dados para apresentação final",
+    "coluna_id": "ID (código de controle interno)"
+  },
+
+  "sync": {
+    "github": "xando-IA branch lasec-orcamentos — commit 8a4840c — 14/05/2026",
+    "vm_oracle": "/home/ubuntu/backup_lasec/consultoria/IMPAKTTO/ — 14/05/2026"
+  },
+
+  "proxima_acao": "Receber novos formulários do cliente → OCR → importar → atualizar dashboard"
+}
