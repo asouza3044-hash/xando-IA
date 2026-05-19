@@ -1,29 +1,25 @@
 # LAST_CHECKPOINT
 
 ## Data
-09/05/2026
+19/05/2026
 
 ## Orcamento
-039/2026 — INOVA PRODENTAL — RISE M24×1 CONJUNTO (eixo + porca) — DESENVOLVIMENTO
+040/2026 — TAGLIA Power Performance — Flange FG02M1E07O15 — Projeto Triturador
 
 ## Estado atual
-4 documentos gerados + PDF da proposta. **APROVADO pelo Alexandre.** SYNC PENDENTE.
+4/4 documentos gerados. PROPOSTA aprovada por Alexandre. **PDF pendente (Alexandre gera).**
 
-## Documentos
-- `PROCESSO_FABRICACAO.html` ✅ aprovado
-- `ESTUDO_CUSTO_FABRICACAO.html` ✅
-- `ESTUDO_PRECO_VENDA_NFE.html` ✅
-- `PROPOSTA_COMERCIAL.html` ✅
-- `PROPOSTA_COMERCIAL_039.pdf` ✅ (gerado via script CDP scale 0.78)
+## Preço Final
+- Custo/peça: R$ 522,36 | Preço NFe: **R$ 775,71/pç** | Total lote 4: **R$ 3.102,84**
+- Markup: ×1,350 | Piso: R$ 644,27/pç (×1,12)
+- Pagamento: 50% entrada / 50% contra-entrega | Prazo: 28 DDL
 
-## Números finais
-- Custo/conjunto (lote 5): R$ 317,97
-- Preço NFe/conjunto (markup 35%): **R$ 481,63**
-- Total lote 5: **R$ 2.408,16**
-- Lote recorrente 20: R$ 84,82/conj | 50: R$ 60,20/conj
+## Aprendizado desta sessão
+- **Live tooling LYNX BMT45P (3,7kW) NÃO comporta brocas ≥Ø9mm nem machos ≥M10**
+- Furação 100% no D760 para brocas grandes e machos M10/M16
+- TAGLIA: novo cliente, flange estrutural grande (26 kg, Ø310), AISI 1045 fornecido
 
-## Pendente
-- SYNC: GitHub xando-IA + VM Oracle (`/home/ubuntu/backup_lasec/`)
-- Atualizar `memory/orcamentos_estado.md` com 039 concluído
-
-## Próximo orçamento futuro: 040/2026
+## Próxima ação
+- PDF da proposta (Alexandre gera via CDP scale 0.78)
+- Enviar proposta ao cliente TAGLIA
+- Próximo orçamento disponível: **041/2026**

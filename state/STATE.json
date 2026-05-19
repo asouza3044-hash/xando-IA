@@ -1,63 +1,33 @@
 {
   "orcamento_atual": {
-    "num": "039",
+    "num": "040",
     "ano": "2026",
-    "cliente": "INOVA PRODENTAL",
-    "peca": "RISE M24X1 CONJUNTO (eixo + porca)",
-    "modalidade": "desenvolvimento",
-    "lote": 5,
-    "mp": "cliente_fornece (CAST 77, custo R$ 0)",
-    "maquina": "Doosan LYNX 220LM",
-    "programas_cnc": ["O0116 (eixo)", "O0117 (porca)"],
-    "ciclos_cnc_min": {"eixo": 4.50, "porca": 3.20, "conjunto": 7.70},
-    "tempos_as_built_min": {"eixo": 8.42, "porca": 5.98, "conjunto": 14.40, "fator": 1.87},
-    "custos_fixos_h": {
-      "prog_tryout": 5.0,
-      "setup_eixo": 1.0,
-      "setup_porca": 1.0,
-      "inspecao": 1.0,
-      "total": 8.0
-    },
-    "taxas": {"producao": 96.35, "fixo_15x": 144.53},
-    "markup": 1.35,
-    "preco_estimado_conjunto": 481.63,
-    "pasta": "D:/IA MALELO/orcamentos/2026/INOVA_PRODENTAL/039_INOVAPRO_RISE_M24X1_CONJUNTO/"
+    "cliente": "TAGLIA Power Performance",
+    "peca": "Flange FG02M1E07O15 — Projeto Triturador / Submontagem Eixo",
+    "modalidade": "usinagem_completa",
+    "lote": 4,
+    "mp": "cliente_fornece (AISI 1045, custo R$ 0)",
+    "maquinas": ["Doosan LYNX 220LM", "Romi Discovery 760 3-eixos"],
+    "tempo_lynx_min": 62,
+    "tempo_d760_min": 30,
+    "tempo_total_min": 92,
+    "custos_fixos": 870.32,
+    "custo_ferramentas_comprar": 200.00,
+    "mod_por_peca": 160.31,
+    "custo_unitario": 522.36,
+    "markup": 1.350,
+    "preco_nfe_unitario": 775.71,
+    "total_lote_nfe": 3102.84,
+    "piso_minimo_nfe": 644.27,
+    "diretorio": "D:\\IA MALELO\\orcamentos\\2026\\TAGLIA\\040_TAGLIA_FG02M1E07O15\\"
   },
-  "status": {
-    "fase_atual": "PROCESSO_FABRICACAO",
-    "documento_atual": "PROCESSO_FABRICACAO.html",
-    "processo_fabricacao_aprovado": true,
-    "orcamento_concluido": true,
-    "sync_pendente": true,
-    "ultima_etapa_concluida": "4 HTMLs + PDF gerados (PROCESSO+CUSTO+PRECO+PROPOSTA)",
-    "checkpoint_necessario": false
+  "documentos": {
+    "PROCESSO_FABRICACAO": "APROVADO",
+    "ESTUDO_CUSTO": "APROVADO",
+    "ESTUDO_PRECO_NFE": "APROVADO",
+    "PROPOSTA_COMERCIAL": "GERADO — PDF PENDENTE"
   },
-  "memoria_execucao": {
-    "resumo_atual": "039 INOVA PRODENTAL RISE M24X1 conjunto — PROCESSO gerado com base em programas reais O0116/O0117 + apontamento Doosan 27-28/04. Aguardando aprovação Alexandre para seguir CUSTO/PRECO/PROPOSTA.",
-    "proximo_passo": "Aprovação Alexandre do PROCESSO_FABRICACAO -> gerar ESTUDO_CUSTO + PRECO_NFE + PROPOSTA",
-    "pendencias_criticas": ["Aprovação PROCESSO 039 pelo Alexandre", "Confirmar markup 1,35 (35%) ou ajustar para desenvolvimento"],
-    "decisoes_do_alexandre": [
-      "Lote: 5 conjuntos (desenvolvimento)",
-      "MP: cliente fornece CAST 77",
-      "Tempo as-built = ciclo × 1,87 (opção c)",
-      "Programação + try-out: 1h por cada conjunto",
-      "Estrutura: 1 PROCESSO consolidado (eixo+porca)",
-      "Markup default 35% (a confirmar)"
-    ]
-  },
-  "orcamentos_anteriores_concluidos": [
-    "023/2026 SPEEDMAQ SSX-460",
-    "027/2026 SPEEDMAQ SSX-461",
-    "028-032/2026 SPEEDMAQ batch (5 peças)"
-  ],
-  "checkpoint": {
-    "arquivo_checkpoint": "state/LAST_CHECKPOINT.md",
-    "ultima_atualizacao": "2026-05-09",
-    "motivo_ultima_atualizacao": "PROCESSO_FABRICACAO 039 gerado"
-  },
-  "auditoria": {
-    "criado_em": "2026-04-05",
-    "atualizado_em": "2026-05-09",
-    "atualizado_por": "Alexandre + agente"
-  }
+  "fase_atual": "PROPOSTA_COMERCIAL",
+  "proximo_orcamento": "041/2026",
+  "ultima_atualizacao": "2026-05-19"
 }
