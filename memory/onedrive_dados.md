@@ -26,12 +26,36 @@ Tempos: Usinagem, Peças/hora, Usinagem+Troca, Tempo total, Retirar cavaco, Abas
 
 ## ordem_producao_reformulada.xlsx — Dados reais de produção
 - Peça: SUPORTE METÁLICO INOVAPRO, 50 peças pedidas
-- **Hora Torno: R$ 121,00/hr**
-- **Hora Centro: R$ 260,00/hr**
+- **ATENCAO:** Valores R$ 121/hr (torno) e R$ 260/hr (centro) neste arquivo sao PRECOS DE VENDA ao cliente, NAO custo interno
 - 1° lado: 21 min/pça → 2,857 pcs/hr
 - 2° lado: 6,47 min/pça → 9,27 pcs/hr
 - Média: 13,74 min/pça → 6,06 pcs/hr
 - % carga: 42,35% (1°lado) / 13,05% (2°lado)
+
+## CUSTOS HORA-MAQUINA LASEC 2026 (FONTE DE VERDADE)
+**Fonte:** Planilha `custos_ferramentaria lasec.xls` aba "Custos 2026"
+**Correcao:** IPCA 2023 (4,62%) + IPCA 2024 (4,83%) + Dissidio Metalurgicos SP 2025/2026 (5,74%) = fator 1,1597
+
+### Custo Interno (para calcular custo de producao):
+| Maquina | Custo R$/h | Setup R$/h (1,5x) | Setup Min |
+|---------|-----------|-------------------|-----------|
+| CENTUR 30D | R$ 62,22 | R$ 93,33 | 1,0h |
+| G240 | R$ 83,15 | R$ 124,73 | 1,0h |
+| GL 280 | R$ 86,86 | R$ 130,29 | 1,0h |
+| **DOOSAN LYNX 220LM** | **R$ 96,35** | **R$ 144,52** | **1,0h** |
+| VTC 30A | R$ 93,89 | R$ 140,84 | 1,0h |
+| DISCOVERY 560 (3 eixos) | R$ 112,65 | R$ 168,98 | 1,0h |
+| **DISCOVERY 760 (3 eixos)** | **R$ 121,49** | **R$ 182,24** | **1,0h** |
+| **DISCOVERY 760 (4 eixos)** | **R$ 151,86** | **R$ 227,79** | **2,0h** |
+
+### Referencia GRV 2024 (preco de mercado Grande SP — para validar competitividade):
+| Tipo | GRV R$/h | LASEC Custo | Margem Potencial |
+|------|---------|-------------|-----------------|
+| Torno CNC | R$ 156,28 | R$ 96,35 | +62,2% |
+| Centro 3 eixos | R$ 189,78 | R$ 121,49 | +56,2% |
+| Centro 4 eixos (est.+25%) | R$ 237,23 | R$ 151,86 | +56,2% |
+
+### Regra 4o eixo: +25% sobre taxa 3 eixos (aprovado Alexandre 08/03/2026)
 
 ## ORDEM DE PRODUÇÃO x peça x tempo atual.xlsx — 100 abas de peças reais
 Empresa: Malelo Ind. E Com. Ltda - ME

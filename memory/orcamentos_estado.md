@@ -8,24 +8,33 @@
 
 ### 036/2026 — MICROGEAR Pinhão Cônico (1.34.03.643)
 - **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\036_MICROGEAR_1.34.03.643\`
-- **Estado:** COLETA DE DADOS — TEMPO PENDENTE (histórico no dump PostgreSQL)
+- **Estado:** COLETA DE DADOS — desenho lido, **TEMPO PENDENTE** (Alexandre: "não faz em 8 min, tem histórico 2010+")
 - **Dados:** 54pç, LYNX 220LM, DIN 16MnCr5 (MP cliente)
-- **Pendência:** localizar histórico no minipcp_12_18_2025.dump
+- **Geometria:** L=26,5mm | Ø61,6 | bore Ø20 N7 | cone 51°16' | canal interno 3mm
+- **Programas similares:** O0192 (1.34.08.808) e O0193 (1.34.03.645) — peça irmã
+- **Pendência crítica:** localizar histórico no minipcp_12_18_2025.dump (PostgreSQL)
+- **Erro corrigido:** copiei 8 min da 035 — alucinação. Regra anti-alucinação salva em feedback_familia_nao_e_tempo.md
 - **Última sessão:** 2026-05-02
 
-## Orcamentos Concluidos (2026)
-- 001 a 035: concluidos (ver pastas em `D:\IA MALELO\orcamentos\2026\`)
+### 024/2026 — MICROGEAR Sincronizador 19 Dentes
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\024_MICROGEAR_1.34.20.016\`
+- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA)
+- **Dados:** 60pç, LYNX, ciclo 9,27min, tempo custo 13,00min, MOD R$1.252,55
+- **Custos fixos:** R$722,65 | NFe R$62,33/pç → R$3.739,80 total
+- **Próximo:** Gerar PDF + enviar ao cliente
+- **Ultima sessão:** 2026-04-01
 
-### 040/2026 — TAGLIA Flange FG02M1E07O15
+## Orcamentos Concluidos (2026)
+- 001 a 013: concluidos (ver pastas em `D:\IA MALELO\orcamentos\2026\`)
+
+### 040/2026 — TAGLIA Power Performance Flange FG02M1E07O15
 - **Diretório:** `D:\IA MALELO\orcamentos\2026\TAGLIA\040_TAGLIA_FG02M1E07O15\`
-- **Estado:** COMPLETO — 4/4 documentos | PDF pendente (Alexandre gera)
+- **Estado:** COMPLETO — 4/4 documentos + SYNC GitHub + VM | PDF pendente (Alexandre gera)
 - **Dados:** 4pç, LYNX 220LM + D760 3-eixos, AISI 1045 fornecido cliente
 - **Tempos:** LYNX 62 min + D760 30 min = 92 min/peça
 - **Preço NFe:** R$ 775,71/pç → R$ 3.102,84 total (markup ×1,350)
 - **Custo:** R$ 522,36/pç | Piso: R$ 644,27/pç
-- **Ferramentas a comprar:** Macho M10×1 HSS + Fresa Ø26 MD
-- **Tolerâncias críticas:** Ø255 H7, Ø170 interferência, Ø310 h7
-- **Aprendizado:** live tool LYNX (3,7kW) não comporta furação ≥Ø9mm → D760
+- **Aprendizado:** live tool LYNX (3,7kW) não comporta furação ≥Ø9mm → 100% D760
 - **Última sessão:** 2026-05-19
 
 ### 039/2026 — INOVA PRODENTAL RISE M24×1 CONJUNTO
@@ -33,9 +42,107 @@
 - **Dados:** 5pç, LYNX 220LM, conjunto eixo+porca, CAST77 fornecido cliente
 - **Última sessão:** 2026-05-09
 
+### 014/2026 — LUBRISYSTEM LBD-0002
+- **Estado:** COMPLETO — 6/6 documentos
+- **NFe parceiro lote 50:** R$ 80,31 | **lote 100:** R$ 70,31
+- **Ultima sessao:** 2026-03-08
+
+### 022/2026 — SPEEDMAQ FLANGES S40
+- **Estado:** COMPLETO — PROCESSO + CUSTO + PRECO_NFE + PROPOSTA
+- **4 modelos:** S40-U2030/2031/2032/2033
+- **Total pedido:** R$ 2.318,76 (16 peças)
+- **Ultima sessao:** 2026-03-17
+
+### 023/2026 — SPEEDMAQ SSX-460
+- **Estado:** COMPLETO — APROVADO pelo Alexandre
+- **Peça:** Corpo Acoplamento Rotativo SSX-460 R4
+- **Máquina:** LYNX 220LM | Lote 5 pç | 12,45 min/pç
+- **NFe:** R$ 338,87/pç → R$ 1.694,35 total
+- **PDF:** Gerado (CDP scale 0.78, 1 página)
+- **Próximo passo:** Enviar PDF ao cliente SPEEDMAQ
+- **Ultima sessao:** 2026-03-25
+
+### 025/2026 — MICROGEAR Eixo Acionamento Z-23
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\025_MICROGEAR_1.14.01.653\`
+- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA)
+- **Dados:** 30pç, LYNX, ciclo 9,17min, tempo custo 13,00min
+- **Preço:** R$58,11/pç (mínimo+10%) | Total R$1.743,30
+- **PDF:** Adiado por decisão do Alexandre
+- **Sync:** GitHub + VM Oracle concluído
+- **Última sessão:** 2026-04-02
+
+### 026/2026 — MICROGEAR Pinhão 16 Dentes (1.98.03.104)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\026_MICROGEAR_1.98.03.104\`
+- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA)
+- **Dados:** 20pç, LYNX 220LM, ciclo 6,13min, tempo custo 9,50min (as-built)
+- **Custos fixos:** R$505,86 (3,5h × R$144,53) | Custo: R$50,69/pç
+- **Preço:** R$56,77/pç (mínimo ×1,12) | Total R$1.135,40 | Margem 12%
+- **Ferramentas:** Live tool + eixo C para chaveta (fresa Ø3,5mm MD)
+- **Próximo:** Gerar PDF + SYNC
+- **Última sessão:** 2026-04-03
+
+### 027/2026 — SPEEDMAQ Flange Bomba CAV (SSX-461)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\027_SPEEDMAQ_SSX-461\`
+- **Estado:** COMPLETO — 4/4 documentos + PDF
+- **Dados:** 5pç, LYNX 220LM, 9,0 min/pç, markup padrão 35%
+- **Custos fixos:** R$505,86 (3,5h × R$144,53) | Custo: R$144,53/pç
+- **Preço:** R$218,92/pç | Total R$1.094,60 | Margem 34%
+- **Última sessão:** 2026-04-04
+
+### 028/2026 — SPEEDMAQ Flange Bomba VE 2 Furos (SSX-462)
+- **Estado:** 4/4+PDF | AGUARDANDO APROVAÇÃO PROCESSO
+- **Dados:** 5pç, LYNX 220LM, 9,0 min/pç, markup 35%
+- **Preço:** R$246,28/pç | Total R$1.231,42 | Margem 34%
+
+### 029/2026 — SPEEDMAQ Flange Bomba VE 3 Furos (SSX-463)
+- **Estado:** 4/4+PDF | AGUARDANDO APROVAÇÃO PROCESSO
+- **Dados:** 5pç, LYNX 220LM, 11,0 min/pç, markup 35%
+- **Preço:** R$252,36/pç | Total R$1.261,82 | Margem 34%
+
+### 030/2026 — SPEEDMAQ Flange Espaçadora Ford (SSX-464)
+- **Estado:** 4/4+PDF | AGUARDANDO APROVAÇÃO PROCESSO
+- **Dados:** 5pç, LYNX 220LM, 6,0 min/pç, markup 35%
+- **Preço:** R$209,80/pç | Total R$1.048,99 | Margem 34%
+
+### 031/2026 — SPEEDMAQ Flange Espaçadora (SSX-465)
+- **Estado:** 4/4+PDF | AGUARDANDO APROVAÇÃO PROCESSO
+- **Dados:** 5pç, LYNX 220LM, 3,0 min/pç, markup 35%
+- **Preço:** R$173,31/pç | Total R$866,56 | Margem 34%
+
+### 032/2026 — SPEEDMAQ Engate do Acoplamento (SSX-468)
+- **Estado:** 4/4+PDF | AGUARDANDO APROVAÇÃO PROCESSO
+- **Dados:** 5pç, LYNX 220LM, 4,5 min/pç, markup 35%
+- **Preço:** R$205,24/pç | Total R$1.026,18 | Margem 34%
+
+### 034/2026 — MICROGEAR CUBO 1.60.20.958 (reusinagem)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\034_MICROGEAR_1.60.20.958\`
+- **Estado:** COMPLETO — 4/4 documentos | **PREÇO REVISADO — aguardando fechamento cliente**
+- **Dados:** 200pç, GL280×2 + LYNX (3 etapas), ciclo 11,5min, markup ×1,20
+- **Custos fixos revisados:** prog 3,0h GL280 + 1,0h LYNX + setup 1,0h+1,0h = R$1.019,87
+- **Custo:** R$26,55/pç | **Preço:** R$31,86/pç | Total R$6.371,90
+- **Histórico negociação:** enviado R$34,31 (original) → cliente recusou → revisado R$31,86
+- **Piso absoluto (×1,12):** R$29,74/pç
+- **Última sessão:** 2026-05-01
+
+### 033/2026 — MICROGEAR Pino da Articulação (1.14.09.031)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\033_MICROGEAR_1.14.09.031\`
+- **Estado:** COMPLETO — 4/4 documentos + PDF
+- **Dados:** 60pç, LYNX 220LM (DOOSAN), ciclo 7,25min, as-built 14,83min, tempo custo 10,00min (intermediário)
+- **Programa:** O0416 — produção real 10-14/04/2026 (59 OK + 1 NC), operador André
+- **Material:** SAE 1045 forjado com cabeça quadrada 97,3×97,3 (sem fresamento base)
+- **Custos fixos:** R$361,33 (2,5h × R$144,53) | Custo: R$27,60/pç
+- **Preço:** R$41,81/pç (×1,5147, markup 35%) | Total R$2.508,43 | Margem 35% | +4,3% vs GRV
+- **Fixação única:** G55 com castanha mole quadrada customizada (CAT 1=12,2/2=9,3/3=9,3mm)
+- **Aprovado PROCESSO:** 17/04/2026
+- **Última sessão:** 2026-04-17
+
 ### 035/2026 — MICROGEAR Pinhão Cônico (1.34.03.642)
-- **Estado:** COMPLETO — 4/4 documentos + PDF + SYNC
-- **Dados:** 54pç, LYNX 220LM, ciclo 8 min | R$ 32,88/pç
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\035_MICROGEAR_1.34.03.642\`
+- **Estado:** COMPLETO — 4/4 documentos + PDF + SYNC GitHub
+- **Dados:** 54pç, LYNX 220LM, ciclo 8 min, prog 1h (reuso O0020)
+- **Custos fixos:** R$361,33 | Custo: R$24,42/pç
+- **Preço:** R$32,88/pç (markup 20% MICROGEAR ×1,3464) | Total R$1.775,52
+- **Material:** SAE 4140 fornecido pelo cliente
 - **Última sessão:** 2026-05-01
 
 ## Proximo numero disponivel: 041/2026
