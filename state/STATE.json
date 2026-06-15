@@ -1,32 +1,32 @@
 {
   "orcamento_atual": {
-    "num": "042",
+    "num": "043",
     "ano": "2026",
     "cliente": "MICROGEAR",
-    "peca": "Luva — Ø38 x 48,5 mm (código a definir)",
+    "peca": "Bucha Estriada — 1.98.12.159/010",
     "modalidade": "cliente_fornece_barra",
     "lote": 20,
-    "mp": "Aço SAE/DIN 8620 — barra Ø42 — fornecida pelo cliente — custo R$ 0",
-    "maquinas": ["Doosan LYNX 220LM (live tool + eixo C)"],
-    "tempo_peca_min": 5.55,
-    "tempo_prog_h": 1.0,
+    "mp": "DIN 20MnCr5 — barra Ø2-1/8\" (53,98mm) — fornecida pelo cliente (regra MICROGEAR: MP sempre fornecida) — custo R$ 0",
+    "maquinas": ["Doosan LYNX 220LM (sem live tool/eixo C)"],
+    "tempo_peca_min": 4.90,
+    "tempo_prog_h": 0.5,
     "tempo_setup_h": 1.0,
-    "tempo_inspecao_h": 0.5,
-    "custos_fixos": 361.33,
-    "custo_unitario": 33.72,
-    "preco_nfe": 45.40,
+    "tempo_inspecao_h": 0.25,
+    "custos_fixos": 252.93,
+    "custo_unitario": 25.64,
+    "preco_nfe": 34.53,
     "preco_confirmado_alexandre": true,
     "markup": "MICROGEAR parceiro estrategico 20% (x1,3464)",
-    "diretorio": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\042_MICROGEAR_LUVA_38x48,5\\"
+    "diretorio": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\043_MICROGEAR_BUCHA_1.98.12.159\\"
   },
   "documentos": {
-    "PROCESSO_FABRICACAO": "APROVADO por Alexandre (15/06/2026) — preco R$45,40 confirmado (benchmark 9007130)",
-    "ESTUDO_CUSTO": "GERADO — custo unit R$33,72/pç, lote 20",
-    "ESTUDO_PRECO_NFE": "GERADO — preco NFe R$45,40/pç, total lote R$908,00",
+    "PROCESSO_FABRICACAO": "APROVADO por Alexandre (15/06/2026) — preco reduzido para R$34,53 apos ajuste de tempos fixos (prog 0,5h, inspecao 0,25h)",
+    "ESTUDO_CUSTO": "GERADO — custo unit R$25,64/pç, lote 20",
+    "ESTUDO_PRECO_NFE": "GERADO — preco NFe R$34,53/pç, total lote R$690,60",
     "PROPOSTA_COMERCIAL": "GERADO — pronta para envio ao cliente"
   },
   "fase_atual": "PROPOSTA_COMERCIAL_PRONTA",
-  "proximo_orcamento": "043/2026",
-  "ultima_atualizacao": "2026-06-12",
-  "notas": "Usado 036_MICROGEAR (pinhao conico compacto, lote pequeno) como template/referencia conforme pedido do Alexandre. Peca: luva torneada 2 lados (G54/G55). CORRECOES Alexandre (12/06): (1) furo Ø16 NAO passante, L=23,5mm + mandrilar Ø18,00/17,98 N7 igual 23,5mm + chanfro; (2) rebaixo Ø24+0,5 x4mm largura com chanfro 45 no fundo; (3) furo radial Ø8 a 60 graus com BROCA DE CENTRO (eixo C). Sem codigo de peca ainda. Ciclo 5,55 min/pc e ESTIMATIVA pendente de validacao."
+  "proximo_orcamento": "044/2026",
+  "ultima_atualizacao": "2026-06-15",
+  "notas": "Peca super simples de barra (sem live tool/eixo C): furo Ø29 -> mandrilar Ø33,7 prof.29 -> canal interno Ø38,5x15 no centro -> corte com bedame 2mm L=73, 2o lado so facear/chanfrar. Ciclo 4,90 min/pc ESTIMATIVA (sem programa de referencia no cache MICROGEAR/bucha). Alexandre rejeitou preco inicial R$43,66 ('nunca vou conseguir aprovar esse preco numa operacao tao simples') -> reduzido prog 1,0h->0,5h e inspecao 0,5h->0,25h (setup mantido 1,0h minimo) -> preco final R$34,53, abaixo do benchmark 'BUCHA ESTRIADA' 2023 corrigido (~R$38,50)."
 }

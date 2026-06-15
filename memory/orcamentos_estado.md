@@ -1,6 +1,21 @@
 # Estado dos Orcamentos LASEC
 # ATUALIZAR sempre que estado mudar
-# Proximo numero: 041/2026
+# Proximo numero: 044/2026
+
+### 043/2026 — MICROGEAR Bucha Estriada (1.98.12.159/010)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\`
+- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA), aprovado Alexandre
+- **Dados:** 20pç, LYNX 220LM (sem live tool/eixo C), DIN 20MnCr5 (MP cliente), ciclo 4,90min (ESTIMATIVA)
+- **Custos fixos:** R$252,93 (prog 0,5h + setup 1,0h + inspeção 0,25h) | Custo: R$25,64/pç
+- **Preço:** R$34,53/pç (markup 20% ×1,3464) | Total R$690,60
+- **Histórico negociação:** preço inicial R$43,66 rejeitado por Alexandre (lote 20 fixos altos) → reduzidos prog/inspeção → R$34,53 aprovado
+- **Última sessão:** 2026-06-15
+
+### 042/2026 — MICROGEAR Luva Ø38x48,5
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\042_MICROGEAR_LUVA_38x48,5\`
+- **Estado:** COMPLETO — 4/4 documentos, aprovado Alexandre
+- **Preço:** R$45,40/pç | Total R$908,00 (lote 20)
+- **Última sessão:** 2026-06-12
 
 ## REGRA: Toda sessao nova DEVE ler este arquivo + state/STATE.json + state/LAST_CHECKPOINT.md + regras_usinagem.md ANTES de qualquer acao.
 

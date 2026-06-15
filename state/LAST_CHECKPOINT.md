@@ -1,51 +1,51 @@
 # LAST_CHECKPOINT
 
 ## Data
-12/06/2026
+15/06/2026
 
 ## Orçamento
-042/2026 — MICROGEAR — Luva Ø38 x 48,5mm
+043/2026 — MICROGEAR — Bucha Estriada 1.98.12.159/010
 
 ## Estado atual
 4/4 documentos GERADOS — **PROPOSTA_COMERCIAL pronta para envio ao cliente**
-(template/estrutura baseados no 036_MICROGEAR, lote pequeno, conforme pedido do Alexandre)
-- PROCESSO_FABRICACAO: APROVADO por Alexandre (15/06/2026)
-- ESTUDO_CUSTO_FABRICACAO: gerado (custo unit R$33,72/pç)
-- ESTUDO_PRECO_VENDA_NFE: gerado (preço NFe R$45,40/pç)
-- PROPOSTA_COMERCIAL: gerada (lote 20 = R$908,00)
+(template/estrutura baseados no 042_MICROGEAR)
+- PROCESSO_FABRICACAO: APROVADO por Alexandre (15/06/2026) — após ajuste de preço
+- ESTUDO_CUSTO_FABRICACAO: gerado (custo unit R$25,64/pç)
+- ESTUDO_PRECO_VENDA_NFE: gerado (preço NFe R$34,53/pç)
+- PROPOSTA_COMERCIAL: gerada (lote 20 = R$690,60)
 
-## Dados da peça (extraídos do PDF)
-- Código: não informado ainda
-- L total: 48,5 -0,5mm | Ø38 -0,2 (lado A, 25mm) → Ø31,75 -0,68 → Ø26 -0,5 (lado B)
-- Bore passante: Ø18,00/17,98 N7 em toda extensão útil (pré-furo Ø16 ÚNICO, não escalonado) + rebaixo Ø24+0,5 x4mm largura com chanfro 45°/R1 no fundo
-- Furo radial Ø8 a 60° — feito com BROCA DE CENTRO (live tool + eixo C)
-- Chanfros 1,5x45° (entrada bore), 45° (rebaixo), 30° externo (2x), R1
-- Material: aço 8620, barra Ø42 fornecida pelo cliente (R$0)
-- Lote: 20 pç | Máquina: LYNX 220LM (2 lados G54/G55)
+## Dados da peça (extraídos do PDF + clarificação Alexandre)
+- Código: 1.98.12.159/010 — Bucha Estriada
+- Material: DIN 20MnCr5 — barra Ø2-1/8" (53,98mm) — fornecida pelo cliente MICROGEAR (custo MP = R$0, regra padrão)
+- L=73 -0,2mm | Ø externo Ø53,3 -0,05 | bore Ø33,7 +0,05 prof.29mm | canal interno Ø38,5 +0,5 x15mm no centro | chanfros 3x45° ext (2x) + 1x45° int (2x) | R0,8 -0,4
+- Processo (descrito diretamente por Alexandre 15/06/2026): bar work, furo Ø29 → mandrilar Ø33,7 prof.29 → canal Ø38,5x15 no centro → corte com bedame 2mm em L=73 → 2º lado só facear/chanfrar
+- Máquina: LYNX 220LM (sem live tool/eixo C) — 2 fixações G54/G55
+- Lote: 20 pç
 
-## CORREÇÕES DO ALEXANDRE (12/06/2026) — já aplicadas
-- Furo Ø16 NÃO é passante: profundidade L=23,5mm
-- Mandrilamento Ø18/17,98 N7 igual a 23,5mm (mesma profundidade do furo Ø16) + chanfro
-- "Ø24+0,5" = rebaixo de 4mm de largura no fundo do bore (com chanfro 45°), separado
-- Furo radial Ø8 a 60° = broca de centro (não broca MD comum)
+## CORREÇÕES DO ALEXANDRE (15/06/2026) — já aplicadas
+- "Estriado" no desenho = canal interno simples Ø38,5x15mm (NÃO broaching/spline real, sem subcontratação)
+- "SERVIÇO EXTERNO" no desenho = designação interna MICROGEAR (não implica subcontratação adicional)
+- MICROGEAR sempre fornece MP — removida linguagem "ASSUMIDO/a confirmar" (regra já documentada em feedback_microgear_mp_fornecida.md)
+- **Preço inicial R$43,66 REJEITADO** ("nunca vou conseguir aprovar esse preço numa operação tão simples") → reduzidos tempos fixos: Programação 1,0h→0,5h, Inspeção 0,5h→0,25h (Setup mantido 1,0h — mínimo da regra) → preço final R$34,53
 
 ## Tempos estimados (ESTIMATIVA — NÃO VALIDADA)
-- Ciclo/peça: 5,55 min (sem programa de referência com tempo p/ esta geometria)
-- Programação: 1,0h (ajustado a pedido do Alexandre — padrão mínimo) | Setup: 1,0h | Inspeção: 0,5h
-- Custos fixos: R$ 361,33 | Custo unit: R$ 33,72 | Preço NFe (markup 20%): R$ 45,40/pç
+- Ciclo/peça: 4,90 min (sem programa de referência com tempo p/ esta geometria — cache MICROGEAR/bucha só tem buchas de bronze simples)
+- Programação: 0,5h | Setup: 1,0h | Inspeção: 0,25h
+- Custos fixos: R$ 252,93 | Custo unit: R$ 25,64 | Preço NFe (markup 20%): R$ 34,53/pç
 
 ## Preço confirmado
-- Custo unit: R$33,72 | **Preço NFe: R$45,40/pç** (lote20 = R$908,00)
-- Revisão de benchmark feita: 23 itens "LUVA" históricos MICROGEAR (dump dez/2025) — benchmark direto 9007130 (R$41,34-44,44, lote 10-15) confirma R$45,40 EM LINHA (peça mais complexa que o benchmark)
-- Alexandre CONFIRMOU manter R$45,40 (12/06/2026) — registrado em memory/feedback_precificacao_microgear.md
+- Custo unit: R$25,64 | **Preço NFe: R$34,53/pç** (lote20 = R$690,60)
+- Benchmark: "BUCHA ESTRIADA" histórico MICROGEAR (2023, lote 40) = R$31,50 → corrigido IPCA ~R$38,50. R$34,53 fica abaixo, considerado competitivo.
+- Alexandre APROVOU após ajuste de tempos fixos (15/06/2026)
 
 ## Próxima ação
 - Enviar PROPOSTA_COMERCIAL ao cliente MICROGEAR
-- Pendências: código da peça (ainda "a definir" — atualizar quando MICROGEAR informar)
+- Confirmar ciclo (4,90 min) na 1ª peça piloto e retroalimentar BD
 - Aguardar "APROVADO" do cliente para iniciar produção
+- Próximo orçamento: 044/2026 (Alexandre mencionou ainda ter +2 orçamentos pendentes)
 
 ## Arquivos HTML
-D:\IA MALELO\orcamentos\2026\MICROGEAR\042_MICROGEAR_LUVA_38x48,5\042_MICROGEAR_PROCESSO_FABRICACAO.html
-D:\IA MALELO\orcamentos\2026\MICROGEAR\042_MICROGEAR_LUVA_38x48,5\042_MICROGEAR_ESTUDO_CUSTO_FABRICACAO.html
-D:\IA MALELO\orcamentos\2026\MICROGEAR\042_MICROGEAR_LUVA_38x48,5\042_MICROGEAR_ESTUDO_PRECO_VENDA_NFE.html
-D:\IA MALELO\orcamentos\2026\MICROGEAR\042_MICROGEAR_LUVA_38x48,5\042_MICROGEAR_PROPOSTA_COMERCIAL.html (file:///D:/IA%20MALELO/orcamentos/2026/MICROGEAR/042_MICROGEAR_LUVA_38x48,5/042_MICROGEAR_PROPOSTA_COMERCIAL.html)
+D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\043_MICROGEAR_PROCESSO_FABRICACAO.html
+D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\043_MICROGEAR_ESTUDO_CUSTO_FABRICACAO.html
+D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\043_MICROGEAR_ESTUDO_PRECO_VENDA_NFE.html
+D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\043_MICROGEAR_PROPOSTA_COMERCIAL.html (file:///D:/IA%20MALELO/orcamentos/2026/MICROGEAR/043_MICROGEAR_BUCHA_1.98.12.159/043_MICROGEAR_PROPOSTA_COMERCIAL.html)
