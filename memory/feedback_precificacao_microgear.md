@@ -30,6 +30,7 @@ MICROGEAR é parceiro estratégico — manda serviço consistentemente. Markup c
 
 - **025 Eixo Z-23 (DIN 20MnCr5, escalonado, N7)** → tipologia EIXO MÉDIO. Enviado R$ 58,11/un lote 30. Histórico justo: **R$ 65–72/un** (+12 a 24%).
 - **026 Pinhão 16D (SAE 4140 Ø38)** → tipologia PINHÃO/COROA. Enviado R$ 56,77/un lote 20. Benchmark direto **9007163 COROA R$ 65 lote 20** (mesmo cliente, mesmo mês). Justo: **R$ 65–75/un** (+15 a 32%).
+- **042 Luva 38x48,5 (aço 8620, bore N7 + furo radial)** → tipologia LUVA tornear conf. desenho, lote 20. Calculado R$ 45,40/un (custo R$33,72 × 1,3464). Benchmark direto **9007130 R$41,34 (lote10) / R$44,44 (lote15)** — preço EM LINHA com histórico (peça mais complexa que o benchmark, então R$45,40 é até conservador). Alexandre CONFIRMOU manter R$45,40 (12/06/2026) — diferente dos casos 025/026, aqui o calculado já bateu na curva, não precisou subir.
 
 ## CONTEXTO IMPORTANTE — mudança de processo (abr/2026)
 
