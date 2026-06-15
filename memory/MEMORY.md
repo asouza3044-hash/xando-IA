@@ -171,3 +171,4 @@
 - NAO usar `--print-to-pdf` direto do Edge (ignora CSS scale/zoom)
 - SEMPRE usar script CDP: `D:\IA MALELO\templates\gerar_pdf_proposta.py` (scale 0.78)
 - Detalhes: `feedback_pdf_1pagina.md`
+- [Live tooling LYNX — limite ferramental](feedback_live_tool_limite_ferramental.md) — Furação ≥M10/Ø9mm vai pro D760. LYNX só torneia. Confirmado 040/2026 TAGLIA

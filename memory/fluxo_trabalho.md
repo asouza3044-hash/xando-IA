@@ -33,6 +33,13 @@
 5. Se mudou estado do orcamento → atualizar `memory/orcamentos_estado.md`
 6. Incluir link file:// clicavel para o usuario verificar
 
+## REGRA DE OURO — CHECKPOINT AUTOMATICO (~95% tokens)
+- **A ~95% dos tokens: PARAR TUDO e fazer checkpoint IMEDIATAMENTE**
+- Incluir TODAS as correcoes do Alexandre feitas na sessao
+- Incluir decisoes tomadas (ex: tempo custo 13 min, nao 17,33)
+- Isso ja foi esquecido MULTIPLAS VEZES — Alexandre extremamente frustrado
+- **TAMBEM: a cada correcao do Alexandre → atualizar CHECKPOINT.md NO ATO**
+
 ## Ao Finalizar Sessao (ou antes de perder contexto)
 1. Atualizar CHECKPOINT.md com TUDO que foi feito
 2. Atualizar orcamentos_estado.md se estado mudou
@@ -52,3 +59,12 @@
 - Nunca depender apenas do CHECKPOINT (ele e por orcamento)
 - Memoria do projeto = conhecimento que atravessa TODOS os orcamentos
 - Se Alexandre corrigir algo que ja esta na memoria → ATUALIZAR a memoria
+
+## Backup em 3 Destinos (apos mudancas importantes)
+1. **Local:** `D:\IA MALELO\` — fonte de verdade (sempre atualizado)
+2. **GitHub:** commit + push para `origin/lasec-orcamentos`
+   - Repo: `C:\Users\lasec\OneDrive\Documentos\GitHub\xando-IA`
+   - Git user: "Alexandre Souza - LASEC" <lasec@malelo.com.br>
+3. **VM Oracle:** SCP para `ubuntu@137.131.140.7:/home/ubuntu/backup_lasec/`
+   - Chave: `D:\IA MALELO\ssh-key-2026-02-04.key`
+- **Quando sincronizar:** novo orcamento, correcoes grandes, novos aprendizados, fim de sessao produtiva

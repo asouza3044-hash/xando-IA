@@ -5,7 +5,12 @@
 - 027/2026 SPEEDMAQ Flange Bomba CAV SSX-461 — COMPLETO (4/4+PDF, R$218,92/pç lote 5)
 - 026/2026 MICROGEAR Pinhão 16 Dentes — COMPLETO
 - 025/2026 MICROGEAR Eixo Z-23 — COMPLETO
-- Proximo: 028/2026
+- 028/2026 SPEEDMAQ Flange Bomba VE 2F SSX-462 — 4/4+PDF, R$246,28/pç lote 5
+- 029/2026 SPEEDMAQ Flange Bomba VE 3F SSX-463 — 4/4+PDF, R$252,36/pç lote 5
+- 030/2026 SPEEDMAQ Flange Espaç. Ford SSX-464 — 4/4+PDF, R$209,80/pç lote 5
+- 031/2026 SPEEDMAQ Flange Espaç. SSX-465 — 4/4+PDF, R$173,31/pç lote 5
+- 032/2026 SPEEDMAQ Engate Acopl. SSX-468 — 4/4+PDF, R$205,24/pç lote 5
+- Proximo: 033/2026
 
 ## Regras Criticas (top 10)
 1. SEM broca de centro — MD alto centrante direto

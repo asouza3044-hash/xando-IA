@@ -1,28 +1,35 @@
 ---
 name: Template Multi-Peças Similares
-description: Layout de PROCESSO_FABRICACAO para orçamentos com múltiplos modelos similares no mesmo documento, com colunas de variação de tempo por modelo
+description: Layout consolidado para orçamentos com múltiplos modelos — PROPOSTA ÚNICA elegante + PROCESSO com colunas por modelo
 type: reference
 ---
 
-## Template aprovado por Alexandre em 17/03/2026
+## Template aprovado por Alexandre em 17/03/2026, reconfirmado 05/04/2026
 
-Usado pela primeira vez no orçamento 022/2026 SPEEDMAQ (4 flanges similares).
+**REGRA:** 2+ peças do mesmo cliente → PERGUNTAR se quer proposta única consolidada ou individuais. (feedback 05/04/2026)
 
-**Estrutura do documento:**
+### PROPOSTA COMERCIAL CONSOLIDADA
+Usado no 022/2026 (4 flanges S40) e 028-032/2026 (5 peças SSX).
+
+**Estrutura:**
+1. Header + title-bar com range de orçamentos
+2. Grid 2col: DADOS + SPECS TÉCNICAS
+3. Tabela IDENTIFICAÇÃO DOS MODELOS (A, B, C, D, E...)
+4. Tabela PREÇOS lote principal (badge "PEDIDO ATUAL")
+5. CTA com total geral (fundo azul + valor amarelo)
+6. Tabela REPOSIÇÃO com economia %
+7. Nota sobre amortização
+8. Condições comerciais 2 colunas
+9. Footer
+
+**Referência proposta:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\PROPOSTA_COMERCIAL_SPEEDMAQ_SSX_028-032.html`
+
+### PROCESSO_FABRICACAO MULTI-PEÇAS
+**Estrutura:**
 1. Dados gerais (comum)
-2. Tabela comparativa dos modelos (identificação)
-3. Geometria/seção (comum)
-4. OP1 — tabela normal (operações comuns, tempo único)
-5. OP2 — tabela com COLUNAS POR MODELO (A, B, C, D) mostrando variação de tempo
-6. Manipulação operador
-7. Resumo de tempos — tabela comparativa final
-8. Ferramentas com códigos MINIPCP (operação, código suporte, código inserto, modelos)
-9. Alertas e observações
+2. Tabela comparativa modelos
+3. Operações com COLUNAS POR MODELO (variação de tempo)
+4. Resumo de tempos comparativo
+5. Ferramentas com códigos MINIPCP
 
-**Pontos-chave:**
-- Colunas coloridas por modelo nas tabelas de operação
-- Cores: verde=produtivo, amarelo=improdutivo, azul=total, vermelho=custos fixos
-- Seção de ferramentas com código BD MINIPCP (08.06/07/08/09.xxx)
-- Legenda de modelos no rodapé das tabelas
-
-**Referência:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\022_SPEEDMAQ_FLANGES_S40\PROCESSO_FABRICACAO_FLANGES_S40.html`
+**Referência processo:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\022_SPEEDMAQ_FLANGES_S40\PROCESSO_FABRICACAO_FLANGES_S40.html`
