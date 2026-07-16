@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - VAP-U2007 - SPEEDMAQ</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.info-table td, .info-table th { border: 1px solid #ddd; padding: 6px; }
+.info-table td:first-child { font-weight: bold; width: 28%; background-color: #f8f9fa; }
+table.op-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+table.op-table th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 8px; text-align: center; border: 1px solid #ddd; }
+table.op-table td { border: 1px solid #ddd; padding: 5px 7px; text-align: center; vertical-align: middle; }
+.row-prod { background-color: #d4edda; }
+.row-improd { background-color: #fff3cd; }
+.row-total { background-color: #cce5ff; font-weight: bold; }
+.row-manip { background-color: #f8d7da; }
+.row-fixacao { background-color: #e3f2fd; font-weight: bold; color: #1976d2; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+.alerta h4 { margin-top: 0; color: #856404; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">PROCESSO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Manípulo da Válvula de Alta Pressão — VAP-U2007</div>
+        <div class="document-subtitle">Orçamento 046/2026 — SPEEDMAQ</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="section-title">1. DADOS GERAIS DA PEÇA</div>
+<table class="info-table">
+    <tr><td>Código:</td><td>VAP-U2007 — Manípulo da Válvula de Alta Pressão</td></tr>
+    <tr><td>Cliente:</td><td>SPEEDMAQ (Conjunto Indústria e Comércio de Máquinas Ltda.)</td></tr>
+    <tr><td>Material:</td><td>Alumínio — Barra Ø63,0 x 18,0mm — <strong>fornecido pelo cliente (SPEEDMAQ) — custo MP = R$ 0,00</strong></td></tr>
+    <tr><td>Desenho:</td><td>VAP-U2007 Rev.1 — arquivo "VAP-U2007 Manipulo da Valvula de Alta Pressao R0.pdf"</td></tr>
+    <tr><td>Máquina:</td><td><strong>Doosan LYNX 220LM</strong> — peça de barra em 2 fixações (torno puro, sem live tool/eixo C)</td></tr>
+    <tr><td>Fixação:</td><td><strong>1º lado</strong>: castanha "D" Ø57x4mm, 8bar — desbaste/acabamento externo, furação, acabamento interno, canal frontal, furo + rosca M5x0,8 | <strong>2º lado</strong>: troca para castanha "dura", 8bar, gabarito Ø53xØ50h7 — recartilhado + chanfro (troca de castanha obrigatória entre lados)</td></tr>
+    <tr><td>Lote orçado:</td><td>10 peças</td></tr>
+    <tr><td>Fonte de tempo:</td><td><strong>AS-BUILT</strong> — apontamento real de produção (Diário de Bordo, 15/07/2026, operador André, máquina Doosan/LYNX 220LM) — ver item 3</td></tr>
+</table>
+
+<div class="section-title">2. DIMENSÕES FINAIS (conforme desenho VAP-U2007)</div>
+<table class="info-table">
+    <tr><td>Diâmetro externo:</td><td><strong>Ø57</strong> (recartilhado reto, passo 1,0mm)</td></tr>
+    <tr><td>Comprimento total:</td><td><strong>L = 16mm</strong> (raio de canto R3)</td></tr>
+    <tr><td>Perfil interno (escalonado):</td><td>Ø46,5 → Ø41,6 → Ø20,5 → Ø15 → Ø10 <sup>+0,02/0</sup></td></tr>
+    <tr><td>Furo/rosca:</td><td>Furo Ø5,2 → <strong>M5 x 0,8</strong>, ângulo de referência 44,42°, cota 14,50mm</td></tr>
+    <tr><td>Tolerâncias críticas:</td><td>Ø10 +0,02/0 | demais conforme DIN7168 grau médio</td></tr>
+</table>
+
+<div class="alerta">
+    <h4>⚠ Base de tempo — AS-BUILT (apontamento real, 15/07/2026) — CORRIGIDO 16/07/2026</h4>
+    <ul>
+        <li><strong>Ciclo de referência (informado pelo operador):</strong> 1º lado 4 min/pç + 2º lado 8 min/pç = 12 min/pç</li>
+        <li><strong>Tempo medido no apontamento (Diário de Bordo, lote 10pç):</strong> 1º lado 8:40–9:40 (60min÷10pç = 6,0 min/pç) | 2º lado 13:00–15:30 (150min÷10pç = 15,0 min/pç)</li>
+        <li><strong>Correção do Alexandre (16/07/2026):</strong> o 2º lado media 15,0 min/pç porque a produção foi feita como <strong>experimento</strong> (parâmetro testado pela primeira vez pelo programador) — o tempo real de produção do 2º lado é <strong>2,5 min/pç</strong>. O 1º lado permanece no valor medido (6,0 min/pç, sem experimento)</li>
+        <li><strong>Base de custeio final:</strong> 1º lado 6,0 min/pç + 2º lado 2,5 min/pç = <strong>8,5 min/pç</strong></li>
+        <li><strong>Setup:</strong> apontamento registrou paradas de troca de castanha (1h30) + ajuste de gabarito 2º lado (1h35) = 3h05 no dia — tratado como <strong>ruído de 1ª execução</strong> (mesmo critério já aplicado no orçamento 045/2026): usar <strong>setup padrão mínimo 1,0h</strong>, não o tempo cheio medido</li>
+    </ul>
+</div>
+
+<div class="section-title">3. OPERAÇÕES — Doosan LYNX 220LM (conforme apontamento real + anotações de processo do Alexandre)</div>
+
+<table class="op-table">
+<thead>
+    <tr>
+        <th style="width:8%;">Seq.</th>
+        <th style="width:16%;">Operação</th>
+        <th style="width:20%;">Ferramenta (conforme anotado)</th>
+        <th style="width:12%;">Cód. BD</th>
+        <th style="width:9%;">Ø / Dados</th>
+        <th style="width:9%; background-color:#28a745; color:white;">Tempo</th>
+        <th style="width:26%;">Descrição</th>
+    </tr>
+</thead>
+<tbody>
+
+<tr class="row-fixacao">
+    <td colspan="7" style="text-align:center; padding:10px;">
+        1º LADO — Fixação: castanha "D" Ø57x4mm, 8 bar
+    </td>
+</tr>
+
+<tr class="row-prod">
+    <td>N10</td>
+    <td>DESB. EXT.</td>
+    <td>WR.4</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>—</td>
+    <td>—</td>
+    <td>Desbaste externo</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N20</td>
+    <td>ACAB. EXT.</td>
+    <td>VR.4</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>—</td>
+    <td>—</td>
+    <td>Acabamento externo</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N30</td>
+    <td>FURAR</td>
+    <td>Broca Ø3,7mm</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>Ø3,7</td>
+    <td>—</td>
+    <td>Furo interno</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N40</td>
+    <td>ACAB. INT.</td>
+    <td>CD06</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>—</td>
+    <td>—</td>
+    <td>Acabamento interno (perfil escalonado)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N50</td>
+    <td>CANAL FRONTAL</td>
+    <td>Bedame 3mm</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>3mm</td>
+    <td>—</td>
+    <td>Canal frontal</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N60</td>
+    <td>FURAR (rosca)</td>
+    <td>Broca Ø5,2 / Ø4,2</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>Ø5,2/Ø4,2</td>
+    <td>—</td>
+    <td>Pré-furo para rosca M5x0,8</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N70</td>
+    <td>ROSCAR</td>
+    <td>Macho M5x0,8</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>M5x0,8</td>
+    <td>—</td>
+    <td>Roscar M5x0,8</td>
+</tr>
+
+<tr class="row-total">
+    <td colspan="5" style="text-align:right;">SUBTOTAL 1º LADO — ciclo referência / as-built</td>
+    <td style="background-color:#cce5ff;">4 / 6,0 min</td>
+    <td>Ciclo informado 4min · usado no custeio 6,0min (medido, sem experimento)</td>
+</tr>
+
+<tr class="row-fixacao">
+    <td colspan="7" style="text-align:center; padding:10px;">
+        2º LADO — troca para castanha "DURA", 8 bar, gabarito Ø53xØ50h7
+    </td>
+</tr>
+
+<tr class="row-prod">
+    <td>N80</td>
+    <td>RECARTILHAR</td>
+    <td>Recartilho reto passo 1,0mm</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>Ø57</td>
+    <td>—</td>
+    <td>Recartilhado reto conforme desenho</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N90</td>
+    <td>CHANFRAR</td>
+    <td>Chanfrador 45°</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>Ø0 a Ø8mm</td>
+    <td>—</td>
+    <td>Chanfro 45°</td>
+</tr>
+
+<tr class="row-total">
+    <td colspan="5" style="text-align:right;">SUBTOTAL 2º LADO — ciclo referência / as-built / corrigido</td>
+    <td style="background-color:#cce5ff;">8 / 15,0 / 2,5 min</td>
+    <td>Ciclo informado 8min · apontamento 15,0min (EXPERIMENTO, não usar) · <strong>corrigido 2,5min (usado no custeio)</strong></td>
+</tr>
+
+<tr style="background-color:#1e3c72; color:white; font-weight:bold; font-size:10pt;">
+    <td colspan="5" style="text-align:right; padding:10px;">CICLO TOTAL POR PEÇA (base de custeio final)</td>
+    <td style="text-align:center; font-size:12pt; background-color:#0d2247;">8,5 min</td>
+    <td style="text-align:center;">~7,1 pç/h</td>
+</tr>
+
+</tbody>
+</table>
+<p style="font-size:8pt; color:#666;">Códigos MINIPCP das ferramentas (WR.4, VR.4, CD06, bedame, chanfrador) ainda não confirmados no BD — pendência a validar antes de compra/reposição de ferramental. Tempos individuais por operação não discriminados no apontamento (só subtotal por lado).</p>
+
+<div class="section-title">4. DADOS GERAIS — CUSTOS (lote 10 peças)</div>
+<table class="info-table">
+    <tr><td>Máquina:</td><td>Doosan LYNX 220LM — Taxa produção R$ 96,35/h | Taxa setup/prog/inspeção R$ 144,53/h (1,5×)</td></tr>
+    <tr><td>Material:</td><td><strong>R$ 0,00</strong> (barra fornecida pelo cliente SPEEDMAQ)</td></tr>
+    <tr><td>Programação CNC:</td><td>0,5h × R$ 144,53 = <strong>R$ 72,27</strong> (peça simples, torno puro)</td></tr>
+    <tr><td>Setup máquina:</td><td>1,0h × R$ 144,53 = <strong>R$ 144,53</strong> (padrão mínimo — troca de castanha entre lados)</td></tr>
+    <tr><td>Inspeção 1ª peça:</td><td>0,25h × R$ 144,53 = <strong>R$ 36,13</strong></td></tr>
+    <tr style="background-color:#fff3cd;"><td><strong>Total fixos:</strong></td><td><strong>R$ 252,93</strong></td></tr>
+    <tr><td>MOD (10 pç × 8,5 min — corrigido):</td><td>1,4167h × R$ 96,35 = <strong>R$ 136,50</strong></td></tr>
+    <tr><td>CIF 25% (Fixos+MOD):</td><td>(R$ 252,93 + R$ 136,50) × 25% = <strong>R$ 97,36</strong></td></tr>
+    <tr style="background-color:#d4edda; font-weight:bold;"><td>CUSTO TOTAL LOTE:</td><td>R$ 486,79</td></tr>
+    <tr style="background-color:#d4edda; font-weight:bold;"><td>CUSTO UNITÁRIO:</td><td>R$ 48,68/pç</td></tr>
+</table>
+
+<div class="info-box">
+    <h3>Origem dos dados</h3>
+    <ul>
+        <li>Apontamento real de produção — Diário de Bordo LASEC, OP Doosan/LYNX 220LM, 15/07/2026, operador André, lote 10 peças</li>
+        <li>Anotações de processo manuscritas do Alexandre (ferramental e sequência 1º/2º lado)</li>
+        <li>Desenho técnico VAP-U2007 Rev.1 (cliente SPEEDMAQ)</li>
+    </ul>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 16/07/2026 | Orçamento 046/2026 — SPEEDMAQ | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

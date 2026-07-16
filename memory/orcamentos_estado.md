@@ -1,6 +1,15 @@
 # Estado dos Orcamentos LASEC
 # ATUALIZAR sempre que estado mudar
-# Proximo numero: 044/2026
+# Proximo numero: 047/2026
+
+### 046/2026 — SPEEDMAQ Manípulo da Válvula de Alta Pressão (VAP-U2007)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\046_SPEEDMAQ_VAP-U2007\`
+- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA), aprovado Alexandre
+- **Dados:** 10pç, LYNX 220LM (torno puro, 2 fixações c/ troca de castanha), Alumínio barra Ø63x18mm (MP fornecida cliente)
+- **Tempo AS-BUILT:** 8,5 min/pç (6,0min 1º lado + 2,5min 2º lado) — apontamento original tinha 15,0min no 2º lado por ser EXPERIMENTO de parâmetro (corrigido por Alexandre, ver feedback_experimento_nao_e_ciclo_producao)
+- **Custo:** R$48,68/pç (fixos 1,0h setup+0,5h prog+0,25h insp = R$252,93) | **Preço NFe (markup 35%):** R$73,74/pç | Total lote 10: R$737,36
+- **Histórico:** preço inicial calculado com tempo errado (21min/pç, experimento incluído) ficou R$111,74 — Alexandre achou alto, corrigido para R$73,74
+- **Última sessão:** 2026-07-16
 
 ### 043/2026 — MICROGEAR Bucha Estriada (1.98.12.159/010)
 - **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\`
