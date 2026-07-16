@@ -65,6 +65,17 @@ Preço_min_NFe = custo × 1,12 (impostos+perdas, sem markup)
 - Em peças com bore N7 / canal interno / chanfros internos: **DOBRAR** atenção ao tempo
 - Sem dado real (programa, as-built, histórico) → **PERGUNTAR** ao Alexandre
 
+## SYNC — 4 DESTINOS (OBRIGATÓRIO, automático antes de dizer "pronto")
+1. **Local:** `D:\IA MALELO\` (fonte de verdade)
+2. **GitHub:** `xando-IA` branch `lasec-orcamentos` (commit + push)
+3. **VM Oracle:** `ubuntu@137.131.140.7:/home/ubuntu/backup_lasec/` (via SCP)
+4. **OneDrive:** `C:\Users\lasec\OneDrive\IA MALELO\` (robocopy incremental, acesso multi-máquina)
+   ```
+   robocopy "D:\IA MALELO" "C:\Users\lasec\OneDrive\IA MALELO" /E /XD "node_modules" /XF "ssh-key-2026-02-04.key" "ssh-key-2026-02-04.key.pub" "ssh-rsa AAAB3NzaC1yc2EAAAADAQABAAAB.txt" /R:1 /W:1 /NFL /NDL /NP
+   ```
+   - NUNCA copiar a chave SSH privada para o OneDrive (exposição de credencial em nuvem)
+   - robocopy sem `/MIR` — nunca apaga arquivos extras no destino
+
 ## FLUXO REFERÊNCIA CRUZADA
 ```
 PROCESSO_FABRICACAO (fonte verdade) ← GATE
