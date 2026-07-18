@@ -1,32 +1,71 @@
 {
+  "familia_ativa": {
+    "descricao": "Familia de pecas da Valvula de Alta Pressao SPEEDMAQ (VAP-U20xx), todas lote 10, proposta comercial CONSOLIDADA (decisao Alexandre 18/07/2026)",
+    "pecas": [
+      {"num":"046","codigo":"VAP-U2007","nome":"Manipulo","estado":"COMPLETO 4/4 + PDF, aprovado","preco_nfe":73.74},
+      {"num":"047","codigo":"VAP-U2001","nome":"Corpo da Valvula","estado":"3/4 - falta PROPOSTA_COMERCIAL","preco_nfe":244.37},
+      {"num":"048","codigo":"VAP-U2003","nome":"Tampa da Valvula","estado":"1/4 - PROCESSO gerado, aguardando aprovacao","preco_nfe":null}
+    ],
+    "proxima_acao": "Aprovar PROCESSO 048, gerar CUSTO+PRECO_NFE 048, depois montar PROPOSTA_COMERCIAL CONSOLIDADA cobrindo 046+047+048"
+  },
   "orcamento_atual": {
-    "num": "043",
+    "num": "048",
     "ano": "2026",
-    "cliente": "MICROGEAR",
-    "peca": "Bucha Estriada — 1.98.12.159/010",
+    "cliente": "SPEEDMAQ",
+    "peca": "Tampa da Válvula de Alta Pressão — VAP-U2003",
     "modalidade": "cliente_fornece_barra",
-    "lote": 20,
-    "mp": "DIN 20MnCr5 — barra Ø2-1/8\" (53,98mm) — fornecida pelo cliente (regra MICROGEAR: MP sempre fornecida) — custo R$ 0",
-    "maquinas": ["Doosan LYNX 220LM (sem live tool/eixo C)"],
-    "tempo_peca_min": 4.90,
-    "tempo_prog_h": 0.5,
-    "tempo_setup_h": 1.0,
-    "tempo_inspecao_h": 0.25,
-    "custos_fixos": 252.93,
-    "custo_unitario": 25.64,
-    "preco_nfe": 34.53,
-    "preco_confirmado_alexandre": true,
-    "markup": "MICROGEAR parceiro estrategico 20% (x1,3464)",
-    "diretorio": "D:\\IA MALELO\\orcamentos\\2026\\MICROGEAR\\043_MICROGEAR_BUCHA_1.98.12.159\\"
+    "lote": 10,
+    "mp": "Alumínio, barra Ø63,0 x 49,0mm, fornecida pelo cliente SPEEDMAQ — custo R$ 0",
+    "maquinas": ["Doosan LYNX 220LM (torneamento + furo interno + boss + flange)", "Romi Discovery 760 3-eixos (3 portas radiais BSP)"],
+    "peso_final_kg": 0.210,
+    "tempo_peca_min": 12.5,
+    "tempo_lynx_min": 9.3,
+    "tempo_d760_min": 3.2,
+    "custos_fixos": 1033.73,
+    "custo_unitario": 155.98,
+    "preco_nfe": "PENDENTE - aguardando aprovacao do PROCESSO",
+    "markup": "SPEEDMAQ parceiro recorrente padrao 35% (a aplicar)",
+    "diretorio": "D:\\IA MALELO\\orcamentos\\2026\\SPEEDMAQ\\048_SPEEDMAQ_VAP-U2003\\",
+    "fonte_tempo": "ESTIMATIVA DE ENGENHARIA, mesma metodologia do 047 (sem as-built). Alexandre confirmou que peca ja foi produzida antes mas SEM registro de processo/preco salvo em lugar nenhum do sistema - reconstruido do zero a partir do desenho VAP-U2003 Rev.1"
   },
-  "documentos": {
-    "PROCESSO_FABRICACAO": "APROVADO por Alexandre (15/06/2026) — preco reduzido para R$34,53 apos ajuste de tempos fixos (prog 0,5h, inspecao 0,25h)",
-    "ESTUDO_CUSTO": "GERADO — custo unit R$25,64/pç, lote 20",
-    "ESTUDO_PRECO_NFE": "GERADO — preco NFe R$34,53/pç, total lote R$690,60",
-    "PROPOSTA_COMERCIAL": "GERADO — pronta para envio ao cliente"
+  "orcamento_047_resumo": {
+    "num": "047",
+    "ano": "2026",
+    "cliente": "SPEEDMAQ",
+    "peca": "Corpo da Válvula de Alta Pressão — VAP-U2001",
+    "modalidade": "cliente_fornece_barra",
+    "lote": 10,
+    "mp": "Alumínio, barra Ø63,0 x 129,0mm, fornecida pelo cliente SPEEDMAQ — custo R$ 0",
+    "maquinas": ["Doosan LYNX 220LM (torneamento + furo interno + flange)", "Romi Discovery 760 3-eixos (2 portas radiais BSP)"],
+    "geometria": "Comprimento 127mm | OD Ø62,50 (bruto) | furo interno escalonado Ø36→Ø35,20→Ø31→Ø25,20→Ø15 + rosca M6 interna | furo axial Ø8x95,5mm | flange 4xØ5,20/M6x1-6H (BC Ø35) | porta radial M.BSP1/8\" (pos 36,5mm) | porta radial M.BSP3/8\"",
+    "peso_final_kg": 0.770,
+    "tempo_peca_min": 15.4,
+    "tempo_lynx_min": 13.1,
+    "tempo_d760_min": 2.3,
+    "tempo_prog_h": "2,5h LYNX + 1,5h D760 (peça nova complexa, mín 4h total)",
+    "tempo_setup_h": "1,0h LYNX + 1,0h D760",
+    "tempo_inspecao_h": 0.5,
+    "custos_fixos": 1033.73,
+    "custo_unitario": 161.33,
+    "preco_nfe": 244.37,
+    "markup": "SPEEDMAQ parceiro recorrente padrao 35% (x1,5147)",
+    "diretorio": "D:\\IA MALELO\\orcamentos\\2026\\SPEEDMAQ\\047_SPEEDMAQ_VAP-U2001\\",
+    "fonte_tempo": "ESTIMATIVA DE ENGENHARIA — peca nova, sem programa historico nem as-built. Buscado cache CNC SPEEDMAQ (outros/pino), sem correspondencia >=60%. Tempos propostos por analise tecnica das operacoes, a comparar/corrigir apos 1a producao real (pedido explicito do Alexandre: 'moda antiga, analise e proponha o processo, depois comparamos com as-built')"
   },
-  "fase_atual": "PROPOSTA_COMERCIAL_PRONTA",
-  "proximo_orcamento": "044/2026",
-  "ultima_atualizacao": "2026-06-15",
-  "notas": "Peca super simples de barra (sem live tool/eixo C): furo Ø29 -> mandrilar Ø33,7 prof.29 -> canal interno Ø38,5x15 no centro -> corte com bedame 2mm L=73, 2o lado so facear/chanfrar. Ciclo 4,90 min/pc ESTIMATIVA (sem programa de referencia no cache MICROGEAR/bucha). Alexandre rejeitou preco inicial R$43,66 ('nunca vou conseguir aprovar esse preco numa operacao tao simples') -> reduzido prog 1,0h->0,5h e inspecao 0,5h->0,25h (setup mantido 1,0h minimo) -> preco final R$34,53, abaixo do benchmark 'BUCHA ESTRIADA' 2023 corrigido (~R$38,50)."
+  "documentos_047": {
+    "PROCESSO_FABRICACAO": "APROVADO por Alexandre (18/07/2026)",
+    "ESTUDO_CUSTO": "GERADO — custo unitario R$161,33/pc (lote 10), cruzamento GRV incluido",
+    "ESTUDO_PRECO_NFE": "GERADO — markup 35%, preco R$244,37/pc (lote 10), cruzamento GRV (todas as horas) incluido",
+    "PROPOSTA_COMERCIAL": "PENDENTE — sera CONSOLIDADA junto com 046+048"
+  },
+  "documentos_048": {
+    "PROCESSO_FABRICACAO": "GERADO — PRIMEIRA PROPOSTA DE ENGENHARIA, aguardando aprovacao formal de Alexandre (GATE)",
+    "ESTUDO_CUSTO": "PENDENTE",
+    "ESTUDO_PRECO_NFE": "PENDENTE",
+    "PROPOSTA_COMERCIAL": "PENDENTE — sera CONSOLIDADA junto com 046+047"
+  },
+  "fase_atual": "048_PROCESSO_GERADO_AGUARDANDO_APROVACAO",
+  "proximo_orcamento": "049/2026",
+  "ultima_atualizacao": "2026-07-18",
+  "notas": "Sessao 18/07/2026: (1) 047 VAP-U2001 Corpo — desenho inicial OP70 mostrava so rosca BSP1/8, insuficiente; Alexandre enviou OP60 com geometria completa (furo interno escalonado Ø36-Ø15 explica peso). Rosca BSP1/8 radial -> D760. PROCESSO aprovado, CUSTO e PRECO_NFE gerados (R$244,37/pc lote10, markup35%). (2) Ao comparar precos historicos SPEEDMAQ, Alexandre revelou que 046+047 fazem parte de uma FAMILIA da valvula de alta pressao VAP-U20xx, e existe uma 3a peca VAP-U2003 (Tampa) ja produzida antes MAS sem registro de processo/preco em lugar nenhum do sistema. (3) Confirmado com Alexandre: D760 para roscas radiais BSP nao e so por limite Ø8mm de potencia da live tooling, mas tambem por falta de posicao na torre BMT45P quando a peca tem muitas ferramentas (memoria nova: feedback_d760_capacidade_torre.md). (4) Criado orcamento 048/2026 para VAP-U2003 do zero, mesma metodologia (estimativa de engenharia). (5) Alexandre decidiu: PROPOSTA_COMERCIAL sera CONSOLIDADA cobrindo 046+047+048 (familia unica), nao 3 propostas separadas. Pendente: aprovar PROCESSO 048, gerar CUSTO+PRECO_NFE 048, so entao montar proposta consolidada."
 }

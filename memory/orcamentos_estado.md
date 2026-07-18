@@ -1,6 +1,29 @@
 # Estado dos Orcamentos LASEC
 # ATUALIZAR sempre que estado mudar
-# Proximo numero: 047/2026
+# Proximo numero: 049/2026
+
+## FAMÍLIA VÁLVULA ALTA PRESSÃO SPEEDMAQ (VAP-U20xx) — proposta CONSOLIDADA
+046 (Manípulo VAP-U2007, completo, R$73,74/pç) + 047 (Corpo VAP-U2001, R$244,37/pç) + 048 (Tampa VAP-U2003, em andamento) — todos lote 10. Decisão Alexandre 18/07/2026: proposta comercial única para os 3, não separadas.
+
+### 048/2026 — SPEEDMAQ Tampa da Válvula de Alta Pressão (VAP-U2003)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\048_SPEEDMAQ_VAP-U2003\`
+- **Estado:** PROCESSO_FABRICACAO gerado (1ª proposta de engenharia) — aguardando aprovação Alexandre (GATE)
+- **Dados:** 10pç, Alumínio barra Ø63x49mm (MP fornecida SPEEDMAQ), LYNX 220LM + D760 3-eixos (3 portas radiais BSP)
+- **Geometria:** L=47mm, OD Ø62,50, boss Ø24, register Ø36(0/-0,02), furo interno Ø31,50→Ø10,02, flange 8 furos (4xØ7+4xM5), 3 portas radiais BSP (2x1/8"+1x3/8")
+- **Tempo:** ESTIMATIVA DE ENGENHARIA — LYNX 9,3min + D760 3,2min = 12,5min/pç
+- **Custo:** R$155,98/pç (custos fixos R$1.033,73)
+- **Nota:** peça já foi produzida pela LASEC antes, mas sem nenhum registro de processo/preço salvo — reconstruído do zero
+- **Última sessão:** 2026-07-18
+
+### 047/2026 — SPEEDMAQ Corpo da Válvula de Alta Pressão (VAP-U2001)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\047_SPEEDMAQ_VAP-U2001\`
+- **Estado:** PROCESSO_FABRICACAO gerado (1ª proposta de engenharia) — aguardando aprovação Alexandre (GATE)
+- **Dados:** 10pç, Alumínio barra Ø63x129mm (MP fornecida SPEEDMAQ), LYNX 220LM (torneamento+furo interno+flange) + D760 3-eixos (2 portas radiais BSP)
+- **Geometria:** L=127mm, OD Ø62,50 bruto, furo interno escalonado Ø36→Ø15 + M6 interno, furo axial Ø8x95,5mm, flange 4xM6, portas radiais M.BSP1/8" e M.BSP3/8"
+- **Tempo:** ESTIMATIVA DE ENGENHARIA (sem as-built/histórico) — LYNX 13,1min + D760 2,3min = 15,4min/pç
+- **Custo:** R$161,33/pç (custos fixos R$1.033,73, prog 4h mín peça complexa)
+- **Aprendizado:** rosca BSP1/8" radial excede limite seguro Ø8mm da live tooling LYNX → vai pro D760
+- **Última sessão:** 2026-07-18
 
 ### 046/2026 — SPEEDMAQ Manípulo da Válvula de Alta Pressão (VAP-U2007)
 - **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\046_SPEEDMAQ_VAP-U2007\`

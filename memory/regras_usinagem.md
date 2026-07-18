@@ -233,3 +233,11 @@
   - ×1,50: peca critica/exclusiva
 - Aplicado: 034/2026 — markup ×1,15 inicial → ×1,20 confortavel apos avaliacao do volume
 - Data: 27/04/2026
+
+### 20. Troca de Castanha — SEMPRE ocorre em peca com fabricacao em 2 lados (bar work)
+- **Peca usinada dos 2 lados (2 fixacoes, G54/G55 ou G55/G56) SEMPRE exige troca de castanha** entre os lados (ex: castanha dura no 1o lado, castanha mole no 2o lado, ou vice-versa)
+- Isso e ESTRUTURAL do processo — nao e imprevisto, e deve ser esperado em TODA peca de bar work com 2 lados
+- **Como orcar:** e recorrente, entao cabe dentro do setup PADRAO (min. 1,0h) em regime normal — NAO precisa herdar o tempo cheio de troca+ajuste da 1a execucao (que inclui aprendizado/ajuste de peca nova, nao repete nos lotes seguintes)
+- **Onde ver no programa NC:** comentario tipo "CAST DURA" / "CAST M" no cabecalho de cada lado indica o tipo de castanha exigido
+- Aplicado: 045/2026 MICROGEAR Bucha 1.11.14.645/010 — apontamento apontou parada "CASTANHA" entre os 2 lados, confirmado pelo proprio programa NC
+- Data: 02/07/2026
