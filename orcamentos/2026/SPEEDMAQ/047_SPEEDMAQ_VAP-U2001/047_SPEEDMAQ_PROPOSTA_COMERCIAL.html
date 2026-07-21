@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Proposta Comercial - SPEEDMAQ - Orçamento 047/2026</title>
+<style>
+@page { size: A4; margin: 2mm 4mm 2mm 4mm; }
+@media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { margin: 0; padding: 0; background: white; }
+    .page-container { box-shadow: none !important; margin: 0 !important; border: none !important; min-height: auto; }
+    .main-header { box-shadow: none; }
+    .section-title { background-color: #1e3c72 !important; color: white !important; }
+    .title-bar { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%) !important; }
+    .pt th { background-color: #1e3c72 !important; color: white !important; }
+    .t td:first-child { background-color: #f0f4f8 !important; }
+    .cta { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important; }
+    .nota { background-color: #e8f5e9 !important; border-left: 4px solid #28a745 !important; }
+    .badge { background-color: #ff6f00 !important; color: white !important; }
+    .footer { border-top: 2px solid #1e3c72 !important; }
+    .spacer { display: none; }
+}
+@media screen {
+    .page-container { max-width: 210mm; min-height: 296mm; margin: 20px auto; background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.15); border: 1px solid #ddd; }
+    body { background: #f0f0f0; }
+}
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.4; font-size: 9pt; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+@media print { body::before { display: none; } }
+
+.page-container { display: flex; flex-direction: column; }
+
+/* HEADER */
+.main-header { background: white; padding: 10px 20px 0 20px; }
+.header-row { display: flex; align-items: center; gap: 20px; }
+.logo-container img { height: 55px; width: auto; }
+.company-name-main { font-size: 20pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 9pt; color: #2a5298; margin: 2px 0 0 0; }
+.title-bar { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 8px 20px; margin: 8px -20px 0 -20px; display: flex; justify-content: space-between; align-items: center; }
+.title-bar-left { font-size: 14pt; font-weight: bold; color: white; text-transform: uppercase; letter-spacing: 1.5px; }
+.title-bar-right { font-size: 8.5pt; color: rgba(255,255,255,0.92); text-align: right; line-height: 1.4; }
+
+/* CONTEÚDO */
+.content { padding: 6px 20px 6px 20px; display: flex; flex-direction: column; flex: 1; }
+.section-title { background-color: #1e3c72; color: white; padding: 5px 12px; font-weight: bold; margin: 12px 0 5px 0; font-size: 9pt; letter-spacing: 0.3px; }
+
+/* GRID 2 COLUNAS */
+.grid-2col { display: flex; gap: 10px; }
+.grid-2col > div { flex: 1; }
+
+/* TABELAS INFO */
+.t { width: 100%; border-collapse: collapse; margin: 3px 0; font-size: 8.5pt; }
+.t td { border: 1px solid #ddd; padding: 4px 7px; }
+.t td:first-child { font-weight: bold; background-color: #f0f4f8; color: #1e3c72; white-space: nowrap; width: 28%; }
+
+/* TABELAS PREÇO */
+.pt { width: 100%; border-collapse: collapse; margin: 3px 0; font-size: 8.5pt; }
+.pt td, .pt th { border: 1px solid #ccc; padding: 5px 6px; text-align: center; }
+.pt th { background-color: #1e3c72; color: white; font-size: 8pt; padding: 5px; }
+
+.badge { background-color: #ff6f00; color: white; padding: 2px 7px; border-radius: 8px; font-size: 7pt; font-weight: bold; }
+
+/* CTA */
+.cta { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 12px 20px; margin: 12px 0 8px 0; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+.cta-left { font-size: 9.5pt; line-height: 1.5; }
+.cta-left strong { font-size: 10.5pt; }
+.cta-right { font-size: 20pt; font-weight: bold; color: #ffeb3b; white-space: nowrap; }
+
+/* CONDIÇÕES */
+.cond-grid { display: flex; gap: 12px; font-size: 8pt; color: #444; margin: 4px 0; }
+.cond-grid ul { margin: 3px 0 3px 14px; padding: 0; }
+.cond-grid li { margin-bottom: 2px; line-height: 1.35; }
+
+/* NOTA */
+.nota { background-color: #e8f5e9; padding: 6px 12px; margin: 8px 0; border-left: 4px solid #28a745; font-size: 8pt; line-height: 1.35; }
+
+/* SPACER */
+.spacer { flex: 1; }
+
+/* FOOTER */
+.footer { padding: 6px 0 4px 0; border-top: 2px solid #1e3c72; text-align: center; font-size: 7.5pt; color: #555; line-height: 1.3; }
+.footer strong { color: #1e3c72; }
+</style>
+</head>
+<body>
+
+<div class="page-container">
+
+<!-- HEADER -->
+<div class="main-header">
+    <div class="header-row">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div>
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="title-bar">
+        <div class="title-bar-left">Proposta Comercial</div>
+        <div class="title-bar-right">Orçamento 047/2026 — Corpo da Válvula de Alta Pressão VAP-U2001<br>São Paulo, 21 de julho de 2026</div>
+    </div>
+</div>
+
+<div class="content">
+
+<!-- DADOS + SPECS LADO A LADO -->
+<div class="grid-2col">
+    <div>
+        <div class="section-title">DADOS</div>
+        <table class="t">
+            <tr><td>Cliente:</td><td><strong>SPEEDMAQ</strong></td></tr>
+            <tr><td>Fornecedor:</td><td><strong>LASEC</strong> — CNPJ 07.047.619/0001-09</td></tr>
+            <tr><td>Referência:</td><td>Orçamento 047/2026 | Validade: 30 dias</td></tr>
+        </table>
+    </div>
+    <div>
+        <div class="section-title">ESPECIFICAÇÕES TÉCNICAS</div>
+        <table class="t">
+            <tr><td>Material:</td><td>Alumínio, barra Ø63×129mm — <strong>fornecido pelo cliente</strong></td></tr>
+            <tr><td>Processo:</td><td>Usinagem CNC completa (torneamento + furação lateral, 2 fixações)</td></tr>
+            <tr><td>Dimensões:</td><td>Corpo Ø62,5×63,5mm | furo interno escalonado + rosca M6 | rosca 1/8" BSP + 3/8" BSP a 180° | rebaixo Ø13,80/Ø25×12</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- DESCRIÇÃO DA PEÇA -->
+<div class="section-title">DESCRIÇÃO DA PEÇA</div>
+<table class="pt">
+    <thead>
+        <tr><th style="width:20%;">Código</th><th style="width:35%;">Descrição</th><th style="width:20%;">Material</th><th style="width:25%;">Peso</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>VAP-U2001</strong></td>
+            <td style="text-align:left;">Corpo da Válvula de Alta Pressão</td>
+            <td>Alumínio (fornecido cliente)</td>
+            <td>—</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- PREÇOS LOTE 10 -->
+<div class="section-title">PREÇOS — LOTE 10 PEÇAS <span class="badge">PEDIDO ATUAL</span></div>
+<table class="pt">
+    <thead>
+        <tr><th style="width:35%;">Item</th><th style="width:20%;">Preço Unitário</th><th style="width:10%;">Qtd</th><th style="width:20%;">Total</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left;">Corpo da Válvula de Alta Pressão — VAP-U2001<br><span style="font-size:7pt; color:#666;">Usinagem CNC completa (material fornecido pelo cliente)</span></td>
+            <td style="font-weight:bold; font-size:11pt;">R$ 286,63</td>
+            <td>10</td>
+            <td style="font-weight:bold; font-size:10pt;">R$ 2.866,27</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- CTA COM TOTAL -->
+<div class="cta">
+    <div class="cta-left">
+        <strong>TOTAL PEDIDO — 10 PEÇAS</strong><br>
+        Usinagem CNC completa, programação e inspeção dimensional. Material fornecido pelo cliente.<br>
+        Responda com <strong>"APROVADO"</strong> para iniciarmos a produção.
+    </div>
+    <div class="cta-right">R$ 2.866,27</div>
+</div>
+
+<!-- PREÇOS REPOSIÇÃO -->
+<div class="section-title">PREÇOS REPOSIÇÃO / LOTES MAIORES</div>
+<table class="pt" style="font-size: 8pt;">
+    <thead>
+        <tr><th style="width:20%;">Lote</th><th style="width:25%;">Preço Unitário</th><th style="width:25%;">Total Lote</th><th style="width:30%;">Economia</th></tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #fff3e0; font-weight: bold;">
+            <td>10 pç <span class="badge">ATUAL</span></td>
+            <td>R$ 286,63</td>
+            <td>R$ 2.866,27</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>20 pç</td>
+            <td>R$ 207,01</td>
+            <td>R$ 4.140,28</td>
+            <td style="color:green; font-weight:bold;">~28% por peça</td>
+        </tr>
+        <tr>
+            <td>30 pç</td>
+            <td>R$ 180,48</td>
+            <td>R$ 5.414,29</td>
+            <td style="color:green; font-weight:bold;">~37% por peça</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="nota">
+    <strong>Nota:</strong> O preço inclui programação CNC, preparação de máquina e inspeção dimensional da 1ª peça. Em reposições futuras (programa já pronto), os preços serão automaticamente menores — custos de engenharia já amortizados neste lote.
+</div>
+
+<!-- CONDIÇÕES EM 2 COLUNAS -->
+<div class="section-title">CONDIÇÕES COMERCIAIS</div>
+<div class="cond-grid">
+    <div style="flex:1;">
+        <ul>
+            <li><strong>Entrega:</strong> 28 DDL após confirmação do pedido</li>
+            <li><strong>Material:</strong> Fornecido pelo cliente (Alumínio, barra Ø63×129mm)</li>
+            <li><strong>Pagamento:</strong> 28 dias (boleto) ou à vista com 3% desconto</li>
+            <li><strong>Frete:</strong> FOB — retirada em São Paulo/SP (Bairro do Limão)</li>
+        </ul>
+    </div>
+    <div style="flex:1;">
+        <ul>
+            <li><strong>Validade:</strong> 30 dias a partir desta proposta</li>
+            <li><strong>Impostos:</strong> Inclusos (Simples Nacional). Material NÃO incluso.</li>
+            <li><strong>Incluso:</strong> Programação CNC, setup, inspeção 1ª peça</li>
+            <li><strong>Qualidade:</strong> Controle dimensional 100%. Relatório sob demanda.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SPACER empurra footer para o fim da página -->
+<div class="spacer"></div>
+
+<!-- FOOTER COM CONTATO -->
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> — Malelo Indústria e Comércio LTDA — CNPJ 07.047.619/0001-09<br>
+    Rua Álvaro Silva, 233 — Bairro do Limão — São Paulo/SP — CEP 02723-020 — Tel: (11) 3936-5041 (WhatsApp)<br>
+    Contato: Alexandre Souza — orcamento@lasec.com.br | <span style="color: #dc3545; font-weight: bold;">Validade: 30 dias</span>
+</div>
+
+</div>
+</div>
+</body>
+</html>

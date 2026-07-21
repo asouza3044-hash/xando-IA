@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Break Even - SPEEDMAQ VAP-U2001</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}
+h1 {
+    color: #1e3c72;
+    border-bottom: 3px solid #1e3c72;
+    padding-bottom: 10px;
+}
+h2 {
+    color: #2a5298;
+    background-color: #f0f4f8;
+    padding: 10px;
+    border-left: 5px solid #2a5298;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th {
+    background-color: #1e3c72;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.destaque {
+    background-color: #d4edda !important;
+    font-weight: bold;
+}
+.sucesso {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+}
+.info-box {
+    background-color: #e7f3ff;
+    border-left: 5px solid #2196F3;
+    padding: 15px;
+    margin: 20px 0;
+}
+.alerta-importante {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+}
+.formula {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #6c757d;
+    font-family: 'Courier New', monospace;
+    margin: 15px 0;
+}
+</style>
+</head>
+<body>
+
+<h1>📊 ANÁLISE DE BREAK EVEN - Orçamento 047/2026</h1>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3 style="margin-top: 0;">Cliente: SPEEDMAQ</h3>
+    <p><strong>Peça:</strong> VAP-U2001 (Corpo da Válvula de Alta Pressão)</p>
+    <p><strong>Material:</strong> Alumínio, barra Ø63×129mm (fornecida pelo cliente)</p>
+    <p><strong>Máquinas:</strong> Doosan LYNX 220LM (torneamento — AS-BUILT REAL) + Romi Discovery 760 3-eixos (furos laterais/roscas BSP — estimado, pendente execução)</p>
+    <p><strong>Hora-Máquina:</strong> LYNX R$ 96,35/h (prod.) / R$ 144,53/h (setup) | D760 R$ 121,49/h (prod.) / R$ 182,24/h (setup)</p>
+    <p><strong>Data:</strong> Julho 2026</p>
+</div>
+
+<div class="alerta-importante">
+    <h4 style="margin-top: 0;">⚠️ STATUS DO PEDIDO</h4>
+    <p>Pedido de 10 peças já <strong>fechado e entregue</strong> (torno finalizado 20/07/2026). Esta análise de break-even valida a rentabilidade do lote já produzido e serve de referência para pedidos futuros de reposição.</p>
+</div>
+
+<h2>🎯 O QUE É BREAK EVEN?</h2>
+
+<div class="info-box">
+    <p><strong>Break Even (Ponto de Equilíbrio):</strong> É a quantidade mínima de peças que precisamos produzir para cobrir TODOS os custos (fixos + variáveis), sem lucro nem prejuízo.</p>
+    <p><strong>Por que é importante?</strong> Nos diz:</p>
+    <ul>
+        <li>✅ A partir de quantas peças começamos a ter LUCRO</li>
+        <li>✅ Qual o volume mínimo viável para aceitar o pedido</li>
+        <li>✅ Como o setup impacta a rentabilidade</li>
+    </ul>
+</div>
+
+<h2>💰 ESTRUTURA DE CUSTOS</h2>
+
+<h3>1️⃣ Custos FIXOS (não mudam com quantidade) — já com CIF 25% embutido</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Observação</th>
+    </tr>
+    <tr>
+        <td><strong>Setup+Prog+Try-out LYNX</strong></td>
+        <td>R$ 313,15</td>
+        <td>AS-BUILT REAL — 2,1667h × R$ 144,53/h (17/07/2026)</td>
+    </tr>
+    <tr>
+        <td><strong>Prog+Setup D760</strong></td>
+        <td>R$ 455,60</td>
+        <td>Estimado — 2,5h × R$ 182,24/h (pendente execução)</td>
+    </tr>
+    <tr>
+        <td><strong>Inspeção 1ª peça (final)</strong></td>
+        <td>R$ 72,27</td>
+        <td>0,5h × R$ 144,53/h</td>
+    </tr>
+    <tr>
+        <td>CIF 25% sobre os fixos acima</td>
+        <td>R$ 210,26</td>
+        <td>25% × R$ 841,02</td>
+    </tr>
+    <tr class="destaque">
+        <td><strong>TOTAL CUSTOS FIXOS (com CIF)</strong></td>
+        <td><strong>R$ 1.051,28</strong></td>
+        <td>Diluído entre as peças do lote</td>
+    </tr>
+</table>
+
+<h3>2️⃣ Custos VARIÁVEIS (por peça) — já com CIF 25% embutido</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Cálculo</th>
+    </tr>
+    <tr>
+        <td>MOD LYNX (usinagem)</td>
+        <td>R$ 62,63/pç</td>
+        <td>AS-BUILT REAL — 43,33 min × R$ 96,35/h ÷ 60</td>
+    </tr>
+    <tr>
+        <td>MOD D760 (usinagem)</td>
+        <td>R$ 4,66/pç</td>
+        <td>Estimado — 2,3 min × R$ 121,49/h ÷ 60 (pendente)</td>
+    </tr>
+    <tr>
+        <td>CIF (25% sobre MOD)</td>
+        <td>R$ 16,82/pç</td>
+        <td>Energia, depreciação, manutenção, administrativo</td>
+    </tr>
+    <tr>
+        <td>Material</td>
+        <td>R$ 0,00/pç</td>
+        <td>Fornecido pelo cliente</td>
+    </tr>
+    <tr class="destaque">
+        <td><strong>CUSTO VARIÁVEL por peça</strong></td>
+        <td><strong>R$ 84,11/pç</strong></td>
+        <td>MOD + CIF proporcional</td>
+    </tr>
+</table>
+
+<h2>📐 CÁLCULO DO BREAK EVEN</h2>
+
+<div class="formula">
+<strong>Fórmula Break Even:</strong>
+
+Quantidade Break Even = Custos Fixos ÷ (Preço Venda - Custo Variável)
+
+Onde:
+• Custos Fixos = R$ 1.051,28
+• Preço Venda = R$ 286,63/pç (lote 10, markup 35%)
+• Custo Variável = R$ 84,11/pç (MOD + CIF)
+
+Break Even = R$ 1.051,28 ÷ (R$ 286,63 - R$ 84,11)
+Break Even = R$ 1.051,28 ÷ R$ 202,52
+<strong>Break Even = 5,19 peças ≈ 6 peças</strong>
+</div>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ INTERPRETAÇÃO:</h4>
+    <p><strong>O pedido de 10 peças já entregue está bem acima do ponto de equilíbrio (6 peças) — pedido lucrativo confirmado.</strong></p>
+    <ul>
+        <li>✅ A partir de 6 peças: LUCRO</li>
+        <li>❌ Menos de 6 peças: PREJUÍZO (não cobre os fixos)</li>
+        <li>✅ Lote real entregue (10 peças): margem de segurança de 4 peças acima do break-even</li>
+    </ul>
+</div>
+
+<h2>📊 ANÁLISE POR LOTE</h2>
+
+<table>
+    <tr>
+        <th>Lote</th>
+        <th>Preço/pç</th>
+        <th>Receita Total</th>
+        <th>Custo Total</th>
+        <th>Lucro Bruto</th>
+        <th>Margem %</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>5 pçs</td>
+        <td>R$ 445,87</td>
+        <td>R$ 2.229,35</td>
+        <td>R$ 1.471,81</td>
+        <td><span style="color: green;">R$ 757,54</span></td>
+        <td>34,0%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr class="destaque">
+        <td>10 pçs ⭐ (REAL — pedido entregue)</td>
+        <td>R$ 286,63</td>
+        <td>R$ 2.866,27</td>
+        <td>R$ 1.892,34</td>
+        <td><span style="color: green;">R$ 973,93</span></td>
+        <td>34,0%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr>
+        <td>20 pçs</td>
+        <td>R$ 207,01</td>
+        <td>R$ 4.140,28</td>
+        <td>R$ 2.733,40</td>
+        <td><span style="color: green;">R$ 1.406,88</span></td>
+        <td>34,0%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr>
+        <td>30 pçs</td>
+        <td>R$ 180,48</td>
+        <td>R$ 5.414,29</td>
+        <td>R$ 3.574,46</td>
+        <td><span style="color: green;">R$ 1.839,83</span></td>
+        <td>34,0%</td>
+        <td>✅ Lucro</td>
+    </tr>
+    <tr>
+        <td>50 pçs</td>
+        <td>R$ 159,24</td>
+        <td>R$ 7.962,00</td>
+        <td>R$ 5.256,59</td>
+        <td><span style="color: green;">R$ 2.705,41</span></td>
+        <td>34,0%</td>
+        <td>✅ Lucro</td>
+    </tr>
+</table>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">🎉 MARGEM CONSTANTE EM TODOS OS LOTES!</h4>
+    <p>Como o preço NFe é sempre <strong>Custo × 1,5147</strong> (fórmula fixa de markup), a margem real fica constante em <strong>~34%</strong> independente do tamanho do lote — o que muda é apenas o valor absoluto de lucro.</p>
+</div>
+
+<h2>🎯 RECOMENDAÇÃO FINAL</h2>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ RECOMENDAÇÃO: PEDIDO APROVADO E RENTÁVEL</h4>
+
+    <p><strong>LOTE ENTREGUE: 10 PEÇAS</strong></p>
+    <ul>
+        <li>💰 <strong>Preço:</strong> R$ 286,63/peça (R$ 2.866,27 total)</li>
+        <li>✅ <strong>Lucro bruto:</strong> R$ 973,93 (margem 34,0%)</li>
+        <li>✅ <strong>Break even:</strong> 6 peças — pedido de 10 peças ficou 67% acima do ponto de equilíbrio</li>
+        <li>✅ <strong>Viabilidade confirmada</strong> mesmo com o ciclo real do torno (43,33 min/pç) tendo sido 3,3× maior que a estimativa inicial (13,1 min/pç)</li>
+    </ul>
+
+    <p><strong>PONTOS DE ATENÇÃO:</strong></p>
+    <ul>
+        <li>⚙️ Operação de centro (D760 — furos laterais, rosca 1/8" BSP, rosca 3/8" BSP a 180°, furo com rebaixo Ø13,80/Ø25×12) ainda pendente de execução — números seguem estimativa de engenharia</li>
+        <li>📈 Em pedidos futuros de reposição, usar o ciclo real do LYNX (43,33 min/pç) como base — não a estimativa original</li>
+        <li>🤝 Cliente recorrente (SPEEDMAQ) — margem 35% já reflete relação comercial estabelecida</li>
+    </ul>
+
+    <p style="font-size: 18px; margin-top: 30px;"><strong>✅ DECISÃO: PEDIDO JÁ FATURÁVEL — CONFIRMAR PREÇO FINAL APÓS EXECUÇÃO DO D760</strong></p>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 12px;">
+    <p><strong>LASEC USINAGEM DE PRECISÃO</strong></p>
+    <p>Análise Break Even - Orçamento 047/2026 SPEEDMAQ</p>
+    <p><strong>Data:</strong> 21/07/2026 (atualizado com as-built)</p>
+    <p>Documento interno - Não enviar ao cliente</p>
+</div>
+
+</body>
+</html>

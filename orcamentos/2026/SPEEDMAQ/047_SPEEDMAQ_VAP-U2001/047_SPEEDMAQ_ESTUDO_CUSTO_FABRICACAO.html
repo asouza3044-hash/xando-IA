@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Custo de Fabricação - VAP-U2001 - SPEEDMAQ</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 12px; text-align: center; font-size: 11px; text-transform: uppercase; }
+td { padding: 10px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+.destaque { background-color: #d4edda !important; font-weight: bold; border: 2px solid #28a745; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.alerta-importante h4 { margin-top: 0; color: #856404; }
+.calculo-detalhado { background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 15px 0; }
+.calculo-linha { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #ccc; }
+.destaque-calc { font-weight: bold; color: #1e3c72; border-bottom: 2px solid #1e3c72 !important; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">ESTUDO DE CUSTO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Corpo da Válvula de Alta Pressão — VAP-U2001</div>
+        <div class="document-subtitle">Orçamento 047/2026 — SPEEDMAQ</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="alerta-importante">
+    <h4>DADOS DE REFERÊNCIA LASEC 2026</h4>
+    <p><strong>Hora-máquina LYNX 220LM (produção):</strong> R$ 96,35/hora | <strong>(setup/prog/insp — 1,5×):</strong> R$ 144,53/hora</p>
+    <p><strong>Hora-máquina D760 3-eixos (produção):</strong> R$ 121,49/hora | <strong>(setup/prog/insp — 1,5×):</strong> R$ 182,24/hora</p>
+    <p><strong>CIF:</strong> 25% sobre (Fixos + MOD)</p>
+</div>
+
+<div class="info-box">
+    <h3>Dados da Peça</h3>
+    <p><strong>Código:</strong> VAP-U2001 | <strong>Descrição:</strong> Corpo da Válvula de Alta Pressão — 2 máquinas (torneamento + furação radial)</p>
+    <p><strong>Material:</strong> Alumínio, barra Ø63x129mm — fornecida pelo cliente (SPEEDMAQ) — custo MP = R$ 0,00</p>
+    <p><strong>Máquinas:</strong> Doosan LYNX 220LM (torneamento + furo interno escalonado Ø36→Ø15 + rosca M6 + flange 4×M6, live tool/eixo C) + Romi Discovery 760 3-eixos (2 portas radiais roscadas M.BSP 1/8" e M.BSP 3/8")</p>
+    <p><strong>Programação:</strong> LYNX — programação+castanha+try-out AS-BUILT REAL 17/07/2026 (2,1667h) | D760 — 1,5h estimado (pendente execução)</p>
+    <p><strong>Ciclo para custo — LYNX AS-BUILT REAL (pedido finalizado 20/07/2026):</strong> produção pura 43,33 min/pç (390min ÷ 9pç) | D760 estimado 2,3 min/pç (operação de furos laterais/roscas BSP ainda pendente de execução)</p>
+    <p><strong>Setup LYNX:</strong> AS-BUILT REAL — 2,1667h (130min: programa+castanha+try-out+1ª peça, 17/07/2026) | <strong>Setup D760:</strong> 1,0h estimado (pendente)</p>
+</div>
+
+<div class="section-title">1. Parâmetros de Cálculo</div>
+<table>
+    <thead>
+        <tr><th>Parâmetro</th><th>Valor</th><th>Observações</th></tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>Taxa Produção LYNX (MOD)</strong></td><td><strong>R$ 96,35/h</strong></td><td>Torneamento + furo interno + flange</td></tr>
+        <tr><td><strong>Taxa Setup/Prog/Insp LYNX (1,5×)</strong></td><td><strong>R$ 144,53/h</strong></td><td>Para atividades fixas na LYNX</td></tr>
+        <tr><td><strong>Taxa Produção D760 (MOD)</strong></td><td><strong>R$ 121,49/h</strong></td><td>2 furações/roscas radiais BSP</td></tr>
+        <tr><td><strong>Taxa Setup/Prog/Insp D760 (1,5×)</strong></td><td><strong>R$ 182,24/h</strong></td><td>Para atividades fixas no D760</td></tr>
+        <tr><td><strong>Setup+Programação+Try-out LYNX</strong></td><td><strong>2,1667h (AS-BUILT REAL)</strong></td><td>17/07/2026 14:20–16:30 — programa+castanha+try-out+1ª peça</td></tr>
+        <tr><td><strong>Programação+Setup D760</strong></td><td>1,5h + 1,0h = 2,5h (estimado)</td><td>Operação de furos laterais/roscas BSP ainda pendente</td></tr>
+        <tr><td><strong>Inspeção 1ª peça (final)</strong></td><td>0,5h = R$ 72,27 (taxa LYNX)</td><td>Múltiplos diâmetros + rosca M6-6H</td></tr>
+        <tr style="background-color: #e3f2fd; font-weight: bold;"><td><strong>Total Custos Fixos</strong></td><td><strong>R$ 841,02</strong></td><td>LYNX R$313,15 (real) + D760 R$455,60 (estimado) + Insp. R$72,27</td></tr>
+        <tr><td><strong>Ciclo para custo</strong></td><td><strong>LYNX 43,33 min/pç (real) + D760 2,3 min/pç (estimado)</strong></td><td>LYNX: 390min÷9pç as-built 20/07/2026 | D760: pendente execução</td></tr>
+        <tr><td><strong>CIF</strong></td><td><strong>25%</strong></td><td>Sobre (Fixos + MOD)</td></tr>
+    </tbody>
+</table>
+
+<div class="section-title">2. Cálculo Detalhado — Lote 10 peças (PRINCIPAL)</div>
+<div class="calculo-detalhado">
+    <h4 style="color: #1e3c72; margin-top: 0;">Demonstração de Cálculo</h4>
+
+    <div class="calculo-linha"><span><strong>1. Custos Fixos</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• LYNX — Setup+Prog+Try-out REAL (as-built 17/07): 2,1667h × R$ 144,53</span><span>R$ 313,15</span></div>
+    <div class="calculo-linha"><span>• D760 — Prog 1,5h + Setup 1,0h = 2,5h × R$ 182,24 (estimado, pendente)</span><span>R$ 455,60</span></div>
+    <div class="calculo-linha"><span>• Inspeção 1ª peça (final): 0,5h × R$ 144,53</span><span>R$ 72,27</span></div>
+    <div class="calculo-linha destaque-calc"><span>Custos Fixos Total</span><span>R$ 841,02</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>2. Mão de Obra Direta — MOD</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• LYNX: 9 pç produção pura REAL (as-built 20/07) = 390 min = 6,5h × R$ 96,35/h</span><span>R$ 626,28</span></div>
+    <div class="calculo-linha"><span>• D760: 10 pç × 2,3 min = 23,0 min = 0,3833h × R$ 121,49/h (estimado)</span><span>R$ 46,57</span></div>
+    <div class="calculo-linha destaque-calc"><span>MOD Total</span><span>R$ 672,85</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>3. CIF — Custo Indireto de Fabricação (25%)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Base: Fixos + MOD</span><span>R$ 841,02 + R$ 672,85 = R$ 1.513,87</span></div>
+    <div class="calculo-linha"><span>• CIF = 25% × R$ 1.513,87</span><span>R$ 378,47</span></div>
+    <div class="calculo-linha destaque-calc"><span>CIF Total</span><span>R$ 378,47</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px; border-top: 3px solid #1e3c72; padding-top: 15px; font-size: 18px; font-weight: bold; color: #1e3c72;">
+        <span>CUSTO TOTAL LOTE 10</span><span>R$ 1.892,34</span>
+    </div>
+    <div class="calculo-linha" style="font-size: 20px; font-weight: bold; color: #28a745; border: 3px solid #28a745; background-color: #d4edda; padding: 15px; margin: 15px -15px; border-radius: 8px;">
+        <span>CUSTO POR PEÇA (LOTE 10)</span><span>R$ 189,23/peça</span>
+    </div>
+    <p style="font-size: 11px; color: #856404; margin-top: 10px;"><strong>Nota:</strong> LYNX (torno, OP60) = as-built real, pedido finalizado 20/07/2026 (10 peças entregues: 1ª produzida dentro do bloco de setup/try-out, 9 em produção pura). D760 (centro, OP70 — furos laterais, rosca 1/8" BSP, rosca 3/8" BSP a 180°, furo com rebaixo Ø13,80/Ø25×12) permanece estimativa de engenharia, execução pendente.</p>
+</div>
+
+<div class="section-title">3. Tabela Comparativa de Custos por Lote</div>
+<p style="font-size: 11px; color: #666;">Lote 10 pç = valor REAL do pedido fechado (as-built). Demais lotes = projeção usando taxa MOD as-built (R$ 67,285/pç) e mesmo bloco de fixos — estimativa para referência, não validada em execução própria.</p>
+<table>
+    <thead>
+        <tr><th>Lote</th><th>Fixos (R$)</th><th>MOD (R$)</th><th>CIF 25% (R$)</th><th>Custo Total (R$)</th><th>Custo/Peça (R$)</th><th>Fixos/Unit</th></tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>5 pç</strong></td><td>841,02</td><td>336,43</td><td>294,36</td><td>1.471,81</td><td><strong>R$ 294,36</strong></td><td>57,1%</td></tr>
+        <tr class="destaque"><td><strong>10 pç (REAL)</strong></td><td>841,02</td><td>672,85</td><td>378,47</td><td>1.892,34</td><td><strong>R$ 189,23</strong></td><td>44,4%</td></tr>
+        <tr><td><strong>20 pç</strong></td><td>841,02</td><td>1.345,70</td><td>546,68</td><td>2.733,40</td><td><strong>R$ 136,67</strong></td><td>30,8%</td></tr>
+        <tr><td><strong>30 pç</strong></td><td>841,02</td><td>2.018,55</td><td>714,89</td><td>3.574,46</td><td><strong>R$ 119,15</strong></td><td>23,5%</td></tr>
+    </tbody>
+</table>
+
+<div class="section-title">4. Cruzamento Custo Interno × GRV Mercado SP</div>
+<table>
+    <thead>
+        <tr><th>Item</th><th>Valor</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Tempo total/peça (MOD)</td><td>41,3 min = 0,6883h (LYNX 39min real + D760 2,3min estimado)</td></tr>
+        <tr><td>Custo MOD interno LASEC</td><td>R$ 62,63/pç (LYNX real) + R$ 4,66/pç (D760 estimado) = <strong>R$ 67,29/pç</strong></td></tr>
+        <tr><td>Custo MOD GRV mercado SP</td><td>0,65h × R$190,00 (Torno c/ ferram. acionada) + 0,0383h × R$189,78 (Centro Usinagem 3 eixos) = R$123,50 + R$7,27 = <strong>R$ 130,77/pç</strong></td></tr>
+        <tr><td>Diferença favorável LASEC</td><td><strong>R$ 63,48/pç (≈48,5%)</strong> — margem competitiva</td></tr>
+        <tr><td>Limite mínimo NFe (custo × 1,12)</td><td>R$ 189,23 × 1,12 = <strong>R$ 211,94/pç</strong></td></tr>
+    </tbody>
+</table>
+
+<div class="alerta-importante">
+    <h4>CONCLUSÃO</h4>
+    <p><strong>Custo interno unitário lote 10:</strong> R$ 189,23/pç — <strong>AS-BUILT REAL (torno LYNX/OP60) + estimativa pendente (centro D760/OP70)</strong></p>
+    <p><strong>Torno LYNX (OP60):</strong> pedido finalizado 20/07/2026 — as-built real 3,3× maior que o ciclo estimado inicialmente (43,33 min/pç vs 13,1 min/pç), confirmado por Alexandre em 21/07/2026</p>
+    <p><strong>Centro D760 (OP70):</strong> ainda pendente — furos laterais, rosca 1/8" BSP, rosca 3/8" BSP a 180°, furo com rebaixo Ø13,80/Ø25×12. Mantida estimativa de engenharia original (2,3 min/pç, 1,5h prog + 1,0h setup) por decisão de Alexandre — sujeito a revisão quando executado</p>
+    <p><strong>Material:</strong> fornecido pelo cliente — custo MP = R$ 0,00</p>
+    <p><strong>Nota:</strong> Lote 10 pç → custos fixos representam 44,4% do custo total (ver tabela item 3).</p>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 21/07/2026 (atualizado com as-built) | Orçamento 047/2026 — SPEEDMAQ | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>
