@@ -16,7 +16,7 @@ Ao final, informar: `[FASE X | N arquivos lidos]`
 | Fase | Arquivos | Uso |
 |------|----------|-----|
 | `inicio` | BLUEPRINT + STATE + CHECKPOINT + `memorias_resumo.md` | Inicio/retomada de sessao |
-| `processo` | RUNBOOK (etapa 1) + STATE + TASK + `regras_usinagem.md` | Gerar PROCESSO_FABRICACAO |
+| `processo` | RUNBOOK (etapa 1) + STATE + TASK + `regras_usinagem.md` | Gerar PROCESSO_FABRICACAO — **usar a skill `/montar-processo-fabricacao`**, não gerar ad-hoc |
 | `custo` | TAXAS + STATE + TASK | Gerar ESTUDO_CUSTO |
 | `preco` | TAXAS + STATE + TASK | Gerar ESTUDO_PRECO_NFE |
 | `proposta` | BLUEPRINT + STATE + TASK | Gerar PROPOSTA_COMERCIAL |
@@ -64,7 +64,10 @@ Informar ao Alexandre:
 ## REGRAS DE OPERACAO
 
 ### Gate obrigatorio
+- `PROCESSO_FABRICACAO` DEVE ser construído via skill `/montar-processo-fabricacao` (checklist de BD CNC +
+  MINIPCP + cálculo de tempo com fórmula + gate, tudo visível dentro do próprio HTML)
 - `PROCESSO_FABRICACAO` e a fonte de verdade e deve ser aprovado por Alexandre
+- Aprovação = resposta EXPLÍCITA ("aprovado"/"sim"/"pode seguir"). Correção técnica NÃO é aprovação.
 - NAO gerar nenhum documento posterior sem aprovacao explicita
 
 ### Templates e HTML
