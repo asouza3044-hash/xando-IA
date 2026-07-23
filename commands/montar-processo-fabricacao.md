@@ -145,6 +145,14 @@ Tempo roscamento G84 = (profundidade / (RPM × passo)) × 2  (ida + volta)
 - Cada operação do PROCESSO precisa aparecer com: ferramenta, Ø, Vc, RPM, avanço (mm/rot e mm/min),
   profundidade/comprimento, ciclo CNC (G83/G76/G84/etc.), tempo calculado — mostrando a conta, não só o
   resultado
+- **SEMPRE somar Manipulação do Operador como linha separada do improdutivo de máquina** (carga/descarga,
+  fixação, medição/inspeção) — torno em castanha ~2,0 min/pç, centro com morsa+4º eixo ~3,0 min/pç
+  (`memory/maquinas_specs.md`, seção "Manipulação do Operador"). **Sem essa linha, o ciclo calculado fica
+  irreal (pç/h impossível na prática)** — incidente 049/2026 ENGEPLAST: cálculo só de máquina deu
+  ~74-78 pç/h; com manipulação somada, caiu para ~21-22 pç/h, batendo com a experiência real do Alexandre
+  (20-25 pç/h). Antes de apresentar qualquer ciclo calculado, perguntar: "esse pç/h é fisicamente
+  plausível pra essa máquina/operação?" — se meia dúzia de segundos por peça parecer bom demais, É bom
+  demais, falta essa linha
 - Distinguir sempre: **as-built real** (Passo 2, se Modo B) vs **estimativa de engenharia** (Modo A/peça
   nova) — marcar claramente qual é qual no documento
 - **No Modo B:** o tempo de produção já vem do Passo 2 — não recalcular com fórmula teórica por cima do
@@ -182,6 +190,7 @@ Todo `PROCESSO_FABRICACAO` gerado por esta skill DEVE incluir, antes do rodapé,
 | BD CNC consultado (programa similar encontrado / não encontrado, % similaridade) | ✅ resultado: ... |
 | Cada ferramenta cruzada com MINIPCP (código real ou pendência explícita) | ✅ / lista de pendências |
 | Cada tempo calculado com fórmula (Vc/RPM/avanço/comprimento) OU as-built real com origem citada | ✅ |
+| Manipulação do operador somada (linha separada, ~2,0min torno / ~3,0min centro) — pç/h final é plausível? | ✅ / ⚠️ conferir |
 | Custos fixos (setup/prog/inspeção) na taxa 1,5× | ✅ |
 | Template copiado (não criado do zero) | ✅ |
 
