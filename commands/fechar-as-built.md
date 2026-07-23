@@ -5,7 +5,7 @@ de engenharia) com dados REAIS de produção (as-built) recém-chegados, e fecha
 
 **Esta skill é fina por design — de propósito, não só de nome.** Ela NÃO reimplementa nada: a lógica de
 como calcular um as-built (separar setup de produção pura, regra do gap >1,5×, etc.) vive inteira em
-`/montar-processo-fabricacao` (Passo -1/Modo B), e a lógica de templates/taxas/CIF/markup/estrutura dos 6
+`/montar-processo-fabricacao` (Passo 1-2/Modo B), e a lógica de templates/taxas/CIF/markup/estrutura dos 6
 documentos vive em `/orcamento-lasec-modular`. Esta skill só identifica o orçamento e orquestra a ordem:
 processo → custo/preço → documentos finais → sync. Se algum dia a metodologia de as-built precisar mudar,
 muda em UM lugar só (`/montar-processo-fabricacao`), não aqui.
