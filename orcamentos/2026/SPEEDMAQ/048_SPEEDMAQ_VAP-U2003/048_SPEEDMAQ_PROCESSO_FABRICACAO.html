@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - VAP-U2003 - SPEEDMAQ</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.info-table td, .info-table th { border: 1px solid #ddd; padding: 6px; }
+.info-table td:first-child { font-weight: bold; width: 28%; background-color: #f8f9fa; }
+table.op-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+table.op-table th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 8px; text-align: center; border: 1px solid #ddd; }
+table.op-table td { border: 1px solid #ddd; padding: 5px 7px; text-align: center; vertical-align: middle; }
+.row-prod { background-color: #d4edda; }
+.row-improd { background-color: #fff3cd; }
+.row-total { background-color: #cce5ff; font-weight: bold; }
+.row-manip { background-color: #f8d7da; }
+.row-fixacao { background-color: #e3f2fd; font-weight: bold; color: #1976d2; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+.alerta h4 { margin-top: 0; color: #856404; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">PROCESSO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Tampa da Válvula de Alta Pressão — VAP-U2003</div>
+        <div class="document-subtitle">Orçamento 048/2026 — SPEEDMAQ</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="alerta" style="border-left-color:#28a745; background-color:#d4edda;">
+    <h4 style="color:#155724;">✔ GATE APROVADO — AS-BUILT REAL (23/07/2026)</h4>
+    <ul>
+        <li>Pedido de 10 peças finalizado 22/07/2026 (programa O6004, LYNX/Doosan II P6004 + D760, ficha de apontamento André/Hélio) — <strong>tempos abaixo já são AS-BUILT REAL</strong>, não mais estimativa</li>
+        <li>LYNX: produção pura 10,00 min/pç (setup+try-out real 4,0h, 15–16/07) | D760: produção pura 14,50 min/pç (dispositivo de fixação novo 3,8333h, 21/07)</li>
+        <li>Peça faz parte da <strong>família da válvula SPEEDMAQ (VAP-U20xx)</strong>, junto com 046 (Manípulo VAP-U2007, completo) e 047 (Corpo VAP-U2001, torno fechado/centro pendente) — proposta comercial será <strong>consolidada</strong></li>
+        <li>Ver <strong>048_SPEEDMAQ_ESTUDO_CUSTO_FABRICACAO.html</strong> para o detalhamento as-built completo</li>
+    </ul>
+</div>
+
+<div class="section-title">1. DADOS GERAIS DA PEÇA</div>
+<table class="info-table">
+    <tr><td>Código:</td><td>VAP-U2003 — Tampa da Válvula de Alta Pressão</td></tr>
+    <tr><td>Cliente:</td><td>SPEEDMAQ (Conjunto Indústria e Comércio de Máquinas Ltda.)</td></tr>
+    <tr><td>Material:</td><td>Alumínio — Barra Ø63,0 x 49,0mm — <strong>fornecido pelo cliente (SPEEDMAQ) — custo MP = R$ 0,00</strong></td></tr>
+    <tr><td>Desenho:</td><td>VAP-U2003 Rev.1 (arquivo "VAP-U2003 Tampa da Valvula de Alta Pressão R2.pdf"), escala 1:2</td></tr>
+    <tr><td>Peso final (desenho):</td><td>0,210 kg</td></tr>
+    <tr><td>Máquinas:</td><td><strong>Doosan LYNX 220LM</strong> (torneamento + furo interno escalonado + boss Ø24 + 8 furos flange via live tool/eixo C) + <strong>Romi Discovery 760 3-eixos</strong> (3 furações/roscas radiais BSP — mesmo critério do 047: limite de potência da live tooling + capacidade de posições na torre BMT45P)</td></tr>
+    <tr><td>Lote orçado:</td><td>10 peças</td></tr>
+    <tr><td>Fonte de tempo:</td><td><strong>ESTIMATIVA DE ENGENHARIA</strong> (mesma metodologia do orçamento 047 — sem as-built) — a validar com 1ª produção real</td></tr>
+</table>
+
+<div class="section-title">2. DIMENSÕES FINAIS (conforme desenho VAP-U2003 Rev.1)</div>
+<table class="info-table">
+    <tr><td>Comprimento total:</td><td><strong>L = 47mm</strong> (barra 49mm, facear ~2mm)</td></tr>
+    <tr><td>Diâmetro externo:</td><td><strong>Ø62,50</strong> (mesmo padrão da família — desbaste leve da barra Ø63 bruta)</td></tr>
+    <tr><td>Boss saliente:</td><td>Ø24, altura 14,80mm</td></tr>
+    <tr><td>Register de precisão:</td><td>Ø36 <sup>0/-0,02</sup> (encaixe de precisão, provável acoplamento com o Corpo VAP-U2001)</td></tr>
+    <tr><td>Furo interno escalonado:</td><td>Ø31,50 → Ø15,40/Ø14,95 → Ø10,02/Ø10,07, comprimento interno ~43,01mm</td></tr>
+    <tr><td>Contra-furo central:</td><td>Ø10 (prof. 6,50mm) — provável gaxeta/O-ring</td></tr>
+    <tr><td>Flange (face frontal, 8 furos):</td><td><strong>4× Ø7 passante total</strong> + <strong>4× Ø4,20 (prof.14) / M5×0,8-6H (prof.10)</strong> — círculo Ø35</td></tr>
+    <tr><td>Portas radiais (3×):</td><td><strong>2× M.BSP 1/8"</strong> + <strong>1× M.BSP 3/8"</strong></td></tr>
+    <tr><td>Tolerâncias críticas:</td><td>Ø36 <sup>0/-0,02</sup> | rosca M5×0,8-6H | demais conforme DIN7168 grau médio</td></tr>
+</table>
+
+<div class="section-title">3. OPERAÇÕES — Doosan LYNX 220LM (torneamento + furo interno + flange)</div>
+
+<table class="op-table">
+<thead>
+    <tr>
+        <th style="width:7%;">Seq.</th>
+        <th style="width:15%;">Operação</th>
+        <th style="width:18%;">Ferramenta</th>
+        <th style="width:11%;">Cód. BD</th>
+        <th style="width:9%;">Ø / Dados</th>
+        <th style="width:9%; background-color:#28a745; color:white;">Tempo (est.)</th>
+        <th style="width:31%;">Descrição</th>
+    </tr>
+</thead>
+<tbody>
+
+<tr class="row-fixacao">
+    <td colspan="7" style="text-align:center; padding:10px;">FIXAÇÃO ÚNICA — barra Ø63mm em castanha padrão</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N10</td>
+    <td>FACEAR</td>
+    <td>VCGT160404 FL K10 (alumínio)</td>
+    <td>08.07.001</td>
+    <td>Ø63</td>
+    <td>0,3 min</td>
+    <td>Facear topo, referência de comprimento</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N20</td>
+    <td>DESB. EXT. LEVE</td>
+    <td>VCGT160404 FL K10 / suporte SVJCR2020K16</td>
+    <td>08.07.001 / 08.08.032</td>
+    <td>Ø63→Ø62,50</td>
+    <td>0,8 min</td>
+    <td>Desbaste externo leve (0,25mm no raio)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N30</td>
+    <td>TORNEAR BOSS</td>
+    <td>VCGT160404 FL K10</td>
+    <td>08.07.001</td>
+    <td>Ø24 h14,80</td>
+    <td>0,6 min</td>
+    <td>Facear/tornear ressalto Ø24</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N40</td>
+    <td>FURAR (piloto)</td>
+    <td style="color:#856404;">a confirmar (broca centro/piloto)</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>—</td>
+    <td>0,3 min</td>
+    <td>Furo piloto para mandrilamento</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N50</td>
+    <td>MANDRILAR</td>
+    <td>A12M-SCLCR06-D140 + CCGT060202 FL K10</td>
+    <td>08.08.001 / 08.07.001</td>
+    <td>Ø10,02/Ø10,07</td>
+    <td>0,8 min</td>
+    <td>Desb./acab. trecho Ø10 (fundo do furo interno)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N60</td>
+    <td>MANDRILAR</td>
+    <td>Desb.Int. + CCGT060202 FL K10</td>
+    <td>08.08.001 / 08.07.001</td>
+    <td>Ø15,40/Ø14,95</td>
+    <td>1,0 min</td>
+    <td>Desb./acab. trecho Ø15,40 (junto às portas BSP 1/8")</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N70</td>
+    <td>MANDRILAR</td>
+    <td>S16R-SCLCR06 + CCGT060202 FL K10</td>
+    <td>08.08.008 / 08.07.093</td>
+    <td>Ø31,50</td>
+    <td>1,0 min</td>
+    <td>Desb./acab. trecho Ø31,50</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N80</td>
+    <td>MANDRILAR/REBAIXAR</td>
+    <td>Desb.Int. + CCGT060202 FL K10</td>
+    <td>08.08.001 / 08.07.001</td>
+    <td>Ø36 <sup>0/-0,02</sup></td>
+    <td>0,6 min</td>
+    <td>Register de precisão Ø36</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N90</td>
+    <td>CONTRA-FURAR</td>
+    <td style="color:#856404;">a confirmar (broca/pastilha Ø10)</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>Ø10 h6,50</td>
+    <td>0,5 min</td>
+    <td>Contra-furo central (gaxeta/O-ring)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N100</td>
+    <td>FURAR (4×, eixo C)</td>
+    <td>Broca Espada MD Ø7,00 (7.1)</td>
+    <td>08.12.061</td>
+    <td>4×Ø7 passante</td>
+    <td>1,0 min</td>
+    <td>4 furos passantes flange (live tool + eixo C)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N110</td>
+    <td>FURAR (4×, eixo C)</td>
+    <td style="color:#856404;">a confirmar (broca Ø4,20)</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>4×Ø4,20 h14</td>
+    <td>1,0 min</td>
+    <td>4 pré-furos M5 da flange (live tool + eixo C)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N120</td>
+    <td>ROSCAR (4×, eixo C)</td>
+    <td>Macho M5 (P.0,80) Canal Hel. HSS</td>
+    <td>08.09.004</td>
+    <td>4×M5×0,8-6H h10</td>
+    <td>1,0 min</td>
+    <td>4 roscas M5×0,8-6H da flange (live tool + eixo C)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N130</td>
+    <td>CORTAR/SEPARAR</td>
+    <td style="color:#856404;">a confirmar (bedame)</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>—</td>
+    <td>0,4 min</td>
+    <td>Corte final (barra 49mm → peça 47mm)</td>
+</tr>
+
+<tr class="row-total">
+    <td colspan="5" style="text-align:right;">SUBTOTAL LYNX 220LM (estimado)</td>
+    <td style="background-color:#cce5ff;">9,3 min</td>
+    <td>Torneamento + furo interno + boss + flange</td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="section-title">4. OPERAÇÕES — Romi Discovery 760 3-eixos (3 portas radiais roscadas)</div>
+
+<table class="op-table">
+<thead>
+    <tr>
+        <th style="width:7%;">Seq.</th>
+        <th style="width:15%;">Operação</th>
+        <th style="width:18%;">Ferramenta</th>
+        <th style="width:11%;">Cód. BD</th>
+        <th style="width:9%;">Ø / Dados</th>
+        <th style="width:9%; background-color:#28a745; color:white;">Tempo (est.)</th>
+        <th style="width:31%;">Descrição</th>
+    </tr>
+</thead>
+<tbody>
+
+<tr class="row-fixacao">
+    <td colspan="7" style="text-align:center; padding:10px;">FIXAÇÃO EM DISPOSITIVO — peça travada na posição angular das 3 portas</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N10</td>
+    <td>FURAR</td>
+    <td>Broca Espada MD Ø9,00 (8,80)</td>
+    <td>08.12.052</td>
+    <td>Ø8,8</td>
+    <td>0,5 min</td>
+    <td>Pré-furo porta radial BSP 1/8" (#1)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N20</td>
+    <td>ROSCAR</td>
+    <td>Macho 1/8 BSP canal Helicoidal HSS</td>
+    <td>08.09.045</td>
+    <td>M.BSP 1/8"</td>
+    <td>0,4 min</td>
+    <td>Rosca porta radial BSP 1/8" (#1)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N30</td>
+    <td>FURAR</td>
+    <td>Broca Espada MD Ø9,00 (8,80)</td>
+    <td>08.12.052</td>
+    <td>Ø8,8</td>
+    <td>0,5 min</td>
+    <td>Pré-furo porta radial BSP 1/8" (#2)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N40</td>
+    <td>ROSCAR</td>
+    <td>Macho 1/8 BSP canal Helicoidal HSS</td>
+    <td>08.09.045</td>
+    <td>M.BSP 1/8"</td>
+    <td>0,4 min</td>
+    <td>Rosca porta radial BSP 1/8" (#2)</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N50</td>
+    <td>FURAR</td>
+    <td style="color:#856404;">a confirmar (broca Ø16,5 pré-rosca BSP 3/8")</td>
+    <td style="color:#856404;">a confirmar</td>
+    <td>Ø16,5</td>
+    <td>0,8 min</td>
+    <td>Pré-furo porta radial BSP 3/8"</td>
+</tr>
+
+<tr class="row-prod">
+    <td>N60</td>
+    <td>ROSCAR</td>
+    <td>Macho 3/8×19 BSP Canal Reto</td>
+    <td>08.09.134</td>
+    <td>M.BSP 3/8"</td>
+    <td>0,6 min</td>
+    <td>Rosca porta radial BSP 3/8"</td>
+</tr>
+
+<tr class="row-total">
+    <td colspan="5" style="text-align:right;">SUBTOTAL D760 (estimado)</td>
+    <td style="background-color:#cce5ff;">3,2 min</td>
+    <td>3 furações + 3 roscas radiais BSP</td>
+</tr>
+
+</tbody>
+</table>
+
+<table class="op-table">
+<tr style="background-color:#1e3c72; color:white; font-weight:bold; font-size:10pt;">
+    <td style="text-align:right; padding:10px; width:74%;">CICLO TOTAL AS-BUILT REAL POR PEÇA (LYNX + D760) — 22/07/2026</td>
+    <td style="text-align:center; font-size:12pt; background-color:#0d2247; width:9%;">24,5 min</td>
+    <td style="text-align:center; width:17%;">~2,4 pç/h</td>
+</tr>
+</table>
+
+<p style="font-size:8pt; color:#666;">Códigos marcados "a confirmar" ainda não localizados no MINIPCP.csv com precisão suficiente (broca centro/piloto, broca Ø10 contra-furo, broca Ø4,20, bedame de corte, broca Ø16,5 pré-rosca BSP 3/8") — pendência a validar com Alexandre antes de compra/reposição de ferramental. Tempos de ciclo são estimativa de engenharia — pendente de validação com 1ª produção real.</p>
+
+<div class="section-title">5. DADOS GERAIS — CUSTOS (lote 10 peças, AS-BUILT REAL 22/07/2026)</div>
+<table class="info-table">
+    <tr><td>LYNX 220LM:</td><td>Taxa produção R$ 96,35/h | Taxa setup/prog/inspeção R$ 144,53/h (1,5×)</td></tr>
+    <tr><td>D760 3-eixos:</td><td>Taxa produção R$ 121,49/h | Taxa setup/prog/inspeção R$ 182,24/h (1,5×)</td></tr>
+    <tr><td>Material:</td><td><strong>R$ 0,00</strong> (barra fornecida pelo cliente SPEEDMAQ)</td></tr>
+    <tr><td>Programação CNC (peça nova complexa, mín. 4h):</td><td>2,5h LYNX × R$144,53 + 1,5h D760 × R$182,24 = R$361,33 + R$273,36 = <strong>R$ 634,69</strong></td></tr>
+    <tr><td>Setup+try-out LYNX (as-built, 15-16/07):</td><td>4,0h × R$144,53 = <strong>R$ 578,12</strong></td></tr>
+    <tr><td>Setup+dispositivo D760 (as-built, 21/07):</td><td>3,8333h × R$182,24 = <strong>R$ 698,59</strong></td></tr>
+    <tr><td>Inspeção 1ª peça:</td><td>0,5h × R$144,53 = <strong>R$ 72,27</strong> (register Ø36 crítico + rosca M5-6H)</td></tr>
+    <tr style="background-color:#fff3cd;"><td><strong>Total fixos:</strong></td><td><strong>R$ 1.983,67</strong></td></tr>
+    <tr><td>MOD LYNX (10 pç × 10,00 min real):</td><td>1,6667h × R$96,35 = <strong>R$ 160,58</strong></td></tr>
+    <tr><td>MOD D760 (10 pç × 14,50 min real):</td><td>2,4167h × R$121,49 = <strong>R$ 293,60</strong></td></tr>
+    <tr><td>CIF 25% (Fixos+MOD):</td><td>(R$1.983,67 + R$454,18) × 25% = <strong>R$ 609,46</strong></td></tr>
+    <tr style="background-color:#d4edda; font-weight:bold;"><td>CUSTO TOTAL LOTE:</td><td>R$ 3.047,31</td></tr>
+    <tr style="background-color:#d4edda; font-weight:bold;"><td>CUSTO UNITÁRIO:</td><td>R$ 304,73/pç</td></tr>
+</table>
+
+<div class="info-box">
+    <h3>Origem dos dados</h3>
+    <ul>
+        <li>Desenho técnico VAP-U2003 Rev.1 (escala 1:2), cliente SPEEDMAQ</li>
+        <li>Confirmação Alexandre (18/07/2026): furações radiais BSP no D760 (mesmo critério do 047 — potência da live tooling + capacidade de posições na torre BMT45P). Peça já foi produzida anteriormente mas sem registro de processo/preço salvo no sistema LASEC — reconstruído do zero</li>
+        <li>Códigos de ferramental MINIPCP.csv (busca direta) — itens sem código confirmado marcados "a confirmar"</li>
+        <li>Sem programa CNC histórico nem as-built localizado — <strong>tempos são estimativa de engenharia, a validar com 1ª produção real</strong></li>
+        <li>Peça faz parte da família da válvula SPEEDMAQ junto com 046 (Manípulo VAP-U2007) e 047 (Corpo VAP-U2001) — proposta comercial consolidada</li>
+    </ul>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 23/07/2026 (atualizado com as-built) | Orçamento 048/2026 — SPEEDMAQ | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>
