@@ -11,20 +11,25 @@ A partir daqui, VOCÊ roteia internamente conforme o Passo 0 abaixo — o Alexan
 
 ## Passo 0 — Roteamento (fazer isto ANTES de tudo)
 
-Ler o pedido do Alexandre e classificar:
+**Critério único, não decorar frases:** existe um DADO CONCRETO de produção real pra reconciliar agora —
+ficha de apontamento, G-code executado, horários/quantidades faladas, foto de ordem de produção? Se SIM
+→ Rota B. Se NÃO (mesmo que a peça já tenha sido produzida alguma vez no passado, sem esse registro em
+mãos agora) → Rota A. Frases soltas tipo "vamos fechar o pedido X" NÃO bastam sozinhas — isso pode
+significar só "aprova essa estimativa", sem nenhum dado real junto. Só vira Rota B quando o dado
+concreto está de fato presente na mensagem (texto com números/horários, ou arquivo anexado).
 
-- **Peça/cliente novo, ou peça já orçada mas ainda sem produção real** → **Rota A**: seguir o
-  "Protocolo Completo" abaixo normalmente. Quando chegar a hora de montar o `PROCESSO_FABRICACAO`, usar
-  a skill `/montar-processo-fabricacao` em **Modo A**.
-- **Alexandre trouxe apontamento, G-code executado, ficha de produção, ou tempo falado de uma peça já
-  orçada/produzida** ("chegou o as-built", "acabou de produzir X", "vamos fechar o pedido Y") → **Rota
-  B**: mesmo protocolo abaixo, mas na etapa de PROCESSO usar `/montar-processo-fabricacao` em **Modo B**
-  (ele já embute o roteiro as-built completo: separar setup de produção pura, checar gap >1,5× regra 14,
-  etc.). Depois do gate aprovado, reconciliar CUSTO/PRECO_NFE com os números validados e completar os
-  documentos que faltarem. (`/fechar-as-built` é uma cópia fina desta mesma Rota B, para quem preferir
-  chamar por nome — não é uma lógica diferente.)
-- **Ambíguo** (ex: Alexandre só diz "vamos fazer um orçamento" sem contexto) → perguntar objetivamente:
-  peça nova ou já tem dado real de produção? Uma pergunta, não um formulário.
+- **Rota A** (peça/cliente novo, retomada de orçamento em andamento, ou peça com histórico vago de
+  produção mas SEM dado concreto agora): seguir o "Protocolo Completo" abaixo normalmente. Ao montar o
+  `PROCESSO_FABRICACAO`, usar `/montar-processo-fabricacao` em **Modo A**.
+- **Rota B** (dado concreto de produção real presente na mensagem/anexo): mesmo protocolo abaixo, mas na
+  etapa de PROCESSO usar `/montar-processo-fabricacao` em **Modo B** (já embute o roteiro as-built
+  completo: separar setup de produção pura, checar gap >1,5× regra 14, etc.). Depois do gate aprovado,
+  reconciliar CUSTO/PRECO_NFE com os números validados e completar os documentos que faltarem.
+  (`/fechar-as-built` é uma cópia fina desta mesma Rota B, para quem preferir chamar por nome — não é
+  uma lógica diferente.)
+- **Ambíguo** (o pedido não deixa claro se há dado concreto — ex: "vamos fechar o pedido X" sem anexo nem
+  números, ou "vamos fazer um orçamento" sem nenhum contexto): perguntar objetivamente — peça nova ou já
+  tem dado real de produção em mãos? Uma pergunta, não um formulário. NÃO adivinhar pela frase.
 
 Em qualquer rota, `PROCESSO_FABRICACAO` continua sendo o gate obrigatório — nada de CUSTO/PRECO_NFE/
 VIABILIDADE/BREAK_EVEN/PROPOSTA antes de aprovação explícita (ver "Gate obrigatorio" abaixo).
@@ -110,6 +115,9 @@ NAO medir tokens (impossivel). Checkpoint IMEDIATO apos:
 - So perguntar o que realmente falta
 
 ### Busca CNC — PROTOCOLO CACHE (OBRIGATORIO)
+(Mesmo protocolo do Passo 5 de `/montar-processo-fabricacao` — repetido aqui só como referência rápida;
+se um dia precisar mudar, mudar nos dois lugares ou remover a duplicação.)
+
 Ao iniciar orcamento, buscar programas similares via cache estruturado:
 
 **Fluxo (4 passos, ~160 tokens):**
@@ -160,13 +168,13 @@ Ordenar por % decrescente, mostrar top 3 (minimo 60%).
 
 ## REFERENCIA COMPLEMENTAR
 
-Para detalhes nao cobertos pelos arquivos modulares, consultar:
+Para detalhes nao cobertos neste comando, consultar:
 - `/orcamento-lasec` (comando original) — erros historicos, specs maquinas, improdutivo, contato LASEC, estrutura pasta, dados tecnicos completos
-- `docs/orcamento-lasec-original.md` — fonte historica completa (se existir)
+- `/montar-processo-fabricacao` — regra as-built completa (Modo B), hierarquia de consulta, cruzamento MINIPCP/BD CNC, cálculo de tempo com fórmula (fonte única, não repetir aqui)
 
-### O que esta no comando original e NAO foi duplicado aqui:
+### O que esta no comando original (`/orcamento-lasec`) e NAO foi duplicado aqui:
 - Tabela completa de erros que causaram prejuizo (19 itens)
-- Specs improdutivo por maquina (LYNX, D760)
+- Specs improdutivo por maquina (LYNX, D760) — ver também `memory/maquinas_specs.md`
 - Manipulacao operador (tempos)
 - RPM limites por maquina
 - Layout detalhado da proposta comercial (ref 022 SPEEDMAQ)
@@ -174,7 +182,5 @@ Para detalhes nao cobertos pelos arquivos modulares, consultar:
 - Contato LASEC completo
 - Estrutura de pasta do orcamento
 - Indice completo de bases de dados
-- Hierarquia de consulta (prioridade)
-- Regra as-built vs tempo custo
 - Detalhes sync (GitHub + VM Oracle)
 - Script PDF (CDP scale 0.78)
