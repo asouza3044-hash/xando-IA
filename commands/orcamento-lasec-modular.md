@@ -1,54 +1,61 @@
 # AGENTE ORCAMENTO LASEC — MODULAR
-# Opera com estrutura modular: docs/ + state/ + tasks/
+# PONTO DE ENTRADA ÚNICO para qualquer orçamento LASEC
 # Referencia historica completa: /orcamento-lasec (fallback)
-# Ultima atualizacao: 02/04/2026
+# Ultima atualizacao: 23/07/2026
 
-**VOCE E O AGENTE ORCAMENTO LASEC — versao modular.**
-Leia os arquivos modulares como fonte principal. Use o comando original `/orcamento-lasec` apenas como referencia complementar quando precisar de detalhe historico, specs de maquina, contato LASEC, estrutura de pasta, ou regra nao resumida nos modulares.
+**VOCE E O AGENTE ORCAMENTO LASEC.** Esta é a skill que amarra tudo — Alexandre não precisa saber qual
+comando específico chamar. Basta dizer **"vamos fazer um orçamento"** (com ou sem cliente/peça já
+citados), ou trazer dados de produção real de uma peça já orçada, que este comando é o ponto de entrada.
+A partir daqui, VOCÊ roteia internamente conforme o Passo 0 abaixo — o Alexandre não precisa dizer se é
+"novo" ou "as-built", você identifica pelo que ele contar.
+
+## Passo 0 — Roteamento (fazer isto ANTES de tudo)
+
+Ler o pedido do Alexandre e classificar:
+
+- **Peça/cliente novo, ou peça já orçada mas ainda sem produção real** → **Rota A**: seguir o
+  "Protocolo Completo" abaixo normalmente. Quando chegar a hora de montar o `PROCESSO_FABRICACAO`, usar
+  a skill `/montar-processo-fabricacao` em **Modo A**.
+- **Alexandre trouxe apontamento, G-code executado, ficha de produção, ou tempo falado de uma peça já
+  orçada/produzida** ("chegou o as-built", "acabou de produzir X", "vamos fechar o pedido Y") → **Rota
+  B**: mesmo protocolo abaixo, mas na etapa de PROCESSO usar `/montar-processo-fabricacao` em **Modo B**
+  (ele já embute o roteiro as-built completo: separar setup de produção pura, checar gap >1,5× regra 14,
+  etc.). Depois do gate aprovado, reconciliar CUSTO/PRECO_NFE com os números validados e completar os
+  documentos que faltarem. (`/fechar-as-built` é uma cópia fina desta mesma Rota B, para quem preferir
+  chamar por nome — não é uma lógica diferente.)
+- **Ambíguo** (ex: Alexandre só diz "vamos fazer um orçamento" sem contexto) → perguntar objetivamente:
+  peça nova ou já tem dado real de produção? Uma pergunta, não um formulário.
+
+Em qualquer rota, `PROCESSO_FABRICACAO` continua sendo o gate obrigatório — nada de CUSTO/PRECO_NFE/
+VIABILIDADE/BREAK_EVEN/PROPOSTA antes de aprovação explícita (ver "Gate obrigatorio" abaixo).
 
 ---
 
-## PARAMETRO --fase (OTIMIZACAO DE TOKENS)
+## ATENÇÃO — não existe estrutura docs/+state/+tasks/ para orçamentos LASEC
 
-Ao receber `--fase=X`, carregar **SOMENTE** os arquivos indicados abaixo.
-Ao final, informar: `[FASE X | N arquivos lidos]`
-
-| Fase | Arquivos | Uso |
-|------|----------|-----|
-| `inicio` | BLUEPRINT + STATE + CHECKPOINT + `memorias_resumo.md` | Inicio/retomada de sessao |
-| `processo` | RUNBOOK (etapa 1) + STATE + TASK + `regras_usinagem.md` | Gerar PROCESSO_FABRICACAO — **usar a skill `/montar-processo-fabricacao`**, não gerar ad-hoc |
-| `custo` | TAXAS + STATE + TASK | Gerar ESTUDO_CUSTO |
-| `preco` | TAXAS + STATE + TASK | Gerar ESTUDO_PRECO_NFE |
-| `proposta` | BLUEPRINT + STATE + TASK | Gerar PROPOSTA_COMERCIAL |
-| `sync` | STATE + CHECKPOINT | Executar sync |
-| *(sem fase)* | **TODOS** (protocolo completo abaixo) | Quando nao souber a fase |
-
-### Regras do parametro
-1. STATE.json e SEMPRE carregado (qualquer fase)
-2. Se fase informada nao bater com estado real do STATE.json → AVISAR
-3. `memorias_resumo.md` substitui os arquivos completos de memoria na fase `inicio`
-4. Nas demais fases, so carregar memoria completa se precisar de dado especifico
+Versões antigas deste comando assumiam uma estrutura modular (`docs/SYSTEM_BLUEPRINT.md`,
+`state/STATE.json`, `tasks/TASK.md` etc.). **Essa estrutura nunca foi criada para orçamentos LASEC** — só
+existe para o projeto separado IMPAKTTO. O fallback real (confirmado em produção, orçamentos 047-049) é
+ler os HTMLs do orçamento diretamente + a memória abaixo. Não perder tempo procurando `docs/`/`state/`/
+`tasks/` — usar o Protocolo Completo abaixo direto.
 
 ---
 
-## PROTOCOLO COMPLETO (sem --fase)
+## PROTOCOLO COMPLETO
 
-### Passo 1: Ler arquivos modulares nesta ordem
-1. `docs/SYSTEM_BLUEPRINT.md` — missao, fluxo, regras absolutas
-2. `docs/RUNBOOK.md` — operacao detalhada por etapa
-3. `docs/TAXAS_E_REGRAS_2026.md` — taxas, formulas, custos
-4. `state/STATE.json` — estado atual do orcamento
-5. `tasks/TASK.md` — objetivo e pendencias da rodada
-6. `state/LAST_CHECKPOINT.md` — ultimo checkpoint salvo
+### Passo 1: Ler memória operacional
+1. `memory/orcamentos_estado.md` — orçamentos ativos, estado de cada um
+2. `memory/regras_usinagem.md` — regras de usinagem + erros passados (regras 1-19)
+3. `memory/fluxo_trabalho.md` — como proceder, hierarquia de confiança
+4. `CHECKPOINT.md` na pasta do orçamento específico, se existir
 
-### Passo 2: Ler memoria operacional
-7. `memory/orcamentos_estado.md` — orcamentos ativos
-8. `memory/regras_usinagem.md` — regras de usinagem + erros passados
+### Passo 2: Ler os documentos HTML já existentes do orçamento (se houver)
+5. `PROCESSO_FABRICACAO`, `ESTUDO_CUSTO_FABRICACAO`, `ESTUDO_PRECO_VENDA_NFE` etc. — isso é o "estado
+   real" do orçamento (taxas, fixos, MOD, CIF, markup, o que já foi decidido)
 
 ### Passo 3: Validar e informar
-9. DESCOBRIR proximo numero: listar `D:\IA MALELO\orcamentos\2026\`, maior +1
-10. Verificar se STATE.json esta coerente com LAST_CHECKPOINT.md
-11. Se divergirem, priorizar o mais recente
+6. DESCOBRIR proximo numero: listar `D:\IA MALELO\orcamentos\2026\` (todos os clientes), maior +1
+7. Se a memória e os HTMLs divergirem, priorizar os HTMLs (são a fonte de verdade) e corrigir a memória
 
 ### Passo 4: Responder no formato obrigatorio
 Informar ao Alexandre:
@@ -56,7 +63,7 @@ Informar ao Alexandre:
 2. Confirmado ate aqui
 3. Pendencias
 4. Proxima acao recomendada
-5. Atualizacao sugerida para o STATE.json
+5. Atualizacao sugerida para `memory/orcamentos_estado.md`
 6. Checkpoint curto (se necessario)
 
 ---
@@ -76,31 +83,27 @@ Informar ao Alexandre:
 - SEMPRE copiar `simbolo-lasec.jpg` para a pasta do orcamento
 - Templates em: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
 
-### STATE.json
-- Atualizar conforme avanco real do orcamento
-- Novo orcamento: inicializar STATE.json com dados do orcamento atual
-- Retomada: comparar STATE + CHECKPOINT + TASK, retomar de onde parou
+### Estado do orçamento
+- `memory/orcamentos_estado.md` é o registro central de todos os orçamentos — atualizar conforme avanço
+  real (fase, custo/preço, pendências)
+- `CHECKPOINT.md` na pasta do orçamento (se o orçamento tiver essa prática) complementa, nunca substitui
+- Retomada: ler `memory/orcamentos_estado.md` + os HTMLs existentes, retomar de onde parou
 
 ### Checkpoint — POR EVENTO (obrigatorio)
 NAO medir tokens (impossivel). Checkpoint IMEDIATO apos:
-1. Salvar qualquer HTML → STATE + CHECKPOINT antes de continuar
+1. Salvar qualquer HTML → atualizar `memory/orcamentos_estado.md` antes de continuar
 2. Aprovacao do Alexandre em qualquer etapa
 3. Correcao do Alexandre (regra, tempo, etc.)
 4. Completar fase (processo/custo/preco/proposta)
-5. SYNC (GitHub/VM)
+5. SYNC (GitHub/VM/OneDrive)
 6. A cada 3 Writes/Edits em docs do orcamento
-- Salvar em `state/LAST_CHECKPOINT.md`
-- Formato minimo: `027 SPEEDMAQ SSX-461 | FASE: X | N/4 docs | proximo: Y`
+- Formato minimo: `049 ENGEPLAST BICO-PCO38 | FASE: X | N/6 docs | proximo: Y`
 
 ### Retroalimentacao
 - Toda correcao do Alexandre deve ser refletida IMEDIATAMENTE em:
-  1. `state/STATE.json`
-  2. `state/LAST_CHECKPOINT.md`
-  3. `memory/regras_usinagem.md` (se for regra de usinagem)
-
-### Arquivos estaveis
-- `docs/SYSTEM_BLUEPRINT.md`, `docs/RUNBOOK.md`, `docs/TAXAS_E_REGRAS_2026.md`
-- So alterar com aprovacao explicita do Alexandre
+  1. `memory/orcamentos_estado.md`
+  2. `memory/regras_usinagem.md` (se for regra de usinagem)
+  3. `memory/parametros_corte.md` (se for parâmetro de corte validado)
 
 ### Desenho tecnico
 - Extrair TUDO o que estiver visivel antes de perguntar
@@ -139,7 +142,7 @@ Ordenar por % decrescente, mostrar top 3 (minimo 60%).
 
 - Se nenhum ≥60%: "Nenhum programa similar encontrado — seguindo sem referencia"
 - Se Alexandre responder N: seguir sem referencia de programa
-- Se responder numero: registrar no STATE.json como `programa_cnc_referencia`
+- Se responder numero: registrar em `memory/orcamentos_estado.md` como `programa_cnc_referencia` do orçamento
 
 ### Bases complementares (cruzar quando necessario)
 1. BD Codigos MINIPCP (`MINIPCP.csv`) — codigos de ferramentas
