@@ -1,53 +1,6 @@
 # Estado dos Orcamentos LASEC
 # ATUALIZAR sempre que estado mudar
-# Proximo numero: 049/2026
-
-## FAMÍLIA VÁLVULA ALTA PRESSÃO SPEEDMAQ (VAP-U20xx) — proposta CONSOLIDADA
-046 (Manípulo VAP-U2007, completo, R$73,74/pç) + 047 (Corpo VAP-U2001, R$244,37/pç) + 048 (Tampa VAP-U2003, em andamento) — todos lote 10. Decisão Alexandre 18/07/2026: proposta comercial única para os 3, não separadas.
-
-### 048/2026 — SPEEDMAQ Tampa da Válvula de Alta Pressão (VAP-U2003)
-- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\048_SPEEDMAQ_VAP-U2003\`
-- **Estado:** PROCESSO_FABRICACAO gerado (1ª proposta de engenharia) — aguardando aprovação Alexandre (GATE)
-- **Dados:** 10pç, Alumínio barra Ø63x49mm (MP fornecida SPEEDMAQ), LYNX 220LM + D760 3-eixos (3 portas radiais BSP)
-- **Geometria:** L=47mm, OD Ø62,50, boss Ø24, register Ø36(0/-0,02), furo interno Ø31,50→Ø10,02, flange 8 furos (4xØ7+4xM5), 3 portas radiais BSP (2x1/8"+1x3/8")
-- **Tempo:** ESTIMATIVA DE ENGENHARIA — LYNX 9,3min + D760 3,2min = 12,5min/pç
-- **Custo:** R$155,98/pç (custos fixos R$1.033,73)
-- **Nota:** peça já foi produzida pela LASEC antes, mas sem nenhum registro de processo/preço salvo — reconstruído do zero
-- **Última sessão:** 2026-07-18
-
-### 047/2026 — SPEEDMAQ Corpo da Válvula de Alta Pressão (VAP-U2001)
-- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\047_SPEEDMAQ_VAP-U2001\`
-- **Estado:** PROCESSO_FABRICACAO gerado (1ª proposta de engenharia) — aguardando aprovação Alexandre (GATE)
-- **Dados:** 10pç, Alumínio barra Ø63x129mm (MP fornecida SPEEDMAQ), LYNX 220LM (torneamento+furo interno+flange) + D760 3-eixos (2 portas radiais BSP)
-- **Geometria:** L=127mm, OD Ø62,50 bruto, furo interno escalonado Ø36→Ø15 + M6 interno, furo axial Ø8x95,5mm, flange 4xM6, portas radiais M.BSP1/8" e M.BSP3/8"
-- **Tempo:** ESTIMATIVA DE ENGENHARIA (sem as-built/histórico) — LYNX 13,1min + D760 2,3min = 15,4min/pç
-- **Custo:** R$161,33/pç (custos fixos R$1.033,73, prog 4h mín peça complexa)
-- **Aprendizado:** rosca BSP1/8" radial excede limite seguro Ø8mm da live tooling LYNX → vai pro D760
-- **Última sessão:** 2026-07-18
-
-### 046/2026 — SPEEDMAQ Manípulo da Válvula de Alta Pressão (VAP-U2007)
-- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\046_SPEEDMAQ_VAP-U2007\`
-- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA), aprovado Alexandre
-- **Dados:** 10pç, LYNX 220LM (torno puro, 2 fixações c/ troca de castanha), Alumínio barra Ø63x18mm (MP fornecida cliente)
-- **Tempo AS-BUILT:** 8,5 min/pç (6,0min 1º lado + 2,5min 2º lado) — apontamento original tinha 15,0min no 2º lado por ser EXPERIMENTO de parâmetro (corrigido por Alexandre, ver feedback_experimento_nao_e_ciclo_producao)
-- **Custo:** R$48,68/pç (fixos 1,0h setup+0,5h prog+0,25h insp = R$252,93) | **Preço NFe (markup 35%):** R$73,74/pç | Total lote 10: R$737,36
-- **Histórico:** preço inicial calculado com tempo errado (21min/pç, experimento incluído) ficou R$111,74 — Alexandre achou alto, corrigido para R$73,74
-- **Última sessão:** 2026-07-16
-
-### 043/2026 — MICROGEAR Bucha Estriada (1.98.12.159/010)
-- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\043_MICROGEAR_BUCHA_1.98.12.159\`
-- **Estado:** COMPLETO — 4/4 documentos (PROCESSO+CUSTO+PRECO_NFE+PROPOSTA), aprovado Alexandre
-- **Dados:** 20pç, LYNX 220LM (sem live tool/eixo C), DIN 20MnCr5 (MP cliente), ciclo 4,90min (ESTIMATIVA)
-- **Custos fixos:** R$252,93 (prog 0,5h + setup 1,0h + inspeção 0,25h) | Custo: R$25,64/pç
-- **Preço:** R$34,53/pç (markup 20% ×1,3464) | Total R$690,60
-- **Histórico negociação:** preço inicial R$43,66 rejeitado por Alexandre (lote 20 fixos altos) → reduzidos prog/inspeção → R$34,53 aprovado
-- **Última sessão:** 2026-06-15
-
-### 042/2026 — MICROGEAR Luva Ø38x48,5
-- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\042_MICROGEAR_LUVA_38x48,5\`
-- **Estado:** COMPLETO — 4/4 documentos, aprovado Alexandre
-- **Preço:** R$45,40/pç | Total R$908,00 (lote 20)
-- **Última sessão:** 2026-06-12
+# Proximo numero: 050/2026
 
 ## REGRA: Toda sessao nova DEVE ler este arquivo + state/STATE.json + state/LAST_CHECKPOINT.md + regras_usinagem.md ANTES de qualquer acao.
 
@@ -192,7 +145,43 @@
 - **Material:** SAE 4140 fornecido pelo cliente
 - **Última sessão:** 2026-05-01
 
-## Proximo numero disponivel: 041/2026
+### 047/2026 — SPEEDMAQ VAP-U2001 (Corpo da Válvula de Alta Pressão)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\047_SPEEDMAQ_VAP-U2001\`
+- **Estado:** 6/6 documentos gerados (PROCESSO+CUSTO+PRECO_NFE+VIABILIDADE_LOTES+BREAK_EVEN+PROPOSTA)
+- **Torno LYNX (OP60/O6005):** AS-BUILT REAL — pedido de 10 peças finalizado 20/07/2026. Setup+prog+try-out 130min (17/07 14:20-16:30, inclui 1ª peça) + produção pura 390min/9pç (20/07 08:00-14:30) = 43,33 min/pç real (3,3× maior que estimativa inicial de 13,1 min/pç)
+- **Centro D760 (OP70):** AINDA PENDENTE DE EXECUÇÃO — furos laterais, rosca 1/8" BSP, rosca 3/8" BSP a 180°, furo com rebaixo Ø13,80/rebaixo Ø25×12. Mantida estimativa de engenharia (2,3 min/pç, 1,5h prog + 1,0h setup) por decisão de Alexandre 21/07/2026 — revisar após execução
+- **Custo real lote 10:** R$189,23/pç (R$1.892,34 total) | **Preço NFe:** R$286,63/pç (markup 35%, ×1,5147) → Total R$2.866,27
+- **Break-even:** 6 peças — pedido de 10 fica 67% acima do ponto de equilíbrio, margem real 34%
+- **Próximo passo:** aguardar execução do D760, revisar custo/preço final se necessário, gerar PDF 1 página (script CDP)
+- **Última sessão:** 21/07/2026
+
+### 048/2026 — SPEEDMAQ VAP-U2003 (Tampa da Válvula de Alta Pressão)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\048_SPEEDMAQ_VAP-U2003\`
+- **Estado:** 6/6 documentos gerados (PROCESSO+CUSTO+PRECO_NFE+VIABILIDADE_LOTES+BREAK_EVEN+PROPOSTA) — 100% AS-BUILT REAL, gate aprovado retroativamente 23/07/2026
+- **Torno LYNX (O6004/Doosan II P6004):** AS-BUILT REAL — pedido 10 peças finalizado 22/07/2026. Produção pura 10,00 min/pç (17/07 7:50-8:30, 4pç, regime estabilizado usado como referência). Setup+try-out 4,0h (15-16/07, fragmentado em blocos "SETUP 1º lado"+"SETUP 3D Hélio.DI"+"SETUP 2º lado")
+- **Centro D760 (furos radiais BSP):** AS-BUILT REAL — finalizado 22/07/2026. Produção pura 14,50 min/pç (média ponderada 21/07: 4pç + 22/07: 6pç, 4,5× maior que estimativa de 3,2 min/pç). Setup+dispositivo de fixação novo 3,8333h (21/07, "Fazendo dispositivo TN") — cobrado integral neste lote, item NÃO recorrente
+- **Programação CNC:** mantida estimativa original R$634,69 (blocos 3D/desenho da ficha são do dispositivo, não CAM)
+- **Custo real lote 10:** R$304,73/pç (R$3.047,31 total) | **Preço NFe:** R$461,57/pç (markup 35%, ×1,5147) → Total R$4.615,70
+- **Break-even:** 7 peças — pedido de 10 fica 63% acima do ponto de equilíbrio, margem real 34%
+- **Aprendizado:** custo ~1,95× maior que a estimativa inicial (R$155,98/pç), puxado pelo dispositivo D760 (não recorrente) e setup real do torno (4h vs 1h estimado) — em reposições futuras, custo cai substancialmente (dispositivo e programa já prontos)
+- **Próximo passo:** enviar proposta ao cliente; gerar PDF 1 página (script CDP) se solicitado
+- **Última sessão:** 23/07/2026
+
+### 049/2026 — ENGEPLAST Bico PCO38 IMC + Bico PCO38
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\ENGEPLAST\049_ENGEPLAST_BICO-PCO38\`
+- **Estado (24/07/2026):** PROCESSO_FABRICACAO rev. 7 **APROVADO por Alexandre** ("pode seguir processo aprovado"). 6/6 documentos gerados (PROCESSO+CUSTO+PRECO_NFE+VIABILIDADE_LOTES+BREAK_EVEN+PROPOSTA)
+- **Correção rev. 7 (24/07/2026):** Alexandre corrigiu RPM da broca Ø3mm (furo radial eixo C) de S8000 estimado para **S3000 — limite da própria broca**, não da máquina (LYNX vai a 6000 RPM, centro de usinagem a 7500 RPM, GL280 a 4500 RPM). N70(Item1)/N60(Item2) subiram de 1,2s para 2,7s cada
+- **Ciclo final aprovado:** Item 1 (IMC) 169,5s/2,825min/pç, ~21,2 pç/h | Item 2 (padrão) 167,5s/2,792min/pç, ~21,5 pç/h
+- **Custo:** Item1 R$20,47/pç (R$1.433,16, 70pç) | Item2 R$30,96/pç (R$990,81, 32pç) | Total R$2.423,97 — nota: material do Item2 corrigido de Ø38 (erro do doc antigo) para Ø40×33mm (R$179,17), conforme PROCESSO aprovado
+- **Preço NFe (markup 35%, ×1,5147):** Item1 R$31,01/pç (R$2.170,81) | Item2 R$46,90/pç (R$1.500,79) | **Total pedido R$3.671,60**
+- **Break-even:** Item1 33pç (pedido 70pç, +112%) | Item2 18pç (pedido 32pç, +78%) | margem real 34% em ambos
+- **PROPOSTA_COMERCIAL:** consolidada (1 documento para os 2 itens, conforme preferência já confirmada do Alexandre) — CTA total R$3.671,60
+- **PENDENTE:** preço de MP (R$50,00/kg alumínio 6351-T6) é estimativa de mercado NÃO confirmada — recomendável cotação real antes de faturar
+- **Histórico da sessão (23-24/07/2026):** 3 incidentes de processo corrigidos — (1) gate pulado 2ª vez (`feedback_processo_gate_batch.md`), (2) tempo calculado sem manipulação do operador, pç/h irreal (74-78 vs real 20-25), (3) RPM da broca Ø3mm superestimado (S8000 vs limite real S3000) — reforços aplicados na skill `/montar-processo-fabricacao`
+- **Próximo passo:** SYNC pendente (4 destinos) + enviar proposta ao cliente + confirmar cotação de MP antes de faturar
+- **Última sessão:** 24/07/2026
+
+## Proximo numero disponivel: 050/2026
 
 ## Banco de Dados CNC (atualizado 2026-03-06)
 - `PROG_CNC_DATABASE_v3.json` — 11.547 programas com dados de corte

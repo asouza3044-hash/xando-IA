@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - BICO PCO38 - ENGEPLAST</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.info-table td, .info-table th { border: 1px solid #ddd; padding: 6px; }
+.info-table td:first-child { font-weight: bold; width: 28%; background-color: #f8f9fa; }
+table.op-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+table.op-table th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 8px; text-align: center; border: 1px solid #ddd; }
+table.op-table td { border: 1px solid #ddd; padding: 5px 7px; text-align: center; vertical-align: middle; }
+.row-prod { background-color: #d4edda; }
+.row-fixacao { background-color: #e3f2fd; font-weight: bold; color: #1976d2; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+.alerta h4 { margin-top: 0; color: #856404; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">PROCESSO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Bico PCO38 IMC + Bico PCO38</div>
+        <div class="document-subtitle">Orçamento 049/2026 — ENGEPLAST</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="alerta">
+    <h4>⚠ ATENÇÃO — GATE AINDA PENDENTE DE APROVAÇÃO (revisão 7 — via /montar-processo-fabricacao)</h4>
+    <ul>
+        <li>ENGEPLAST é <strong>cliente antigo da casa</strong>, mas estas duas peças não têm programa CNC nem preço histórico — primeira vez orçando/produzindo</li>
+        <li><strong>Item 1 (BICO PCO38 IMC):</strong> geometria/sequência confirmada por Alexandre (anotação manuscrita 23/07/2026). Ciclo calculado (máquina + manipulação do operador, ver tabela seção 2): <strong>169,5 s / 2,8 min/pç — ~21,2 pç/h</strong></li>
+        <li><strong>Item 2 (BICO PCO38 padrão):</strong> mesma coisa: <strong>167,5 s / 2,8 min/pç — ~21,5 pç/h</strong></li>
+        <li><strong>Correção 23/07/2026 (Alexandre):</strong> o cálculo inicial (só tempo de máquina, ~74-78 pç/h) esqueceu a manipulação do operador — regra já documentada mas que eu não apliquei. Corrigido: rendimento agora dentro da faixa que Alexandre confirma por experiência própria (20-25 pç/h)</li>
+        <li><strong>Correção 24/07/2026 (Alexandre):</strong> RPM da broca Ø3mm (furo radial eixo C) estava estimado em S8000 — Alexandre corrigiu: brocas de Ø3mm não podem passar de 3000 RPM nas máquinas LASEC (mesmo o torno Doosan LYNX indo até 6000 RPM, e o centro de usinagem até 7500 RPM, é limite da própria broca, não da máquina). Recalculado com S3000: N70 (Item 1) e N60 (Item 2) passam de 1,2s para 2,7s cada — ciclo total ajustado</li>
+        <li><strong>BD CNC consultado:</strong> nenhum programa similar encontrado (nem no cache `bd_cnc/index_raiz.json`, nem no banco principal de 11.547 programas) — ENGEPLAST não tem histórico de "bico"/PCO38 catalogado. Seguindo com parâmetros da tabela validada + programa real O6004 (peça irmã SPEEDMAQ, mesma máquina/material)</li>
+        <li><strong>Ferramentas sem diâmetro exato no MINIPCP — RESOLVIDO por Alexandre (23/07/2026):</strong> usar as mais próximas disponíveis — broca Ø3,2 (08.12.001) no lugar de Ø3,0 (radial, ambos itens), broca Ø5,5 (08.12.054) no lugar de Ø5,8 (Item 2), broca Ø10,2 (08.12.058) no lugar de Ø10,3 (Item 2)</li>
+        <li><strong>CUSTO/PRECO_NFE/VIABILIDADE gerados anteriormente ficam obsoletos</strong> — serão refeitos só depois da aprovação explícita deste processo revisado</li>
+        <li><strong>NENHUM documento adicional será gerado até aprovação explícita ("aprovado"/"pode seguir")</strong></li>
+    </ul>
+</div>
+
+<div class="section-title">1. DADOS GERAIS DO PEDIDO</div>
+<table class="info-table">
+    <tr><td>Cliente:</td><td>ENGEPLAST</td></tr>
+    <tr><td>Material:</td><td>Alumínio 6351-T6 — <strong>fornecido pela LASEC</strong> (custo de MP incluso no orçamento)</td></tr>
+    <tr><td>Máquina:</td><td><strong>Doosan LYNX 220LM</strong> (torneamento + furo radial via live tool/eixo C) — peças pequenas, fixação única em castanha</td></tr>
+    <tr><td>Itens do pedido:</td><td>Bico PCO38 IMC — <strong>70 peças</strong> | Bico PCO38 (padrão) — <strong>32 peças</strong></td></tr>
+    <tr><td>Fonte de tempo:</td><td><strong>ESTIMATIVA DE ENGENHARIA</strong> — sem programa/as-built histórico localizado para este item específico</td></tr>
+</table>
+
+<div class="section-title">2. ITEM 1 — BICO PCO38 IMC (com rosca M12) — 70 peças</div>
+<table class="info-table">
+    <tr><td>Dimensões:</td><td>Rebaixo externo Ø19×5mm | corpo externo Ø38 | comprimento total conforme desenho</td></tr>
+    <tr><td>Rosca:</td><td>M12×1,5 (passo métrico fino), profundidade 17,3mm — furo Ø10,2×20mm + mandrilar Ø16×3,8 (já inclui chanfro) + roscar</td></tr>
+    <tr><td>Corte final:</td><td>Bedame com raio R6 formado no próprio corte (não é operação separada de raio)</td></tr>
+    <tr><td>Furo radial Ø3:</td><td><strong>PASSANTE</strong> — confirmado por Alexandre (23/07/2026), live tool/eixo C</td></tr>
+    <tr><td>Estoque (barra):</td><td>Ø40mm × 34mm/pç (facear + corte + margem) — a confirmar comprimento exato</td></tr>
+</table>
+<table class="op-table" style="font-size:8pt;">
+<thead>
+    <tr><th style="width:5%;">Seq.</th><th style="width:13%;">Operação</th><th style="width:16%;">Ferramenta / Cód. BD</th><th style="width:8%;">RPM/Avanço</th><th style="width:24%;">Cálculo (fórmula)</th><th style="width:8%; background-color:#28a745; color:white;">Tempo</th><th style="width:26%;">Descrição</th></tr>
+</thead>
+<tbody>
+<tr class="row-fixacao"><td colspan="7" style="text-align:center; padding:10px;">FIXAÇÃO ÚNICA — barra Ø40mm em castanha padrão</td></tr>
+<tr class="row-prod"><td>N10</td><td>FACEAR</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>S2500<br>F0,18</td><td>19mm ÷ (2500×0,18) × 60</td><td>2,5 s</td><td>Facear topo, dist. radial até ~R1 (não vai ao centro)</td></tr>
+<tr class="row-prod"><td>N20</td><td>USINAR REBAIXO</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>Desb S2500 F0,18<br>Acab S2000 F0,15</td><td>desb: 5×6mm÷(2500×0,18) + acab: 6÷(2000×0,15), ×60</td><td>5,2 s</td><td>Ø40→Ø19 no raio (10,5mm), 5mm comprimento — ~5 passadas desbaste + 1 acabamento</td></tr>
+<tr class="row-prod"><td>N30</td><td>USINAR EXTERNO</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>Desb S2500 F0,18<br>Acab S2000 F0,15</td><td>desb: 24÷(2500×0,18) + acab: 24÷(2000×0,15), ×60</td><td>8,0 s</td><td>Ø40→Ø38 (1mm no raio), 24mm comprimento (29mm total − 5mm rebaixo)</td></tr>
+<tr class="row-prod"><td>N40</td><td>FURAR</td><td>Broca Espada MD Ø10,20<br>08.12.058</td><td>S3000<br>F0,12</td><td>20÷(3000×0,12)×60 + 8 pecks×0,3s (Q2,5)</td><td>5,7 s</td><td>Furo para rosca M12×1,5, profundidade 20mm, G83</td></tr>
+<tr class="row-prod"><td>N50</td><td>MANDRILAR</td><td>S16R-SCLCR06<br>08.08.008</td><td>S3000<br>F0,10</td><td>3,8÷(3000×0,10)×60 + chanfro 0,5÷(3000×0,10)×60</td><td>0,9 s</td><td>Mandrilar Ø16×3,8mm — já inclui chanfro de entrada</td></tr>
+<tr class="row-prod"><td>N60</td><td>ROSCAR</td><td>Macho Maq. MF12-1,50 Canal Hel.<br>08.09.075</td><td>S250 (Vc9,4)<br>F=passo 1,5</td><td>ida: 17,3÷(250×1,5)×60 + volta igual</td><td>5,5 s</td><td>Rosca M12×1,5, profundidade 17,3mm, G84 rígido</td></tr>
+<tr class="row-prod"><td>N70</td><td>FURAR (eixo C)</td><td>Broca MD Ø3,2<br>08.12.001 (confirmado por Alexandre 23/07 — mais próxima disponível, Ø3,0 exata não existe no catálogo)</td><td>S3000 (limite broca Ø3mm)<br>F0,05 (tabela)</td><td>~6mm parede (não cotada) ÷ (3000×0,05)×60 + indexação eixo C</td><td>2,7 s</td><td>Furo radial passante — espessura de parede segue estimada (~6mm, não cotada no desenho). RPM limitado a 3000 (limite da broca Ø3mm, não da máquina — LYNX chega a 6000)</td></tr>
+<tr class="row-prod"><td>N80</td><td>CORTAR/SEPARAR</td><td>TDJ2 K10 (não ferroso)<br>08.07.047 + 08.08.026/056</td><td>S2000<br>F0,05</td><td>19mm (raio) ÷ (2000×0,05) × 60</td><td>11,4 s</td><td>Bedame — corte final, formando raio R6 na face de corte</td></tr>
+<tr class="row-prod" style="background-color:#f8d7da;"><td>—</td><td>IMPRODUTIVO MÁQUINA</td><td>—</td><td>—</td><td>7 trocas ferramenta (0,5s cada) + posicionamentos rápidos</td><td>7,5 s</td><td>LYNX: turret 0,11s/estação, troca completa ~0,5s (specs reais, `maquinas_specs.md`)</td></tr>
+<tr class="row-prod" style="background-color:#ffe0b2;"><td>—</td><td><strong>MANIPULAÇÃO OPERADOR</strong></td><td>—</td><td>—</td><td>Padrão LASEC: torno em castanha ~2,0 min</td><td>120 s</td><td>Carga/descarga da barra, medição/inspeção da peça, controle dimensional — separado do improdutivo de máquina (`regras_usinagem.md`)</td></tr>
+<tr style="background-color:#cce5ff; font-weight:bold;"><td colspan="5" style="text-align:right;">CICLO TOTAL POR PEÇA (máquina + manipulação)</td><td>169,5 s<br>(2,8 min)</td><td>~21,2 pç/h</td></tr>
+</tbody>
+</table>
+<p style="font-size: 8pt; color: #856404;"><strong>Nota:</strong> geometria/sequência confirmada por Alexandre via anotação manuscrita (23/07/2026). Tempos de máquina CALCULADOS com fórmula (RPM×avanço), usando como referência os parâmetros reais do programa O6004 (peça irmã VAP-U2003, mesmo material/máquina: S2500/F.18 desbaste, S2000/F.15 acabamento, S3000/F.12 furação — validados em produção real) e tabela `parametros_corte.md` para rosca/mandrilamento. <strong>Correção 23/07/2026:</strong> a 1ª versão deste cálculo (0,81 min/pç, ~74 pç/h) esqueceu a manipulação do operador (regra já documentada em `regras_usinagem.md` — "SEMPRE incluir como linha separada"), o que gerava um rendimento irreal. Com a manipulação incluída, o ciclo (2,8 min/pç, ~21 pç/h) fica dentro da faixa que Alexandre confirmou por experiência própria (20-25 pç/h). Pendência real: broca Ø3,0mm exata não existe no catálogo MINIPCP e a espessura de parede do furo radial não está cotada no desenho.</p>
+
+<div class="section-title">3. ITEM 2 — BICO PCO38 (padrão, sem rosca) — 32 peças</div>
+<table class="info-table">
+    <tr><td>Dimensões:</td><td>Rebaixo externo Ø22,3×1mm | corpo externo Ø38 | furo pilto Ø5,8 passante + contra-furo Ø10,3×21,8mm prof. | furo radial Ø3 passante</td></tr>
+    <tr><td>Corte final:</td><td>Bedame — raio R4 no corte + raio R4 (já usinado no rebaixo frontal, N20)</td></tr>
+    <tr><td>Estoque (barra):</td><td>Ø40mm × 33mm/pç (facear + corte + margem) — a confirmar comprimento exato</td></tr>
+</table>
+<table class="op-table" style="font-size:8pt;">
+<thead>
+    <tr><th style="width:5%;">Seq.</th><th style="width:13%;">Operação</th><th style="width:16%;">Ferramenta / Cód. BD</th><th style="width:8%;">RPM/Avanço</th><th style="width:24%;">Cálculo (fórmula)</th><th style="width:8%; background-color:#28a745; color:white;">Tempo</th><th style="width:26%;">Descrição</th></tr>
+</thead>
+<tbody>
+<tr class="row-fixacao"><td colspan="7" style="text-align:center; padding:10px;">FIXAÇÃO ÚNICA — barra Ø40mm em castanha padrão</td></tr>
+<tr class="row-prod"><td>N10</td><td>FACEAR</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>S2500<br>F0,18</td><td>19mm ÷ (2500×0,18) × 60</td><td>2,5 s</td><td>Facear topo</td></tr>
+<tr class="row-prod"><td>N20</td><td>USINAR REBAIXO</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>Desb S2500 F0,18<br>Acab S2000 F0,15</td><td>desb: 4×2mm÷(2500×0,18) + acab: 2÷(2000×0,15), ×60</td><td>1,5 s</td><td>Ø40→Ø22,3 no raio (8,85mm), 1mm comprimento — rebaixo estreito, raio R4</td></tr>
+<tr class="row-prod"><td>N30</td><td>USINAR EXTERNO</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>Desb S2500 F0,18<br>Acab S2000 F0,15</td><td>desb: 26,3÷(2500×0,18) + acab: 26,3÷(2000×0,15), ×60</td><td>8,8 s</td><td>Ø40→Ø38 (1mm no raio), 26,3mm comprimento (27,3mm total − 1mm rebaixo)</td></tr>
+<tr class="row-prod"><td>N40</td><td>FURAR</td><td>Broca Espada MD Ø5,5-(5,40)<br>08.12.054 (confirmado por Alexandre 23/07 — mais próxima disponível, Ø5,8 exata não existe no catálogo)</td><td>S3000<br>F0,12</td><td>~29mm(passante+saída) ÷ (3000×0,12)×60 + 12 pecks×0,3s</td><td>8,4 s</td><td>Furo piloto passante (axial, on-center)</td></tr>
+<tr class="row-prod"><td>N50</td><td>FURAR/ALARGAR</td><td>Broca Espada MD Ø10,20<br>08.12.058 (confirmado por Alexandre 23/07 — mais próxima disponível, Ø10,3 exata não existe no catálogo, 0,1mm menor)</td><td>S3000<br>F0,12</td><td>21,8÷(3000×0,12)×60 + 9 pecks×0,3s</td><td>6,3 s</td><td>Contra-furo/entrada alargada Ø10,3×21,8mm (axial, on-center)</td></tr>
+<tr class="row-prod"><td>N60</td><td>FURAR (eixo C)</td><td>Broca MD Ø3,2<br>08.12.001 (confirmado por Alexandre 23/07 — mesma decisão do Item 1)</td><td>S3000 (limite broca Ø3mm)<br>F0,05 (tabela)</td><td>~6mm parede (não cotada) ÷ (3000×0,05)×60 + indexação eixo C</td><td>2,7 s</td><td>Furo radial passante — espessura de parede segue estimada (~6mm, não cotada no desenho). RPM limitado a 3000 (limite da broca Ø3mm, não da máquina — LYNX chega a 6000)</td></tr>
+<tr class="row-prod"><td>N70</td><td>CORTAR/SEPARAR</td><td>TDJ2 K10 (não ferroso)<br>08.07.047 + 08.08.026/056</td><td>S2000<br>F0,05</td><td>19mm (raio) ÷ (2000×0,05) × 60</td><td>11,4 s</td><td>Bedame — corte final formando raio R4 (espelha o R4 do N20)</td></tr>
+<tr class="row-prod" style="background-color:#f8d7da;"><td>—</td><td>IMPRODUTIVO MÁQUINA</td><td>—</td><td>—</td><td>6 trocas ferramenta (0,5s cada) + posicionamentos rápidos</td><td>6,0 s</td><td>LYNX: specs reais (`maquinas_specs.md`)</td></tr>
+<tr class="row-prod" style="background-color:#ffe0b2;"><td>—</td><td><strong>MANIPULAÇÃO OPERADOR</strong></td><td>—</td><td>—</td><td>Padrão LASEC: torno em castanha ~2,0 min</td><td>120 s</td><td>Carga/descarga da barra, medição/inspeção da peça, controle dimensional — separado do improdutivo de máquina (`regras_usinagem.md`)</td></tr>
+<tr style="background-color:#cce5ff; font-weight:bold;"><td colspan="5" style="text-align:right;">CICLO TOTAL POR PEÇA (máquina + manipulação)</td><td>167,5 s<br>(2,8 min)</td><td>~21,5 pç/h</td></tr>
+</tbody>
+</table>
+<p style="font-size: 8pt; color: #856404;"><strong>Nota:</strong> mesma metodologia do Item 1 (parâmetros reais do O6004 + tabela validada). <strong>Correção 23/07/2026:</strong> mesma correção do Item 1 — manipulação do operador (2,0 min) somada ao tempo de máquina, resultando em rendimento (~22 pç/h) dentro da faixa confirmada por Alexandre (20-25 pç/h). Comprimento total da peça (27,3mm) vem do desenho original — a anotação manuscrita do Alexandre não repetiu essa cota. Pendências: código MINIPCP da broca Ø5,8 não cruzado nesta sessão, código exato da broca Ø10,3 não confirmado (usei Ø10,2 do Item 1 como proxy), e mesma pendência da broca Ø3,0 do Item 1.</p>
+
+<div class="section-title">4. MATERIAL — Alumínio 6351-T6 (fornecido pela LASEC)</div>
+<table class="info-table">
+    <tr><td>Preço de referência:</td><td><strong>R$ 50,00/kg</strong> — <span style="color:#856404;">ESTIMATIVA DE MERCADO, NÃO CONFIRMADA</span> (fornecedores consultados — Total Metal, 100% Metais, Benecke — não expõem preço/kg sem cotação direta). <strong>Confirmar com Alexandre ou solicitar cotação antes de fechar preço final</strong></td></tr>
+    <tr><td>BICO PCO38 IMC:</td><td>Barra Ø40×34mm = 0,1154 kg/pç × R$50,00 = <strong>R$5,77/pç</strong> → 70 pç = <strong>R$403,90</strong></td></tr>
+    <tr><td>BICO PCO38:</td><td>Barra Ø40×33mm = 0,1120 kg/pç × R$50,00 = <strong>R$5,60/pç</strong> → 32 pç = <strong>R$179,17</strong></td></tr>
+    <tr style="background-color:#fff3cd;"><td><strong>Total MP (ambos itens):</strong></td><td><strong>R$583,07</strong> (não confirmado)</td></tr>
+</table>
+
+<div class="info-box">
+    <h3>Origem dos dados</h3>
+    <ul>
+        <li>Desenhos técnicos "BICO PCO38 IMC.pdf" e "BICO PCO38.pdf" fornecidos por Alexandre (23/07/2026)</li>
+        <li>ENGEPLAST é cliente antigo (pasta D:\lasec\Engeplast com histórico extenso desde ~2018) — mas sem registro de programa/preço para este item específico</li>
+        <li>Tempos de ciclo: estimativa de engenharia por analogia com peças torneadas pequenas similares (sem as-built) — <strong>a validar na 1ª produção real</strong></li>
+        <li>Preço de matéria-prima: estimativa de mercado não confirmada — Alexandre aprovou manter assim (23/07/2026)</li>
+        <li>Processo confirmado por Alexandre 23/07/2026: sem assento cônico (era símbolo de ponta de broca), M12 padrão ISO interno, tudo na Doosan/LYNX com corte por bedame</li>
+    </ul>
+</div>
+
+<div class="section-title">5. TABELA DE VERIFICAÇÃO (checklist /montar-processo-fabricacao)</div>
+<table class="info-table">
+    <tr><td>Modo</td><td>✅ Modo A (peça nova, sem as-built) — fonte: anotação manuscrita do Alexandre + desenho técnico</td></tr>
+    <tr><td>Features do desenho</td><td>✅ Extraídas do desenho original + corrigidas pela anotação manuscrita (não inferidas de programa similar)</td></tr>
+    <tr><td>BD CNC consultado</td><td>✅ Consultado — nenhum programa similar encontrado (cache bd_cnc + banco principal 11.547 programas). Parâmetros de corte usados por analogia ao programa real O6004 (peça irmã SPEEDMAQ)</td></tr>
+    <tr><td>Ferramentas cruzadas com MINIPCP</td><td>✅ Todas com código real confirmado. 3 diâmetros exatos não existem no catálogo (Ø3,0/Ø5,8/Ø10,3) — Alexandre decidiu usar as mais próximas disponíveis (Ø3,2/Ø5,5/Ø10,2) em 23/07/2026</td></tr>
+    <tr><td>Tempo calculado com fórmula</td><td>✅ Todas as operações com RPM/avanço/fórmula (em segundos), + manipulação do operador (2,0min/pç, regra `regras_usinagem.md`) somada ao tempo de máquina. Corrigido 23/07/2026 após Alexandre apontar rendimento irreal (74-78 pç/h) — agora ~21-22 pç/h, dentro da faixa real (20-25 pç/h)</td></tr>
+    <tr><td>Custos fixos na taxa 1,5×</td><td>✅ Programação+setup+inspeção a R$144,53/h (ver seção de material/custo, a confirmar junto do CUSTO)</td></tr>
+    <tr><td>Template copiado</td><td>✅ Estrutura reaproveitada do padrão LASEC (mesmo CSS/layout usado em 047/048)</td></tr>
+</table>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 24/07/2026 (revisão 7 — RPM broca Ø3mm limitado a 3000, tempos em segundos, incluindo manipulação do operador) | Orçamento 049/2026 — ENGEPLAST | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

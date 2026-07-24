@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Custo de Fabricação - BICO PCO38 - ENGEPLAST</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 12px; text-align: center; font-size: 11px; text-transform: uppercase; }
+td { padding: 10px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+.destaque { background-color: #d4edda !important; font-weight: bold; border: 2px solid #28a745; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.alerta-importante h4 { margin-top: 0; color: #856404; }
+.calculo-detalhado { background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 15px 0; }
+.calculo-linha { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #ccc; }
+.destaque-calc { font-weight: bold; color: #1e3c72; border-bottom: 2px solid #1e3c72 !important; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">ESTUDO DE CUSTO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Bico PCO38 IMC + Bico PCO38</div>
+        <div class="document-subtitle">Orçamento 049/2026 — ENGEPLAST</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="alerta-importante">
+    <h4>DADOS DE REFERÊNCIA LASEC 2026</h4>
+    <p><strong>Hora-máquina LYNX 220LM (produção):</strong> R$ 96,35/hora | <strong>(setup/prog/insp — 1,5×):</strong> R$ 144,53/hora</p>
+    <p><strong>CIF:</strong> 25% sobre (Fixos + MOD) | <strong>Material:</strong> R$ 50,00/kg alumínio 6351-T6 — <span style="color:#856404;">estimativa de mercado, não confirmada</span></p>
+</div>
+
+<div class="info-box">
+    <h3>Dados do Pedido</h3>
+    <p><strong>Cliente:</strong> ENGEPLAST (cliente antigo da casa, item novo sem histórico de programa/preço)</p>
+    <p><strong>Máquina:</strong> Doosan LYNX 220LM — ambos os itens, barra, corte por bedame</p>
+    <p><strong>Item 1:</strong> Bico PCO38 IMC — 70 pç — ciclo aprovado 169,5 s = 2,825 min/pç (PROCESSO rev. 7, aprovado 24/07/2026)</p>
+    <p><strong>Item 2:</strong> Bico PCO38 (padrão) — 32 pç — ciclo aprovado 167,5 s = 2,792 min/pç (PROCESSO rev. 7, aprovado 24/07/2026)</p>
+    <p><strong>Fonte de tempo:</strong> ESTIMATIVA DE ENGENHARIA (primeira proposta, sem as-built) — a validar na 1ª produção</p>
+</div>
+
+<div class="section-title">1. Item 1 — Bico PCO38 IMC (70 peças)</div>
+<div class="calculo-detalhado">
+    <div class="calculo-linha"><span><strong>1. Custos Fixos</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Programação+Setup+Inspeção (peça nova simples): 3,5h × R$144,53</span><span>R$ 505,86</span></div>
+    <div class="calculo-linha destaque-calc"><span>Custos Fixos Total</span><span>R$ 505,86</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>2. MOD</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• 70 pç × 2,825 min = 197,75 min = 3,296h × R$96,35/h</span><span>R$ 317,55</span></div>
+    <div class="calculo-linha destaque-calc"><span>MOD Total</span><span>R$ 317,55</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>3. Material (alumínio 6351-T6)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Barra Ø40×34mm = 0,1154kg/pç × R$50,00/kg × 70pç</span><span>R$ 403,90</span></div>
+    <div class="calculo-linha destaque-calc"><span>Material Total</span><span>R$ 403,90</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>4. CIF (25% sobre Fixos+MOD)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• 25% × (R$505,86 + R$317,55)</span><span>R$ 205,85</span></div>
+    <div class="calculo-linha destaque-calc"><span>CIF Total</span><span>R$ 205,85</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px; border-top: 3px solid #1e3c72; padding-top: 15px; font-size: 18px; font-weight: bold; color: #1e3c72;">
+        <span>CUSTO TOTAL — ITEM 1 (70 pç)</span><span>R$ 1.433,16</span>
+    </div>
+    <div class="calculo-linha" style="font-size: 20px; font-weight: bold; color: #28a745; border: 3px solid #28a745; background-color: #d4edda; padding: 15px; margin: 15px -15px; border-radius: 8px;">
+        <span>CUSTO POR PEÇA</span><span>R$ 20,47/peça</span>
+    </div>
+</div>
+
+<div class="section-title">2. Item 2 — Bico PCO38 padrão (32 peças)</div>
+<div class="calculo-detalhado">
+    <div class="calculo-linha"><span><strong>1. Custos Fixos</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Programação+Setup+Inspeção (peça nova simples): 3,5h × R$144,53</span><span>R$ 505,86</span></div>
+    <div class="calculo-linha destaque-calc"><span>Custos Fixos Total</span><span>R$ 505,86</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>2. MOD</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• 32 pç × 2,792 min = 89,33 min = 1,489h × R$96,35/h</span><span>R$ 143,45</span></div>
+    <div class="calculo-linha destaque-calc"><span>MOD Total</span><span>R$ 143,45</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>3. Material (alumínio 6351-T6)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Barra Ø40×33mm = 0,1120kg/pç × R$50,00/kg × 32pç (corrigido — PROCESSO usa Ø40, não Ø38)</span><span>R$ 179,17</span></div>
+    <div class="calculo-linha destaque-calc"><span>Material Total</span><span>R$ 179,17</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>4. CIF (25% sobre Fixos+MOD)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• 25% × (R$505,86 + R$143,45)</span><span>R$ 162,33</span></div>
+    <div class="calculo-linha destaque-calc"><span>CIF Total</span><span>R$ 162,33</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px; border-top: 3px solid #1e3c72; padding-top: 15px; font-size: 18px; font-weight: bold; color: #1e3c72;">
+        <span>CUSTO TOTAL — ITEM 2 (32 pç)</span><span>R$ 990,81</span>
+    </div>
+    <div class="calculo-linha" style="font-size: 20px; font-weight: bold; color: #28a745; border: 3px solid #28a745; background-color: #d4edda; padding: 15px; margin: 15px -15px; border-radius: 8px;">
+        <span>CUSTO POR PEÇA</span><span>R$ 30,96/peça</span>
+    </div>
+</div>
+
+<div class="section-title">3. Resumo do Pedido</div>
+<table>
+    <thead>
+        <tr><th>Item</th><th>Qtd</th><th>Custo/pç (R$)</th><th>Custo Total (R$)</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Bico PCO38 IMC</td><td>70</td><td>20,47</td><td>1.433,16</td></tr>
+        <tr><td>Bico PCO38 (padrão)</td><td>32</td><td>30,96</td><td>990,81</td></tr>
+        <tr class="destaque"><td><strong>TOTAL PEDIDO</strong></td><td><strong>102</strong></td><td>—</td><td><strong>R$ 2.423,97</strong></td></tr>
+    </tbody>
+</table>
+
+<div class="alerta-importante">
+    <h4>CONCLUSÃO</h4>
+    <p><strong>Custo total do pedido (102 peças, 2 itens):</strong> R$ 2.423,97</p>
+    <p><strong>Ambos os itens:</strong> ESTIMATIVA DE ENGENHARIA — primeira vez orçando/produzindo, sem as-built. PROCESSO_FABRICACAO rev. 7 aprovado por Alexandre 24/07/2026 (sem assento cônico, M12×1,5 passo fino, RPM broca Ø3mm limitado a 3000, tudo na LYNX com corte por bedame)</p>
+    <p><strong>Material:</strong> preço R$50,00/kg alumínio 6351-T6 — estimativa de mercado NÃO confirmada (Alexandre aprovou manter assim, mas recomenda-se cotação real antes do fechamento definitivo)</p>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 24/07/2026 (recalculado após aprovação do PROCESSO rev. 7) | Orçamento 049/2026 — ENGEPLAST | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

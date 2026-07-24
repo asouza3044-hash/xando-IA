@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Break Even - ENGEPLAST BICO PCO38</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}
+h1 {
+    color: #1e3c72;
+    border-bottom: 3px solid #1e3c72;
+    padding-bottom: 10px;
+}
+h2 {
+    color: #2a5298;
+    background-color: #f0f4f8;
+    padding: 10px;
+    border-left: 5px solid #2a5298;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th {
+    background-color: #1e3c72;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.destaque {
+    background-color: #d4edda !important;
+    font-weight: bold;
+}
+.sucesso {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+}
+.info-box {
+    background-color: #e7f3ff;
+    border-left: 5px solid #2196F3;
+    padding: 15px;
+    margin: 20px 0;
+}
+.alerta-importante {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+}
+.formula {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #6c757d;
+    font-family: 'Courier New', monospace;
+    margin: 15px 0;
+}
+</style>
+</head>
+<body>
+
+<h1>📊 ANÁLISE DE BREAK EVEN - Orçamento 049/2026</h1>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3 style="margin-top: 0;">Cliente: ENGEPLAST</h3>
+    <p><strong>Itens:</strong> Bico PCO38 IMC (70 pç, com rosca M12×1,5) + Bico PCO38 padrão (32 pç, sem rosca)</p>
+    <p><strong>Material:</strong> Alumínio 6351-T6, barra Ø40mm (fornecida pela LASEC)</p>
+    <p><strong>Máquina:</strong> Doosan LYNX 220LM — fixação única em castanha, ambos os itens</p>
+    <p><strong>Hora-Máquina:</strong> LYNX R$ 96,35/h (prod.) / R$ 144,53/h (setup)</p>
+    <p><strong>Data:</strong> Julho 2026 — PROCESSO_FABRICACAO rev. 7 aprovado por Alexandre (24/07/2026)</p>
+</div>
+
+<div class="alerta-importante">
+    <h4 style="margin-top: 0;">⚠️ STATUS DO PEDIDO</h4>
+    <p>Primeira vez orçando/produzindo estas peças para a ENGEPLAST — sem as-built histórico. Tempos de ciclo são ESTIMATIVA DE ENGENHARIA (fórmula RPM×avanço, validada pelo Alexandre incluindo manipulação do operador), a confirmar na 1ª produção real. Preço de MP (alumínio) também é estimativa de mercado não confirmada.</p>
+</div>
+
+<h2>🎯 O QUE É BREAK EVEN?</h2>
+
+<div class="info-box">
+    <p><strong>Break Even (Ponto de Equilíbrio):</strong> É a quantidade mínima de peças que precisamos produzir para cobrir TODOS os custos (fixos + variáveis), sem lucro nem prejuízo.</p>
+    <p>Como são dois itens diferentes (setups separados), o break-even é calculado individualmente para cada um.</p>
+</div>
+
+<h2>💰 ITEM 1 — Bico PCO38 IMC (70 peças)</h2>
+
+<table>
+    <tr><th>Item</th><th>Valor</th><th>Observação</th></tr>
+    <tr><td><strong>Custos Fixos (com CIF 25%)</strong></td><td>R$ 632,33</td><td>Programação+Setup+Inspeção R$505,86 + CIF R$126,47</td></tr>
+    <tr><td>Custo Variável/pç (MOD+CIF+Material)</td><td>R$ 11,44/pç</td><td>MOD R$4,54 + CIF R$1,13 + Material R$5,77</td></tr>
+    <tr><td>Preço de Venda/pç</td><td>R$ 31,01</td><td>Custo R$20,47 × markup 1,5147</td></tr>
+</table>
+
+<div class="formula">
+<strong>Break Even = Custos Fixos ÷ (Preço Venda - Custo Variável)</strong>
+
+Break Even = R$ 632,33 ÷ (R$ 31,01 - R$ 11,44)
+Break Even = R$ 632,33 ÷ R$ 19,57
+<strong>Break Even = 32,3 peças ≈ 33 peças</strong>
+</div>
+
+<div class="sucesso">
+    <p><strong>Pedido de 70 peças está 112% acima do break-even (33 peças)</strong> — margem de segurança ampla.</p>
+</div>
+
+<h2>💰 ITEM 2 — Bico PCO38 padrão (32 peças)</h2>
+
+<table>
+    <tr><th>Item</th><th>Valor</th><th>Observação</th></tr>
+    <tr><td><strong>Custos Fixos (com CIF 25%)</strong></td><td>R$ 632,33</td><td>Programação+Setup+Inspeção R$505,86 + CIF R$126,47</td></tr>
+    <tr><td>Custo Variável/pç (MOD+CIF+Material)</td><td>R$ 11,20/pç</td><td>MOD R$4,48 + CIF R$1,12 + Material R$5,60</td></tr>
+    <tr><td>Preço de Venda/pç</td><td>R$ 46,90</td><td>Custo R$30,96 × markup 1,5147</td></tr>
+</table>
+
+<div class="formula">
+<strong>Break Even = Custos Fixos ÷ (Preço Venda - Custo Variável)</strong>
+
+Break Even = R$ 632,33 ÷ (R$ 46,90 - R$ 11,20)
+Break Even = R$ 632,33 ÷ R$ 35,70
+<strong>Break Even = 17,7 peças ≈ 18 peças</strong>
+</div>
+
+<div class="sucesso">
+    <p><strong>Pedido de 32 peças está 78% acima do break-even (18 peças)</strong> — margem de segurança confortável.</p>
+</div>
+
+<h2>📊 RESUMO DO PEDIDO (ambos os itens)</h2>
+
+<table>
+    <tr><th>Item</th><th>Qtd. pedido</th><th>Break Even</th><th>Margem sobre BE</th><th>Preço Total (R$)</th><th>Custo Total (R$)</th><th>Lucro Bruto (R$)</th><th>Margem %</th></tr>
+    <tr><td>Bico PCO38 IMC</td><td>70</td><td>33</td><td>+112%</td><td>2.170,81</td><td>1.433,16</td><td><span style="color:green;">737,65</span></td><td>34,0%</td></tr>
+    <tr><td>Bico PCO38 (padrão)</td><td>32</td><td>18</td><td>+78%</td><td>1.500,79</td><td>990,81</td><td><span style="color:green;">509,98</span></td><td>34,0%</td></tr>
+    <tr class="destaque"><td><strong>TOTAL PEDIDO</strong></td><td><strong>102</strong></td><td>—</td><td>—</td><td><strong>3.671,60</strong></td><td><strong>2.423,97</strong></td><td><strong style="color:green;">1.247,63</strong></td><td><strong>34,0%</strong></td></tr>
+</table>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">🎉 MARGEM CONSTANTE EM AMBOS OS ITENS!</h4>
+    <p>Como o preço NFe é sempre <strong>Custo × 1,5147</strong> (fórmula fixa de markup), a margem real fica em <strong>~34%</strong> em ambos os itens.</p>
+</div>
+
+<h2>🎯 RECOMENDAÇÃO FINAL</h2>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ RECOMENDAÇÃO: PEDIDO APROVADO E RENTÁVEL</h4>
+    <ul>
+        <li>💰 <strong>Preço total do pedido:</strong> R$ 3.671,60 (102 peças, 2 itens)</li>
+        <li>✅ <strong>Lucro bruto total:</strong> R$ 1.247,63 (margem 34,0%)</li>
+        <li>✅ Ambos os itens folgados acima do break-even individual (Item 1: +112%, Item 2: +78%)</li>
+    </ul>
+    <p><strong>PONTOS DE ATENÇÃO ANTES DO FECHAMENTO:</strong></p>
+    <ul>
+        <li>📋 Preço de MP (alumínio 6351-T6, R$50,00/kg) é estimativa de mercado — recomendável cotação real</li>
+        <li>👨‍🔧 Ciclo é 100% estimativa de engenharia (primeira produção) — validar na 1ª peça real e ajustar se necessário</li>
+        <li>📈 Em pedidos futuros de reposição, o custo fixo (programação+setup) já estará amortizado — preço/peça cai</li>
+    </ul>
+    <p style="font-size: 18px; margin-top: 30px;"><strong>✅ DECISÃO: PEDIDO VIÁVEL — PREÇO PRONTO PARA PROPOSTA COMERCIAL</strong></p>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 12px;">
+    <p><strong>LASEC USINAGEM DE PRECISÃO</strong></p>
+    <p>Análise Break Even - Orçamento 049/2026 ENGEPLAST</p>
+    <p><strong>Data:</strong> 24/07/2026</p>
+    <p>Documento interno - Não enviar ao cliente</p>
+</div>
+
+</body>
+</html>
