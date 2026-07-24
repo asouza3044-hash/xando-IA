@@ -176,9 +176,9 @@
 - **Preço NFe (markup 35%, ×1,5147):** Item1 R$31,01/pç (R$2.170,81) | Item2 R$46,90/pç (R$1.500,79) | **Total pedido R$3.671,60**
 - **Break-even:** Item1 33pç (pedido 70pç, +112%) | Item2 18pç (pedido 32pç, +78%) | margem real 34% em ambos
 - **PROPOSTA_COMERCIAL:** consolidada (1 documento para os 2 itens, conforme preferência já confirmada do Alexandre) — CTA total R$3.671,60
-- **PENDENTE:** preço de MP (R$50,00/kg alumínio 6351-T6) é estimativa de mercado NÃO confirmada — recomendável cotação real antes de faturar
+- **Preço de MP:** R$50,00/kg alumínio 6351-T6 — CONFIRMADO por Alexandre (24/07/2026, "pode seguir com o valor do alumínio")
 - **Histórico da sessão (23-24/07/2026):** 3 incidentes de processo corrigidos — (1) gate pulado 2ª vez (`feedback_processo_gate_batch.md`), (2) tempo calculado sem manipulação do operador, pç/h irreal (74-78 vs real 20-25), (3) RPM da broca Ø3mm superestimado (S8000 vs limite real S3000) — reforços aplicados na skill `/montar-processo-fabricacao`
-- **Próximo passo:** SYNC pendente (4 destinos) + enviar proposta ao cliente + confirmar cotação de MP antes de faturar
+- **Próximo passo:** SYNC feito (4 destinos) — falta só enviar proposta ao cliente
 - **Última sessão:** 24/07/2026
 
 ## Proximo numero disponivel: 050/2026
