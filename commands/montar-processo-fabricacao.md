@@ -142,6 +142,12 @@ Tempo roscamento G84 = (profundidade / (RPM × passo)) × 2  (ida + volta)
 - Improdutivo (troca de ferramenta, indexação, rapid): usar specs REAIS de `memory/maquinas_specs.md`
   (LYNX: turret 0,11s/estação, troca completa ~0,5s, rapid X 30m/min, rapid Z 36m/min — NUNCA usar "1 min"
   de improdutivo por chute)
+- **RPM calculado (RPM = Vc×1000/(π×D)) precisa respeitar DOIS limites — o menor dos dois vence:** (1) o
+  limite real da máquina (LYNX 6.000 / D760 7.500 / GL280 4.500 — `memory/maquinas_specs.md`) e (2) o
+  limite da própria ferramenta, que pode ser bem menor mesmo numa máquina rápida (ex.: broca Ø3mm — máximo
+  3.000 RPM, mesmo no D760 a 7.500). Nunca aceitar o RPM que sai puro da fórmula/tabela de Vc sem checar
+  contra os dois — incidente 049/2026 ENGEPLAST: S8000 calculado para broca Ø3,2mm, nem a máquina nem a
+  broca aguentam isso, Alexandre corrigiu para S3000
 - Cada operação do PROCESSO precisa aparecer com: ferramenta, Ø, Vc, RPM, avanço (mm/rot e mm/min),
   profundidade/comprimento, ciclo CNC (G83/G76/G84/etc.), tempo calculado — mostrando a conta, não só o
   resultado
@@ -191,6 +197,7 @@ Todo `PROCESSO_FABRICACAO` gerado por esta skill DEVE incluir, antes do rodapé,
 | Cada ferramenta cruzada com MINIPCP (código real ou pendência explícita) | ✅ / lista de pendências |
 | Cada tempo calculado com fórmula (Vc/RPM/avanço/comprimento) OU as-built real com origem citada | ✅ |
 | Manipulação do operador somada (linha separada, ~2,0min torno / ~3,0min centro) — pç/h final é plausível? | ✅ / ⚠️ conferir |
+| RPM de cada operação dentro do limite da máquina E da ferramenta (o menor dos dois) | ✅ / ⚠️ conferir |
 | Custos fixos (setup/prog/inspeção) na taxa 1,5× | ✅ |
 | Template copiado (não criado do zero) | ✅ |
 

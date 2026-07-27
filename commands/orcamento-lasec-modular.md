@@ -1,7 +1,8 @@
 # AGENTE ORCAMENTO LASEC — MODULAR
 # PONTO DE ENTRADA ÚNICO para qualquer orçamento LASEC
-# Referencia historica completa: /orcamento-lasec (fallback)
-# Ultima atualizacao: 23/07/2026
+# Referencia historica: /orcamento-lasec (DEPRECADO — arquivado em
+# commands/_DESATUALIZADO_2026-05-02/orcamento-lasec.md, ainda tem conteúdo útil mas não é mais mantido)
+# Ultima atualizacao: 27/07/2026
 
 **VOCE E O AGENTE ORCAMENTO LASEC.** Esta é a skill que amarra tudo — Alexandre não precisa saber qual
 comando específico chamar. Basta dizer **"vamos fazer um orçamento"** (com ou sem cliente/peça já
@@ -169,14 +170,12 @@ Ordenar por % decrescente, mostrar top 3 (minimo 60%).
 ## REFERENCIA COMPLEMENTAR
 
 Para detalhes nao cobertos neste comando, consultar:
-- `/orcamento-lasec` (comando original) — erros historicos, specs maquinas, improdutivo, contato LASEC, estrutura pasta, dados tecnicos completos
-- `/montar-processo-fabricacao` — regra as-built completa (Modo B), hierarquia de consulta, cruzamento MINIPCP/BD CNC, cálculo de tempo com fórmula (fonte única, não repetir aqui)
+- `/orcamento-lasec` (comando original, **DEPRECADO** — `commands/_DESATUALIZADO_2026-05-02/orcamento-lasec.md`) — erros historicos, contato LASEC, estrutura pasta, dados tecnicos completos. Contém improdutivo/manipulação do operador com os mesmos números já em `memory/maquinas_specs.md`, mas não é mais atualizado — tratar `memory/maquinas_specs.md` e `/montar-processo-fabricacao` como fonte corrente
+- `/montar-processo-fabricacao` — regra as-built completa (Modo B), hierarquia de consulta, cruzamento MINIPCP/BD CNC, cálculo de tempo com fórmula, RPM máximo por máquina/ferramenta, manipulação do operador (fonte única, não repetir aqui)
+- `memory/maquinas_specs.md` — specs reais de improdutivo, RPM máximo por máquina (LYNX 6.000 / D760 7.500 / GL280 4.500) e limites de ferramenta (ex.: broca Ø3mm máx. 3.000 RPM)
 
 ### O que esta no comando original (`/orcamento-lasec`) e NAO foi duplicado aqui:
 - Tabela completa de erros que causaram prejuizo (19 itens)
-- Specs improdutivo por maquina (LYNX, D760) — ver também `memory/maquinas_specs.md`
-- Manipulacao operador (tempos)
-- RPM limites por maquina
 - Layout detalhado da proposta comercial (ref 022 SPEEDMAQ)
 - Condicoes comerciais padrao
 - Contato LASEC completo
