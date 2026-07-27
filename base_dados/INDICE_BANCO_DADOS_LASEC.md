@@ -1,7 +1,8 @@
 # INDICE DO BANCO DE DADOS LASEC
 # Diretorio: D:\IA MALELO\banco_dados\
-# Atualizado: 2026-03-06
+# Atualizado: 2026-07-27 (correcao de taxas erradas + integracao bd_cnc/ferramentas)
 # CONSULTAR ESTE INDICE ao iniciar qualquer orcamento ou analise tecnica
+# FONTE DE VERDADE de custo = custos_ferramentaria lasec.xls aba "Custos 2026" (ver secao 3)
 
 ---
 
@@ -94,11 +95,17 @@
 
 ## 3. CUSTOS E PRECOS (consultar planilha ATUALIZADA)
 
-### custos_ferramentaria lasec.xls (83 KB)
-- Hora-maquina LASEC 2026 com IPCA + Dissidio
-- Doosan Lynx 220LM: R$83.08/h | Romi GL 280M: R$76.95/h | Centur 30D: R$60.48/h
+### custos_ferramentaria lasec.xls (83 KB) — ⭐ FONTE DE VERDADE DE CUSTO (aba "Custos 2026")
+- Hora-maquina LASEC 2026 (base pre-roubo × fator 1,1597 = IPCA23+IPCA24+Dissidio SP 25/26)
+- **Taxas 2026 CORRETAS (custo 2026 R$/h) — ler direto da planilha, nunca de cabeca:**
+  - GL 280: **86,86** (setup 130,29) | LYNX 220LM: **96,35** (setup 144,52)
+  - Discovery 560: 112,65 | Discovery 760 3E: **121,49** (setup 182,24) | D760 4E: **151,86** (setup 227,79)
+  - VTC 30A: 93,89 | Centur 30D: **62,22** | G240: 83,15 | Serra: 30,02 | Projeto CAD/CAM: 76,96
+- ⚠️ **CORRECAO 27/07/2026:** versao anterior deste indice dizia GL280 R$76,95 e Centur R$60,48 — ERRADO.
+  O R$76,95/96 e a taxa de CAD/CAM (nao GL280). Valores acima conferidos contra a planilha.
+- So as 4 ATIVAS entram em custo (GL280, LYNX, D760 3E, D760 4E) — ver memory/projeto_maquinas_legado.md
 - NOTA: Estes sao custos INTERNOS. Preco de VENDA usa referencia GRV
-- **QUANDO USAR:** Calcular CUSTO de fabricacao (nao preco de venda)
+- **QUANDO USAR:** Calcular CUSTO de fabricacao (SEMPRE). Ler com python3+xlrd se precisar do numero exato.
 
 ### tabela_precos_hora_maquina_grv_2024.md (5.8 KB)
 - Pesquisa GRV Software 2024 (480 empresas Brasil)
@@ -138,15 +145,35 @@
 
 ## 5. ERP E FERRAMENTAL
 
-### BD MINIPCP.xlsx (341 KB) / MINIPCP.csv (244 KB)
-- Codigos de ferramental MINIPCP: 08.08.xxx (suportes), 08.07.xxx (insertos), etc.
-- **QUANDO USAR:** Coluna "Cod. BD" no PROCESSO_FABRICACAO
+### ⭐ D:\IA MALELO\bd_cnc\ferramentas\*.json — LOOKUP RAPIDO DE FERRAMENTAL (usar ANTES do CSV)
+- Banco MINIPCP JA PARSEADO e categorizado (759 ferramentas, arquivos 2-8 KB cada):
+  brocas_md (63), brocas_hss (100), insertos (182), suportes (118), machos_alarg (136),
+  fresas (142), fixacao (4), pincas (13). Indice: `bd_cnc/ferramentas/index.json`
+- Formato: `{"c":"08.12.001","d":"Broca MD Ø3.2"}` — buscar por diametro/tipo direto no JSON da categoria
+- **QUANDO USAR:** cruzamento de codigo de ferramenta no PROCESSO_FABRICACAO — MUITO mais rapido/limpo
+  que grepar o CSV binario. So cair no MINIPCP.csv se a ferramenta nao estiver nestes JSONs.
+
+### BD MINIPCP.xlsx (341 KB) / MINIPCP.csv (244 KB) — FONTE COMPLETA (fallback do lookup acima)
+- Codigos de ferramental MINIPCP: 08.08.xxx (suportes), 08.07.xxx (insertos), 08.12.xxx (brocas), etc.
+- CSV e binario/latin1 — usar `grep -a`. Preferir os JSONs de `bd_cnc/ferramentas/` quando possivel.
+- **QUANDO USAR:** Coluna "Cod. BD" no PROCESSO_FABRICACAO (quando o JSON categorizado nao cobrir)
 
 ### minipcp_12_18_2025.dump (626 MB)
 - Dump completo do sistema MINIPCP
 - **QUANDO USAR:** Consultas avancadas quando CSV nao tem o dado
 
 ---
+
+## 5b. BASE DE CONHECIMENTO SECUNDARIA — D:\IA MALELO\agente\knowledge\ (pre-sistema de memoria)
+Base de conhecimento anterior ao sistema de memoria (`memory/*.md`). Consultar como referencia
+SECUNDARIA — em conflito de taxa/setup/regra, **memoria + este indice VENCEM** (a knowledge tem dados
+antigos, ex: "setup 0,5h" que hoje e 1,0h min). Arquivos uteis:
+- `maquinas-lasec.md` — ⭐ FONTE de specs TECNICAS das maquinas (rotacao, avanco, potencia, cursos, torre).
+  Este e LIVE — espelhado em `memory/maquinas_specs.md`.
+- `diferencas-torno-centro.md`, `calculos-referencia.md`, `processo-fabricacao-padrao-detalhado.md`,
+  `checklist-validacao-orcamento.md`, `erros-comuns.md`, `decisoes-importantes.md` — referencia secundaria
+- ⚠️ `agente/commands/` e `agente/rules/` sao DUPLICATAS ANTIGAS dos comandos reais (`.claude/commands/`
+  + repo `xando-IA/commands/`) — NAO editar/usar; candidatos a remocao (confirmar com Alexandre).
 
 ## 6. BIBLIOTECAS LEGADAS
 
@@ -176,7 +203,9 @@
 - `ESTUDO_CUSTO_FABRICACAO.html` — Template com placeholders
 - `ESTUDO_PRECO_VENDA_NFE.html` — Template com placeholders
 - `ANALISE_VIABILIDADE_LOTES.html` — Template com placeholders
-- `PROPOSTA_COMERCIAL.html` — Template com placeholders
+- `PROPOSTA_COMERCIAL_PADRAO_1FOLHA.html` — ⭐ USAR ESTE p/ proposta (1 pagina, testado 047/048/049)
+- `PROPOSTA_COMERCIAL.html` — layout ANTIGO multi-pagina, NAO usar (quebra a regra de 1 pagina)
+- ANALISE_BREAK_EVEN: sem template fixo — copiar de orcamento recente (ex: 048 SPEEDMAQ)
 - `simbolo-lasec.jpg` — Logo LASEC (copiar para pasta do orcamento)
 
 **Fluxo:** Copiar HTML para pasta do orcamento → Read → Edit (substituir dados) → Save

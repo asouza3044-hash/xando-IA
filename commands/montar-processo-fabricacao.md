@@ -110,7 +110,12 @@ Seguir o protocolo de cache do `/buscar-programa` / `orcamento-lasec-modular`:
 ## Passo 6 — Cruzar CADA ferramenta com o MINIPCP (nunca inventar código)
 
 Para CADA linha de operação do processo:
-1. Buscar no `D:\IA MALELO\banco_dados\MINIPCP.csv` (usar `grep -a` — é binário/latin1, precisa da flag)
+1. **Lookup rápido primeiro** — `D:\IA MALELO\bd_cnc\ferramentas\<categoria>.json` (JSON já parseado e
+   categorizado, 2-8 KB): `brocas_md.json`, `brocas_hss.json`, `insertos.json`, `suportes.json`,
+   `machos_alarg.json`, `fresas.json`, `fixacao.json`, `pincas.json` (índice em `ferramentas/index.json`).
+   Formato `{"c":"08.12.001","d":"Broca MD Ø3.2"}` — achar por diâmetro/tipo. É MUITO mais rápido/limpo que
+   o CSV. **Só cair no CSV se a ferramenta não estiver nesses JSONs:** `D:\IA MALELO\banco_dados\MINIPCP.csv`
+   (usar `grep -a` — binário/latin1, precisa da flag)
 2. Achou → usar o código real (`08.07.xxx` pastilha, `08.08.xxx` suporte, `08.09.xxx` macho, `08.12.xxx`
    broca, etc.)
 3. **Não achou → campo em branco + "não localizado no MINIPCP, confirmar com Alexandre"**. NUNCA escrever

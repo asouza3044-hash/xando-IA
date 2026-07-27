@@ -81,7 +81,7 @@
 - **Ponto de entrada único: `/orcamento-lasec-modular`** — dizer "vamos fazer um orçamento" já aciona; ele roteia sozinho (Passo 0) entre peça nova vs as-built, sem precisar escolher comando. PROCESSO sempre via [`/montar-processo-fabricacao`](projeto_skill_montar_processo_fabricacao.md) (checklist BD CNC+MINIPCP+tempo com fórmula+gate visível no HTML). `/fechar-as-built` = mesma Rota B, cópia fina, ainda funciona se chamado por nome. Outros: `/orcamento-lasec` (fallback histórico), `/buscar-programa`, `/calcular-orcamento`, `/consultoria-impaktto`
 - Regras: `C:\Users\lasec\.claude\rules\lasec-orcamentos.md`
 - Templates: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
-- Dados: `D:\IA MALELO\banco_dados\` (23 arquivos, indice em INDICE_BANCO_DADOS_LASEC.md)
+- Dados: `D:\IA MALELO\banco_dados\` (indice-mestre em `INDICE_BANCO_DADOS_LASEC.md` — CONSULTAR ao iniciar orçamento). Ferramental: lookup rápido em `D:\IA MALELO\bd_cnc\ferramentas\*.json` (JSON categorizado) antes do MINIPCP.csv. Specs técnicas de máquina: `D:\IA MALELO\agente\knowledge\maquinas-lasec.md`
 - ANO ATUAL: 2026 | Proximo orcamento: **050/2026** (047 e 048 SPEEDMAQ fechados as-built; 049 ENGEPLAST fechado e enviado ao cliente 27/07/2026)
 - **CEREBRO UNICO:** `C:\Users\lasec\.claude\commands\orcamento-lasec.md` (NAO usar agents/)
 
