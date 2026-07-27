@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: ae8a3d11-e4b4-4a86-8164-70cce6544f9e
-  modified: 2026-07-27T17:06:14.106Z
+  modified: 2026-07-27T17:22:02.415Z
 ---
 
 ## REGRA ABSOLUTA — Código de ferramenta
@@ -32,6 +32,18 @@ folga OK com −0,1mm):
 
 Bônus no 014: a broca Ø16 estava com `08.06.095` (que é Ø0,70, errado) → corrigida p/ `08.06.075` (Broca
 HSS Ø16 real). Não há broca MD Ø16 no parque (só HSS).
+
+### 014 — Ø18 definido (27/07/2026): mandrilar, NÃO alargar
+**Não existe alargador Ø18 no parque** — os alargadores (categoria `08.11.xxx`) pulam de Ø10,5
+(`08.11.131`) para Ø20,0 (`08.11.133`). Solução real definida: pré-furo Ø16 HSS `08.06.075` +
+**acabamento Ø18 por MANDRILAMENTO** (barra A12M `08.08.001` + inserto CCGT060202 `08.07.093` — mesmo par
+do 047/048). Boring dá o Ø18 com tolerância; reaming não é opção sem o alargador.
+
+### ⚠️ GAP no lookup: alargadores estão em `08.11.xxx`, não numa categoria própria
+No banco `bd_cnc/ferramentas`, os alargadores foram jogados dentro de `fresas.json` (prefixo 08.11 mistura
+fresa + alargador + fresa de chanfrar). **Para buscar alargador/reamer, procurar "alargador" no MINIPCP.csv
+ou dentro de `fresas.json`** — não há um `alargadores.json`. Tamanhos reais de alargador: 3,0 / 5,5 /
+5,95(MD) / 6,0 / 8,0 / 10,5 / 20,0 / 1/4". Fora desses, é mandrilamento ou compra de ferramenta.
 
 **Sinal de alerta:** se o número do código "espelha" o diâmetro (Ø8,6→...0**86**; Ø10,6→...1**06**), quase
 certo que foi inventado — conferir no banco. Regra: sem diâmetro exato, usar o real mais próximo (Ø±0,1mm

@@ -484,16 +484,16 @@ body::before {
 
 <tr>
     <td style="text-align:center;"><strong>N90</strong></td>
-    <td>Furar + alargar O18</td>
+    <td>Furar + mandrilar Ø18</td>
     <td style="text-align:center;"><strong>T07<br>T08</strong></td>
-    <td style="text-align:center; font-size:8pt;">08.06.075<br><span style="color:#c00;">Ø18 pend.</span><br><span style="font-size:7pt;color:#c00;">*corrigido 27/07: broca Ø16 = 08.06.075 (HSS real; o antigo 08.06.095 era Ø0,70, errado). Alargador Ø18 (era 08.06.110, código inexistente) NÃO há no MINIPCP — confirmar ferramenta com Alexandre</span></td>
-    <td style="font-size:9pt;">Broca Ø16mm HSS<br>Alargador Ø18mm HSS <span style="color:#c00;">(pendente)</span></td>
-    <td style="text-align:center;">120 / 15</td>
-    <td style="text-align:center;">2400 / 265</td>
-    <td style="text-align:center;">F 0.15 / 0.30</td>
+    <td style="text-align:center; font-size:8pt;">08.06.075<br>08.08.001<br>+08.07.093<br><span style="font-size:7pt;color:#c00;">*definido 27/07: NÃO há alargador Ø18 no parque (alargadores pulam de Ø10,5 p/ Ø20). Acabamento Ø18 por MANDRILAMENTO: barra A12M 08.08.001 + inserto CCGT060202 08.07.093 (mesmo par do 047/048). Pré-furo Ø16 HSS 08.06.075 (o antigo 08.06.095 era Ø0,70 e o 08.06.110 era inventado)</span></td>
+    <td style="font-size:9pt;">Broca Ø16mm HSS<br>Mandrilar Ø18mm (barra A12M + CCGT)</td>
+    <td style="text-align:center;">120 / 200</td>
+    <td style="text-align:center;">2400 / 3500</td>
+    <td style="text-align:center;">F 0.15 / 0.10</td>
     <td style="text-align:center;"><strong>G83</strong></td>
     <td><strong>Bore O18mm — face lateral (conexao hidraulica)</strong><br>
-    * Pre-furar O16 (G83) + alargar O18mm acabamento<br>
+    * Pré-furar Ø16 (G83) + mandrilar Ø18mm acabamento (não há alargador Ø18 no parque; boring dá o Ø18 com tolerância)<br>
     * Broca: Vc = pi x 16 x 2400 / 1000 = 120 m/min (carbide em Al)<br>
     * Alargador: Vc = pi x 18 x 265 / 1000 = 15 m/min (HSS alargar)<br>
     * F alargador 0.30 mm/rot — padrao Al</td>
@@ -664,8 +664,8 @@ body::before {
         <li><strong>T04:</strong> Macho M5x0,8 helicoidal HSS-E (08.09.004) — 4x rosca M5</li>
         <li><strong>T05:</strong> Broca O5,0mm HSS-Co (08.06.040) — pre-furo M6 (2 lados)</li>
         <li><strong>T06:</strong> Macho M6x1,0 helicoidal HSS-E (08.09.072) — rosca M6 (2 lados)</li>
-        <li><strong>T07:</strong> Broca O16mm metal duro (08.06.095) — pre-furo O18</li>
-        <li><strong>T08:</strong> Alargador Ø18mm HSS <span style="color:#c00;">(código PENDENTE — 08.06.110 era inventado, não há alargador Ø18 no MINIPCP; confirmar com Alexandre)</span> — acabamento bore lateral</li>
+        <li><strong>T07:</strong> Broca Ø16mm HSS (08.06.075) — pré-furo Ø18</li>
+        <li><strong>T08:</strong> Mandrilar Ø18mm — barra A12M (08.08.001) + inserto CCGT060202 (08.07.093) — acabamento bore lateral <span style="color:#c00;">(não há alargador Ø18 no parque; acabamento por mandrilamento)</span></li>
         <li><strong>T09:</strong> Broca O3mm HSS-Co (08.06.028) — furo piloto lateral</li>
         <li><strong>T10:</strong> Fresa chanfrar 90o O10mm (08.11.053) — chanfros gerais</li>
     </ul>
