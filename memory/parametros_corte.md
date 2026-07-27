@@ -8,11 +8,13 @@
 ### Furacao — Metal Duro (Carbide)
 | Diametro | Vc (m/min) | RPM tipico | Avanco | Ciclo | Fonte |
 |----------|-----------|------------|--------|-------|-------|
-| O3,0 | 100-150 | 10600-15900 | F 0.05 | G83 | Sandvik |
-| O6,2 | 100-200 | 5100-10300 | F 0.12 | G83 | Sandvik |
+| O3,0 | 28-30 (na pratica) | **max 3000** ⚠️ | F 0.05 | G83 | Alexandre 24/07 |
+| O6,2 | 100-200 | 5100-6000 | F 0.12 | G83 | Sandvik (cap maquina) |
 | O15,9 | 150-250 | 3000-5000 | F 0.15 | G83 | Orc.014 |
 | O16 | 100-200 | 2000-4000 | F 0.15 | G83 | Orc.014 |
-| NOTA: LYNX com bloco retangular limita RPM a 3000 (G92) |
+| ⚠️ **BROCA Ø3mm: RPM MAX 3000** (rigidez/runout da propria broca, NAO da maquina) — Vc teorico Sandvik daria 10600-15900 mas NAO se aplica. Incidente 049/2026: calculei S8000, Alexandre corrigiu S3000. Ver maquinas_specs.md |
+| NOTA: LYNX com bloco retangular limita RPM a 3000 (G92, desbalanceamento — outro motivo) |
+| NOTA: sempre checar o MENOR entre limite da maquina (LYNX 6000/D760 7500/GL280 4500) e da ferramenta |
 
 ### Furacao — HSS-Co
 | Diametro | Vc (m/min) | RPM tipico | Avanco | Ciclo | Fonte |
