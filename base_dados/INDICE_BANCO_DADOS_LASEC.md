@@ -172,8 +172,8 @@ antigos, ex: "setup 0,5h" que hoje e 1,0h min). Arquivos uteis:
   Este e LIVE — espelhado em `memory/maquinas_specs.md`.
 - `diferencas-torno-centro.md`, `calculos-referencia.md`, `processo-fabricacao-padrao-detalhado.md`,
   `checklist-validacao-orcamento.md`, `erros-comuns.md`, `decisoes-importantes.md` — referencia secundaria
-- ⚠️ `agente/commands/` e `agente/rules/` sao DUPLICATAS ANTIGAS dos comandos reais (`.claude/commands/`
-  + repo `xando-IA/commands/`) — NAO editar/usar; candidatos a remocao (confirmar com Alexandre).
+- ✅ `agente/commands/` e `agente/rules/` (duplicatas antigas) foram MOVIDOS em 27/07/2026 para
+  `D:\IA MALELO\_DESATUALIZADO_2026-07-27\` (ver LEIA-ME lá). Comandos vivos: `.claude/commands/` + repo.
 
 ## 6. BIBLIOTECAS LEGADAS
 
