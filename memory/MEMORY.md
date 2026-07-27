@@ -3,6 +3,7 @@
 # Manter enxuto (<150 linhas) — detalhes nos arquivos tematicos
 
 ## Feedbacks
+- [**CALIBRAÇÃO** Estimativa subestima produção real 1,5×-4,5×](feedback_calibracao_asbuilt_vs_estimativa.md) — dado dos as-built (024/026/033/047/048). Ciclo por fórmula é OTIMISTA. Sempre marcar estimativa + testar plausibilidade pç/h. Piloto de mineração: [[projeto_mineracao_orcamentos]]
 - [**CRÍTICO $$$** Taxa de máquina vem da PLANILHA, não de cabeça](feedback_fonte_verdade_custos_planilha.md) — custo em `custos_ferramentaria lasec.xls` (aba Custos 2026); specs técnicas em `agente/knowledge/maquinas-lasec.md`. GL280 estava errado (76,95 vs 86,86 real). SEMPRE conferir a fonte
 - [Origem do layout de proposta 1-página](template_proposta_1pagina.md) — layout aprovado nasceu na 022/SPEEDMAQ; hoje vive como template `PROPOSTA_COMERCIAL_PADRAO_1FOLHA.html`
 - [**CRÍTICO** git checkout sem checar diff antes](feedback_git_checkout_sem_checar.md) — SEMPRE `git diff` antes de checkout/reset/clean em arquivo que não editei nesta sessão. Incidente 24/07/2026: descartei mudança não commitada de outra sessão (IMPAKTTO) sem checar
