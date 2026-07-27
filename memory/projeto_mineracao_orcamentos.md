@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: d62f2772-e7fb-4f19-9d96-202795cc3680
-  modified: 2026-07-27T15:26:15.664Z
+  modified: 2026-07-27T16:56:20.779Z
 ---
 
 ## Mineração dos orçamentos passados para calibrar a base de dados
@@ -23,16 +23,26 @@ tipo de peça). Todos os códigos de ferramenta do piloto conferem no banco `bd_
 inventado). Nenhuma divergência de custo grave; o 024 (memória 13,00 vs "12,14" no processo) foi falso
 alarme — o CUSTO usou 13,00 corretamente.
 
-### PENDENTE (expandir se o Alexandre quiser)
-- Demais orçamentos 2026 (014, 022, 023, 025, 027-032, 034-036, 039, 040, 043, 046, 049) — maioria
-  estimativa, menor confiança para tempo, mas úteis para: preço/margem por cliente, escolha de máquina,
-  padrões de ferramental por tipo de peça.
-- Orçamentos 2025 (001-013) — históricos, taxas antigas (R$83,08 etc), usar só p/ ferramental e leitura
-  de desenho, NUNCA para taxa.
-- Extrair Vc/S/F detalhado por operação para enriquecer `parametros_corte.md` (hoje só tem alumínio, e
-  "em revisão") — o piloto pegou tempos, falta varrer os params de corte operação a operação.
+### VARREDURA COMPLETA CONCLUÍDA (27/07/2026) — 54 orçamentos (2025+2026)
+Script de extração (`scratchpad/minerar.py`) varreu todos, validando 86 códigos únicos de ferramenta.
+Achados consolidados:
+1. **3 códigos de ferramenta INVENTADOS** (não existem no MINIPCP): `08.12.086` (027), `08.12.106`
+   (028/029), `08.06.110` (014) — fabricados casando diâmetro com número. Documentado em
+   [[feedback-codigos-ferramentas-minipcp]] com o real mais próximo. Os outros 83 conferem.
+2. **Padrão material/máquina/markup por cliente** → [[referencia-material-maquina-por-cliente]]
+   (MICROGEAR aço MP-cliente, R2 100% D760, SPEEDMAQ válvula alumínio D760 p/ BSP, etc.)
+3. **Calibração as-built** confirmada e ampliada ([[feedback-calibracao-asbuilt-vs-estimativa]]) — 039
+   ~1,4×, 046 teve experimento (15min vs 2,5 real, ver `feedback_experimento_nao_e_ciclo_producao`).
+4. Orçamentos com as-built REAL (maior confiança de tempo): 006, 008, 024, 025, 026, 033, 039, 046,
+   047, 048, 049.
+5. Nenhuma taxa errada (76,95/60,48) encontrada nos HTMLs dos orçamentos — o erro ficou só na memória/
+   índice (já corrigidos); os orçamentos usaram as taxas certas.
+
+### PENDENTE (refinamento futuro, opcional)
+- Extrair Vc/S/F operação-a-operação dos as-built para engordar `parametros_corte.md` (hoje só alumínio,
+  "em revisão"). O parsing por regex do HTML é ruidoso — faria com script dedicado por família de peça.
+- Preço/margem numérico por cliente (benchmark) — capturado qualitativamente; refinar com valores exatos
+  se o Alexandre quiser tabela de piso por tipo de peça.
 
 ### Como retomar
-Ler este arquivo + [[feedback-calibracao-asbuilt-vs-estimativa]], escolher próximo lote, extrair
-dado-ponto (tempo as-built/estimativa, ferramentas, params, preço), cruzar com fonte limpa, registrar
-com carimbo de origem+confiança. Priorizar sempre os que têm as-built real.
+Ler este arquivo + as 3 memórias-filhas acima. A base já está calibrada; refinamentos são incrementais.
