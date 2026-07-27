@@ -1,6 +1,8 @@
 # Regras de Usinagem LASEC
 # Fonte: Correcoes do Alexandre (maxima prioridade) + 25 anos producao CNC
 # ATUALIZAR sempre que Alexandre corrigir algo
+# Numeracao RENUMERADA em 27/07/2026 (estava com 11/14/15 duplicados e 19/20 fora de ordem
+# — ver feedback_regras_usinagem_renumeracao.md). Se citar "regra N" em qualquer lugar, usar ESTA numeracao.
 
 ## Regras Permanentes (confirmadas pelo Alexandre)
 
@@ -108,6 +110,7 @@
 - SEMPRE incluir como linha separada no PROCESSO_FABRICACAO
 
 ## RPM Limites por Maquina (Seguranca)
+(Ver tambem `memory/maquinas_specs.md` — fonte mais completa, inclui GL280 e limite de ferramenta)
 
 ### LYNX 220LM com bloco retangular
 - G92 S3000 (limite seguranca — desbalanceamento)
@@ -118,7 +121,14 @@
 - Spindle max: 7.500 RPM (ISO-40)
 - Nao tem limitacao especial
 
-### 11. Taxa Hora-Maquina com 4o Eixo
+### GL 280M
+- Spindle max: 4.500 RPM
+
+### Limite da FERRAMENTA (pode ser menor que o da maquina)
+- Broca Ø3mm: maximo 3.000 RPM, mesmo em maquina que suporta mais (ex: D760 a 7.500)
+- Sempre checar o menor dos dois limites (maquina × ferramenta) antes de aceitar o RPM calculado
+
+### 12. Taxa Hora-Maquina com 4o Eixo
 - **Centro de usinagem com 4o eixo: +25% sobre taxa 3 eixos**
 - D760 3 eixos: R$ 121,49/h → D760 4 eixos: R$ 151,86/h
 - Motivo: divisor/mesa rotativa (depreciacao), operador mais qualificado, programacao mais complexa
@@ -134,7 +144,7 @@
 - Resultado: LASEC agora competitiva vs GRV (antes era +31% acima)
 - Data: 08/03/2026
 
-### 12. Custo Interno vs Preco de Venda
+### 14. Custo Interno vs Preco de Venda
 - **Custo interno** (planilha LASEC corrigida): para calcular custo de producao
 - **GRV mercado** (pesquisa preco/hora): para validar preco de venda (referencia competitividade)
 - NUNCA usar GRV como custo interno (infla custo, distorce margem)
@@ -151,39 +161,23 @@
 - Fonte GRV: tabela GRV 2024 (Torno CNC R$ 156,28 | Centro 3-eixos R$ 189,78)
 - Data: 31/03/2026 (regra perdida, recuperada 01/04/2026)
 
-## Historico de Correcoes (para NAO repetir)
-
-| Data | Erro | Correcao | Regra Gerada |
-|------|------|----------|-------------|
-| 03/2026 | Broca de centro no PROCESSO | Remover, usar MD alto centrante | Regra 1 |
-| 03/2026 | Eixo C para furo axial | Remover, spindle direto | Regra 5 |
-| 03/2026 | Furar→roscar→chanfrar | Inverter: furar→chanfrar→roscar | Regra 2 |
-| 03/2026 | Setup torno 0,5h | Minimo 1,0h | Regra 4 |
-| 03/2026 | Improdutivo LYNX 1,0 min | Recalcular: ~0,3 min (specs reais) | Improdutivo LYNX |
-| 03/2026 | Furo O3 face frontal | Mover para face lateral (4o eixo) | Especifico peca |
-| 03/2026 | HSS Vc alto em Al | Vc 29-30 broca, Vc 9-10 macho | Regra 9 |
-| 03/2026 | Centro improd 1,5 min (12 trocas) | Recalcular: 1,8 min (14 trocas ATC) | Improdutivo Centro |
-| 31/03/2026 | Usar as-built bruto (17,33) como custo | Alexandre corrigiu para 13 min — "cliente não paga ineficiência" | Regra 14 |
-
-### 14. Tempo para Custo vs As-Built Bruto
+### 16. Tempo para Custo vs As-Built Bruto
 - **As-built bruto** (apontamento) pode incluir ineficiência operacional (operador lento, paradas não descontadas, curva de aprendizado)
 - **Tempo para custo** é definido pelo Alexandre — pode ser MENOR que o as-built bruto
 - Motivo: "o cliente não vai pagar pela minha ineficiência"
 - Exemplo: 024/2026 MICROGEAR — as-built 17,33 min → custo 13,00 min
 - **SEMPRE perguntar ao Alexandre qual tempo usar para custo quando houver grande diferença entre ciclo e as-built**
+- **Regra de bolso: se o as-built divergir >1,5× do ciclo/estimativa original, PARAR e confirmar com Alexandre antes de escrever qualquer número para custo**
 - Data: 31/03/2026
-| 03/2026 | Centro sem manipulacao | Adicionar 3,0 min manipulacao operador | Manipulacao Centro |
-| 10/03/2026 | Perguntar maquina ao Alexandre | Agente DECIDE a maquina autonomamente, Alexandre so corrige se necessario | Regra 14 |
-| 25/03/2026 | Prog+Inspecao cobrados a taxa producao | **TODAS atividades fixas a taxa SETUP (1,5×)** — PREJUIZO REAL no 022 | Regra 15 CRITICA |
 
-### 14. Autonomia na Escolha de Maquina
+### 17. Autonomia na Escolha de Maquina
 - **O agente DECIDE qual maquina usar com base no desenho/peca**
 - Criterios: dimensoes, operacoes, complexidade, material
 - Alexandre apenas CORRIGE se discordar
 - NAO perguntar "qual maquina?" — DEFINIR e apresentar
 - Data: 10/03/2026
 
-### 15. Custos Fixos em Lotes Pequenos — REGRA CRITICA (PREJUIZO REAL 022/2026)
+### 18. Custos Fixos em Lotes Pequenos — REGRA CRITICA (PREJUIZO REAL 022/2026)
 - **Lote <10 pecas: SEMPRE incluir custos fixos separados**
 - **TODAS atividades fixas cobradas na TAXA SETUP (1,5× producao), NUNCA taxa producao:**
   - Programacao CNC/CAM: minimo 4,0h peca nova complexa (meio dia) — **taxa 1,5×**
@@ -197,13 +191,13 @@
 - **VERIFICACAO:** Se custos fixos < 60% do custo unitario em lote <10 → PARAR e conferir taxas
 - Data: 17/03/2026, CORRIGIDO CRITICAMENTE 25/03/2026
 
-### 16. Leitura de Secao A-A em Flanges
+### 19. Leitura de Secao A-A em Flanges
 - **Ø5 no corte A-A NAO e furo** — e a cota do REBAIXO de face (5mm de profundidade x Ø162)
 - O que parece "furo Ø5" na secao e a rosca (ex: M8) vista em corte
 - SEMPRE interpretar cotas da secao no contexto da geometria da peca
 - Data: 17/03/2026
 
-### 17. Reusinagem em Peca Pre-Usinada — Estrategia de Distribuicao de Etapas
+### 20. Reusinagem em Peca Pre-Usinada — Estrategia de Distribuicao de Etapas
 - **Etapa 1 deve absorver MAXIMO POSSIVEL de operacoes** — quanto mais a peca sai pronta na 1a fixacao, menor o custo total
 - **Pegar pelo Ø INTERNO grande na 1a etapa** (se geometria permitir) = estabilidade alta = passes agressivos
 - **GL280 (R$86,86/h) é MAIS BARATA que LYNX (R$96,35/h)** — distribuir MOD pesado pra GL280
@@ -213,7 +207,7 @@
 - Aplicado: 034/2026 MICROGEAR CUBO 1.60.20.958 — economia 21% (R$36 → R$28,59/pç)
 - Data: 27/04/2026
 
-### 18. Cláusulas a EVITAR em Proposta Comercial
+### 21. Cláusulas a EVITAR em Proposta Comercial
 - **❌ NUNCA incluir "% refugo aceitável" ou "risco compartilhado refugo" na proposta**
 - Motivo: cliente pode SE APEGAR à clausula em caso de problema causado pela LASEC, virando gancho contratual contra nós
 - Se houver problema real, tratar caso a caso por bom senso comercial — NAO dar gatilho contratual
@@ -221,7 +215,7 @@
 - Aplicado: 034/2026 — Alexandre removeu clausula de refugo apos eu ter incluido
 - Data: 27/04/2026
 
-### 19. Markup Confortavel ×1,20 em Reusinagem
+### 22. Markup Confortavel ×1,20 em Reusinagem
 - **DEFAULT para reusinagem em peca pre-usinada com muita usinagem real:** markup ×1,20 (margem 20%)
 - Apesar de "peça pré-usinada" sugerir markup baixo, o **VOLUME REAL DE USINAGEM** (refazer todos Ø em multiplas fixacoes) justifica markup confortavel
 - NAO confundir "sem MP" com "pouco trabalho"
@@ -234,10 +228,32 @@
 - Aplicado: 034/2026 — markup ×1,15 inicial → ×1,20 confortavel apos avaliacao do volume
 - Data: 27/04/2026
 
-### 20. Troca de Castanha — SEMPRE ocorre em peca com fabricacao em 2 lados (bar work)
-- **Peca usinada dos 2 lados (2 fixacoes, G54/G55 ou G55/G56) SEMPRE exige troca de castanha** entre os lados (ex: castanha dura no 1o lado, castanha mole no 2o lado, ou vice-versa)
-- Isso e ESTRUTURAL do processo — nao e imprevisto, e deve ser esperado em TODA peca de bar work com 2 lados
-- **Como orcar:** e recorrente, entao cabe dentro do setup PADRAO (min. 1,0h) em regime normal — NAO precisa herdar o tempo cheio de troca+ajuste da 1a execucao (que inclui aprendizado/ajuste de peca nova, nao repete nos lotes seguintes)
-- **Onde ver no programa NC:** comentario tipo "CAST DURA" / "CAST M" no cabecalho de cada lado indica o tipo de castanha exigido
-- Aplicado: 045/2026 MICROGEAR Bucha 1.11.14.645/010 — apontamento apontou parada "CASTANHA" entre os 2 lados, confirmado pelo proprio programa NC
-- Data: 02/07/2026
+### 23. Dispositivo de Fixação Novo — Cobrar Integral no 1º Lote
+- **Fabricação de dispositivo/ferramental novo (ex: castanha customizada, gabarito) = custo fixo do lote que o originou, à taxa SETUP (1,5×)**
+- Cobrar 100% no lote que motivou a fabricação, NÃO diluir/estimar em lotes futuros a priori
+- Reposições futuras da mesma peça NÃO pagam esse custo de novo (dispositivo já existe) — preço cai naturalmente
+- Aplicado: 048/2026 SPEEDMAQ VAP-U2003 — dispositivo D760 (3,8333h, R$698,59) cobrado integral no lote 10, decisão Alexandre 23/07/2026
+- Data: 23/07/2026
+
+## Historico de Correcoes (para NAO repetir)
+
+| Data | Erro | Correcao | Regra Gerada |
+|------|------|----------|-------------|
+| 03/2026 | Broca de centro no PROCESSO | Remover, usar MD alto centrante | Regra 1 |
+| 03/2026 | Eixo C para furo axial | Remover, spindle direto | Regra 5 |
+| 03/2026 | Furar→roscar→chanfrar | Inverter: furar→chanfrar→roscar | Regra 2 |
+| 03/2026 | Setup torno 0,5h | Minimo 1,0h | Regra 4 |
+| 03/2026 | Improdutivo LYNX 1,0 min | Recalcular: ~0,3 min (specs reais) | Improdutivo LYNX |
+| 03/2026 | Furo O3 face frontal | Mover para face lateral (4o eixo) | Especifico peca |
+| 03/2026 | HSS Vc alto em Al | Vc 29-30 broca, Vc 9-10 macho | Regra 9 |
+| 03/2026 | Centro improd 1,5 min (12 trocas) | Recalcular: 1,8 min (14 trocas ATC) | Improdutivo Centro |
+| 03/2026 | Centro sem manipulacao | Adicionar 3,0 min manipulacao operador | Manipulacao Centro |
+| 10/03/2026 | Perguntar maquina ao Alexandre | Agente DECIDE a maquina autonomamente, Alexandre so corrige se necessario | Regra 17 |
+| 25/03/2026 | Prog+Inspecao cobrados a taxa producao | **TODAS atividades fixas a taxa SETUP (1,5×)** — PREJUIZO REAL no 022 | Regra 18 CRITICA |
+| 31/03/2026 | Usar as-built bruto (17,33) como custo | Alexandre corrigiu para 13 min — "cliente não paga ineficiência" | Regra 16 |
+| 24/07/2026 | RPM broca Ø3mm estimado S8000 (nem maquina nem broca aguentam) | Corrigido para S3000 (limite real da broca) | RPM Limites (ver acima) |
+
+## Fontes de Dados
+- Planilha custos: D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls
+- Specs fabricante: Sites DN Solutions (Doosan) e Romi
+- Programas historicos: D:\PROG_CNC\[MAQUINA]\

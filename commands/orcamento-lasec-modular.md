@@ -24,7 +24,7 @@ concreto está de fato presente na mensagem (texto com números/horários, ou ar
   `PROCESSO_FABRICACAO`, usar `/montar-processo-fabricacao` em **Modo A**.
 - **Rota B** (dado concreto de produção real presente na mensagem/anexo): mesmo protocolo abaixo, mas na
   etapa de PROCESSO usar `/montar-processo-fabricacao` em **Modo B** (já embute o roteiro as-built
-  completo: separar setup de produção pura, checar gap >1,5× regra 14, etc.). Depois do gate aprovado,
+  completo: separar setup de produção pura, checar gap >1,5× regra 16, etc.). Depois do gate aprovado,
   reconciliar CUSTO/PRECO_NFE com os números validados e completar os documentos que faltarem.
   (`/fechar-as-built` é uma cópia fina desta mesma Rota B, para quem preferir chamar por nome — não é
   uma lógica diferente.)
@@ -51,7 +51,7 @@ ler os HTMLs do orçamento diretamente + a memória abaixo. Não perder tempo pr
 
 ### Passo 1: Ler memória operacional
 1. `memory/orcamentos_estado.md` — orçamentos ativos, estado de cada um
-2. `memory/regras_usinagem.md` — regras de usinagem + erros passados (regras 1-19)
+2. `memory/regras_usinagem.md` — regras de usinagem + erros passados (regras 1-23)
 3. `memory/fluxo_trabalho.md` — como proceder, hierarquia de confiança
 4. `CHECKPOINT.md` na pasta do orçamento específico, se existir
 

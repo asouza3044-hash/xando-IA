@@ -27,7 +27,7 @@ uma estimativa de engenharia já orçada.
 
 Chamar `/montar-processo-fabricacao` em **Modo B (as-built)**, passando os dados recebidos do Alexandre
 (G-code, ficha, tempo falado) e o PROCESSO existente como contexto. Essa skill cuida de: coletar os
-dados, separar setup de produção pura, checar o gap vs estimativa (regra 14), cruzar ferramentas novas
+dados, separar setup de produção pura, checar o gap vs estimativa (regra 16), cruzar ferramentas novas
 com MINIPCP se necessário, e produzir o PROCESSO atualizado com a tabela de verificação preenchida —
 incluindo o gate ("aprovado?") antes de qualquer coisa avançar.
 

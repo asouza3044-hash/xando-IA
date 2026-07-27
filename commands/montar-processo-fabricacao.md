@@ -47,9 +47,9 @@ do processo em si acontece aqui (Passo 2).
    ```
    Se múltiplos dias/operadores: somar TODOS os dias (`Σ ajustado ÷ Σ peças`)
 4. Setup/try-out (programa+castanha+try-out, geralmente inclui a 1ª peça) → taxa SETUP (1,5×), NUNCA taxa
-   produção (regra 15 — `feedback_custos_fixos_lote_pequeno.md`)
+   produção (regra 18 — `feedback_custos_fixos_lote_pequeno.md`)
 5. **Se o as-built divergir muito do ciclo/estimativa original (regra de bolso: >1,5×), PARAR e confirmar
-   com Alexandre qual tempo usar para custo antes de escrever qualquer número** — regra 14
+   com Alexandre qual tempo usar para custo antes de escrever qualquer número** — regra 16
    (`regras_usinagem.md`). As-built bruto pode incluir ineficiência operacional (curva de aprendizado,
    paradas não descontadas); o "tempo para custo" pode ser MENOR que o as-built bruto se Alexandre decidir
    assim ("cliente não paga minha ineficiência") — mas isso é DECISÃO dele, não presunção minha
@@ -76,7 +76,7 @@ do processo em si acontece aqui (Passo 2).
 6. Especificações de fabricante (DN Solutions, Romi, Sandvik, Dormer)
 7. Valores teóricos calculados (menor prioridade — só se nada acima existir)
 
-Ler também `memory/regras_usinagem.md` (regras 1-19 do Alexandre) e `memory/maquinas_specs.md` (specs
+Ler também `memory/regras_usinagem.md` (regras 1-23 do Alexandre) e `memory/maquinas_specs.md` (specs
 reais de improdutivo) antes de escrever qualquer operação.
 
 ## Passo 4 — Extrair features SÓ do desenho
@@ -192,7 +192,7 @@ Todo `PROCESSO_FABRICACAO` gerado por esta skill DEVE incluir, antes do rodapé,
 |---|---|
 | Modo (A-novo ou B-as-built) e fonte do tempo declarados | ✅ Modo X — origem: ... |
 | Features extraídas só do desenho/anotação (não inferidas de programa similar) | ✅ / ⚠️ pendência |
-| (Modo B) Setup separado de produção pura, gap vs estimativa checado (regra 14) | ✅ / N/A (Modo A) |
+| (Modo B) Setup separado de produção pura, gap vs estimativa checado (regra 16) | ✅ / N/A (Modo A) |
 | BD CNC consultado (programa similar encontrado / não encontrado, % similaridade) | ✅ resultado: ... |
 | Cada ferramenta cruzada com MINIPCP (código real ou pendência explícita) | ✅ / lista de pendências |
 | Cada tempo calculado com fórmula (Vc/RPM/avanço/comprimento) OU as-built real com origem citada | ✅ |
