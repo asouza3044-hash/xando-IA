@@ -3,6 +3,7 @@ name: Reusinagem em Peça Pré-Usinada — Cliente Fornece Peça
 description: Modalidade quando cliente envia peça pré-usinada e LASEC REUSINA (não é "acabamento simples" — pode refazer Ø todos em múltiplas fixações). Inclui estratégia 3 etapas otimizada e cláusulas a EVITAR na proposta.
 type: feedback
 originSessionId: 1d2e6277-aeaf-4ac7-b8d7-9ee6c5b3e975
+modified: 2026-07-27T13:41:27.487Z
 ---
 # Modalidade: REUSINAGEM em peça pré-usinada fornecida pelo cliente
 
@@ -131,11 +132,11 @@ Mesmo sendo reusinagem, fazer cruzamento no ESTUDO_CUSTO:
 
 ### Custos por máquina
 
-| Item | GL280 (R$86,86 prod / R$130,29 setup) | LYNX (R$96,35 prod / R$144,52 setup) | Total |
+| Item | GL280 (R$86,86 prod / R$130,29 setup) | LYNX (R$96,35 prod / R$144,53 setup) | Total |
 |------|---------------------------------------|--------------------------------------|-------|
-| Programação | 5,5h × R$130,29 = R$716,60 | 1,0h × R$144,52 = R$144,52 | **R$861,12** |
-| Setup | 1,5h × R$130,29 = R$195,44 | 1,0h × R$144,52 = R$144,52 | **R$339,96** |
-| Inspeção 1ª pç | 0,5h × R$130,29 = R$65,15 | 1,0h × R$144,52 = R$144,52 | **R$209,67** |
+| Programação | 5,5h × R$130,29 = R$716,60 | 1,0h × R$144,53 = R$144,53 | **R$861,13** |
+| Setup | 1,5h × R$130,29 = R$195,44 | 1,0h × R$144,53 = R$144,53 | **R$339,97** |
+| Inspeção 1ª pç | 0,5h × R$130,29 = R$65,15 | 1,0h × R$144,53 = R$144,53 | **R$209,68** |
 | MOD (200pç) | 33,33h × R$86,86 = R$2.895,33 | 5h × R$96,35 = R$481,75 | **R$3.377,08** |
 
 - Custos fixos: R$1.410,75 (24,7% do custo total — OK p/ lote 200)
