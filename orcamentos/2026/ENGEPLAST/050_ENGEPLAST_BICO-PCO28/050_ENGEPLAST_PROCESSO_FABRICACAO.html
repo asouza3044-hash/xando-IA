@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - BICO PCO28 - ENGEPLAST</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+.info-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; }
+.info-table td, .info-table th { border: 1px solid #ddd; padding: 6px; }
+.info-table td:first-child { font-weight: bold; width: 28%; background-color: #f8f9fa; }
+table.op-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+table.op-table th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 8px; text-align: center; border: 1px solid #ddd; }
+table.op-table td { border: 1px solid #ddd; padding: 5px 7px; text-align: center; vertical-align: middle; }
+.row-prod { background-color: #d4edda; }
+.row-fixacao { background-color: #e3f2fd; font-weight: bold; color: #1976d2; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+.alerta h4 { margin-top: 0; color: #856404; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">PROCESSO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Bico ROMI PCO28 (Alta e Baixa) — bico duplo</div>
+        <div class="document-subtitle">Orçamento 050/2026 — ENGEPLAST</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="alerta">
+    <h4>⚠ GATE PENDENTE DE APROVAÇÃO (revisão 1 — via /montar-processo-fabricacao, Modo A peça nova)</h4>
+    <ul>
+        <li><strong>Peça nova</strong> — primeira vez orçando/produzindo. Tempo = <strong>ESTIMATIVA DE ENGENHARIA</strong> (fórmula RPM×avanço), sem as-built. Parâmetros de corte por analogia à peça-irmã <strong>049 BICO PCO38</strong> (mesmo cliente/material/máquina, já produzida).</li>
+        <li><strong>Confirmado por Alexandre (27/07/2026):</strong> peça única (bico duplo alta+baixa, 30 un) | <strong>MP fornecida pelo cliente</strong> (custo material = ZERO) | <strong>anodização dura por conta do cliente</strong> (não entra no custo/leadtime).</li>
+        <li><strong>2 fixações</strong> (bar work, troca de castanha) — peça tem features nas duas pontas + colar central Ø28. Cabe no setup padrão 1,0h (regra troca de castanha).</li>
+        <li><strong>Ciclo estimado: ~285 s / 4,75 min/pç — ~12,6 pç/h.</strong> ⚠️ Por calibração (as-built histórico), a produção real tende a ser 1,5×-2× MAIOR que a estimativa — validar na 1ª peça (ver `feedback_calibracao_asbuilt_vs_estimativa`).</li>
+        <li><strong>Bore Ø18,80 — confirmado por Alexandre (27/07):</strong> furo SIMPLES, furado de uma vez só + 1 passe de acabamento à tolerância ±0,1mm (não é assento de precisão). Furo radial Ø7,00 passante.</li>
+        <li><strong>NENHUM documento adicional será gerado até aprovação explícita ("aprovado"/"pode seguir").</strong></li>
+    </ul>
+</div>
+
+<div class="section-title">1. DADOS GERAIS DO PEDIDO</div>
+<table class="info-table">
+    <tr><td>Cliente:</td><td>ENGEPLAST</td></tr>
+    <tr><td>Peça:</td><td>Bico ROMI PCO28 — Alta e Baixa (bico/conector duplo)</td></tr>
+    <tr><td>Material:</td><td>Alumínio — <strong>fornecido pelo cliente</strong> (custo de MP = ZERO)</td></tr>
+    <tr><td>Tratamento:</td><td>Anodização dura — <strong>por conta do cliente</strong> (não incluso)</td></tr>
+    <tr><td>Máquina:</td><td><strong>Doosan LYNX 220LM</strong> (torneamento + furo radial via live tool/eixo C)</td></tr>
+    <tr><td>Lote:</td><td><strong>30 peças</strong></td></tr>
+    <tr><td>Estoque (barra):</td><td>Ø30mm × ~65mm/pç (colar Ø28 + facear + corte) — a confirmar</td></tr>
+    <tr><td>Fonte de tempo:</td><td><strong>ESTIMATIVA DE ENGENHARIA</strong> (peça nova, sem as-built) — parâmetros da peça-irmã 049</td></tr>
+</table>
+
+<div class="section-title">2. GEOMETRIA (do desenho)</div>
+<table class="info-table">
+    <tr><td>Comprimento total:</td><td>61,60mm (58,10 até o encosto)</td></tr>
+    <tr><td>Furo passante:</td><td>Ø18,80 (bore interno, passante — assumido reto)</td></tr>
+    <tr><td>Colar central:</td><td>Ø28,00</td></tr>
+    <tr><td>Corpo:</td><td>Ø23,96</td></tr>
+    <tr><td>Ponta "alta" (espigão):</td><td>Ø23,96 / Ø22,96 / Ø22,00, com canal 3,00mm</td></tr>
+    <tr><td>Ponta "baixa" (espigão cônico):</td><td>Ø21,40 → Ø18,00 → Ø16,70</td></tr>
+    <tr><td>Furo radial:</td><td>Ø7,00 (transversal — live tool + eixo C; assumido passante)</td></tr>
+</table>
+
+<div class="section-title">3. FIXAÇÃO 1 (G54) — ponta ALTA + colar + furo passante + corte</div>
+<table class="op-table" style="font-size:8pt;">
+<thead>
+    <tr><th style="width:5%;">Seq.</th><th style="width:13%;">Operação</th><th style="width:17%;">Ferramenta / Cód. BD</th><th style="width:9%;">RPM/Avanço</th><th style="width:23%;">Cálculo (fórmula)</th><th style="width:8%; background-color:#28a745; color:white;">Tempo</th><th style="width:25%;">Descrição</th></tr>
+</thead>
+<tbody>
+<tr class="row-fixacao"><td colspan="7" style="text-align:center; padding:10px;">FIXAÇÃO 1 — barra Ø30mm em castanha padrão</td></tr>
+<tr class="row-prod"><td>N10</td><td>FACEAR</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>S2500<br>F0,18</td><td>15mm ÷ (2500×0,18) × 60</td><td>2,0 s</td><td>Facear topo</td></tr>
+<tr class="row-prod"><td>N20</td><td>FURAR Ø18,80 passante (uma vez só)</td><td>Broca HSS Ø17,5<br>08.06.076</td><td>S546 (Vc30, HSS)<br>F0,10</td><td>61,6 ÷ (546×0,10)×60 + pecks (G83)</td><td>77,0 s</td><td>Furo simples Ø18,80 — furado de uma vez só (passante), G83. HSS Ø17,5 é a broca real mais próxima abaixo de Ø18,80 (regra 9: HSS em Al Vc 29-30). <span style="color:#c00;">Se houver U-drill/Candrill carbide ~Ø18,8, é bem mais rápido — confirmar</span></td></tr>
+<tr class="row-prod"><td>N30</td><td>ACABAMENTO Ø18,80 (tol. ±0,1)</td><td>S16R-SCLCR06 + CCGT060202<br>08.08.008 + 08.07.093</td><td>S3400 (Vc201)<br>F0,10</td><td>1 passe × 61,6mm ÷ (3400×0,10) × 60</td><td>11,0 s</td><td>Mandrilar Ø18,80 — 1 passe de acabamento à tolerância ±0,1mm (furo simples, feito de uma vez)</td></tr>
+<tr class="row-prod"><td>N40</td><td>TORNEAR EXTERNO ponta alta + colar</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>Desb S2500 F0,18<br>Acab S2000 F0,15</td><td>desb 25÷(2500×0,18) + acab 25÷(2000×0,15) + canal 3mm, ×60</td><td>14,0 s</td><td>Ø30→Ø23,96/Ø22,96/Ø22,00 + colar Ø28 + canal 3,00mm</td></tr>
+<tr class="row-prod"><td>N50</td><td>CORTAR/SEPARAR</td><td>TDJ2 K10 (não ferroso)<br>08.07.047 + 08.08.026</td><td>S2000<br>F0,05</td><td>15mm (raio) ÷ (2000×0,05) × 60</td><td>9,0 s</td><td>Bedame — corte no comprimento 61,60</td></tr>
+</tbody>
+</table>
+
+<div class="section-title">4. FIXAÇÃO 2 (G55) — troca de castanha, ponta BAIXA + furo radial</div>
+<table class="op-table" style="font-size:8pt;">
+<thead>
+    <tr><th style="width:5%;">Seq.</th><th style="width:13%;">Operação</th><th style="width:17%;">Ferramenta / Cód. BD</th><th style="width:9%;">RPM/Avanço</th><th style="width:23%;">Cálculo (fórmula)</th><th style="width:8%; background-color:#28a745; color:white;">Tempo</th><th style="width:25%;">Descrição</th></tr>
+</thead>
+<tbody>
+<tr class="row-fixacao"><td colspan="7" style="text-align:center; padding:10px;">FIXAÇÃO 2 — pega pela ponta alta pronta (troca de castanha)</td></tr>
+<tr class="row-prod"><td>N60</td><td>FACEAR</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>S2500<br>F0,18</td><td>15mm ÷ (2500×0,18) × 60</td><td>2,0 s</td><td>Facear ponta 2, definir comprimento 61,60 (bore Ø18,80 já feito de uma vez só no Fix 1)</td></tr>
+<tr class="row-prod"><td>N70</td><td>TORNEAR EXTERNO ponta baixa</td><td>VCGT160404 FL K10<br>08.07.001 + 08.08.032</td><td>Desb S2500 F0,18<br>Acab S2000 F0,15</td><td>desb 24÷(2500×0,18) + acab 24÷(2000×0,15), ×60</td><td>12,0 s</td><td>Espigão cônico Ø21,40 → Ø18,00 → Ø16,70</td></tr>
+<tr class="row-prod"><td>N80</td><td>FURAR RADIAL Ø7 (eixo C)</td><td>Broca Espada MD Ø7,00<br>08.12.061 + porta acionado ER32</td><td>S3600 (Vc79)<br>F0,08</td><td>~6mm parede ÷ (3600×0,08)×60 + indexação eixo C</td><td>1,6 s</td><td>Furo radial passante (live tool M33/M35 + eixo C)</td></tr>
+<tr class="row-prod" style="background-color:#f8d7da;"><td>—</td><td>IMPRODUTIVO MÁQUINA</td><td>—</td><td>—</td><td>~8 trocas ferramenta (0,5s) + posicionamentos</td><td>6,5 s</td><td>LYNX: turret 0,11s/estação, troca ~0,5s (specs reais, `maquinas_specs.md`)</td></tr>
+<tr class="row-prod" style="background-color:#ffe0b2;"><td>—</td><td><strong>MANIPULAÇÃO OPERADOR</strong></td><td>—</td><td>—</td><td>Torno em castanha, <strong>2 fixações</strong> (2 carga/descarga + troca castanha)</td><td>150 s</td><td>Carga/descarga da barra + peça, troca de castanha entre as 2 fixações, medição/inspeção — ~2,5 min (acima do 2,0 min de 1 fixação, `regras_usinagem.md`)</td></tr>
+<tr style="background-color:#cce5ff; font-weight:bold;"><td colspan="5" style="text-align:right;">CICLO TOTAL POR PEÇA (máquina + manipulação)</td><td>~285 s<br>(4,75 min)</td><td>~12,6 pç/h</td></tr>
+</tbody>
+</table>
+<p style="font-size: 8pt; color: #856404;"><strong>Nota:</strong> Máquina Fix1 113,0s (facear 2 + furar 77 + acab bore 11 + tornear 14 + cortar 9) + Fix2 15,6s (facear 2 + tornear 12 + radial 1,6) = 128,6s; + improdutivo 6,5s + manipulação 150s = 285,1s (~4,75 min/pç). Parâmetros de corte por analogia ao 049 (alumínio, LYNX). <strong>Bore Ø18,80 (confirmado por Alexandre 27/07): furo simples, furado de uma vez só + 1 passe de acabamento à tolerância ±0,1mm.</strong> A broca Ø18,80 exata não existe no parque → broca real Ø17,5 HSS (a mais próxima abaixo; HSS em Al é lenta, Vc30 — se houver U-drill carbide ~Ø18,8, é bem mais rápido). Furo radial Ø7 (N80): S3600 = Vc79, dentro do limite live tool (6000 RPM). <strong>Calibração:</strong> estimativas de engenharia subestimam a produção real 1,5×-2× — este ciclo é otimista, validar na 1ª peça.</p>
+
+<div class="section-title">5. TABELA DE VERIFICAÇÃO (checklist /montar-processo-fabricacao)</div>
+<table class="info-table">
+    <tr><td>Modo e fonte</td><td>✅ Modo A (peça nova, estimativa) — parâmetros do desenho + analogia à peça-irmã 049</td></tr>
+    <tr><td>Features do desenho</td><td>✅ Extraídas do desenho (Ø18,80 bore / Ø28 colar / espigões alta+baixa / furo radial Ø7). Bore Ø18,80 = furo simples, confirmado por Alexandre</td></tr>
+    <tr><td>BD CNC consultado</td><td>✅ ENGEPLAST não está no cache CNC (banco só cobre até ~2023); sem programa similar — parâmetros por analogia ao 049 (peça-irmã real)</td></tr>
+    <tr><td>Ferramentas cruzadas com MINIPCP</td><td>✅ TODAS com código real do banco `bd_cnc/ferramentas`: 08.07.001, 08.08.032, 08.06.076 (broca Ø17,5), 08.08.008, 08.07.093, 08.12.061, 08.07.047, 08.08.026. Nenhuma inventada</td></tr>
+    <tr><td>Tempo com fórmula + manipulação</td><td>✅ Cada operação com RPM/avanço/fórmula (segundos) + manipulação do operador (2 fixações, 150s) somada. Rendimento ~12,6 pç/h (plausível p/ peça 2 fixações; marcar otimista)</td></tr>
+    <tr><td>RPM dentro do limite (máquina E ferramenta)</td><td>✅ Broca Ø17,5 HSS S546 (Vc30, regra 9 HSS em Al); mandrilar S3400; furo radial Ø7 S3600 (< 6000 live tool). Nenhum RPM acima do limite</td></tr>
+    <tr><td>Custos fixos na taxa 1,5×</td><td>✅ Programação+setup+inspeção a R$144,52/h (a detalhar no CUSTO após aprovação)</td></tr>
+    <tr><td>Template copiado</td><td>✅ Estrutura copiada do 049 (peça-irmã aprovada), não criada do zero</td></tr>
+</table>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 27/07/2026 (revisão 1) | Orçamento 050/2026 — ENGEPLAST | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

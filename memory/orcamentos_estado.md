@@ -1,6 +1,19 @@
 # Estado dos Orcamentos LASEC
 # ATUALIZAR sempre que estado mudar
-# Proximo numero: 050/2026
+# Proximo numero: 051/2026
+
+### 050/2026 — ENGEPLAST Bico ROMI PCO28 (Alta e Baixa)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\ENGEPLAST\050_ENGEPLAST_BICO-PCO28\`
+- **Estado (27/07/2026):** PROCESSO **APROVADO** por Alexandre ("aprovado, pode seguir"). **6/6 documentos gerados** (PROCESSO+CUSTO+PRECO+VIABILIDADE+BREAK_EVEN+PROPOSTA).
+- **Custo:** R$30,61/pç (R$918,31/30pç) | **Preço NFe:** R$46,36/pç → **R$1.390,86 total** (markup ×1,5147) | Break-even 18 pç (pedido +67%), margem 34%
+- **Próximo passo:** sincronizar 4 destinos, gerar PDF proposta se pedido, enviar ao cliente
+- **Peça:** bico duplo (ponta alta + baixa), 1 código, 30 un. Alumínio **MP do cliente** (custo zero). Anodização dura **por conta do cliente** (não inclusa).
+- **Geometria:** L=61,60 | bore passante Ø18,80 | colar Ø28 | espigão alta Ø23,96/22,96/22,00 + canal 3,00 | espigão baixa cônico Ø21,40→18,00→16,70 | furo radial Ø7,00. Barra Ø30.
+- **Processo:** LYNX 220LM, 2 fixações (troca castanha). Ferramentas: 08.07.001+08.08.032 (torneam.), 08.06.076 (broca Ø17,5), 08.08.008+08.07.093 (acabamento bore Ø18,80), 08.12.061 (furo radial Ø7), 08.07.047+08.08.026 (bedame) — todas reais.
+- **Bore Ø18,80 (confirmado Alexandre 27/07):** furo SIMPLES, furado de uma vez só + 1 passe de acabamento tol. ±0,1mm (não pré-furo+3 passes). Furo Ø7 passante.
+- **Ciclo estimado:** ~285s/4,75min/pç, ~12,6 pç/h (ESTIMATIVA — calibração diz que real tende a ser 1,5×-2× maior, validar 1ª peça). Broca Ø18,80 exata não existe → Ø17,5 HSS (lenta, 77s); se houver U-drill carbide ~Ø18,8 é bem mais rápido
+- **Peça-irmã:** 049 BICO PCO38 (mesmo cliente/material/máquina) — fonte dos parâmetros de corte
+- **Última sessão:** 27/07/2026
 
 ## REGRA: Toda sessao nova DEVE ler este arquivo + state/STATE.json + state/LAST_CHECKPOINT.md + regras_usinagem.md ANTES de qualquer acao.
 
@@ -178,7 +191,7 @@
 - **PROPOSTA_COMERCIAL:** consolidada (1 documento para os 2 itens, conforme preferência já confirmada do Alexandre) — CTA total R$3.671,60
 - **Preço de MP:** R$50,00/kg alumínio 6351-T6 — CONFIRMADO por Alexandre (24/07/2026, "pode seguir com o valor do alumínio")
 - **Histórico da sessão (23-24/07/2026):** 3 incidentes de processo corrigidos — (1) gate pulado 2ª vez (`feedback_processo_gate_batch.md`), (2) tempo calculado sem manipulação do operador, pç/h irreal (74-78 vs real 20-25), (3) RPM da broca Ø3mm superestimado (S8000 vs limite real S3000) — reforços aplicados na skill `/montar-processo-fabricacao`
-- **Próximo passo:** SYNC feito (4 destinos) — falta só enviar proposta ao cliente
+- **Estado final:** proposta ENVIADA ao cliente por Alexandre (27/07/2026) — orçamento fechado, nenhuma pendência
 - **Última sessão:** 24/07/2026
 
 ## Proximo numero disponivel: 050/2026

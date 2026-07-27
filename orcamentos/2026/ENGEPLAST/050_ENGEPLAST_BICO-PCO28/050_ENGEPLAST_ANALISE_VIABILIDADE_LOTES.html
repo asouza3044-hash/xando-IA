@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Viabilidade de Lotes - BICO PCO28 - ENGEPLAST</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 12px; text-align: center; font-size: 11px; text-transform: uppercase; }
+td { padding: 10px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+.destaque { background-color: #d4edda !important; font-weight: bold; border: 2px solid #28a745; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.alerta-importante h4 { margin-top: 0; color: #856404; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">ANÁLISE DE VIABILIDADE DE LOTES</div>
+        <div class="document-subtitle">Bico ROMI PCO28 (Alta e Baixa)</div>
+        <div class="document-subtitle">Orçamento 050/2026 — ENGEPLAST</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="info-box">
+    <h3>Contexto</h3>
+    <p>Pedido de 30 peças. Esta análise mostra como o custo unitário evolui com o tamanho do lote — o custo fixo (programação+setup+inspeção, R$505,82) é constante e dilui com o volume. Material = R$0 (cliente fornece).</p>
+</div>
+
+<div class="section-title">Custo por peça vs tamanho do lote</div>
+<table>
+    <thead><tr><th>Lote</th><th>Fixos (R$)</th><th>MOD (R$)</th><th>CIF 25% (R$)</th><th>Custo Total (R$)</th><th>Custo/Peça (R$)</th></tr></thead>
+    <tbody>
+        <tr><td><strong>10 pç</strong></td><td>505,82</td><td>76,30</td><td>145,53</td><td>727,65</td><td><strong>72,77</strong></td></tr>
+        <tr class="destaque"><td><strong>30 pç (PEDIDO ATUAL)</strong></td><td>505,82</td><td>228,83</td><td>183,66</td><td>918,31</td><td><strong>30,61</strong></td></tr>
+        <tr><td><strong>50 pç</strong></td><td>505,82</td><td>381,50</td><td>221,83</td><td>1.109,15</td><td><strong>22,18</strong></td></tr>
+        <tr><td><strong>100 pç</strong></td><td>505,82</td><td>763,00</td><td>317,21</td><td>1.586,03</td><td><strong>15,86</strong></td></tr>
+    </tbody>
+</table>
+
+<div class="alerta-importante">
+    <h4>CONCLUSÃO</h4>
+    <p><strong>O pedido de 30 peças já está numa faixa economicamente viável</strong> (custo fixo representa ~55% do custo total). Em lote de 10 o fixo pesaria ~70% (custo saltaria para R$72,77/pç).</p>
+    <p><strong>Reposições futuras:</strong> com o programa já pronto (custo de engenharia amortizado), o custo/pç cai forte — R$22,18 em lote 50, R$15,86 em lote 100. Vale sugerir volume maior ao cliente.</p>
+    <p><strong>⚠️ Lembrete:</strong> tempo é estimativa; se a produção real subir (calibração 1,5×-2×), o custo/pç sobe na parcela MOD+CIF — validar na 1ª peça.</p>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 27/07/2026 | Orçamento 050/2026 — ENGEPLAST | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

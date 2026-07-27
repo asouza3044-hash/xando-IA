@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Break Even - ENGEPLAST BICO PCO28</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { color: #1e3c72; border-bottom: 3px solid #1e3c72; padding-bottom: 10px; }
+h2 { color: #2a5298; background-color: #f0f4f8; padding: 10px; border-left: 5px solid #2a5298; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th { background-color: #1e3c72; color: white; padding: 12px; text-align: left; }
+td { padding: 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+.destaque { background-color: #d4edda !important; font-weight: bold; }
+.sucesso { background-color: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; }
+.info-box { background-color: #e7f3ff; border-left: 5px solid #2196F3; padding: 15px; margin: 20px 0; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; }
+.formula { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #6c757d; font-family: 'Courier New', monospace; margin: 15px 0; }
+</style>
+</head>
+<body>
+
+<h1>📊 ANÁLISE DE BREAK EVEN - Orçamento 050/2026</h1>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3 style="margin-top: 0;">Cliente: ENGEPLAST</h3>
+    <p><strong>Peça:</strong> Bico ROMI PCO28 Alta e Baixa (bico duplo) — 30 peças</p>
+    <p><strong>Material:</strong> Alumínio (fornecido pelo cliente) | <strong>Anodização:</strong> por conta do cliente</p>
+    <p><strong>Máquina:</strong> Doosan LYNX 220LM — 2 fixações (troca de castanha)</p>
+    <p><strong>Hora-máquina:</strong> R$ 96,35/h (prod.) / R$ 144,52/h (setup 1,5×)</p>
+    <p><strong>Data:</strong> Julho 2026 — PROCESSO rev.1 aprovado por Alexandre (27/07/2026)</p>
+</div>
+
+<div class="alerta-importante">
+    <h4 style="margin-top: 0;">⚠️ STATUS</h4>
+    <p>Peça nova, primeira produção — tempo é ESTIMATIVA DE ENGENHARIA. Pela calibração dos as-built históricos, a produção real tende a ser 1,5×-2× maior. Break-even abaixo é sobre a estimativa; validar na 1ª peça.</p>
+</div>
+
+<h2>💰 ESTRUTURA DE CUSTOS</h2>
+<table>
+    <tr><th>Item</th><th>Valor</th><th>Observação</th></tr>
+    <tr><td><strong>Custos Fixos (com CIF 25%)</strong></td><td>R$ 632,28</td><td>Prog+Setup+Inspeção R$505,82 + CIF R$126,46</td></tr>
+    <tr><td>Custo Variável/pç (MOD+CIF)</td><td>R$ 9,54/pç</td><td>MOD R$7,63 + CIF R$1,91 (material R$0 — cliente fornece)</td></tr>
+    <tr><td>Preço de Venda/pç</td><td>R$ 46,36</td><td>Custo R$30,61 × markup 1,5147 (35%)</td></tr>
+</table>
+
+<h2>📐 CÁLCULO DO BREAK EVEN</h2>
+<div class="formula">
+<strong>Break Even = Custos Fixos ÷ (Preço Venda − Custo Variável)</strong>
+
+Break Even = R$ 632,28 ÷ (R$ 46,36 − R$ 9,54)
+Break Even = R$ 632,28 ÷ R$ 36,82
+<strong>Break Even = 17,2 peças ≈ 18 peças</strong>
+</div>
+
+<div class="sucesso">
+    <p><strong>Pedido de 30 peças está 67% acima do break-even (18 peças)</strong> — margem de segurança confortável.</p>
+</div>
+
+<h2>📊 ANÁLISE POR LOTE</h2>
+<table>
+    <tr><th>Lote</th><th>Preço/pç</th><th>Receita Total</th><th>Custo Total</th><th>Lucro Bruto</th><th>Margem %</th><th>Status</th></tr>
+    <tr><td>10 pçs</td><td>R$ 46,36</td><td>R$ 463,60</td><td>R$ 727,65</td><td><span style="color:red;">−R$ 264,05</span></td><td>—</td><td>❌ Abaixo do BE</td></tr>
+    <tr><td>18 pçs (Break Even)</td><td>R$ 46,36</td><td>R$ 834,48</td><td>R$ 821,72</td><td><span style="color:green;">R$ 12,76</span></td><td>1,5%</td><td>🟢 Equilíbrio</td></tr>
+    <tr class="destaque"><td>30 pçs ⭐ (PEDIDO)</td><td>R$ 46,36</td><td>R$ 1.390,86</td><td>R$ 918,31</td><td><span style="color:green;">R$ 472,55</span></td><td>34,0%</td><td>✅ Lucro</td></tr>
+    <tr><td>50 pçs</td><td>R$ 33,60</td><td>R$ 1.680,00</td><td>R$ 1.109,15</td><td><span style="color:green;">R$ 570,85</span></td><td>34,0%</td><td>✅ Lucro</td></tr>
+    <tr><td>100 pçs</td><td>R$ 24,03</td><td>R$ 2.403,00</td><td>R$ 1.586,03</td><td><span style="color:green;">R$ 816,97</span></td><td>34,0%</td><td>✅ Lucro</td></tr>
+</table>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">🎯 RECOMENDAÇÃO: PEDIDO APROVADO E RENTÁVEL</h4>
+    <ul>
+        <li>💰 <strong>Preço total do pedido:</strong> R$ 1.390,86 (30 peças)</li>
+        <li>✅ <strong>Lucro bruto:</strong> R$ 472,55 (margem 34,0%)</li>
+        <li>✅ Pedido 67% acima do break-even (18 pç)</li>
+    </ul>
+    <p><strong>PONTOS DE ATENÇÃO:</strong></p>
+    <ul>
+        <li>👨‍🔧 Ciclo é estimativa — validar na 1ª peça (real tende a subir 1,5×-2×; se subir, o BE sobe e a margem cai)</li>
+        <li>📈 Reposição futura sai bem mais barata (programa amortizado) — sugerir volume ≥50 ao cliente</li>
+        <li>🔧 Se houver U-drill carbide ~Ø18,8, ciclo cai e margem melhora</li>
+    </ul>
+    <p style="font-size: 18px; margin-top: 30px;"><strong>✅ DECISÃO: PEDIDO VIÁVEL — PREÇO PRONTO PARA PROPOSTA</strong></p>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 12px;">
+    <p><strong>LASEC USINAGEM DE PRECISÃO</strong></p>
+    <p>Análise Break Even - Orçamento 050/2026 ENGEPLAST</p>
+    <p><strong>Data:</strong> 27/07/2026</p>
+    <p>Documento interno - Não enviar ao cliente</p>
+</div>
+
+</body>
+</html>
