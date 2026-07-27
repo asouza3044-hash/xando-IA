@@ -101,8 +101,8 @@ body::before {
     <tr><td>Fixacao Op.1 — LYNX:</td><td>Castanha mole usinada perfil bloco 46x37mm — G55 (face frontal, eixo bore)</td></tr>
     <tr><td>Fixacao Op.2 — Centro:</td><td>Morsa de precisao + 4o eixo divisor — indexacao A0o/90o/180o sem refixa</td></tr>
     <tr><td>Tempo Op.1 LYNX:</td><td><strong>6,3 min/peca</strong> (produtivo 4,0 min + improdutivo maquina 0,3 min + manipulacao 2,0 min)</td></tr>
-    <tr><td>Tempo Op.2 Centro:</td><td><strong>7,0 min/peca</strong> (produtivo 5,5 min + improdutivo 1,5 min)</td></tr>
-    <tr><td>Tempo TOTAL/peca:</td><td><strong>13,3 min</strong> (Op.1 6,3 + Op.2 7,0)</td></tr>
+    <tr><td>Tempo Op.2 Centro:</td><td><strong>10,3 min/peca</strong> (produtivo 5,5 min + improdutivo maquina 1,8 min + manipulacao 3,0 min)</td></tr>
+    <tr><td>Tempo TOTAL/peca:</td><td><strong>16,6 min</strong> (Op.1 6,3 + Op.2 10,3)</td></tr>
     <tr><td>Setup Op.1 — LYNX:</td><td><strong>1,0 h</strong> (minimo aplicado)</td></tr>
     <tr><td>Setup Op.2 — Centro 4o eixo:</td><td><strong>2,0 h</strong> (4o eixo + morsa + 10 ferramentas)</td></tr>
     <tr><td>Setup Total:</td><td><strong>3,0 h</strong></td></tr>
@@ -236,23 +236,6 @@ body::before {
 
 <tr>
     <td style="text-align:center;"><strong>N50</strong></td>
-    <td>Chanfrar bore + furos</td>
-    <td style="text-align:center;"><strong>T06</strong></td>
-    <td style="text-align:center; font-size:8pt;">08.11.053</td>
-    <td style="font-size:9pt;">Fresa chanfrar 90o<br>O6mm (ferr. acionada)</td>
-    <td style="text-align:center;">75</td>
-    <td style="text-align:center;">4000</td>
-    <td style="text-align:center;">F 0.05</td>
-    <td style="text-align:center;">—</td>
-    <td><strong>Chanfro 0,30x45o bore O19,90 + escareamento 8x furos M4</strong><br>
-    * Chanfro entrada bore conforme desenho<br>
-    * Escareamento 8x furos O3,30 (quebra aresta ANTES do macho)<br>
-    * Sequencia correta: furar → chanfrar → roscar<br>
-    * Vc = pi x 6 x 4000 / 1000 = 75 m/min</td>
-</tr>
-
-<tr>
-    <td style="text-align:center;"><strong>N60</strong></td>
     <td>8x Roscar M4-6H</td>
     <td style="text-align:center;"><strong>T05</strong></td>
     <td style="text-align:center; font-size:8pt;">08.09.003</td>
@@ -266,17 +249,18 @@ body::before {
     * Passo M4 = 0,7mm — F = passo (sincronizado)<br>
     * Mesmas posicoes C-axis do N40<br>
     * Macho helicoidal — cavaco ascendente aluminio<br>
-    * Furos ja chanfrados no N50 — entrada limpa para o macho<br>
+    * No torno: sequencia FURAR → ROSCAR (sem chanfro — falta ferr. acionada chanfrar)<br>
+    * Chanfros dos furos M4 serao feitos no Centro (Op.2)<br>
     * Vc = pi x 4 x 800 / 1000 = 10 m/min (ref. BD Lubrisystem: M5 S400, BSP S300)</td>
 </tr>
 
 <tr class="subtotal-prod">
     <td colspan="7" style="text-align:right; padding:8px;">TEMPO PRODUTIVO G55:</td>
-    <td colspan="3" style="padding:8px;">4,0 min — 6 ferramentas (N10 a N60)</td>
+    <td colspan="3" style="padding:8px;">3,5 min — 5 ferramentas (N10 a N50)</td>
 </tr>
 <tr class="subtotal-improd">
     <td colspan="7" style="text-align:right; padding:8px;">TEMPO IMPRODUTIVO G55:</td>
-    <td colspan="3" style="padding:8px;">0,3 min (18s) — 5 trocas x 0,5s (turret 0,11s/est.) + C-axis 25 pos x 0,3s + M33/M35 3x1s + rapids 30/36 m/min</td>
+    <td colspan="3" style="padding:8px;">0,2 min (12s) — 4 trocas x 0,5s (turret 0,11s/est.) + C-axis 16 pos x 0,3s + M33/M35 2x1s</td>
 </tr>
 <tr class="subtotal-improd">
     <td colspan="7" style="text-align:right; padding:8px;">MANIPULACAO OPERADOR:</td>
@@ -502,8 +486,8 @@ body::before {
     <td style="text-align:center;"><strong>N90</strong></td>
     <td>Furar + alargar O18</td>
     <td style="text-align:center;"><strong>T07<br>T08</strong></td>
-    <td style="text-align:center; font-size:8pt;">08.06.095<br>08.06.110</td>
-    <td style="font-size:9pt;">Broca O16mm metal duro<br>Alargador O18mm HSS</td>
+    <td style="text-align:center; font-size:8pt;">08.06.075<br><span style="color:#c00;">Ø18 pend.</span><br><span style="font-size:7pt;color:#c00;">*corrigido 27/07: broca Ø16 = 08.06.075 (HSS real; o antigo 08.06.095 era Ø0,70, errado). Alargador Ø18 (era 08.06.110, código inexistente) NÃO há no MINIPCP — confirmar ferramenta com Alexandre</span></td>
+    <td style="font-size:9pt;">Broca Ø16mm HSS<br>Alargador Ø18mm HSS <span style="color:#c00;">(pendente)</span></td>
     <td style="text-align:center;">120 / 15</td>
     <td style="text-align:center;">2400 / 265</td>
     <td style="text-align:center;">F 0.15 / 0.30</td>
@@ -568,18 +552,22 @@ body::before {
     <td colspan="3" style="padding:8px;">5,5 min — 11 operacoes (N10 a N110), 10 ferramentas</td>
 </tr>
 <tr class="subtotal-improd">
-    <td colspan="7" style="text-align:right; padding:8px;">TEMPO IMPRODUTIVO Op.2:</td>
-    <td colspan="3" style="padding:8px;">1,5 min — 12 trocas x 5,5s ATC (66s) + indexacoes 4o eixo (8s) + G00 rapids (16s)</td>
+    <td colspan="7" style="text-align:right; padding:8px;">TEMPO IMPRODUTIVO MAQUINA Op.2:</td>
+    <td colspan="3" style="padding:8px;">1,8 min — 14 trocas ATC x 5,5s (77s) + indexacoes 4o eixo (15s) + G00 rapids (10s) = 102s</td>
+</tr>
+<tr class="subtotal-improd" style="background-color:#fff3e0;">
+    <td colspan="7" style="text-align:right; padding:8px;">MANIPULACAO OPERADOR Op.2:</td>
+    <td colspan="3" style="padding:8px;">3,0 min — remover peca + montar proxima + fixar morsa + conferir zero</td>
 </tr>
 <tr class="total-geral">
     <td colspan="7" style="text-align:right; padding:12px;">TEMPO TOTAL OP.2 — DISCOVERY 760 4o EIXO:</td>
-    <td colspan="3" style="padding:12px; font-size:15pt;"><strong>7,0 min/peca</strong></td>
+    <td colspan="3" style="padding:12px; font-size:15pt;"><strong>10,3 min/peca</strong> (5,5 prod + 1,8 maq + 3,0 manip)</td>
 </tr>
 
 <!-- TOTAL COMBINADO -->
 <tr style="background-color:#0a2463; color:white; font-weight:bold;">
     <td colspan="7" style="text-align:right; padding:14px; font-size:14pt;">TEMPO TOTAL COMBINADO (Op.1 + Op.2):</td>
-    <td colspan="3" style="padding:14px; font-size:16pt;"><strong>13,3 min/peca</strong><br><small style="font-size:10pt;">LYNX 6,3 min (4,0 prod + 0,3 maq + 2,0 manip) + Centro 7,0 min</small></td>
+    <td colspan="3" style="padding:14px; font-size:16pt;"><strong>16,6 min/peca</strong><br><small style="font-size:10pt;">LYNX 6,3 min (4,0 prod + 0,3 maq + 2,0 manip) + Centro 10,3 min (5,5 prod + 1,8 maq + 3,0 manip)</small></td>
 </tr>
 
 </tbody>

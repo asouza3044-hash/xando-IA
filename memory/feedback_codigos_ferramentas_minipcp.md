@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: ae8a3d11-e4b4-4a86-8164-70cce6544f9e
-  modified: 2026-07-27T16:55:36.048Z
+  modified: 2026-07-27T17:06:14.106Z
 ---
 
 ## REGRA ABSOLUTA — Código de ferramenta
@@ -19,17 +19,23 @@ NUNCA preencher campo "Cód. BD" com nome genérico, "(similar)", "(int. similar
 2. Se achar → usar o código real
 3. Se NÃO achar o diâmetro exato → usar o mais PRÓXIMO real (confirmar com Alexandre) ou deixar pendência. Nunca inventar.
 
-## ⚠️ CÓDIGOS INVENTADOS ENCONTRADOS EM ORÇAMENTOS ANTIGOS (mineração 27/07/2026)
+## ⚠️ CÓDIGOS INVENTADOS ENCONTRADOS E CORRIGIDOS (mineração 27/07/2026)
 Varredura dos 54 orçamentos contra o MINIPCP achou **3 códigos fabricados** (não existem no catálogo) —
-todos criados casando o diâmetro com o número do código (erro de padrão). Orçamentos afetados já
-enviados/fechados; sinalizados ao Alexandre para eventual correção, NÃO editados silenciosamente:
-| Código inventado | Rótulo | Orçamento(s) | Real mais próximo |
+criados casando o diâmetro com o número do código (erro de padrão). **CORRIGIDOS em 27/07/2026** com o
+código real mais próximo (nota visível em cada HTML; diâmetro Ø8,6/Ø10,6 são furos passantes de flange,
+folga OK com −0,1mm):
+| Código inventado | Rótulo | Orçamento(s) | CORRIGIDO PARA |
 |---|---|---|---|
-| `08.12.086` | Broca MD Ø8,6 | 027 SPEEDMAQ | Ø8,5 = `08.12.002` (ou Ø8,9 = `08.12.009`) |
-| `08.12.106` | Broca MD Ø10,6 | 028, 029 SPEEDMAQ | Ø10,2 = `08.12.058` (ou Ø10,1 = `08.12.006`) |
-| `08.06.110` | Broca HSS (014) | 014 LUBRISYSTEM | prefixo 08.06 vai só até .105 — confirmar diâmetro no processo |
-**Sinal de alerta:** se o número do código "espelha" o diâmetro (Ø8,6→...086; Ø10,6→...106), quase certo
-que foi inventado — conferir no banco. Os outros 83 códigos históricos do parque conferem (não inventados).
+| `08.12.086` | Broca MD Ø8,6 | 027 SPEEDMAQ | `08.12.002` (Broca MD Ø8,5, −0,1mm) |
+| `08.12.106` | Broca MD Ø10,6 | 028, 029 SPEEDMAQ | `08.12.069` (Broca MD Ø10,5, −0,1mm) |
+| `08.06.110` | Alargador Ø18 (014) | 014 LUBRISYSTEM | Ø18 **pendência** — não há alargador Ø18 no parque, confirmar c/ Alexandre |
+
+Bônus no 014: a broca Ø16 estava com `08.06.095` (que é Ø0,70, errado) → corrigida p/ `08.06.075` (Broca
+HSS Ø16 real). Não há broca MD Ø16 no parque (só HSS).
+
+**Sinal de alerta:** se o número do código "espelha" o diâmetro (Ø8,6→...0**86**; Ø10,6→...1**06**), quase
+certo que foi inventado — conferir no banco. Regra: sem diâmetro exato, usar o real mais próximo (Ø±0,1mm
+p/ furo passante) OU pendência — NUNCA fabricar. Os outros 83 códigos do parque conferem.
 
 ---
 
