@@ -42,7 +42,7 @@ Tempos: Usinagem, Peças/hora, Usinagem+Troca, Tempo total, Retirar cavaco, Abas
 | CENTUR 30D | R$ 62,22 | R$ 93,33 | 1,0h |
 | G240 | R$ 83,15 | R$ 124,73 | 1,0h |
 | GL 280 | R$ 86,86 | R$ 130,29 | 1,0h |
-| **DOOSAN LYNX 220LM** | **R$ 96,35** | **R$ 144,53** | **1,0h** |
+| **DOOSAN LYNX 220LM** | **R$ 96,35** | **R$ 144,52** | **1,0h** |
 | VTC 30A | R$ 93,89 | R$ 140,84 | 1,0h |
 | DISCOVERY 560 (3 eixos) | R$ 112,65 | R$ 168,98 | 1,0h |
 | **DISCOVERY 760 (3 eixos)** | **R$ 121,49** | **R$ 182,24** | **1,0h** |

@@ -6,7 +6,7 @@ type: feedback
 
 Em PROCESSO_FABRICACAO para peças novas de baixo volume (lote <10), SEMPRE incluir nos Dados Gerais:
 
-1. **Setup:** tempo + **taxa 1,5× produção** (ex: R$ 144,53/h no LYNX)
+1. **Setup:** tempo + **taxa 1,5× produção** (ex: R$ 144,52/h no LYNX)
 2. **Programação CNC:** tempo estimado (mínimo 4h = meio dia para peça nova complexa)
 3. **Inspeção 1ª peça:** 0,5h para tolerâncias K6/h6
 4. **Custos fixos totais:** soma de setup + prog + inspeção (rateados no lote)

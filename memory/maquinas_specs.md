@@ -1,119 +1,114 @@
 ---
 name: especificacoes-maquinas-cnc-lasec
-description: "Specs completas das maquinas CNC da LASEC - Lynx 220LM, D760, GL280, Centur 30D - RPM, potencias, eixos, turret, live tooling"
+description: "Specs e CUSTO das maquinas CNC LASEC — espelho das 2 fontes de verdade (planilha de custo + knowledge tecnico). Consultar SEMPRE antes de definir taxa/parametro em orcamento"
 metadata: 
   node_type: memory
   type: reference
   originSessionId: d62f2772-e7fb-4f19-9d96-202795cc3680
-  modified: 2026-07-27T12:46:27.746Z
+  modified: 2026-07-27T14:00:55.657Z
 ---
 
-# Especificacoes Maquinas CNC LASEC
-# Dados confirmados: fabricante DN Solutions/Romi + chao de fabrica LASEC
-# CONSULTAR antes de definir parametros em qualquer orcamento ou pos-processador
+# Especificacoes + Custo das Maquinas CNC LASEC
 
-## Doosan LYNX 220LM (Torno CNC com Ferramenta Acionada)
-- **Tipo:** Torno CNC 3 eixos (X, Z, C) + ferramentas acionadas
-- **CNC:** Fanuc 0i-TF
-- **Ano:** 2016
+## ⚠️ FONTES DE VERDADE (consultar o original em caso de duvida — NUNCA inventar taxa)
+1. **CUSTO hora-maquina:** `D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls`, aba **"Custos 2026"**
+   (ler com `python3 + xlrd`; instalar com `python3 -m pip install xlrd` se faltar). Este arquivo abaixo é
+   um ESPELHO — se divergir da planilha, a PLANILHA vence e este arquivo deve ser re-sincronizado.
+2. **Dados TECNICOS** (rotacao, avanco, potencia, cursos, torre): `D:\IA MALELO\agente\knowledge\maquinas-lasec.md`
+   (8 maquinas, specs de fabricante). Improdutivo/tempos de troca abaixo vem de catalogo DN Solutions/Romi.
+- Ultima sincronizacao deste espelho com a planilha: **27/07/2026**.
 
-### Spindle Principal (Eixo-arvore)
-- **RPM max:** 6.000 RPM (confirmado catalogo DN Solutions)
-- **Potencia:** 15 kW (20 HP) continuo
-- **Torque:** 127 Nm (variante A / 6000 RPM)
-- **Nariz:** A2-5
-- **Furo spindle:** 51 mm
-- **Passagem barra:** 51 mm
-- **Limite seguranca blocos retangulares:** G92 S3000 (desbalanceamento)
+## CUSTO HORA-MAQUINA 2026 (espelho fiel da aba "Custos 2026")
+Base: planilha original "Centro de Custo Produtivo" (pre-roubo) × fator 1,1597 (IPCA 2023 4,62% + IPCA 2024
+4,83% + Dissidio Metalurgicos SP 2025/2026 5,74%). Atualizado 08/03/2026.
 
-### Ferramenta Acionada (Live Tooling)
-- **RPM max:** 6.000 RPM (confirmado catalogo DN Solutions)
-- **Potencia:** 3,7 kW (5 HP)
-- **Acionamento:** Servo driven
-- **Ligar:** M33 | **Desligar:** M35
-- **IMPORTANTE para vmid:** MaxSpin estacoes = 6000 (aceita acionada)
+| Cod | Recurso | Tipo | Original R$/h | Custo 2026 R$/h | Ativa? |
+|---|---|---|---:|---:|---|
+| 30 | Projeto CAD/CAM | CAD/CAM (nao e maquina) | 66,36 | **76,96** | — |
+| 31 | GL 280 | Torno/Centro Torneamento | 74,90 | **86,86** | ✅ ATIVA |
+| 32 | G240 | Torno CNC | 71,70 | **83,15** | legado |
+| 33 | DOOSAN LYNX 220LM | Torno CNC + Eixo C (live tool) | 83,08 | **96,35** | ✅ ATIVA |
+| 34 | DISCOVERY 560 | Centro Usinagem 3 eixos | 97,14 | **112,65** | legado |
+| 35 | DISCOVERY 760 | Centro Usinagem 3 eixos | 104,76 | **121,49** | ✅ ATIVA |
+| 35-4E | DISCOVERY 760 + 4º EIXO | Centro Usinagem 4 eixos | 104,76 | **151,86** | ✅ ATIVA (+25% s/ 3E) |
+| 36 | VTC 30A | Centro Usinagem 3 eixos | 80,96 | **93,89** | legado |
+| 37 | CENTUR 30D | Torno CNC | 53,65 | **62,22** | legado |
+| 38 | Serra | Serra | 25,89 | **30,02** | apoio |
 
-### Turret (Revolver)
-- **Tipo:** BMT45P
-- **Estacoes:** 24 posicoes (confirmado pelo Alexandre)
-- **Indexacao:** Servo, bidirecional (caminho mais curto)
-- **Tempo indexacao:** 0,11s por estacao
-- **Troca completa:** ~0,5s (retract + index + approach)
-- **Tool size OD:** 20mm x 20mm
-- **Max boring bar:** 32mm
+> **SO as 4 ATIVAS entram em custo de orcamento novo** (GL280, LYNX, D760 3E, D760 4E) — ver
+> [[projeto_maquinas_legado]]. As legado servem so como referencia tecnica dos programas CNC historicos.
 
-### Eixo C
-- **Resolucao:** 0,001 grau
-- **Posicionamento:** ~0,3s
+### Taxas de SETUP (1,5× producao) — direto da planilha (aba "Custos 2026", secao TAXAS DE SETUP)
+| Tipo | Producao R$/h | Setup R$/h (1,5×) | Setup min | Custo setup min |
+|---|---:|---:|---|---:|
+| Tornos CNC (GL, G240, CENTUR, LYNX) | 96,35 | **144,52** | 1,0h | 144,52 |
+| Centro Usinagem 3 eixos (D560, D760, VTC) | 121,49 | **182,24** | 1,0h | 182,24 |
+| Centro Usinagem 4 eixos (D760+4E) | 151,86 | **227,79** | 2,0h | 455,58 |
 
-### Cursos e Rapids
-| Eixo | Curso | Rapido |
-|------|-------|--------|
-| X | 175 mm (raio) = 350 mm (diametro) | 30 m/min |
-| Z | 550 mm (modelo LM bed longo) | 36 m/min |
-| C | +-100.000 graus (continuo) | 6.000 deg/min |
+> **Atencao ao arredondamento:** setup torno = 144,52 (a planilha calcula do valor sem arredondar:
+> 83,08 × 1,1597 × 1,5 = 144,52). NAO usar 144,53 (erro de arredondar 96,35 antes de multiplicar).
+> GL280 setup = 86,86 × 1,5 = 130,29. Centur setup = 62,22 × 1,5 = 93,33.
 
-### Capacidade
-- **Swing sobre barramento:** 510 mm
-- **Diametro max corte:** 320 mm
-- **Comprimento max torneamento:** 510 mm
-- **Contra-ponto:** Cone MT-4, quill 80mm
-
-### Custos e Operacao
-- **Custo interno:** R$ 96,35/h (planilha 2026 corrigida IPCA+Dissidio)
-- **Setup minimo:** 1,0h
-- **Operadores:** ANDRE, VITOR
-- **Programas CNC:** D:\PROG_CNC\LYNX220\
+### GRV 2024 — preco de mercado Grande SP (SO para validar competitividade, NUNCA como custo)
+| Tipo | GRV R$/h | LASEC custo | Margem potencial |
+|---|---:|---:|---:|
+| Torno CNC | 156,28 | 96,35 | +62,2% |
+| Centro 3 eixos | 189,78 | 121,49 | +56,2% |
+| Centro 4 eixos (est. +25%) | 237,22 | 151,86 | +56,2% |
 
 ---
 
-## Romi Discovery 760 (Centro de Usinagem Vertical)
-- **Tipo:** Centro de usinagem vertical + 4o eixo divisor
-- **ATC:** 22 ferramentas, carrossel bidirecional
-  - Troca chip-to-chip: 5,5s
-- **Spindle:** Max 7.500 RPM, ISO-40
-- **Rapids:** X/Y = 30 m/min | Z = 20 m/min
-- **4o eixo:** Divisor automatico, indexacao ~2s por posicao
-- **Custo interno 3-eixos:** R$ 121,49/h
-- **Custo interno 4-eixos:** R$ 151,86/h (+25%)
-- **Setup minimo:** 1,0h (3-eixos) | 2,0h (com 4o eixo)
-- **Programas CNC:** D:\PROG_CNC\DISCO760\
+## DADOS TECNICOS (das 4 ATIVAS — fonte: `agente/knowledge/maquinas-lasec.md` + catalogo)
 
-## Romi GL 280M (Centro de Torneamento)
-- **RPM max:** 4.500 RPM (confirmado por Alexandre 24/07/2026)
-- **Custo interno:** R$ 76,95/h
-- **Programas CNC:** D:\PROG_CNC\GL280\
+### Doosan LYNX 220LM (Torno CNC com Ferramenta Acionada) — cod 33
+- **Tipo:** Torno CNC 3 eixos (X, Z, C) + live tooling | **CNC:** Fanuc 0i-TF | **Ano:** 2016
+- **Spindle:** 6.000 RPM max | 15 kW (20 HP) | torque 127 Nm | nariz A2-5 | furo/passagem barra Ø51mm
+- **Limite seguranca bloco retangular:** G92 S3000 (desbalanceamento)
+- **Live tooling:** 6.000 RPM max | 3,7 kW (5 HP) | M33 liga / M35 desliga | (vmid MaxSpin estacoes = 6000)
+- **Turret:** BMT45P, **24 posicoes** (confirmado Alexandre) | indexacao 0,11s/estacao | troca completa ~0,5s
+  | tool OD 20×20mm | max boring bar 32mm
+- **Eixo C:** resolucao 0,001° | posicionamento ~0,3s
+- **Cursos/rapids:** X 175mm(raio) rapid 30 m/min | Z 550mm rapid 36 m/min | C continuo 6.000 deg/min
+- **Capacidade:** swing 510mm | Ø max corte 320mm | comp. torneamento 510mm | peca max 130kg | contra-ponto MT-4
+- **Custo:** R$96,35/h (setup R$144,52/h) | setup min 1,0h | operadores: ANDRE, VITOR | progs: `D:\PROG_CNC\LYNX220\`
 
-## RPM máximo por máquina (resumo rápido — confirmado por Alexandre 24/07/2026)
-| Máquina | RPM máx (spindle/live tool) |
+### Romi GL 280M (Centro de Torneamento) — cod 31
+- **Cabecote:** A2-6" → **4.500 RPM** | A2-8" → 3.500 RPM
+- **Motor:** 25 HP / 18,5 kW (alto torque) | guias lineares X e Z
+- **Torre:** 12 ferramentas | **Rapids:** X 30 m/min | Z 30 m/min | **CNC:** GE Fanuc 0i-TC
+- **Aplicacao:** pecas de maior diametro, cortes pesados, producao seriada
+- **Custo:** R$86,86/h (setup R$130,29/h) | setup min 1,0h | progs: `D:\PROG_CNC\GL280\`
+
+### Romi Discovery 760 (Centro de Usinagem Vertical) — cod 35 / 35-4E
+- **Spindle:** 7.500 RPM max, ISO-40 | **CNC:** Fanuc | serie Discovery (robusta, > que D560)
+- **ATC:** 22 ferramentas, carrossel bidirecional, troca chip-to-chip 5,5s
+- **Rapids:** X/Y 30 m/min | Z 20 m/min | **4º eixo:** divisor automatico, indexacao ~2s/posicao
+- **Fabricante: ROMI** (NAO Doosan — corrigido 27/07/2026 pela planilha/knowledge)
+- **Custo:** 3 eixos R$121,49/h (setup R$182,24/h, min 1,0h) | 4 eixos R$151,86/h (setup R$227,79/h, min 2,0h)
+- **Progs:** `D:\PROG_CNC\DISCO760\`
+
+> Specs tecnicas das maquinas LEGADO (CENTUR 30D/30S, G240, DISCOVERY 560, VTC 30A) estao em
+> `D:\IA MALELO\agente\knowledge\maquinas-lasec.md` — consultar so como referencia de programa historico.
+
+## RPM: limite da MAQUINA vs limite da FERRAMENTA (o MENOR vence)
+| Maquina | RPM max spindle |
 |---|---|
-| Doosan LYNX 220LM | 6.000 |
-| Romi Discovery 760 (centro) | 7.500 |
-| Romi GL 280M | 4.500 |
+| LYNX 220LM | 6.000 |
+| Discovery 760 | 7.500 |
+| GL 280M | 4.500 |
 
-**IMPORTANTE — limite da FERRAMENTA pode ser menor que o da máquina:** brocas pequenas (Ø≤3mm) têm limite
-prático de RPM bem abaixo do spindle máximo da máquina, mesmo em máquinas rápidas (D760 chega a 7.500 RPM,
-mas a broca de Ø3mm não aguenta isso). **Regra validada: brocas de Ø3mm — máximo 3.000 RPM**, independente
-da máquina usada. Nunca calcular RPM só a partir de Vc de tabela sem checar contra o limite real da
-ferramenta E da máquina — o menor dos dois vence. Incidente 049/2026 ENGEPLAST: assumi S8000 para broca
-Ø3,2mm (nem a máquina nem a broca suportam), Alexandre corrigiu para S3000.
+**Limite da ferramenta pode ser MENOR que o da maquina.** Ex.: broca Ø3mm — maximo **3.000 RPM** mesmo no
+D760 (7.500). Nunca aceitar o RPM que sai puro da formula (Vc×1000/πD) sem checar contra os dois limites.
+Incidente 049/2026 ENGEPLAST: calculei S8000 para broca Ø3,2mm (nem maquina nem broca aguentam) — Alexandre
+corrigiu para S3000.
 
-## Romi Centur 30D (Torno CNC)
-- **Custo interno:** R$ 60,48/h
-- **Capacidade:** Diametro max ~430mm
-- **Programas CNC:** D:\PROG_CNC\CENTU30D\
+## Improdutivo por maquina (para calculo de ciclo)
+- **LYNX:** turret 0,11s/estacao, troca completa ~0,5s, rapid X 30 / Z 36 m/min, C-axis ~0,3s/pos, M33/M35 ~0,5s
+- **D760:** ATC 5,5s chip-to-chip, rapid X/Y 30 / Z 20 m/min, 4º eixo ~2s/pos
+- **Manipulacao do operador (linha SEPARADA):** torno em castanha ~2,0 min | centro morsa+4ºeixo ~3,0 min
+  — NAO usar "1 min" de improdutivo por chute (ver `regras_usinagem.md`)
 
-## Torno Universal (01)
-- **Custo interno:** R$ 38,62/h
-
-## Selecao de Maquina (regras)
-- Pecas cilindricas simples: Tornos (CENTU, GL, LYNX)
-- Pecas prismaticas/fresamento: Centros (DISCO, VTC)
-- Torneamento + fresamento combinado: LYNX 220LM (ferramenta acionada)
-- Furacoes multi-face com 4o eixo: Discovery 760
-
-## Fontes de Dados
-- Planilha custos: D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls
-- Specs fabricante: Sites DN Solutions (Doosan) e Romi
-- Programas historicos: D:\PROG_CNC\[MAQUINA]\
-- Banco CNC: D:\IA MALELO\banco_dados\PROG_CNC_DATABASE_v3.json
+## Selecao de Maquina
+- Cilindricas simples → tornos (GL280, LYNX) | prismaticas/fresamento → centro (D760)
+- Torneamento + fresamento combinado → LYNX 220LM (live tool) | furacao multi-face com 4º eixo → D760
+- Furacao ≥M10/Ø9mm no torno → vai pro D760 (live tool LYNX 3,7kW nao comporta) — ver `feedback_live_tool_limite_ferramental.md`

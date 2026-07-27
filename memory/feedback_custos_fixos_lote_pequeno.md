@@ -1,7 +1,11 @@
 ---
-name: CRITICO - Custos fixos em lotes pequenos e prototipos
-description: REGRA OBRIGATORIA — Programação, setup e inspeção em lotes pequenos (<10 pç) SEMPRE cobrados a taxa SETUP (1,5× produção), NUNCA a taxa produção. Erro causou prejuízo real no orçamento 022/2026 SPEEDMAQ.
-type: feedback
+name: critico-custos-fixos-em-lotes-pequenos-e-prototipos
+description: "REGRA OBRIGATORIA — Programação, setup e inspeção em lotes pequenos (<10 pç) SEMPRE cobrados a taxa SETUP (1,5× produção), NUNCA a taxa produção. Erro causou prejuízo real no orçamento 022/2026 SPEEDMAQ."
+metadata: 
+  node_type: memory
+  type: feedback
+  originSessionId: d62f2772-e7fb-4f19-9d96-202795cc3680
+  modified: 2026-07-27T14:02:00.554Z
 ---
 
 ## REGRA CRÍTICA — CUSTOS FIXOS EM LOTES PEQUENOS / PROTOTIPAGEM
@@ -17,7 +21,7 @@ type: feedback
 
 ### TAXAS LASEC 2026:
 - Produção LYNX: R$ 96,35/h
-- **Setup/Prog/Inspeção LYNX: R$ 144,53/h (1,5×)**
+- **Setup/Prog/Inspeção LYNX: R$ 144,52/h (1,5×)**
 - Produção D760 3-eixos: R$ 121,49/h
 - **Setup/Prog/Inspeção D760: R$ 182,24/h (1,5×)**
 
@@ -40,10 +44,10 @@ type: feedback
 
 ### EXEMPLO CORRETO (LYNX 2026):
 ```
-Setup:       1,0h × R$ 144,53/h = R$ 144,53
-Programação: 4,0h × R$ 144,53/h = R$ 578,12  (NÃO R$ 385,40!)
-Inspeção:    0,5h × R$ 144,53/h = R$  72,27  (NÃO R$  48,18!)
-TOTAL FIXOS: R$ 794,92            (NÃO R$ 578,11!)
+Setup:       1,0h × R$ 144,52/h = R$ 144,52
+Programação: 4,0h × R$ 144,52/h = R$ 578,08  (NÃO R$ 385,40!)
+Inspeção:    0,5h × R$ 144,52/h = R$  72,26  (NÃO R$  48,18!)
+TOTAL FIXOS: R$ 794,86            (NÃO R$ 578,11!)
 ```
 
 ### NUNCA MAIS:

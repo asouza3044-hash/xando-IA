@@ -3,6 +3,7 @@
 # Manter enxuto (<150 linhas) — detalhes nos arquivos tematicos
 
 ## Feedbacks
+- [**CRÍTICO $$$** Taxa de máquina vem da PLANILHA, não de cabeça](feedback_fonte_verdade_custos_planilha.md) — custo em `custos_ferramentaria lasec.xls` (aba Custos 2026); specs técnicas em `agente/knowledge/maquinas-lasec.md`. GL280 estava errado (76,95 vs 86,86 real). SEMPRE conferir a fonte
 - [Origem do layout de proposta 1-página](template_proposta_1pagina.md) — layout aprovado nasceu na 022/SPEEDMAQ; hoje vive como template `PROPOSTA_COMERCIAL_PADRAO_1FOLHA.html`
 - [**CRÍTICO** git checkout sem checar diff antes](feedback_git_checkout_sem_checar.md) — SEMPRE `git diff` antes de checkout/reset/clean em arquivo que não editei nesta sessão. Incidente 24/07/2026: descartei mudança não commitada de outra sessão (IMPAKTTO) sem checar
 - [D760 também por falta de espaço na torre](feedback_d760_capacidade_torre.md) — não só limite Ø8mm de potência, torre BMT45P (24 pos.) pode saturar em peças com muitas ferramentas
@@ -43,7 +44,7 @@
 |---------|----------|------------|
 | `financeiro.md` | Financeiro: 325 txs, categorias, parser PicPay | Assunto financeiro |
 | `regras_usinagem.md` | Regras Alexandre, sequencias, specs improdutivo | SEMPRE em orcamento |
-| `maquinas_specs.md` | Specs LYNX, D760, GL280, Centur | Ao definir maquina/tempos |
+| `maquinas_specs.md` | **CUSTO + specs (espelho da planilha-fonte)** — LYNX/GL280/D760/legado | **SEMPRE ao definir maquina/taxa/tempo** |
 | `pos_processador_regras.md` | Regras pos SolidCAM, vmid | Ao editar pos-processador |
 | `parametros_corte.md` | Vc/RPM/avanco validados | Ao definir dados de corte |
 | `fluxo_trabalho.md` | Como trabalhar, retroalimentar | SEMPRE no inicio |

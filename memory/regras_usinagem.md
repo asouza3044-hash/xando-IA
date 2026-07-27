@@ -187,7 +187,7 @@
 - **SOMENTE MOD (maquina rodando pecas) usa taxa producao**
 - **Custos fixos = 60-70% do custo unitario em lotes pequenos** (confirmado 023/2026)
 - NUNCA orcar lote <10 apenas com setup de maquina — incluir TODOS custos de engenharia
-- **ERRO GRAVE 022/2026:** Programacao cobrada a taxa producao (R$ 96,35/h) em vez de setup (R$ 144,53/h) — causou prejuizo real ao Alexandre
+- **ERRO GRAVE 022/2026:** Programacao cobrada a taxa producao (R$ 96,35/h) em vez de setup (R$ 144,52/h) — causou prejuizo real ao Alexandre
 - **VERIFICACAO:** Se custos fixos < 60% do custo unitario em lote <10 → PARAR e conferir taxas
 - Data: 17/03/2026, CORRIGIDO CRITICAMENTE 25/03/2026
 

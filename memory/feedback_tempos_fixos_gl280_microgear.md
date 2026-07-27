@@ -25,9 +25,9 @@ modified: 2026-07-27T13:41:18.842Z
 
 | Item | Tempo | Taxa |
 |------|-------|------|
-| Programação LYNX | 1,0h | R$144,53/h |
-| Setup LYNX | 1,0h | R$144,53/h |
-| Inspeção LYNX | 0,5–1,0h | R$144,53/h |
+| Programação LYNX | 1,0h | R$144,52/h |
+| Setup LYNX | 1,0h | R$144,52/h |
+| Inspeção LYNX | 0,5–1,0h | R$144,52/h |
 
 ## Referência: impacto de cada hora GL280 no preço
 

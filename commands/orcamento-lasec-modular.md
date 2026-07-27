@@ -160,8 +160,10 @@ Ordenar por % decrescente, mostrar top 3 (minimo 60%).
 
 ### Bases complementares (cruzar quando necessario)
 1. BD Codigos MINIPCP (`MINIPCP.csv`) — codigos de ferramentas
-2. Custo Interno (`custos_ferramentaria lasec.xls`) — taxas maquina
-3. GRV Mercado (`tabela_precos_hora_maquina_grv_2024.md`) — validacao preco
+2. **Custo Interno = FONTE DE VERDADE das taxas: `custos_ferramentaria lasec.xls` aba "Custos 2026"**
+   (espelho em `memory/maquinas_specs.md`). NUNCA copiar taxa de cabeça/orçamento antigo sem conferir a
+   fonte — ver `feedback_fonte_verdade_custos_planilha.md`. Specs técnicas (RPM/avanço/potência): `agente/knowledge/maquinas-lasec.md`
+3. GRV Mercado (`tabela_precos_hora_maquina_grv_2024.md`) — validacao preco (NUNCA como custo)
 
 ### Sync
 - Sync e a ultima etapa antes de declarar o orcamento pronto

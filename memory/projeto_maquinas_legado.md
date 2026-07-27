@@ -1,7 +1,11 @@
 ---
-name: Máquinas LASEC — ativas vs legado vendido
-description: Apenas 4 máquinas ativas no chão (LYNX, D760 3/4-eixos, GL280). Demais foram vendidas mas programas CNC delas são patrimônio histórico
-type: project
+name: m-quinas-lasec-ativas-vs-legado-vendido
+description: "Apenas 4 máquinas ativas no chão (LYNX, D760 3/4-eixos, GL280). Demais foram vendidas mas programas CNC delas são patrimônio histórico"
+metadata: 
+  node_type: memory
+  type: project
+  originSessionId: d62f2772-e7fb-4f19-9d96-202795cc3680
+  modified: 2026-07-27T14:02:30.123Z
 ---
 
 ## Máquinas ATIVAS (chão de fábrica 2026)
@@ -10,10 +14,12 @@ type: project
 |---|---|---:|---:|
 | **Romi GL 280M** | Centro de torneamento | R$ 86,86/h | 1,0h |
 | **Doosan LYNX 220LM** | Torno CNC c/ live tooling | R$ 96,35/h | 1,0h |
-| **Doosan D760** (3 eixos) | Centro vertical | R$ 121,49/h | 1,0h |
-| **Doosan D760** (4 eixos) | Centro vertical c/ 4º eixo (+25%) | R$ 151,86/h | 2,0h |
+| **Romi Discovery 760** (3 eixos) | Centro vertical | R$ 121,49/h | 1,0h |
+| **Romi Discovery 760** (4 eixos) | Centro vertical c/ 4º eixo (+25%) | R$ 151,86/h | 2,0h |
 
-→ **Toda formulação de custo deve usar SOMENTE estas 4 taxas**.
+→ **Toda formulação de custo deve usar SOMENTE estas 4 taxas.** Fonte de verdade das taxas:
+`custos_ferramentaria lasec.xls` aba "Custos 2026" (espelho consolidado em [[especificacoes-maquinas-cnc-lasec]]).
+Correção 27/07/2026: o D760 é **Romi** (Discovery), não Doosan — só LYNX é Doosan.
 
 ## Máquinas LEGADO (vendidas, NÃO usar para custo)
 

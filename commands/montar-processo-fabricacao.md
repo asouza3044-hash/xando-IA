@@ -168,6 +168,11 @@ Tempo roscamento G84 = (profundidade / (RPM × passo)) × 2  (ida + volta)
 
 ## Passo 8 — Custos fixos SEMPRE na taxa 1,5×
 
+- **Taxa de máquina vem da FONTE, nunca de cabeça:** conferir contra `memory/maquinas_specs.md` (espelho
+  da planilha `custos_ferramentaria lasec.xls` aba "Custos 2026") e, na menor dúvida, reabrir a planilha.
+  Ativas: GL280 R$86,86/h (setup 130,29) | LYNX R$96,35/h (setup 144,52) | D760-3E R$121,49/h (setup
+  182,24) | D760-4E R$151,86/h (setup 227,79). Ver `feedback_fonte_verdade_custos_planilha.md` — GL280 já
+  esteve errado na memória (76,95 vs 86,86 real)
 - Setup, programação CNC/CAM, inspeção 1ª peça, validação de qualidade → **SEMPRE taxa setup (1,5×
   produção)**, nunca taxa produção — erro já causou prejuízo real (022/2026). Ver
   `feedback_custos_fixos_lote_pequeno.md`
