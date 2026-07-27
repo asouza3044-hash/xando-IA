@@ -1,7 +1,11 @@
 ---
-name: Especificacoes Maquinas CNC LASEC
-description: Specs completas das maquinas CNC da LASEC - Lynx 220LM, D760, GL280, Centur 30D - RPM, potencias, eixos, turret, live tooling
-type: reference
+name: especificacoes-maquinas-cnc-lasec
+description: "Specs completas das maquinas CNC da LASEC - Lynx 220LM, D760, GL280, Centur 30D - RPM, potencias, eixos, turret, live tooling"
+metadata: 
+  node_type: memory
+  type: reference
+  originSessionId: d62f2772-e7fb-4f19-9d96-202795cc3680
+  modified: 2026-07-27T12:46:27.746Z
 ---
 
 # Especificacoes Maquinas CNC LASEC
@@ -76,8 +80,23 @@ type: reference
 - **Programas CNC:** D:\PROG_CNC\DISCO760\
 
 ## Romi GL 280M (Centro de Torneamento)
+- **RPM max:** 4.500 RPM (confirmado por Alexandre 24/07/2026)
 - **Custo interno:** R$ 76,95/h
 - **Programas CNC:** D:\PROG_CNC\GL280\
+
+## RPM máximo por máquina (resumo rápido — confirmado por Alexandre 24/07/2026)
+| Máquina | RPM máx (spindle/live tool) |
+|---|---|
+| Doosan LYNX 220LM | 6.000 |
+| Romi Discovery 760 (centro) | 7.500 |
+| Romi GL 280M | 4.500 |
+
+**IMPORTANTE — limite da FERRAMENTA pode ser menor que o da máquina:** brocas pequenas (Ø≤3mm) têm limite
+prático de RPM bem abaixo do spindle máximo da máquina, mesmo em máquinas rápidas (D760 chega a 7.500 RPM,
+mas a broca de Ø3mm não aguenta isso). **Regra validada: brocas de Ø3mm — máximo 3.000 RPM**, independente
+da máquina usada. Nunca calcular RPM só a partir de Vc de tabela sem checar contra o limite real da
+ferramenta E da máquina — o menor dos dois vence. Incidente 049/2026 ENGEPLAST: assumi S8000 para broca
+Ø3,2mm (nem a máquina nem a broca suportam), Alexandre corrigiu para S3000.
 
 ## Romi Centur 30D (Torno CNC)
 - **Custo interno:** R$ 60,48/h
