@@ -88,6 +88,11 @@ Informar ao Alexandre:
 - SEMPRE copiar template aprovado e editar somente os dados
 - SEMPRE copiar `simbolo-lasec.jpg` para a pasta do orcamento
 - Templates em: `D:\IA MALELO\templates\orcamento-lasec-hmtl\`
+- **PROPOSTA_COMERCIAL: usar `PROPOSTA_COMERCIAL_PADRAO_1FOLHA.html` — NUNCA `PROPOSTA_COMERCIAL.html`**
+  (esse é o layout antigo multi-página; o `_PADRAO_1FOLHA` é o layout 1-página testado em 047/048/049,
+  compatível com o script PDF CDP scale 0.78)
+- ANALISE_BREAK_EVEN: sem template fixo na pasta — usar como referência o orçamento mais recente que
+  já tenha esse documento (ex.: `048_SPEEDMAQ_VAP-U2003\048_SPEEDMAQ_ANALISE_BREAK_EVEN.html`)
 
 ### Estado do orçamento
 - `memory/orcamentos_estado.md` é o registro central de todos os orçamentos — atualizar conforme avanço

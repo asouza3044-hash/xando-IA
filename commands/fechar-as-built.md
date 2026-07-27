@@ -46,10 +46,16 @@ Com os números validados (e aprovados) do Passo 2:
 
 Se o orçamento ainda não tiver os 6 documentos completos, gerar os que faltam
 (`ANALISE_VIABILIDADE_LOTES`, `ANALISE_BREAK_EVEN`, `PROPOSTA_COMERCIAL`) usando SEMPRE os
-templates aprovados de `D:\IA MALELO\templates\orcamento-lasec-hmtl\` (ou o orçamento de
-referência `008_MICROGEAR_TR1.07.02.033` quando não houver template, ex: BREAK_EVEN) — nunca
-criar HTML do zero. Isso segue exatamente as regras já definidas em `/orcamento-lasec-modular`,
-não uma lógica nova.
+templates aprovados — nunca criar HTML do zero:
+- `ANALISE_VIABILIDADE_LOTES`: `D:\IA MALELO\templates\orcamento-lasec-hmtl\ANALISE_VIABILIDADE_LOTES.html`
+- `ANALISE_BREAK_EVEN`: sem template dedicado na pasta de templates — usar como referência
+  `D:\IA MALELO\orcamentos\2026\SPEEDMAQ\048_SPEEDMAQ_VAP-U2003\048_SPEEDMAQ_ANALISE_BREAK_EVEN.html`
+  (mais recente/atualizado que o antigo `008_MICROGEAR_TR1.07.02.033\ANALISE_BREAK_EVEN_008.html`)
+- `PROPOSTA_COMERCIAL`: **usar `D:\IA MALELO\templates\orcamento-lasec-hmtl\PROPOSTA_COMERCIAL_PADRAO_1FOLHA.html`
+  — NUNCA `PROPOSTA_COMERCIAL.html`** (esse é o layout antigo, multi-página, que não segue a regra de
+  1 página). O `_PADRAO_1FOLHA` é o layout com `.page-container`/`.cta`/`.spacer` já testado (047/048/049)
+
+Isso segue exatamente as regras já definidas em `/orcamento-lasec-modular`, não uma lógica nova.
 
 Lembrar: `PROPOSTA_COMERCIAL` nunca expõe hora-máquina, tempo, nome de máquina, custo interno,
 markup ou taxas indiretas.
@@ -61,8 +67,12 @@ markup ou taxas indiretas.
 2. Checkpoint por evento (ver `feedback_checkpoint_95.md`)
 3. SYNC nos 4 destinos (Local já é fonte de verdade + GitHub commit/push + VM Oracle via SCP +
    OneDrive via robocopy) — sempre ANTES de dizer "pronto" (`projeto_backup_infra.md`)
-4. Se pedido, gerar PDF da proposta via script CDP (`D:\IA MALELO\templates\gerar_pdf_proposta.py`,
-   scale 0.78) — nunca print-to-pdf do Edge
+4. Se pedido, gerar PDF da proposta via script CDP — nunca print-to-pdf do Edge. `gerar_pdf_proposta.py`
+   é um MODELO com os caminhos (HTML de entrada, PDF de saída) e a porta de debug fixos para um orçamento
+   específico (046) — **copiar para `gerar_pdf_proposta_<numero>.py`, editar HTML/PDF_OUT/PORT para o
+   orçamento atual** (usar uma porta não usada por outro orçamento na mesma sessão, ex. 9227, 9228...) e
+   rodar essa cópia. Rodar o arquivo original sem editar gera o PDF do orçamento errado. Manter scale 0.78
+   e conferir 1 página (`/Count 1` no PDF) antes de considerar pronto
 
 ## O que esta skill explicitamente NÃO faz
 
