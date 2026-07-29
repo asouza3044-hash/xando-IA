@@ -4,7 +4,7 @@
 
 ### 050/2026 — ENGEPLAST Bico ROMI PCO28 (Alta e Baixa)
 - **Diretório:** `D:\IA MALELO\orcamentos\2026\ENGEPLAST\050_ENGEPLAST_BICO-PCO28\`
-- **Estado (27/07/2026):** PROCESSO **APROVADO** por Alexandre ("aprovado, pode seguir"). **6/6 documentos gerados** (PROCESSO+CUSTO+PRECO+VIABILIDADE+BREAK_EVEN+PROPOSTA).
+- **Estado (29/07/2026):** PROCESSO **ENCERRADO** (gate marcado como aprovado/fechado no HTML). **6/6 documentos gerados** (PROCESSO+CUSTO+PRECO+VIABILIDADE+BREAK_EVEN+PROPOSTA).
 - **Custo:** R$30,61/pç (R$918,31/30pç) | **Preço NFe:** R$46,36/pç → **R$1.390,86 total** (markup ×1,5147) | Break-even 18 pç (pedido +67%), margem 34%
 - **Próximo passo:** sincronizar 4 destinos, gerar PDF proposta se pedido, enviar ao cliente
 - **Peça:** bico duplo (ponta alta + baixa), 1 código, 30 un. Alumínio **MP do cliente** (custo zero). Anodização dura **por conta do cliente** (não inclusa).
