@@ -1,6 +1,16 @@
 # Estado dos Orcamentos LASEC
 # ATUALIZAR sempre que estado mudar
-# Proximo numero: 051/2026
+# Proximo numero: 052/2026
+
+### 051/2026 — MICROGEAR Anel/Engrenagem (blank) 1.60.00.911/010
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\051_MICROGEAR_ANEL_1.60.00.911\`
+- **Estado (29/07/2026):** PROCESSO **APROVADO**. **6/6 documentos gerados** (PROCESSO+CUSTO+PRECO_NFE+VIABILIDADE+BREAK_EVEN+PROPOSTA), todos revisados após correção D760-3E + markup 20%.
+- **Peça:** anel/engrenagem (blank), SAE 1045, barra Ø3-3/4"(95,25mm), 0,147kg, lote 200pç. **2 máquinas/2 operações:** GL280 (programa real O4031, fixação única, torneamento completo) + D760-3E (2ª operação, canais Ø20 face+diâmetro, fresa Ø10mm — dispositivo posiciona as 2 posições opostas, SEM 4º eixo, confirmado 29/07). Desenho original marca "Serviço Externo" mas produção real foi feita internamente no GL280 (as-built).
+- **Tempo de custo:** GL280 4,75 min/pç (dia 24/06/2026, 565min/119pç, sem paradas) + D760-3E 4,0 min/pç (informado por Alexandre) = **8,75 min/pç ciclo total**. Dias 22/06 (setup+try-out) e 23/06 (paradas sem horário registrado) descartados do cálculo do GL280.
+- **Correção 29/07:** N50 do programa NÃO é o canal Ø20 (é alívio de processo); bedame N60 faz chanfro interno + corte; pastilha de torneamento corrigida para WNMG060408 (CCMT060204 era frágil demais); D760 é 3 eixos, não 4.
+- **Ferramentas:** códigos MINIPCP reais mas INFERIDOS por tipo de operação (sem ficha de ferramental disponível) — pedido explícito do Alexandre. Pendências: suporte do canal interno e do bedame não localizados; fresa Ø10 da 2ª operação inferida (08.11.019).
+- **Custo (revisado 29/07, D760-3E):** R$21,65/pç (R$4.329,94/200pç) | **Preço NFe (markup 20%/×1,3464, padrão MICROGEAR):** R$29,15/pç → R$5.829,83 total | Break-even 57 pç (pedido +251%), margem 25,7%.
+- **Próximo passo:** sincronizar 4 destinos (GitHub/VM/OneDrive), depois enviar proposta ao cliente.
 
 ### 050/2026 — ENGEPLAST Bico ROMI PCO28 (Alta e Baixa)
 - **Diretório:** `D:\IA MALELO\orcamentos\2026\ENGEPLAST\050_ENGEPLAST_BICO-PCO28\`
@@ -194,7 +204,23 @@
 - **Estado final:** proposta ENVIADA ao cliente por Alexandre (27/07/2026) — orçamento fechado, nenhuma pendência
 - **Última sessão:** 24/07/2026
 
-## Proximo numero disponivel: 050/2026
+### 052/2026 — MICROGEAR Bucha Simples 8x55 (Ø8x16mm)
+- **Diretório:** `D:\IA MALELO\orcamentos\2026\MICROGEAR\052_MICROGEAR_BUCHA_8X55\`
+- **Estado (07/08/2026):** PROCESSO **APROVADO** por Alexandre. **6/6 documentos gerados** (PROCESSO+CUSTO+PRECO_NFE+VIABILIDADE+BREAK_EVEN+PROPOSTA), **revisados 2x** após correção de Alexandre ("precisa cair, isso é pç de uns R$3").
+- **REVISÃO FINAL:** setup reduzido 1,0h→0,25h, programação 0,5h→0,15h, markup MICROGEAR 20%→**10%** (×1,2342, fator 1,02×1,10×1,10) — **exceção pontual confirmada por Alexandre só para este item trivial**, NÃO altera a regra padrão MICROGEAR de 20% (`feedback_precificacao_microgear.md` continua valendo para peças normais).
+- **Lote mínimo definido: 100 peças** — R$3,92/pç, total R$392,26. Break-even calculado: pra cravar R$3,00/pç flat sem prejuízo, mínimo técnico é 134pç (Fixos R$72,26 com CIF ÷ margem R$0,54/pç); 100pç foi escolhido por ser número redondo, preço próximo (R$3,92 vs R$3,77). Piso teórico (lote infinito): R$3,03/pç. Reposições: 200pç R$3,48 | 500pç R$3,21.
+- **Custo fixo revisado:** R$57,81/lote (R$72,26 com CIF) = Setup 0,25h (R$36,13) + Programação 0,15h (R$21,68). Custo variável inalterado: R$1,9645/pç (R$2,46 com CIF).
+- **Próximo passo:** enviar proposta ao cliente; sync 4 destinos se solicitado.
+- **Preços por lote (markup 20%, ×1,3464):** 10pç R$39,79/pç | 25pç R$17,90 | 50pç R$10,60 | 100pç R$6,95 | 200pç R$5,13 | 500pç R$4,04 — margem constante 25,7% em qualquer lote (preço é sempre custo×1,3464, não há break-even clássico aqui)
+- **Custo fixo do lote:** R$270,98 (com CIF) = Setup LYNX 1,0h (R$144,52) + Programação 0,5h (R$72,26), ambos ×1,25 CIF. Custo variável: R$2,46/pç (MOD LYNX 1,20min + furadeira 0,15min, com CIF)
+- **Peça:** bucha simples, aço SAE 1045, barra Ø8mm (MP fornecida MICROGEAR, custo material ZERO). Ø externo 8±0,1 (=barra, sem torneamento OD), furo Ø5,5±0,2 passante (só broca, sem mandrilhar), comprimento 16(+0,1/-0,2), R0,3±0,1 nas duas pontas do furo via escariador (frente no LYNX, fundo em furadeira/ajudante básico R$15/h — sem código MINIPCP, confirmado por Alexandre). Rugosidade Ra3,2 no furo.
+- **Cliente pediu o LOTE MÍNIMO de fabricação (não informou quantidade)** — sem regra prévia na memória; vai ser respondido via ANALISE_VIABILIDADE_LOTES/BREAK_EVEN depois do gate aprovado.
+- **Máquina:** LYNX (torno bar-fed), sem programa CNC similar no BD (cache MICROGEAR/bucha só tem bronze em máquinas legado).
+- **Ferramental confirmado:** broca MD Ø5,5 (08.12.004, escolha do Alexandre — MD por durabilidade em série), bedame DGN4003C IC20 aço geral (08.07.068), facear WNMG060408 (08.07.096)+DWLNR2525M06 (08.08.040). Escariador (R0,3, dois lados): SEM código MINIPCP — ferramenta de bancada, confirmado.
+- **Tempo:** LYNX 1,20 min/pç (50 pç/h, ritmo real informado por Alexandre 45-55 pç/h — substituiu a estimativa por fórmula, que tinha dado só ~26 pç/h). Furadeira (escariar fundo, ajudante básico R$15/h): 0,15 min/pç ESTIMATIVA, não medida. Programação CNC 0,5h (confirmado, peça simples). Setup 1,0h (padrão).
+- **Próximo passo:** aguardar "aprovado" do Alexandre no PROCESSO_FABRICACAO, depois seguir CUSTO→PREÇO NFe (markup MICROGEAR sempre 20%, ×1,3464)→VIABILIDADE→BREAK_EVEN (aqui responder o lote mínimo)→PROPOSTA.
+
+## Proximo numero disponivel: 053/2026 (052 em andamento)
 
 ## Banco de Dados CNC (atualizado 2026-03-06)
 - `PROG_CNC_DATABASE_v3.json` — 11.547 programas com dados de corte

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudo de Custo de Fabricação - BUCHA 8X55 - MICROGEAR</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 12px; text-align: center; font-size: 11px; text-transform: uppercase; }
+td { padding: 10px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+.destaque { background-color: #d4edda !important; font-weight: bold; border: 2px solid #28a745; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.alerta-importante h4 { margin-top: 0; color: #856404; }
+.calculo-detalhado { background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 15px 0; }
+.calculo-linha { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #ccc; }
+.destaque-calc { font-weight: bold; color: #1e3c72; border-bottom: 2px solid #1e3c72 !important; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">ESTUDO DE CUSTO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Bucha Simples 8x55 (Ø8x16mm)</div>
+        <div class="document-subtitle">Orçamento 052/2026 — MICROGEAR</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="alerta-importante">
+    <h4>DADOS DE REFERÊNCIA LASEC 2026</h4>
+    <p><strong>Hora-máquina LYNX (produção):</strong> R$ 96,35/hora | <strong>(setup — 1,5×):</strong> R$ 144,52/hora (fonte: planilha custos_ferramentaria lasec.xls aba "Custos 2026")</p>
+    <p><strong>Ajudante básico (furadeira/bancada):</strong> R$ 15,00/hora — confirmado por Alexandre, fora da tabela de máquinas</p>
+    <p><strong>CIF:</strong> 25% sobre (Fixos + MOD) | <strong>Material:</strong> R$ 0,00 — SAE 1045 <strong>fornecido pelo cliente</strong>, padrão MICROGEAR</p>
+</div>
+
+<div class="info-box">
+    <h3>Dados do Pedido</h3>
+    <p><strong>Cliente:</strong> MICROGEAR | <strong>Peça:</strong> Bucha simples 8x55, barra Ø8mm, aço SAE 1045</p>
+    <p><strong>Máquina:</strong> Doosan LYNX 220LM (torno bar-fed, operação única) + operação secundária de bancada (furadeira)</p>
+    <p><strong>Lote:</strong> <strong>cliente pediu o lote mínimo de fabricação, sem quantidade fixa</strong> — este documento mostra o custo como fórmula (fixo + variável) e uma tabela de referência; o lote mínimo recomendado é respondido em ANALISE_BREAK_EVEN</p>
+    <p><strong>Ciclo aprovado (PROCESSO rev.0):</strong> LYNX 1,20 min/pç (50 pç/h, ritmo real 45-55 pç/h informado por Alexandre) + furadeira 0,15 min/pç (estimativa)</p>
+    <p><strong>Fonte de tempo:</strong> ESTIMATIVA DE ENGENHARIA — ritmo do LYNX é dado real de experiência do Alexandre (não fórmula teórica); tempo da furadeira é estimativa não medida</p>
+</div>
+
+<div class="section-title">1. Estrutura de Custo — Fórmula (Fixo + Variável × N)</div>
+<div class="calculo-detalhado">
+    <div class="calculo-linha"><span><strong>1. Custos Fixos (taxa setup 1,5×, por lote — independe da quantidade)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Setup LYNX (reduzido — confirmado Alexandre, peça trivial): 0,25h × R$144,52</span><span>R$ 36,13</span></div>
+    <div class="calculo-linha"><span>• Programação CNC (reduzido — confirmado Alexandre): 0,15h × R$144,52</span><span>R$ 21,68</span></div>
+    <div class="calculo-linha destaque-calc"><span>Custos Fixos Total (0,40h)</span><span>R$ 57,81</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>2. MOD variável (taxa produção, por peça)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• LYNX: 1,20 min × R$96,35/h ÷ 60</span><span>R$ 1,93/pç</span></div>
+    <div class="calculo-linha"><span>• Furadeira (ajudante): 0,15 min × R$15,00/h ÷ 60</span><span>R$ 0,04/pç</span></div>
+    <div class="calculo-linha destaque-calc"><span>MOD Variável Total</span><span>R$ 1,96/pç</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>3. Material</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• SAE 1045, barra fornecida pelo cliente (padrão MICROGEAR)</span><span>R$ 0,00</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px;"><span><strong>4. CIF (25% sobre Fixos+MOD)</strong></span><span></span></div>
+    <div class="calculo-linha"><span>• Aplicado sobre o total do lote, ver fórmula abaixo</span><span>—</span></div>
+
+    <div class="calculo-linha" style="margin-top: 20px; border-top: 3px solid #1e3c72; padding-top: 15px; font-size: 15px; font-weight: bold; color: #1e3c72;">
+        <span>CUSTO POR PEÇA = (R$57,81 ÷ N) + R$2,4556</span><span></span>
+    </div>
+    <div style="font-size: 10pt; color: #666; margin-top: 4px;">(a parcela R$2,4556/pç já inclui os 25% de CIF sobre a MOD variável; a parcela fixa R$57,81 também recebe CIF antes de dividir por N — fórmula fechada: Custo/pç = 1,25 × [(57,81 ÷ N) + 1,9645])</div>
+</div>
+
+<div class="section-title">2. Custo por Peça — Tabela de Referência por Lote</div>
+<table>
+    <thead><tr><th>Lote (N)</th><th>Fixos/pç</th><th>MOD+CIF/pç</th><th>Custo/pç</th><th>Custo Total do Lote</th></tr></thead>
+    <tbody>
+        <tr><td>50 pç</td><td>R$ 1,45</td><td>R$ 2,46</td><td class="destaque">R$ 3,90</td><td>R$ 195,04</td></tr>
+        <tr><td>100 pç</td><td>R$ 0,72</td><td>R$ 2,46</td><td class="destaque">R$ 3,18</td><td>R$ 317,82</td></tr>
+        <tr><td>200 pç</td><td>R$ 0,36</td><td>R$ 2,46</td><td class="destaque">R$ 2,82</td><td>R$ 563,39</td></tr>
+        <tr><td>500 pç</td><td>R$ 0,14</td><td>R$ 2,46</td><td class="destaque">R$ 2,60</td><td>R$ 1.300,08</td></tr>
+    </tbody>
+</table>
+
+<div class="alerta-importante">
+    <h4>CONCLUSÃO</h4>
+    <p>Com setup e programação reduzidos (0,25h+0,15h, confirmado por Alexandre — peça trivial) o custo fixo cai para R$57,81/lote (R$72,26 com CIF) e passa a pesar bem menos: já em 100 peças o custo/pç (R$3,18) fica dominado pela MOD+CIF (R$2,46), não mais pelo fixo. O piso teórico (lote infinito) é R$2,4556/pç.</p>
+    <p><strong>Próximo passo:</strong> ANALISE_VIABILIDADE_LOTES detalha a tabela acima com preço de venda; ANALISE_BREAK_EVEN determina objetivamente o lote mínimo recomendado.</p>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 07/08/2026 | Orçamento 052/2026 — MICROGEAR | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

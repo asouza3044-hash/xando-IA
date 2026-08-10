@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Break Even - MICROGEAR BUCHA 8X55</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    line-height: 1.6;
+}
+h1 {
+    color: #1e3c72;
+    border-bottom: 3px solid #1e3c72;
+    padding-bottom: 10px;
+}
+h2 {
+    color: #2a5298;
+    background-color: #f0f4f8;
+    padding: 10px;
+    border-left: 5px solid #2a5298;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th {
+    background-color: #1e3c72;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.destaque {
+    background-color: #d4edda !important;
+    font-weight: bold;
+}
+.sucesso {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+}
+.info-box {
+    background-color: #e7f3ff;
+    border-left: 5px solid #2196F3;
+    padding: 15px;
+    margin: 20px 0;
+}
+.alerta-importante {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+}
+.formula {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #6c757d;
+    font-family: 'Courier New', monospace;
+    margin: 15px 0;
+}
+</style>
+</head>
+<body>
+
+<h1>📊 ANÁLISE DE BREAK EVEN - Orçamento 052/2026</h1>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <h3 style="margin-top: 0;">Cliente: MICROGEAR</h3>
+    <p><strong>Peça:</strong> Bucha simples 8x55 (Ø8 x 16mm)</p>
+    <p><strong>Material:</strong> SAE 1045, barra Ø8mm — fornecida pelo cliente (padrão MICROGEAR)</p>
+    <p><strong>Máquina:</strong> Doosan LYNX 220LM (1,20 min/pç, 50 pç/h real) + furadeira/bancada (0,15 min/pç)</p>
+    <p><strong>Pedido:</strong> cliente NÃO informou quantidade — pediu o <strong>lote mínimo de fabricação</strong></p>
+    <p><strong>Revisão (07/08/2026):</strong> setup reduzido para 0,25h, programação para 0,15h, markup para 10% — confirmado por Alexandre para aproximar o preço de ~R$3,00/pç</p>
+    <p><strong>Data:</strong> Agosto 2026</p>
+</div>
+
+<h2>💰 ESTRUTURA DE CUSTOS (revisada)</h2>
+
+<h3>1️⃣ Custos FIXOS (não mudam com quantidade) — já com CIF 25% embutido</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Observação</th>
+    </tr>
+    <tr>
+        <td><strong>Setup LYNX</strong></td>
+        <td>R$ 36,13</td>
+        <td>0,25h × R$144,52/h — reduzido, confirmado Alexandre (peça trivial)</td>
+    </tr>
+    <tr>
+        <td><strong>Programação CNC</strong></td>
+        <td>R$ 21,68</td>
+        <td>0,15h × R$144,52/h — reduzido, confirmado Alexandre</td>
+    </tr>
+    <tr>
+        <td>CIF 25% sobre os fixos acima</td>
+        <td>R$ 14,45</td>
+        <td>25% × R$ 57,81</td>
+    </tr>
+    <tr class="destaque">
+        <td><strong>TOTAL CUSTOS FIXOS (com CIF)</strong></td>
+        <td><strong>R$ 72,26</strong></td>
+        <td>Diluído entre as peças do lote</td>
+    </tr>
+</table>
+
+<h3>2️⃣ Custos VARIÁVEIS (por peça) — já com CIF 25% embutido</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Valor</th>
+        <th>Cálculo</th>
+    </tr>
+    <tr>
+        <td>MOD LYNX (usinagem)</td>
+        <td>R$ 1,93/pç</td>
+        <td>1,20 min × R$96,35/h ÷ 60 — ritmo real 45-55 pç/h (Alexandre)</td>
+    </tr>
+    <tr>
+        <td>MOD furadeira (ajudante)</td>
+        <td>R$ 0,04/pç</td>
+        <td>0,15 min × R$15,00/h ÷ 60 (estimativa)</td>
+    </tr>
+    <tr>
+        <td>CIF (25% sobre MOD)</td>
+        <td>R$ 0,49/pç</td>
+        <td>25% × R$1,96</td>
+    </tr>
+    <tr class="destaque">
+        <td><strong>CUSTO VARIÁVEL por peça</strong></td>
+        <td><strong>R$ 2,46/pç</strong></td>
+        <td>MOD (LYNX+furadeira) + CIF proporcional — este é o PISO absoluto (lote infinito), com markup ainda por cima</td>
+    </tr>
+</table>
+
+<h2>📐 O LOTE MÍNIMO, VIA BREAK-EVEN, PARA CHEGAR A ~R$3,00/PÇ</h2>
+
+<div class="info-box">
+    <p>Com o markup de 10% aplicado ao custo unitário (cost-plus), o preço SEMPRE cai proporcionalmente ao lote — nunca "vaza" abaixo do custo. Mas se a meta é <strong>cobrar um preço fixo baixo (~R$3,00/pç) já na primeira negociação</strong>, isso só se sustenta a partir de uma quantidade mínima que cubra o custo fixo do setup. É esse número que o break-even calcula abaixo.</p>
+</div>
+
+<div class="formula">
+<strong>Fórmula Break Even (preço-alvo fixo):</strong>
+
+Quantidade Break Even = Custos Fixos ÷ (Preço-Alvo - Custo Variável)
+
+Onde:
+• Custos Fixos = R$ 72,26
+• Preço-Alvo = R$ 3,00/pç (meta do Alexandre)
+• Custo Variável = R$ 2,46/pç (MOD + CIF, piso absoluto)
+
+Break Even = R$ 72,26 ÷ (R$ 3,00 - R$ 2,46)
+Break Even = R$ 72,26 ÷ R$ 0,54
+<strong>Break Even = 133,8 peças ≈ 134 peças</strong>
+</div>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ INTERPRETAÇÃO:</h4>
+    <ul>
+        <li><strong>Abaixo de ~134 peças, não dá pra cobrar R$3,00/pç flat</strong> sem deixar de cobrir o custo fixo do setup — a margem de R$0,54/pç é curta demais para diluir R$72,26 em menos peças que isso.</li>
+        <li>A partir de 134 peças, R$3,00/pç já cobre tudo (fixo+variável) com folga crescente.</li>
+        <li>Se preferir manter o cost-plus normal (markup sempre 10% sobre o custo real do lote, sem fixar R$3,00), o preço cai naturalmente conforme a tabela abaixo — R$3,92/pç já em 100 peças, aproximando-se de R$3,00 só perto de 500-1000 peças.</li>
+    </ul>
+</div>
+
+<h2>📊 ANÁLISE POR LOTE (cost-plus normal, cada lote recalculado)</h2>
+
+<table>
+    <tr>
+        <th>Lote</th>
+        <th>Custo/pç</th>
+        <th>Preço/pç (10% markup)</th>
+        <th>Receita Total</th>
+        <th>Lucro Bruto</th>
+        <th>Margem %</th>
+    </tr>
+    <tr>
+        <td>50 pçs</td>
+        <td>R$ 3,90</td>
+        <td>R$ 4,81</td>
+        <td>R$ 240,68</td>
+        <td><span style="color: green;">R$ 45,68</span></td>
+        <td>19,0%</td>
+    </tr>
+    <tr class="destaque">
+        <td>100 pçs</td>
+        <td>R$ 3,18</td>
+        <td>R$ 3,92</td>
+        <td>R$ 392,26</td>
+        <td><span style="color: green;">R$ 74,44</span></td>
+        <td>19,0%</td>
+    </tr>
+    <tr>
+        <td>134 pçs ⭐ (break-even p/ R$3,00 flat)</td>
+        <td>R$ 3,05</td>
+        <td>R$ 3,77</td>
+        <td>R$ 505,18</td>
+        <td><span style="color: green;">R$ 96,00</span></td>
+        <td>19,0%</td>
+    </tr>
+    <tr>
+        <td>200 pçs</td>
+        <td>R$ 2,82</td>
+        <td>R$ 3,48</td>
+        <td>R$ 695,34</td>
+        <td><span style="color: green;">R$ 131,94</span></td>
+        <td>19,0%</td>
+    </tr>
+    <tr>
+        <td>500 pçs</td>
+        <td>R$ 2,60</td>
+        <td>R$ 3,21</td>
+        <td>R$ 1.604,70</td>
+        <td><span style="color: green;">R$ 304,44</span></td>
+        <td>19,0%</td>
+    </tr>
+</table>
+
+<h2>🎯 RECOMENDAÇÃO FINAL — LOTE MÍNIMO</h2>
+
+<div class="sucesso">
+    <h4 style="margin-top: 0;">✅ LOTE MÍNIMO RECOMENDADO: 100 PEÇAS</h4>
+    <ul>
+        <li>💰 <strong>Preço nesse lote (cost-plus 10%):</strong> R$ 3,92/pç (R$ 392,26 total) — já bem perto da meta de ~R$3,00</li>
+        <li>Se a prioridade for cravar exatamente R$3,00/pç desde o primeiro pedido, o mínimo técnico (break-even) é <strong>134 peças</strong> — abaixo disso R$3,00 flat não cobre o fixo do setup</li>
+        <li>100 peças é um número redondo e comercialmente mais fácil de comunicar ao cliente do que 134 — a diferença de preço entre os dois (R$3,92 vs R$3,77) é pequena</li>
+    </ul>
+    <p><strong>Não existe risco de prejuízo em nenhum lote</strong> (margem sempre ~19% no esquema cost-plus) — a escolha entre 100 e 134 peças é só sobre qual preço de tabela comunicar ao cliente.</p>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 12px;">
+    <p><strong>LASEC USINAGEM DE PRECISÃO</strong></p>
+    <p>Análise Break Even - Orçamento 052/2026 MICROGEAR</p>
+    <p><strong>Data:</strong> 07/08/2026 (revisado)</p>
+    <p>Documento interno - Não enviar ao cliente</p>
+</div>
+
+</body>
+</html>

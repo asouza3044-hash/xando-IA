@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Análise de Viabilidade de Lotes - BUCHA 8X55 - MICROGEAR</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; position: relative; }
+body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background-image: url('simbolo-lasec.jpg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.03; z-index: -1; pointer-events: none; }
+.main-header { background: white; padding: 30px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.header-content { display: flex; align-items: center; gap: 35px; margin-bottom: 30px; }
+.logo-container img { height: 120px; width: auto; }
+.company-name-main { font-size: 32pt; font-weight: bold; color: #1e3c72; margin: 0; }
+.company-tagline { font-size: 14pt; color: #2a5298; margin: 8px 0 0 0; }
+.document-title-container { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%); padding: 25px 40px; margin: 25px -40px 0 -40px; text-align: center; }
+.document-title { font-size: 28pt; font-weight: bold; color: white; margin: 0 0 12px 0; text-transform: uppercase; }
+.document-subtitle { font-size: 13pt; color: white; margin: 8px 0; }
+.content-wrapper { padding: 0 40px 40px 40px; }
+.confidential { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 20px; font-weight: bold; }
+.section-title { background-color: #495057; color: white; padding: 8px; font-weight: bold; margin-top: 20px; margin-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 25px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+th { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 12px; text-align: center; font-size: 11px; text-transform: uppercase; }
+td { padding: 10px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) { background-color: #f8f9fa; }
+.destaque { background-color: #d4edda !important; font-weight: bold; border: 2px solid #28a745; }
+.info-box { background-color: #f8f9fa; border-left: 5px solid #1e3c72; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.info-box h3 { margin-top: 0; color: #1e3c72; }
+.alerta-importante { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 5px; }
+.alerta-importante h4 { margin-top: 0; color: #856404; }
+.footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #1e3c72; text-align: center; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container"><img src="simbolo-lasec.jpg" alt="LASEC"></div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">ANÁLISE DE VIABILIDADE DE LOTES</div>
+        <div class="document-subtitle">Bucha Simples 8x55 (Ø8x16mm)</div>
+        <div class="document-subtitle">Orçamento 052/2026 — MICROGEAR</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE</div>
+
+<div class="info-box">
+    <h3>Contexto</h3>
+    <p>Cliente não informou quantidade — pediu o <strong>lote mínimo de fabricação</strong>. Setup e programação foram reduzidos por Alexandre (0,25h+0,15h = R$57,81/lote, ante os R$216,78 originais) por ser peça trivial. Mesmo assim, em lotes muito pequenos o fixo ainda pesa proporcionalmente — a tabela abaixo mostra a curva completa.</p>
+</div>
+
+<div class="section-title">Custo por peça vs tamanho do lote</div>
+<table>
+    <thead><tr><th>Lote</th><th>Fixos (R$)</th><th>MOD (R$)</th><th>CIF 25% (R$)</th><th>Custo Total (R$)</th><th>Custo/Peça (R$)</th><th>Fixos % do custo/pç</th></tr></thead>
+    <tbody>
+        <tr><td><strong>10 pç</strong></td><td>57,81</td><td>19,65</td><td>19,36</td><td>96,82</td><td><strong>9,68</strong></td><td style="color:#dc3545; font-weight:bold;">75%</td></tr>
+        <tr><td><strong>25 pç</strong></td><td>57,81</td><td>49,11</td><td>26,73</td><td>133,65</td><td><strong>5,35</strong></td><td style="color:#dc3545; font-weight:bold;">54%</td></tr>
+        <tr><td><strong>50 pç</strong></td><td>57,81</td><td>98,23</td><td>39,01</td><td>195,04</td><td><strong>3,90</strong></td><td>37%</td></tr>
+        <tr class="destaque"><td><strong>100 pç</strong></td><td>57,81</td><td>196,45</td><td>63,57</td><td>317,83</td><td><strong>3,18</strong></td><td>23%</td></tr>
+        <tr><td><strong>200 pç</strong></td><td>57,81</td><td>392,90</td><td>112,68</td><td>563,39</td><td><strong>2,82</strong></td><td>13%</td></tr>
+        <tr><td><strong>500 pç</strong></td><td>57,81</td><td>982,25</td><td>260,02</td><td>1.300,08</td><td><strong>2,60</strong></td><td>6%</td></tr>
+    </tbody>
+</table>
+
+<div class="alerta-importante">
+    <h4>CONCLUSÃO</h4>
+    <p><strong>Custo fixo reduzido muda a curva bastante:</strong> em 100 peças, o custo/pç (R$3,18) já está bem próximo do piso teórico (R$2,46 de MOD+CIF puro) — fixo representa só 23%. Abaixo de 50 peças ainda pesa mais (37-75%), mas o preço absoluto de 10-50 peças é baixo o suficiente (R$9,68 a R$3,90) para não ser proibitivo.</p>
+    <p><strong>Recomendação preliminar:</strong> a partir de 100 peças o preço já fica estável (R$3,18-2,60/pç) — ANALISE_BREAK_EVEN fecha objetivamente o lote mínimo recomendado.</p>
+    <p><strong>Nota:</strong> tempo LYNX é dado real de experiência (45-55 pç/h, Alexandre), não fórmula teórica — baixo risco de recalibração. Tempo da furadeira (escariador) é estimativa não medida, mas seu peso no custo é desprezível (R$0,04/pç).</p>
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 | orcamento@lasec.com.br<br>
+    Data: 07/08/2026 | Orçamento 052/2026 — MICROGEAR | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+</body>
+</html>

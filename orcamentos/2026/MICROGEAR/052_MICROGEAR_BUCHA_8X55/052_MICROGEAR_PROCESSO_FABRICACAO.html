@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Processo de Fabricação - MICROGEAR Bucha 8x55</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-image: url('simbolo-lasec.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+.main-header {
+    background: white;
+    padding: 30px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 30px;
+}
+.logo-container img {
+    height: 120px;
+    width: auto;
+}
+.company-name-main {
+    font-size: 32pt;
+    font-weight: bold;
+    color: #1e3c72;
+    margin: 0;
+}
+.company-tagline {
+    font-size: 14pt;
+    color: #2a5298;
+    margin: 8px 0 0 0;
+}
+.document-title-container {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6bb3 100%);
+    padding: 25px 40px;
+    margin: 25px -40px 0 -40px;
+    text-align: center;
+}
+.document-title {
+    font-size: 28pt;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+}
+.document-subtitle {
+    font-size: 13pt;
+    color: white;
+    margin: 8px 0;
+}
+.content-wrapper {
+    padding: 0 40px 40px 40px;
+}
+.confidential {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.section-title {
+    background-color: #495057;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 10pt;
+}
+.info-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+.info-table td:first-child {
+    font-weight: bold;
+    width: 35%;
+    background-color: #f8f9fa;
+}
+.warning-box {
+    background-color: #fff3cd;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #ffc107;
+}
+.success-box {
+    background-color: #d4edda;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #28a745;
+}
+.gate-box {
+    background-color: #d1ecf1;
+    padding: 15px;
+    margin: 20px 0;
+    border-left: 4px solid #0c5460;
+    font-weight: bold;
+}
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1e3c72;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+}
+code {
+    background-color: #e9ecef;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 9pt;
+    color: #495057;
+}
+</style>
+</head>
+<body>
+
+<div class="main-header">
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="simbolo-lasec.jpg" alt="LASEC">
+        </div>
+        <div class="company-info-header">
+            <div class="company-name-main">LASEC USINAGEM</div>
+            <div class="company-tagline">Usinagem de Precisão CNC</div>
+        </div>
+    </div>
+    <div class="document-title-container">
+        <div class="document-title">PROCESSO DE FABRICAÇÃO</div>
+        <div class="document-subtitle">Bucha Simples 8x55 (Ø8 x 16mm)</div>
+        <div class="document-subtitle">Orçamento 052/2026 — MICROGEAR</div>
+        <div class="document-subtitle" style="font-size: 11pt;">Documento de Uso Interno - Confidencial</div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="confidential">
+    DOCUMENTO CONFIDENCIAL - USO INTERNO LASEC - NÃO ENVIAR AO CLIENTE
+</div>
+
+<div class="warning-box">
+    <strong>Modo A — peça nova / estimativa de engenharia</strong> (sem dado real de produção para reconciliar). Origem dos tempos: cálculo por fórmula (Vc/RPM/avanço) para as operações de máquina + <strong>correção direta do Alexandre</strong> (prioridade máxima) para o ritmo real de produção do LYNX (45-55 pç/h) e para a natureza/custo da operação de escariar no fundo (ajudante básico, furadeira).
+</div>
+
+<div class="section-title">1. DADOS GERAIS DA PEÇA</div>
+<table class="info-table">
+    <tr>
+        <td>Código:</td>
+        <td>BUCHA 8X55</td>
+    </tr>
+    <tr>
+        <td>Descrição:</td>
+        <td>Bucha simples cilíndrica com furo passante</td>
+    </tr>
+    <tr>
+        <td>Material:</td>
+        <td><strong>Aço SAE 1045</strong> - Barra Ø8mm - <span style="color: #28a745; font-weight: bold;">Fornecido pelo Cliente (MICROGEAR)</span></td>
+    </tr>
+    <tr>
+        <td>Dimensões matéria-prima:</td>
+        <td>Ø 8mm x Comprimento 16mm + sobremetal de corte (bedame)</td>
+    </tr>
+    <tr>
+        <td>Peso líquido:</td>
+        <td>~3,33g / peça (calculado: OD8/ID5,5/L16mm, aço 7,85g/cm³) — custo material = ZERO (MP fornecida)</td>
+    </tr>
+    <tr>
+        <td>Máquina:</td>
+        <td><strong>Doosan LYNX 220 LM</strong> (torno bar-fed) + operação secundária em <strong>furadeira de bancada</strong></td>
+    </tr>
+    <tr>
+        <td>Programa CNC:</td>
+        <td>Programa novo — <strong>sem referência similar no banco de dados</strong> (cache MICROGEAR/bucha só tem buchas de BRONZE em máquinas legado L220/G240, sem match ≥60%)</td>
+    </tr>
+    <tr>
+        <td>Fixação:</td>
+        <td>Castanha/pinça bar-fed, Ø8mm</td>
+    </tr>
+    <tr>
+        <td>Tempo LYNX/peça:</td>
+        <td><strong>1,20 min</strong> — ritmo real informado por Alexandre: <strong>45-55 pç/h</strong> (usado ponto médio 50 pç/h para custo)</td>
+    </tr>
+    <tr>
+        <td>Tempo furadeira/peça:</td>
+        <td><strong>0,15 min (ESTIMATIVA)</strong> — escariar R0,3 no fundo, feito por ajudante básico após o corte</td>
+    </tr>
+    <tr>
+        <td>Setup TORNO:</td>
+        <td><strong>1,0h</strong> (mínimo padrão LASEC)</td>
+    </tr>
+    <tr>
+        <td>Programação CNC:</td>
+        <td><strong>0,5h</strong> (confirmado por Alexandre — peça simples, 4 operações)</td>
+    </tr>
+</table>
+
+<div class="section-title">2. DIMENSÕES FINAIS (conforme desenho)</div>
+<table class="info-table">
+    <tr>
+        <td>Ø externo:</td>
+        <td>Ø8 ±0,1mm — <strong>igual à barra, sem torneamento de OD</strong></td>
+    </tr>
+    <tr>
+        <td>Furo (passante):</td>
+        <td>Ø5,5 ±0,2mm — <strong>só broca, sem mandrilhar</strong> (confirmado por Alexandre)</td>
+    </tr>
+    <tr>
+        <td>Comprimento:</td>
+        <td>16 (+0,1/−0,2)mm</td>
+    </tr>
+    <tr>
+        <td>Raio nas pontas do furo:</td>
+        <td>R0,3 ±0,1mm nas <strong>duas</strong> pontas — feito por <strong>escariador</strong> (não broca/chanfro de faceamento). Frente: no próprio LYNX antes do corte. Fundo: em furadeira, após o corte (operação de bancada)</td>
+    </tr>
+    <tr>
+        <td>Rugosidade:</td>
+        <td>Ra 3,2 — ponto de inspeção na parede do furo (desenho marca com triângulo)</td>
+    </tr>
+</table>
+
+<div class="section-title">3. OPERAÇÕES - Doosan LYNX 220 LM</div>
+
+<table class="info-table" style="font-size: 9pt;">
+<thead>
+    <tr style="background-color: #495057; color: white; text-align: center;">
+        <th style="padding: 8px; border: 1px solid #ddd; width: 10%;">Seq.</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 15%;">Operação</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 15%;">Pastilha/Ferramenta</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 15%;">Suporte</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 10%;">Vc/RPM</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 10%;">Avanço</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 8%; background-color: #28a745;">Tempo</th>
+        <th style="padding: 8px; border: 1px solid #ddd; width: 17%;">Descrição</th>
+    </tr>
+</thead>
+<tbody>
+    <tr style="background-color: #e3f2fd;">
+        <td colspan="8" style="text-align: center; font-weight: bold; padding: 12px; color: #1976d2;">
+            TORNO DOOSAN LYNX 220 LM - 4 OPERAÇÕES
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center;"><strong>N10</strong></td>
+        <td style="text-align: center;"><strong>FACEAR</strong></td>
+        <td style="text-align: center;">WNMG 060408<br><code>08.07.096</code></td>
+        <td style="text-align: center;">DWLNR2525M06<br><code>08.08.040</code></td>
+        <td style="text-align: center;">Vc140<br>S5500</td>
+        <td style="text-align: center;">0,08 mm/rot</td>
+        <td style="font-weight: bold; background-color: #d4edda; text-align: center;">0,01 min</td>
+        <td style="text-align: center;">Faceamento leve da ponta da barra (peça já no Ø final)</td>
+    </tr>
+
+    <tr style="background-color: #fff3e0;">
+        <td style="text-align: center;"><strong>N20</strong></td>
+        <td style="text-align: center;"><strong>FURAR Ø5,5 PASSANTE</strong></td>
+        <td style="text-align: center;">Broca MD Ø5,5<br><code>08.12.004</code></td>
+        <td style="text-align: center;">Integrada (broca eixo Z)</td>
+        <td style="text-align: center;">Vc65<br>S3750</td>
+        <td style="text-align: center;">0,10 mm/rot</td>
+        <td style="font-weight: bold; background-color: #d4edda; text-align: center;">0,06 min</td>
+        <td style="text-align: center;">Furo passante L=16mm (+folga saída), G83. Vc reduzido 20% por Ø&lt;6mm</td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center;"><strong>N30</strong></td>
+        <td style="text-align: center;"><strong>ESCARIAR FRENTE (R0,3)</strong></td>
+        <td style="text-align: center; color:#856404;">Ferramenta de bancada<br><em>sem código MINIPCP</em></td>
+        <td style="text-align: center;">—</td>
+        <td style="text-align: center;">—</td>
+        <td style="text-align: center;">—</td>
+        <td style="font-weight: bold; background-color: #fff3cd; text-align: center;">0,05 min<br><span style="font-size:7pt;">(ESTIMATIVA)</span></td>
+        <td style="text-align: center;">Escariador — raio R0,3 na ponta frontal do furo, ainda no torno</td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center;"><strong>N40</strong></td>
+        <td style="text-align: center;"><strong>CORTAR (BEDAME)</strong></td>
+        <td style="text-align: center;">DGN 4003C IC20<br><code>08.07.068</code></td>
+        <td style="text-align: center;">Aço geral</td>
+        <td style="text-align: center;">Vc100<br>S4000</td>
+        <td style="text-align: center;">0,05 mm/rot</td>
+        <td style="font-weight: bold; background-color: #d4edda; text-align: center;">0,02 min</td>
+        <td style="text-align: center;">Corte a L=16mm, bedame 4mm</td>
+    </tr>
+
+    <tr style="background-color: #f8f9fa;">
+        <td style="text-align: center;">—</td>
+        <td style="text-align: center;"><strong>MANIPULAÇÃO OPERADOR</strong></td>
+        <td colspan="4" style="text-align: center;">Ciclo ajustado ao ritmo real informado por Alexandre (correção direta, prioridade máxima sobre padrão genérico de 2,0min/torno)</td>
+        <td style="font-weight: bold; background-color: #d4edda; text-align: center;">1,06 min</td>
+        <td style="text-align: center;">Inclui carga/descarga, avanço de barra, inspeção visual</td>
+    </tr>
+
+    <!-- SUBTOTAL TORNO -->
+    <tr style="background-color: #1976d2; color: white; font-weight: bold;">
+        <td colspan="6" style="text-align: right; padding: 10px;">SUBTOTAL PRODUTIVO (N10+N20+N30+N40):</td>
+        <td style="font-size: 12pt; text-align: center;">0,14 min</td>
+        <td style="text-align: center;">—</td>
+    </tr>
+
+    <tr style="background-color: #28a745; font-weight: bold; color: white;">
+        <td colspan="6" style="text-align: right; padding: 10px; font-size: 11pt;">TEMPO TORNO/PEÇA (incl. manipulação):</td>
+        <td style="font-size: 14pt; text-align: center;">1,20 min</td>
+        <td style="text-align: center;">50 pç/h (faixa real 45-55)</td>
+    </tr>
+</tbody>
+</table>
+
+<div class="section-title">4. OPERAÇÃO SECUNDÁRIA — FURADEIRA (bancada, ajudante básico)</div>
+<table class="info-table">
+    <tr>
+        <td>Operação:</td>
+        <td>Escariar R0,3 no fundo do furo (2º lado, inacessível no torno) — feito após o corte, em furadeira de bancada</td>
+    </tr>
+    <tr>
+        <td>Ferramenta:</td>
+        <td style="color:#856404;">Ferramenta de bancada — <strong>sem código MINIPCP</strong> (confirmado por Alexandre)</td>
+    </tr>
+    <tr>
+        <td>Tempo estimado:</td>
+        <td><strong>0,15 min/pç (ESTIMATIVA)</strong> — inclui manuseio da peça avulsa. Não medido, sinalizar pendência de confirmação futura se houver as-built</td>
+    </tr>
+    <tr>
+        <td>Mão de obra:</td>
+        <td>Ajudante básico — <strong>R$ 15,00/hora</strong> (confirmado por Alexandre, taxa fora da planilha de máquinas)</td>
+    </tr>
+</table>
+
+<div class="section-title">5. REFERÊNCIAS DE PROGRAMAS NO BANCO DE DADOS</div>
+<table class="info-table">
+    <tr>
+        <td>Busca realizada:</td>
+        <td><code>bd_cnc/MICROGEAR/bucha/cache.json</code> — 6 programas cadastrados, todos <strong>bronze</strong> em máquinas legado (L220, G240)</td>
+    </tr>
+    <tr>
+        <td>Resultado:</td>
+        <td><strong>Nenhum programa similar ≥60%</strong> (material e máquina diferentes) — seguindo com parâmetros de tabela validada, sem referência de programa</td>
+    </tr>
+</table>
+
+<div class="section-title">6. FERRAMENTAS NECESSÁRIAS</div>
+<table class="info-table">
+    <tr>
+        <td>Pastilha torneamento/facear:</td>
+        <td>WNMG 060408 <code>08.07.096</code> + suporte DWLNR2525M06 <code>08.08.040</code></td>
+    </tr>
+    <tr>
+        <td>Broca Ø5,5mm:</td>
+        <td>Broca MD (Metal Duro) <code>08.12.004</code> — escolhida por Alexandre (durabilidade/produção em série)</td>
+    </tr>
+    <tr>
+        <td>Bedame:</td>
+        <td>DGN 4003C IC20 (aço geral) <code>08.07.068</code></td>
+    </tr>
+    <tr>
+        <td>Escariador (frente e fundo):</td>
+        <td style="color:#856404;"><strong>Sem código MINIPCP</strong> — ferramenta de bancada, confirmado por Alexandre</td>
+    </tr>
+</table>
+
+<div class="section-title">7. TABELA DE VERIFICAÇÃO (checklist obrigatório)</div>
+<table class="info-table" style="font-size: 9pt;">
+    <tr>
+        <td>Modo e fonte do tempo declarados</td>
+        <td>✅ Modo A (peça nova) — tempo LYNX: correção direta de Alexandre (45-55 pç/h); tempos N10/N20/N40: fórmula (Vc/RPM/avanço); N30/furadeira: estimativa de engenharia sinalizada</td>
+    </tr>
+    <tr>
+        <td>Features extraídas só do desenho/anotação</td>
+        <td>✅ Extraídas do desenho técnico enviado + correções diretas de Alexandre (R0,3 confirmado, processo de escariador confirmado)</td>
+    </tr>
+    <tr>
+        <td>BD CNC consultado</td>
+        <td>✅ Sem match ≥60% (só bronze/legado) — seguindo sem referência de programa</td>
+    </tr>
+    <tr>
+        <td>Cada ferramenta cruzada com MINIPCP</td>
+        <td>✅ Facear/broca/bedame com código real. Escariador: pendência de código — confirmado como ferramenta de bancada sem código, não é lacuna</td>
+    </tr>
+    <tr>
+        <td>Cada tempo calculado com fórmula ou informado por Alexandre</td>
+        <td>✅ N10/N20/N40 por fórmula. Manipulação/ciclo LYNX: valor real de Alexandre (45-55 pç/h). N30/furadeira: estimativa sinalizada, não medida</td>
+    </tr>
+    <tr>
+        <td>Manipulação do operador somada — pç/h final plausível?</td>
+        <td>✅ 50 pç/h (faixa real 45-55, confirmado por Alexandre) — substitui o padrão genérico de 2,0min por ser dado real do processo específico</td>
+    </tr>
+    <tr>
+        <td>RPM dentro do limite da máquina e da ferramenta</td>
+        <td>✅ Máx. calculado S5500 (facear) — dentro do limite LYNX (6.000 RPM). Furação S3750, bedame S4000 — ambos OK</td>
+    </tr>
+    <tr>
+        <td>Custos fixos (setup/programação) na taxa 1,5×</td>
+        <td>✅ A aplicar no ESTUDO_CUSTO_FABRICACAO (próximo documento) — Setup 1,0h + Programação 0,5h, ambos taxa setup LYNX R$144,52/h</td>
+    </tr>
+    <tr>
+        <td>Template copiado (não criado do zero)</td>
+        <td>✅ Copiado de <code>PROCESSO_FABRICACAO_PP01_00003.html</code></td>
+    </tr>
+</table>
+
+<div class="warning-box">
+    <h4 style="color: #856404; margin-top: 0;">PENDÊNCIAS / ESTIMATIVAS A CONFIRMAR</h4>
+    <ul style="margin-left: 20px;">
+        <li><strong>Tempo do escariador (frente e fundo):</strong> 0,05min + 0,15min são estimativas de engenharia, não medidas — se houver produção real futura, reconciliar via as-built</li>
+        <li><strong>Lote mínimo de fabricação</strong> pedido pelo cliente: será respondido objetivamente em ANALISE_VIABILIDADE_LOTES / ANALISE_BREAK_EVEN, após aprovação deste processo — não depende de quantidade fixa nesta etapa</li>
+    </ul>
+</div>
+
+<div class="success-box">
+    <h4 style="color: #155724; margin-top: 0;">CARACTERÍSTICAS DO PROCESSO</h4>
+    <ul style="margin-left: 20px;">
+        <li>Peça extremamente simples: sem torneamento de OD (barra já no Ø final), só furo+corte+escariado</li>
+        <li>Custo de material ZERO — MP sempre fornecida pela MICROGEAR (regra fixa do cliente)</li>
+        <li>Único ponto fora do torno: escariar o fundo do furo, tarefa rápida e barata (ajudante básico R$15/h)</li>
+    </ul>
+</div>
+
+<div class="success-box" style="border-left: 4px solid #28a745;">
+    <strong>✅ GATE APROVADO</strong> — processo aprovado por Alexandre em 07/08/2026. Liberado para gerar ESTUDO_CUSTO_FABRICACAO, ESTUDO_PRECO_VENDA_NFE, ANALISE_VIABILIDADE_LOTES, ANALISE_BREAK_EVEN e PROPOSTA_COMERCIAL.
+</div>
+
+<div class="footer">
+    <strong>LASEC USINAGEM</strong> - Usinagem de Precisão CNC<br>
+    Rua Álvaro Silva, 233 - Bairro do Limão - São Paulo/SP - CEP 02723-020<br>
+    Tel: (11) 3936-5041 (WhatsApp)<br>
+    Data: 07/08/2026 | Orçamento 052/2026 | <span style="color: #dc3545; font-weight: bold;">CONFIDENCIAL - NÃO DISTRIBUIR</span>
+</div>
+
+</div>
+
+</body>
+</html>
