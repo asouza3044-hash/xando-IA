@@ -1,0 +1,15 @@
+# INTERNO_LASEC / BLOCO (11 programas)
+
+| Programa | Peca | Maquina | Tools | Lados | Features |
+|----------|------|---------|-------|-------|----------|
+| O0162 | DISPOSITIVO P/ O BLOCO | DISCO760 | 5 | 3 | - |
+| O0111 | BLOCO DA VALVULA HOLEMAKER | DISCO760 | 8 | 1 | - |
+| O0816 | BLOCO DA VALVULA HOLEMAKER | DISCO760 | 13 | 1 | - |
+| O0006 | FIGURA BLOCO 200X200X100 | DISCO760 | 1 | 1 | - |
+| O1954 | BLOCO IMPAKTO 373X60X98 | DISCO760 | 2 | 1 | - |
+| O1955 | BLOCO IMPAKTO PERIL | DISCO760 | 1 | 1 | - |
+| O0027 | BLOCO 370MM 2 PECAS | DISCO560 | 4 | 3 | - |
+| O1961 | BLOCO MICROGER FACE | DISCO560 | 6 | 3 | - |
+| O0004 | BLOCO 200X200X100 | VTC30A | 2 | 1 | - |
+| O0007 | BLOCO 300X230X100 | VTC30A | 2 | 1 | - |
+| O0008 | BLOCO 250X230X125 | VTC30A | 2 | 1 | - |

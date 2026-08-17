@@ -1,0 +1,31 @@
+# NYLON / OUTROS (27 programas)
+
+| Programa | Peca | Maquina | Tools | Lados | Features |
+|----------|------|---------|-------|-------|----------|
+| O0005 | NYLON | LYNX220 | 7 | 1 | LIVE,EIXO_C |
+| O0002 | NYLON | LYNX220 | 1180 | 6 | LIVE,EIXO_C |
+| O0041 | NYLON | LYNX220 | 6 | 1 | LIVE,EIXO_C |
+| O0040 | NYLON | LYNX220 | 7 | 1 | LIVE,EIXO_C |
+| O0055 | NYLON | LYNX220 | 8 | 1 | LIVE,EIXO_C |
+| O0172 | NYLON | LYNX220 | 8 | 1 | LIVE,EIXO_C |
+| O0012 | NYLON | LYNX220 | 6 | 1 | LIVE,EIXO_C |
+| O0027 | NYLON | LYNX220 | 6 | 1 | LIVE,EIXO_C |
+| O0064 | NYLON | LYNX220 | 4 | 1 | - |
+| O0743 | FURO NYLON | LYNX220 | 1 | 1 | LIVE,EIXO_C |
+| O1232 | NYLON DA 2455 OP1 | DISCO760 | 7 | 2 | - |
+| O1233 | NYLON DA 2456 | DISCO760 | 6 | 1 | - |
+| O1234 | NYLON DA 2455 OP2 | DISCO760 | 7 | 2 | - |
+| O1235 | NYLON FURACAO | DISCO760 | 8 | 1 | - |
+| O1238 | NYLON 2460 9219 | DISCO760 | 16 | 2 | - |
+| O1239 | NYLON 2461 9219 | DISCO760 | 8 | 2 | - |
+| O0007 | QUADRADO NYLON | DISCO760 | 2 | 1 | - |
+| O0003 | SOBRE MESA NYLON | DISCO760 | 11 | 1 | - |
+| O1710 | FACE NYLON 260MM | DISCO760 | 10 | 3 | - |
+| O0006 | NYLON 6 FUROS | DISCO760 | 2 | 1 | - |
+|  | PROGRAM NAME -PECANYLON01.TAP | DISCO560 | 4 | 1 | - |
+| O0020 | TORNEAMENTO NYLON FERROL | G240 | 1 | 1 | - |
+| O0056 | ARRUELA NYLON | G240 | 4 | 2 | - |
+| O0091 | NYLON | G240 | 5 | 1 | - |
+| O0215 | NYLON | G240 | 5 | 1 | - |
+| O0081 | NYLON | G240 | 5 | 1 | - |
+| O0173 | CAPA MAIOR NYLON 75 | G240 | 7 | 3 | - |

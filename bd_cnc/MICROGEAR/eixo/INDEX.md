@@ -1,0 +1,14 @@
+# MICROGEAR / EIXO (10 programas)
+
+| Programa | Peca | Maquina | Tools | Lados | Features |
+|----------|------|---------|-------|-------|----------|
+| O0067 | MICROGEAR EIXO 1.24.01.032 | LYNX220 | 2 | 1 | - |
+| O0008 | MICROGEAR ADAP/EIXO PROPULSOR | LYNX220 | 6 | 1 | - |
+| O0010 | MICROGEAR ADAP/EIXO PROPULSOR | LYNX220 | 5 | 1 | LIVE,EIXO_C |
+| O0023 | MICROGEAR EIXO 1.24.01.032 | LYNX220 | 5 | 2 | - |
+| O0796 | EIXO INT.MICROGEAR | DISCO760 | 6 | 1 | - |
+| O1053 | MICROGEAR EIXO 1.34.01.578 120 | DISCO760 | 7 | 1 | - |
+| O1054 | MICROGEAR EIXO 1.34.01.599 120 | DISCO760 | 5 | 1 | - |
+| O0015 | MICROGEAR 4EIXO | DISCO560 | 7 | 3 | - |
+| O0029 | MICROGEAR EIXO 1.24.01.032 | G240 | 5 | 2 | - |
+| O0030 | EIXO MICROGEAR 1.07.01.031 | G240 | 6 | 2 | - |

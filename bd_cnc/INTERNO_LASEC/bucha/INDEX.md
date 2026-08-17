@@ -1,0 +1,38 @@
+# INTERNO_LASEC / BUCHA (34 programas)
+
+| Programa | Peca | Maquina | Tools | Lados | Features |
+|----------|------|---------|-------|-------|----------|
+| O0007 | BUCHA DE BRONZE | LYNX220 | 5 | 1 | - |
+| O0043 | BUCHA BRONZE CAN | LYNX220 | 3 | 1 | LIVE |
+| O0026 | BUCHA L | LYNX220 | 5 | 1 | - |
+| O0511 | BUCHA 1 | LYNX220 | 8 | 2 | - |
+| O0512 | BUCHA 2 | LYNX220 | 8 | 2 | - |
+| O0513 | BUCHA 3 | LYNX220 | 9 | 2 | - |
+| O0515 | BUCHA PARA FUSO | LYNX220 | 4 | 1 | - |
+| O0803 | BUCHA GL | LYNX220 | 6 | 1 | LIVE,EIXO_C |
+| O0162 | BUCHA DE LATA0 P/HASTE 5/8 | LYNX220 | 6 | 1 | LIVE |
+| O0013 | 1.60.12.298 BUCHA BUSHING | LYNX220 | 7 | 1 | LIVE |
+| O0070 | BUCHA BRONZE AMIGO ALE | LYNX220 | 2 | 1 | LIVE |
+| O0071 | BUCHA LATAO MENOR | LYNX220 | 2 | 1 | LIVE |
+| O0059 | BUCHA DE BRONZE | LYNX220 | 5 | 1 | - |
+|  | BUCHA DE BRONZE | LYNX220 | 5 | 1 | - |
+| O0222 | BUCHA BRONZE CAN | LYNX220 | 3 | 1 | - |
+| O0094 | BUCHA BRONZE CAN | LYNX220 | 3 | 1 | - |
+| O0368 | BUCHA DE BRONZE | LYNX220 | 6 | 1 | - |
+| O0023 | BUCHA DE BRONZE | LYNX220 | 6 | 1 | - |
+| O0029 | BUCHA DE BRONZE | LYNX220 | 6 | 1 | - |
+| O0111 | RAFATEC ACAB BUCHA FIXO | LYNX220 | 5 | 2 | - |
+| O0437 | BUCHA DE BRONZE | LYNX220 | 6 | 1 | - |
+| O2003 | 1.34.12.261 BUCHA | LYNX220 | 6 | 1 | - |
+| O1854 | BEJOL BUCHA | DISCO760 | 6 | 1 | - |
+| O0021 | BUCHA ENCOSTO TF16 | G240 | 5 | 1 | - |
+| O0055 | BUCHA ENCOSTO TF16 | G240 | 18 | 4 | - |
+| O0022 | BUCHA DE BRONZE | G240 | 5 | 1 | - |
+| O0034 | BUCHA MALEK | G240 | 6 | 1 | - |
+| O0047 | BUCHA MALEK | G240 | 6 | 1 | - |
+| O0317 | BUCHA ENCOSTO TF16 | G240 | 2 | 1 | - |
+| O0521 | BUCHA BRONZE CAN | G240 | 1 | 1 | - |
+| O0325 | BUCHA P/ GL 280 | G240 | 3 | 1 | - |
+| O0041 | BUCHA-ACO | G240 | 6 | 1 | - |
+| O0605 | BUCHA DE BRONZE | G240 | 5 | 1 | - |
+| O5000 | BUCHA DE BRONZE | GL280 | 6 | 1 | - |

@@ -1,0 +1,245 @@
+﻿<!--
+TEMPLATE PROCESSO DE FABRICAÇÃO - PADRÃO LASEC
+================================================
+Este é o TEMPLATE OBRIGATÓRIO para criar PROCESSO_FABRICACAO.html
+SEMPRE seguir esta estrutura!
+
+Referência: Orçamento 008/2026 MICROGEAR TR1.07.02.033
+Data: 26/11/2026
+-->
+
+<div class="section-title">3. SEQUÊNCIA DETALHADA DE OPERAÇÕES - [MÁQUINA]</div>
+
+<table class="info-table" style="font-size: 9pt;">
+<thead>
+        <tr style="background-color: #495057; color: white; text-align: center;">
+            <th style="padding: 8px; border: 1px solid #ddd; width: 4%;">Seq</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 9%;">Operação</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 4%;">Tool</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 6%;">Cód. BD</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 13%;">Ferramenta</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">Vc</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">RPM</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">Avanço</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 5%;">Ciclo</th>
+            <th style="padding: 8px; border: 1px solid #ddd; width: 44%;">Descrição Detalhada</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- G55 - 1º LADO -->
+        <tr style="background-color: #e7f3ff;">
+            <td colspan="10" style="font-weight: bold; padding: 10px; font-size: 11pt;">
+            📍 G55 - 1º LADO (FRONTAL) - Castanha "[CAST TYPE]" (Ø[XX]mm grip) - Blank Ø[XX]×[XX]mm
+            </td>
+        </tr>
+
+        <!-- OPERAÇÃO N10 -->
+        <tr>
+            <td style="text-align: center;"><strong>N10</strong></td>
+            <td>[Nome Operação]</td>
+            <td style="text-align: center;"><strong>T[XX]</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.xxx</td> <!-- ⚠️ Códigos BD MINIPCP! -->
+            <td>[Ferramenta]<br>[Inserto]</td>
+            <td style="text-align: center;">[Vc]</td>
+            <td style="text-align: center;">[RPM]</td>
+            <td style="text-align: center;">F [XX]</td>
+            <td style="text-align: center;"><strong>[Ciclo]</strong></td>
+            <td><strong>[Título da operação]</strong><br>
+            • [Detalhe 1]<br>
+            • [Detalhe 2]<br>
+            • [Detalhe 3]<br>
+            • [Observações importantes]</td>
+        </tr>
+
+        <!-- OPERAÇÃO N20 -->
+        <tr>
+            <td style="text-align: center;"><strong>N20</strong></td>
+            <td>[Nome Operação]</td>
+            <td style="text-align: center;"><strong>T[XX]</strong></td>
+            <td style="text-align: center;">08.08.xxx<br>08.07.xxx</td> <!-- Suporte + Inserto -->
+            <td>[Ferramenta]<br>[Inserto]</td>
+            <td style="text-align: center;">[Vc]</td>
+            <td style="text-align: center;">[RPM]</td>
+            <td style="text-align: center;">F [XX]</td>
+            <td style="text-align: center;"><strong>[Ciclo]</strong></td>
+            <td><strong>[Título da operação]</strong><br>
+            • [Detalhe 1]<br>
+            • [Detalhe 2]<br>
+            • [Detalhe 3]</td>
+        </tr>
+
+        <!-- Repetir para cada operação: N30, N40, N50... -->
+
+        <!-- SUBTOTAIS 1º LADO -->
+        <tr style="background-color: #e1f5e1;">
+            <td colspan="6" style="text-align: right; padding: 8px; font-weight: bold;">
+            🟢 TEMPO PRODUTIVO 1º LADO (operador):</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #4CAF50; color: white; font-weight: bold; font-size: 12pt;">
+            ⏱️ [X,XX] min ([X'XX]") - Tempo com cavaco<br>
+            <small style="font-size: 8pt;">[N] ferramentas (N10+N20+...)</small></td>
+        </tr>
+        <tr style="background-color: #fff3cd;">
+            <td colspan="6" style="text-align: right; padding: 8px; font-weight: bold;">
+            🟡 TEMPO IMPRODUTIVO 1º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #FFC107; font-weight: bold; font-size: 12pt;">
+            ⚙️ [X,XX] min - Trocas ([N]×20s) + G00 + virada<br>
+            <small style="font-size: 8pt;">Inclui virada manual + inspeção (~60-90s)</small></td>
+        </tr>
+        <tr style="background-color: #2196F3; color: white;">
+            <td colspan="6" style="text-align: right; padding: 8px; font-weight: bold; font-size: 11pt;">
+            ⏱️ SUBTOTAL 1º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; font-weight: bold; font-size: 13pt;">
+            [X,XX] min/peça</td>
+        </tr>
+
+        <!-- VIRADA MANUAL -->
+        <tr style="background-color: #ff9800; color: white; font-weight: bold;">
+            <td colspan="9" style="padding: 10px; text-align: center; font-size: 11pt;">
+            🔄 VIRADA MANUAL: Operador retira peça → Rotaciona 180° → Refixação castanha → Inspeção dimensional 1º lado → M54 (troca offset G55→G56)
+            </td>
+        </tr>
+
+        <!-- G56 - 2º LADO -->
+        <tr style="background-color: #fff3cd;">
+            <td colspan="9" style="font-weight: bold; padding: 10px; font-size: 11pt;">
+            📍 G56 - 2º LADO (TRASEIRO) - Peça virada 180° - Define altura [XX]±[XX]mm
+            </td>
+        </tr>
+
+        <!-- OPERAÇÃO N60, N80, N100... -->
+        <!-- Repetir estrutura das operações -->
+
+        <!-- SUBTOTAIS 2º LADO -->
+        <tr style="background-color: #e1f5e1;">
+            <td colspan="6" style="text-align: right; padding: 8px; font-weight: bold;">
+            🟢 TEMPO PRODUTIVO 2º LADO (operador):</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #4CAF50; color: white; font-weight: bold; font-size: 12pt;">
+            ⏱️ [X,XX] min ([X'XX]") - Tempo com cavaco<br>
+            <small style="font-size: 8pt;">[N] ferramentas (N60+N80+...)</small></td>
+        </tr>
+        <tr style="background-color: #fff3cd;">
+            <td colspan="6" style="text-align: right; padding: 8px; font-weight: bold;">
+            🟡 TEMPO IMPRODUTIVO 2º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; background-color: #FFC107; font-weight: bold; font-size: 12pt;">
+            ⚙️ [X,XX] min - Trocas ([N]×20s) + G00<br>
+            <small style="font-size: 8pt;">Aproximações + afastamentos + posicionamentos</small></td>
+        </tr>
+        <tr style="background-color: #2196F3; color: white;">
+            <td colspan="6" style="text-align: right; padding: 8px; font-weight: bold; font-size: 11pt;">
+            ⏱️ SUBTOTAL 2º LADO:</td>
+            <td colspan="3" style="text-align: left; padding: 8px; font-weight: bold; font-size: 13pt;">
+            [X,XX] min/peça</td>
+        </tr>
+
+        <!-- TOTAIS FINAIS -->
+        <tr style="background-color: #4CAF50; font-weight: bold; color: white;">
+            <td colspan="6" style="text-align: right; padding: 10px; font-size: 13pt;">
+            ✅ TEMPO PRODUTIVO TOTAL (operador):</td>
+            <td colspan="3" style="text-align: left; padding: 10px; font-size: 15pt;">
+            [X,XX] min ([X'XX]" + [X'XX]")</td>
+        </tr>
+        <tr style="background-color: #FFC107; font-weight: bold; color: #000;">
+            <td colspan="6" style="text-align: right; padding: 10px; font-size: 13pt;">
+            ⚙️ TEMPO IMPRODUTIVO TOTAL:</td>
+            <td colspan="3" style="text-align: left; padding: 10px; font-size: 15pt;">
+            [X,XX] min (trocas + virada + inspeção)</td>
+        </tr>
+        <tr style="background-color: #1976D2; font-weight: bold; color: white;">
+            <td colspan="6" style="text-align: right; padding: 12px; font-size: 14pt;">
+            ⏱️ TEMPO TOTAL REAL (medido):</td>
+            <td colspan="3" style="text-align: left; padding: 12px; font-size: 16pt;">
+            <strong>[X,X] min/peça</strong><br>
+            <small style="font-size: 10pt;">Validado com [XX] peças - [DATA]<br>
+            Setup: [X,X]h | Programa: :[XXXX]</small></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- LEGENDA FANUC - OBRIGATÓRIA -->
+<div class="info-box" style="background-color: #e3f2fd; border-left: 5px solid #2196F3;">
+    <strong>ℹ️ LEGENDA CICLOS FANUC:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px; font-size: 9pt;">
+        <li><strong>G71:</strong> Ciclo de desbaste automático (roughing) - segue perfil N→N com sobremetal</li>
+        <li><strong>G70:</strong> Ciclo de acabamento (finishing) - repete perfil em acabamento</li>
+        <li><strong>G74:</strong> Ciclo de mandrilamento/faceamento profundo com incrementos</li>
+        <li><strong>G75:</strong> Ciclo de sangramento/ranhura facial (grooving)</li>
+        <li><strong>G83:</strong> Ciclo de furação profunda peck drilling (furação intermitente)</li>
+        <li><strong>G96/G97:</strong> Velocidade corte constante (Vc) / RPM constante</li>
+        <li><strong>G92:</strong> Limitador de RPM máximo (proteção)</li>
+        <li><strong>G41/G42:</strong> Compensação raio ferramenta (esquerda/direita)</li>
+        <li><strong>G94/G95:</strong> Avanço mm/min / Avanço mm/rot</li>
+        <li><strong>M54:</strong> Mudança de offset trabalho (G55→G56)</li>
+        <li><strong>*RPM máximo:</strong> G92 S3000 limita rotação para segurança</li>
+    </ul>
+</div>
+
+<!-- BOXES INFORMATIVOS -->
+<div class="success-box">
+    <strong>✅ VANTAGENS DO [MÁQUINA]:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Característica 1:</strong> Detalhes</li>
+        <li><strong>Característica 2:</strong> Detalhes</li>
+        <li><strong>Característica 3:</strong> Detalhes</li>
+    </ul>
+</div>
+
+<div class="warning-box">
+    <strong>⚠️ PONTOS CRÍTICOS DE ATENÇÃO:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Tolerância crítica 1:</strong> Detalhes</li>
+        <li><strong>Material:</strong> Usar inserto específico</li>
+        <li><strong>Refrigeração:</strong> Obrigatória em todas operações</li>
+        <li><strong>Fixação:</strong> Cuidado para não marcar peça</li>
+    </ul>
+</div>
+
+<div class="success-box">
+    <strong>✅ CAPACIDADE DA MÁQUINA [NOME]:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Especificação 1 ✓</li>
+        <li>Especificação 2 ✓</li>
+        <li>Especificação 3 ✓</li>
+    </ul>
+</div>
+
+<div class="success-box">
+    <strong>✅ METODOLOGIA DE TEMPOS - ORÇAMENTO PRECISO:</strong><br>
+    <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>TEMPO PRODUTIVO ([X,XX] min):</strong> Marcado pelo operador na ficha de processo
+            <ul style="margin-left: 20px;">
+                <li>1º lado: <strong>[X'XX]"</strong> ([X,XX] min) - Tempo gerando cavaco</li>
+                <li>2º lado: <strong>[X'XX]"</strong> ([X,XX] min) - Tempo gerando cavaco</li>
+            </ul>
+        </li>
+        <li><strong>TEMPO IMPRODUTIVO ([X,XX] min):</strong> Calculado pela diferença entre tempo real medido e tempo produtivo
+            <ul style="margin-left: 20px;">
+                <li>Trocas de ferramenta (cavaco-cavaco)</li>
+                <li>Aproximações e afastamentos rápidos (G00)</li>
+                <li>Virada manual da peça (~60-90s)</li>
+                <li>Inspeção dimensional rápida</li>
+            </ul>
+        </li>
+        <li><strong>TEMPO TOTAL REAL ([X,X] min):</strong> Medido em produção de <strong>[XX] peças</strong> ([DATA])</li>
+        <li>Programa: <strong>:[XXXX]([CODIGO])</strong> | Máquina: <strong>[MÁQUINA]</strong></li>
+        <li>Material: <strong>[MATERIAL]</strong> | Tolerância [IT] garantida</li>
+        <li><strong>Esta metodologia garante orçamento PRECISO baseado em dados reais!</strong></li>
+    </ul>
+</div>
+
+<!--
+INSTRUÇÕES DE USO:
+==================
+
+1. Substituir TODOS os [PLACEHOLDERS] com valores reais
+2. Adicionar TODAS as operações N10, N20, N30... (não agrupar!)
+3. Manter CORES consistentes (verde/amarelo/azul)
+4. Incluir LEGENDA Fanuc sempre
+5. Adicionar todos os 4 BOXES informativos
+6. Validar tempos com dados reais de produção
+
+REFERÊNCIA COMPLETA:
+D:\lasec\orcamentos\2026\MICROGEAR\008_MICROGEAR_TR1.07.02.033\PROCESSO_FABRICACAO_TR1.07.02.033.html
+
+DOCUMENTAÇÃO:
+D:\lasec\.claude\knowledge\processo-fabricacao-padrao-detalhado.md
+-->

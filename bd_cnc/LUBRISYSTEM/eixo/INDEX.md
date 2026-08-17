@@ -1,0 +1,13 @@
+# LUBRISYSTEM / EIXO (9 programas)
+
+| Programa | Peca | Maquina | Tools | Lados | Features |
+|----------|------|---------|-------|-------|----------|
+| O0005 | LUBRISYSTEM 4EIXO | DISCO760 | 13 | 1 | - |
+| O1912 | LUBRISYSTEM VAM-0006 4EIXO | DISCO760 | 14 | 1 | - |
+| O1913 | LUBRISYSTEM VAM-0004 4EIXO | DISCO760 | 8 | 1 | - |
+| O1914 | LUBRISYSTEM VAM-0007 4EIXO | DISCO760 | 3 | 1 | - |
+| O1915 | LUBRISYSTEM VAM-0005 4EIXO | DISCO760 | 3 | 1 | - |
+| O0004 | LUBRISYSTEM 4EIXO | DISCO760 | 15 | 1 | - |
+| O0002 | LUBRISYSTEM VA0002 4EIXO | DISCO760 | 8 | 1 | - |
+| O0024 | LUBRISYSTEM VAM-0004 4EIXO | DISCO760 | 8 | 1 | - |
+| O0026 | LUBRISYSTEM VAM-0007 4EIXO | DISCO760 | 3 | 1 | - |
