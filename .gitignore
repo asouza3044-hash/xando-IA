@@ -21,6 +21,10 @@ npm-debug.log
 temp/
 tmp/
 
+# Locks/temp do Office e afins
+.~lock.*#
+~$*
+
 # Arquivos pessoais sensíveis (descomente se necessário)
 # dados_lasec.json
 # base_dados/dados_completos_orcamentos.json

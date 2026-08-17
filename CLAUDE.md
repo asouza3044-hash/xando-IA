@@ -48,7 +48,7 @@ Supporting commands:
 |---|---|
 | Templates (approved) | `D:\IA MALELO\templates\` |
 | Orçamentos 2025 | `D:\IA MALELO\orcamentos\2025\` |
-| Reference orçamento (model) | `D:\IA MALELO\orcamentos\MICROGEAR\008_MICROGEAR_TR1.07.02.033\` |
+| Reference orçamento (model) | `D:\IA MALELO\orcamentos\2025\MICROGEAR\008_MICROGEAR_TR1.07.02.033\` |
 | BD MINIPCP (tool codes) | `D:\IA MALELO\banco_dados\BD MINIPCP.xlsx` and `D:\IA MALELO\banco_dados\MINIPCP.csv` |
 | CNC program database | `D:\IA MALELO\banco_dados\PROG_CNC_DATABASE.json` (11 592 programs) |
 | Machine-hour costs | `D:\IA MALELO\banco_dados\custos_ferramentaria lasec.xls` |
